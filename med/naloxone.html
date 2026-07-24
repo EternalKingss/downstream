@@ -7,12 +7,20 @@
 <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body data-base="../">
+<header class="topbar">
+<a class="brand" href="../index.html">
+<span class="brand-name">Downstream</span>
+<span class="brand-sub">anatomy &rarr; what breaks &rarr; what happens next</span>
+</a>
+<div class="search-wrap">
+<label style="position:absolute;left:-9999px" for="q">Search</label>
+<svg class="search-icon" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="6.5" cy="6.5" r="4.25" stroke="currentColor" stroke-width="1.5"/><line x1="9.7" y1="9.7" x2="13.5" y2="13.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+<input class="searchbox" id="q" type="search" placeholder="Search conditions, drugs, anatomy&hellip;" autocomplete="off">
+<ul id="results"></ul>
+</div>
+</header>
 <div class="shell">
 <nav class="sidebar">
-<a class="brand" href="../index.html"><b>Downstream</b><span>anatomy &rarr; what breaks &rarr; what happens next</span></a>
-<label class="sr" for="q" style="position:absolute;left:-9999px">Search</label>
-<input class="searchbox" id="q" type="search" placeholder="Search" autocomplete="off">
-<ul id="results"></ul>
 <div class="navgroup"><p>Systems</p><ul><li><a href="../system/respiratory.html">Respiratory system</a></li><li><a href="../system/circulatory.html">Circulatory system</a></li><li><a href="../system/nervous.html">Nervous system</a></li><li><a href="../system/metabolic.html">Endocrine and metabolic</a></li><li><a href="../system/abdominal.html">Abdomen and digestion</a></li><li><a href="../system/musculoskeletal.html">Musculoskeletal system</a></li><li><a href="../system/integumentary.html">Skin and temperature</a></li><li><a href="../system/obstetric.html">Pregnancy and childbirth</a></li></ul></div>
 
 <div class="navgroup"><p>Reference</p><ul>
@@ -24,11 +32,11 @@
 </ul></div>
 </nav>
 <main class="main"><div class="wrap">
-<p class="crumb"><a href="../index.html">Downstream</a> &rsaquo; <a href="../meds.html">Medications</a> &rsaquo; Naloxone</p>
+<p class="crumb"><a href="../index.html">Downstream</a><span aria-hidden="true">&rsaquo;</span><a href="../meds.html">Medications</a><span aria-hidden="true">&rsaquo;</span><span>Naloxone</span></p>
 <span class="eyebrow">Medication &middot; Competitive opioid receptor antagonist</span>
-<h1>Naloxone <span style="font-weight:400;color:var(--ink-3)">(Narcan)</span></h1>
+<h1>Naloxone <span style="font-weight:400;color:var(--text-3)">(Narcan)</span></h1>
 <p class="lede">Physically displaces opioids from their receptors, switching the respiratory drive back on.</p>
-<p><span class="badge emr">EMR</span> &nbsp;<span style="font-size:13.5px;color:var(--ink-2)">Widely within EMR scope in Alberta, and available to the public through community take-home kits. Route carried varies by service.</span></p>
+<p><span class="badge emr">EMR</span> &nbsp;<span style="font-size:13.5px;color:var(--text-2)">Widely within EMR scope in Alberta, and available to the public through community take-home kits. Route carried varies by service.</span></p>
 
 <div class="box"><span class="eyebrow">Breaks the chain at</span><p style="margin:0"><b>Opioids bind brainstem receptors</b></p></div>
 
@@ -40,7 +48,7 @@
 
 <h2>Dosing</h2>
 <table class="data"><thead><tr><th>Route</th><th>Dose</th><th>Notes</th></tr></thead><tbody><tr><td>Intranasal</td><td class="dose">2 to 4 mg</td><td class="note">Half the volume in each nostril for better absorption. Poor uptake if the nose is full of blood or secretions. Most common route in take-home kits.</td></tr><tr><td>Intramuscular</td><td class="dose">0.4 to 2 mg</td><td class="note">Reliable absorption even when perfusion is poor. Anterolateral thigh or deltoid.</td></tr><tr><td>Intravenous</td><td class="dose">0.04 to 0.4 mg, titrated</td><td class="note">Fastest onset and easiest to titrate. Small increments avoid precipitating violent withdrawal. Outside EMR scope.</td></tr><tr><td>Repeat dosing</td><td class="dose">Every 2 to 3 minutes as needed</td><td class="note">Fentanyl analogues and carfentanil frequently need several doses. No response after adequate total dose means another cause.</td></tr></tbody></table>
-<p style="font-size:14px;color:var(--ink-2)"><b>Target:</b> Adequate spontaneous ventilation, not a fully alert patient. Aim for a respiratory rate above about 10 with reasonable depth, and stop there.</p>
+<p style="font-size:14px;color:var(--text-2)"><b>Target:</b> Adequate spontaneous ventilation, not a fully alert patient. Aim for a respiratory rate above about 10 with reasonable depth, and stop there.</p>
 
 <h2>Timing</h2>
 <p>This is the part that tells you when to reassess, and it is the part most people never learn properly.</p>
