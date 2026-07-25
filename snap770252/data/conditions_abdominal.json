@@ -1,0 +1,544 @@
+{
+  "conditions": [
+    {
+      "id": "aaa-rupture",
+      "name": "Ruptured abdominal aortic aneurysm",
+      "structures": ["abdominal-aorta"],
+      "status": "built",
+      "one_liner": "The largest artery in the abdomen tears, and the circulation empties in minutes.",
+      "in_one_breath": "Decades of atherosclerosis balloon the aortic wall silently. When it finally tears, the only thing between the patient and death is whether the retroperitoneum can hold the blood back long enough to reach an operating theatre.",
+      "cascade": [
+        {
+          "id": "aneurysm",
+          "label": "The aortic wall weakens and balloons",
+          "sub": "Silent for decades",
+          "severity": "warn",
+          "structure": "abdominal-aorta",
+          "detail": "Atherosclerosis degrades the elastic layer of the wall. Under constant arterial pressure it stretches outward. Risk climbs with age, smoking, hypertension, and family history. The great majority cause no symptoms at all until the day they leak."
+        },
+        {
+          "id": "wall-tension",
+          "label": "Wall tension rises as it grows",
+          "sub": "Bigger means faster growth",
+          "severity": "warn",
+          "detail": "Wall tension increases with radius, so the larger the aneurysm gets, the higher the tension on an already weakened wall, and the faster it expands. Growth is self-accelerating, which is why size thresholds drive elective repair."
+        },
+        {
+          "id": "leak",
+          "label": "The wall tears",
+          "sub": "Sudden severe pain",
+          "severity": "crit",
+          "detail": "Abrupt onset of severe abdominal, flank, or back pain, often described as tearing. Around eighty percent tear posteriorly into the retroperitoneal space, which is what creates the survivable version. The remainder tear into the peritoneal cavity and those patients rarely reach hospital."
+        },
+        {
+          "id": "contained",
+          "label": "The retroperitoneum contains it, briefly",
+          "sub": "The window",
+          "severity": "crit",
+          "detail": "The retroperitoneal tissues and the pressure of accumulated blood can temporarily tamponade the leak. The patient may be in severe pain but hemodynamically stable, or transiently hypotensive and then recovered. This is the entire window in which surgery can save them, and it can close at any moment."
+        },
+        {
+          "id": "hemorrhage",
+          "label": "Blood pours into the retroperitoneum",
+          "sub": "Litres, invisibly",
+          "severity": "crit",
+          "shared": "concealed-hemorrhage",
+          "detail": "The retroperitoneal space accommodates a very large volume. Nothing appears externally, and the abdomen may not even look distended. The patient is exsanguinating with no visible sign of it."
+        },
+        {
+          "id": "shock",
+          "label": "Circulation fails",
+          "sub": "Often after a stable period",
+          "severity": "crit",
+          "shared": "decompensated-shock",
+          "detail": "When the containment fails, deterioration is precipitous. A patient who has been talking to you can lose their pulse within a minute. Do not be reassured by an initially stable set of observations."
+        },
+        {
+          "id": "arrest",
+          "label": "Circulation stops",
+          "sub": "Hypovolemic PEA",
+          "severity": "crit",
+          "shared": "cardiac-arrest",
+          "detail": "The heart continues generating organised electrical activity with nothing to pump. Compressions accomplish very little in a truly empty circulation, and survival from prehospital arrest with a ruptured aneurysm is close to zero."
+        }
+      ],
+      "interventions": [
+        {
+          "med": "oxygen",
+          "breaks_at": "shock",
+          "scope": "EMR",
+          "note": "High concentration. Maximise the oxygen content of what blood remains."
+        }
+      ],
+      "non_drug_interventions": [
+        {
+          "name": "Think of it in older patients with back or flank pain",
+          "breaks_at": "leak",
+          "scope": "EMR",
+          "note": "The commonest misdiagnosis is renal colic. An older patient with new severe flank or back pain, especially with any hemodynamic instability or a first-ever episode, needs this considered. Renal colic patients writhe; aneurysm patients are often still and grey."
+        },
+        {
+          "name": "Do not palpate deeply or repeatedly",
+          "breaks_at": "contained",
+          "scope": "EMR",
+          "note": "Repeated deep palpation risks disturbing a fragile containment. A single gentle assessment for a pulsatile mass is reasonable; prodding it repeatedly is not."
+        },
+        {
+          "name": "Minimal scene time and a surgical destination",
+          "breaks_at": "contained",
+          "scope": "EMR",
+          "note": "Nothing you carry helps. The only variable that changes survival is how fast they reach a vascular surgeon, and whether that team is standing by when you arrive."
+        },
+        {
+          "name": "Move them gently, and only once",
+          "breaks_at": "contained",
+          "scope": "EMR",
+          "note": "Movement and straining can break the tamponade. Plan the extrication so the patient is moved as few times as possible."
+        },
+        {
+          "name": "Keep them warm and horizontal",
+          "breaks_at": "shock",
+          "scope": "EMR",
+          "note": "Hypothermia impairs clotting in a patient whose survival depends on a clot holding."
+        }
+      ],
+      "red_flags": [
+        "Sudden severe abdominal, flank, or back pain in anyone over 50",
+        "A pulsatile abdominal mass",
+        "Hypotension, even transient",
+        "Syncope with abdominal pain",
+        "Absent, reduced, or unequal femoral pulses",
+        "Known aneurysm under surveillance",
+        "A first episode of what looks like renal colic in an older patient"
+      ],
+      "differentiators": [
+        {
+          "vs": "Renal colic",
+          "how": "The critical distinction, and the commonest fatal error. Renal colic patients are typically younger, restless, and hemodynamically normal. Anyone over 50 with a first episode of severe flank pain should be assumed to have an aneurysm until it is excluded."
+        },
+        {
+          "vs": "Aortic dissection",
+          "how": "Dissection often involves the chest, may cause unequal blood pressures between arms, and can cause stroke or limb ischemia. Both are catastrophic vascular emergencies with similar prehospital management."
+        },
+        {
+          "vs": "Acute coronary syndrome",
+          "how": "Both can present with pain and shock in an older patient. Getting this wrong matters because aspirin is harmful in a bleeding aneurysm."
+        },
+        {
+          "vs": "Perforated ulcer or pancreatitis",
+          "how": "Both give severe abdominal pain with shock. Peritonitis gives rigidity; an aneurysm often gives a surprisingly soft abdomen because the blood is behind the peritoneum."
+        }
+      ]
+    },
+    {
+      "id": "gi-bleed",
+      "name": "Gastrointestinal bleeding",
+      "structures": ["hollow-organs", "blood"],
+      "status": "built",
+      "one_liner": "Bleeding into the gut, where blood is lost from the circulation and often not seen until much later.",
+      "in_one_breath": "The gut is a long tube with a rich blood supply and no way to compress a bleeding point. Blood entering it either comes back up or travels down, and either way it takes hours, so the patient can be several litres down before anything visible happens.",
+      "cascade": [
+        {
+          "id": "source",
+          "label": "A vessel is breached in the gut wall",
+          "sub": "Ulcer, varices, or lower GI source",
+          "severity": "crit",
+          "structure": "hollow-organs",
+          "detail": "Upper sources above the ligament of Treitz account for most severe bleeds: peptic ulcers, gastritis, and oesophageal varices. Varices are the most dangerous, because they are high-flow veins under portal hypertension in a patient whose liver disease has already impaired their clotting. Lower sources include diverticular disease, cancer, and inflammatory bowel disease."
+        },
+        {
+          "id": "blood-in-lumen",
+          "label": "Blood enters the gut lumen",
+          "sub": "Nowhere to apply pressure",
+          "severity": "crit",
+          "detail": "Unlike an external wound, there is no way to compress the bleeding point. The gut also distends to accommodate a considerable volume, so bleeding continues without any external evidence for a long time."
+        },
+        {
+          "id": "volume-loss",
+          "label": "Circulating volume falls",
+          "sub": "Concealed until it appears",
+          "severity": "crit",
+          "shared": "concealed-hemorrhage",
+          "detail": "Whole blood is lost, so both volume and oxygen-carrying capacity fall together. Because it takes hours for blood to travel through the gut and appear, the visible evidence always lags well behind the actual loss."
+        },
+        {
+          "id": "presentation",
+          "label": "Blood eventually appears",
+          "sub": "Vomit or stool, and the colour tells you",
+          "severity": "crit",
+          "detail": "Bright red vomited blood means brisk upper bleeding. Coffee-ground vomit means blood has sat in stomach acid and the bleeding is slower or has stopped. Melaena, black tarry foul-smelling stool, means blood has been digested during transit and indicates an upper source. Bright red rectal bleeding usually means a lower source, but a very brisk upper bleed can also present this way."
+        },
+        {
+          "id": "compensation",
+          "label": "The body compensates",
+          "sub": "Tachycardia, pallor, postural drop",
+          "severity": "crit",
+          "shared": "sympathetic-compensation",
+          "detail": "Tachycardia, vasoconstriction, and a narrowing pulse pressure. Postural dizziness is often the first thing the patient noticed. Beta blockers, which many of these patients take, blunt the tachycardia and remove your best early warning."
+        },
+        {
+          "id": "aspiration-risk",
+          "label": "The airway is threatened",
+          "sub": "In massive haematemesis",
+          "severity": "crit",
+          "shared": "airway-compromise",
+          "detail": "A patient vomiting large volumes of blood can aspirate or obstruct their airway, particularly if consciousness is falling. In variceal bleeding this is a genuine mode of death, and positioning and suction matter enormously."
+        },
+        {
+          "id": "decompensation",
+          "label": "Compensation fails",
+          "sub": "Hypotension, confusion",
+          "severity": "crit",
+          "shared": "decompensated-shock",
+          "detail": "Blood pressure falls once roughly a third of volume is gone. In a patient with liver disease, impaired clotting means the bleeding does not slow down on its own."
+        }
+      ],
+      "interventions": [
+        {
+          "med": "oxygen",
+          "breaks_at": "compensation",
+          "scope": "EMR",
+          "note": "High concentration. With reduced hemoglobin, maximising saturation of what remains matters more than usual."
+        }
+      ],
+      "non_drug_interventions": [
+        {
+          "name": "Protect the airway aggressively",
+          "breaks_at": "aspiration-risk",
+          "scope": "EMR",
+          "note": "Suction ready and working before you need it. Recovery position or sitting forward for active vomiting. In massive haematemesis this is the most immediately life-saving thing you will do."
+        },
+        {
+          "name": "Ask about liver disease and alcohol",
+          "breaks_at": "source",
+          "scope": "EMR",
+          "note": "Varices in a patient with cirrhosis is a completely different level of emergency, because the bleeding is high-volume and their clotting is already impaired. It changes the destination and the pre-alert."
+        },
+        {
+          "name": "Ask about anticoagulants and NSAIDs",
+          "breaks_at": "source",
+          "scope": "EMR",
+          "note": "Warfarin, direct oral anticoagulants, aspirin, and other NSAIDs all substantially change the severity and the treatment. This information is genuinely valuable to the receiving team."
+        },
+        {
+          "name": "Keep them horizontal and warm",
+          "breaks_at": "decompensation",
+          "scope": "EMR",
+          "note": "Maximises venous return, and warmth preserves what clotting function remains."
+        },
+        {
+          "name": "Look at what came out",
+          "breaks_at": "presentation",
+          "scope": "EMR",
+          "note": "Colour and volume of vomit or stool tell the hospital a great deal about source and rate. Describe it accurately rather than just recording bleeding."
+        },
+        {
+          "name": "Nothing by mouth",
+          "breaks_at": "aspiration-risk",
+          "scope": "EMR",
+          "note": "They will likely need endoscopy, and they may vomit again."
+        }
+      ],
+      "red_flags": [
+        "Bright red vomited blood in any volume",
+        "Known liver disease, cirrhosis, or heavy alcohol use",
+        "Anticoagulant therapy",
+        "Tachycardia or postural dizziness, even with a normal lying blood pressure",
+        "A beta-blocked patient who looks pale but is not tachycardic",
+        "Melaena, which always means significant loss",
+        "Confusion or syncope"
+      ],
+      "differentiators": [
+        {
+          "vs": "Haemoptysis",
+          "how": "Coughed blood is frothy, bright, and mixed with sputum. Vomited blood is darker, may contain food, and follows nausea. It matters because the source and treatment are entirely different."
+        },
+        {
+          "vs": "Swallowed blood from a nosebleed",
+          "how": "A heavy epistaxis swallowed and then vomited looks identical. Ask, and look in the nose."
+        },
+        {
+          "vs": "Ruptured aortic aneurysm",
+          "how": "Both cause shock in an older patient. GI bleeding has visible blood; an aneurysm has severe pain and no external evidence."
+        }
+      ]
+    },
+    {
+      "id": "peritonitis",
+      "name": "Peritonitis and the acute abdomen",
+      "structures": ["peritoneum", "hollow-organs"],
+      "status": "built",
+      "one_liner": "Something has spilled inside the abdomen, and the membrane lining it is inflaming across a surface the size of the skin.",
+      "in_one_breath": "Perforation, infection, or leaked digestive contents irritate the peritoneum. The pain localises and becomes unbearable on movement, and litres of fluid weep out of the circulation into the abdomen, so the patient goes into shock without losing a drop externally.",
+      "cascade": [
+        {
+          "id": "insult",
+          "label": "Something contaminates the peritoneum",
+          "sub": "Perforation, infection, or ischemia",
+          "severity": "crit",
+          "structure": "hollow-organs",
+          "detail": "A perforated ulcer or bowel spills acid and bacteria. Appendicitis or diverticulitis leaks pus. Pancreatitis releases digestive enzymes. Ischemic bowel dies and leaks. Ectopic pregnancy spills blood. All produce the same downstream picture."
+        },
+        {
+          "id": "visceral-pain",
+          "label": "Vague central pain first",
+          "sub": "Autonomic innervation",
+          "severity": "warn",
+          "structure": "peritoneum",
+          "detail": "The visceral peritoneum covering the organs has autonomic innervation only, so pain from it is dull, crampy, poorly localised, and felt in the midline regardless of which organ is involved. This is why early appendicitis hurts around the umbilicus."
+        },
+        {
+          "id": "parietal-pain",
+          "label": "Pain becomes sharp and localised",
+          "sub": "Somatic innervation reached",
+          "severity": "crit",
+          "detail": "As inflammation reaches the parietal peritoneum lining the abdominal wall, which has somatic innervation, the pain becomes sharp, precisely localised, and dramatically worse with any movement that stretches the membrane. This migration is the classic evolution and it is diagnostically valuable."
+        },
+        {
+          "id": "guarding",
+          "label": "The abdominal wall goes rigid",
+          "sub": "Involuntary, and they stop moving",
+          "severity": "crit",
+          "shared": "peritoneal-irritation",
+          "detail": "Reflex muscle spasm splints the inflamed area. Involuntary guarding, rebound tenderness, and a patient lying completely still with knees drawn up who does not want to be moved or driven over speed bumps."
+        },
+        {
+          "id": "third-spacing",
+          "label": "Litres of fluid weep into the abdomen",
+          "sub": "The hidden shock",
+          "severity": "crit",
+          "detail": "The peritoneum has a surface area comparable to the skin. Inflamed, it exudes fluid across all of it, and inflamed bowel stops absorbing and starts secreting. Several litres can be sequestered out of the circulation with nothing lost externally. This is the most underestimated part of the condition."
+        },
+        {
+          "id": "hypovolemia",
+          "label": "Circulating volume falls",
+          "sub": "Tachycardia, then hypotension",
+          "severity": "crit",
+          "shared": "hypoperfusion",
+          "detail": "Vomiting and reduced oral intake add to the third-space loss. These patients are genuinely hypovolemic and should be treated as shocked before the blood pressure ever falls."
+        },
+        {
+          "id": "sepsis",
+          "label": "Bacteria enter the bloodstream",
+          "sub": "Septic shock",
+          "severity": "crit",
+          "shared": "hypoperfusion",
+          "detail": "Faecal peritonitis in particular seeds enormous bacterial loads into the circulation. The combination of hypovolemia and distributive septic shock is why perforation carries such high mortality."
+        }
+      ],
+      "interventions": [
+        {
+          "med": "oxygen",
+          "breaks_at": "hypovolemia",
+          "scope": "EMR",
+          "note": "Titrate to target. Metabolic demand is raised by fever and inflammation."
+        }
+      ],
+      "non_drug_interventions": [
+        {
+          "name": "Treat them as hypovolemic",
+          "breaks_at": "third-spacing",
+          "scope": "EMR",
+          "note": "The key mental shift. This looks like a pain problem and is a volume problem. Horizontal, warm, and communicate the fluid requirement clearly on handover."
+        },
+        {
+          "name": "Position of comfort, usually knees flexed",
+          "breaks_at": "guarding",
+          "scope": "EMR",
+          "note": "Flexing the hips reduces tension on the abdominal wall and on the psoas. Do not force these patients flat."
+        },
+        {
+          "name": "Drive gently",
+          "breaks_at": "parietal-pain",
+          "scope": "EMR",
+          "note": "Not a courtesy. Jolting causes genuine severe pain in peritonitis, and pain on movement is itself a diagnostic feature worth documenting."
+        },
+        {
+          "name": "Nothing by mouth",
+          "breaks_at": "sepsis",
+          "scope": "EMR",
+          "note": "Surgery is likely, vomiting is common, and oral intake makes both worse."
+        },
+        {
+          "name": "Analgesia",
+          "breaks_at": "parietal-pain",
+          "scope": "PCP",
+          "note": "The old teaching that analgesia masks the diagnosis has been abandoned. Adequate pain relief does not hide a surgical abdomen and withholding it is unjustified."
+        },
+        {
+          "name": "Take the history carefully",
+          "breaks_at": "visceral-pain",
+          "scope": "EMR",
+          "note": "Where the pain started, where it is now, and how it changed. That migration is often the single most useful piece of information for the surgical team, and only you were there for it."
+        }
+      ],
+      "red_flags": [
+        "Rigid, board-like abdomen",
+        "A patient who lies completely still and refuses to move",
+        "Tachycardia with a normal blood pressure, which is compensated shock",
+        "Fever with abdominal pain",
+        "Absent bowel sounds",
+        "Any abdominal pain in a woman of childbearing age, where ectopic pregnancy must be considered",
+        "Sudden onset severe pain, suggesting perforation",
+        "Confusion in an older patient with abdominal pain"
+      ],
+      "differentiators": [
+        {
+          "vs": "Ruptured aortic aneurysm",
+          "how": "An aneurysm typically gives a soft abdomen with severe back or flank pain, because the blood is retroperitoneal. Peritonitis gives rigidity and guarding."
+        },
+        {
+          "vs": "Bowel obstruction",
+          "how": "Obstruction gives colicky pain, distension, vomiting, and absent flatus, with a soft abdomen until the bowel perforates or becomes ischemic. Then it becomes peritonitis."
+        },
+        {
+          "vs": "Ectopic pregnancy",
+          "how": "Must be considered in every woman of childbearing age with abdominal pain. Shoulder tip pain from blood irritating the diaphragm, with shock, is a rupture until proven otherwise."
+        },
+        {
+          "vs": "Diabetic ketoacidosis",
+          "how": "DKA causes genuine abdominal pain and guarding and mimics a surgical abdomen convincingly. Check the glucose."
+        },
+        {
+          "vs": "Inferior myocardial infarction",
+          "how": "Can present with epigastric pain, nausea, and vomiting. In an older patient with upper abdominal pain, this deserves consideration."
+        }
+      ]
+    },
+    {
+      "id": "solid-organ-injury",
+      "name": "Solid organ injury",
+      "structures": ["solid-organs", "peritoneum"],
+      "status": "built",
+      "one_liner": "The liver, spleen, or kidney is torn, and bleeds into an abdomen that shows nothing on the outside.",
+      "in_one_breath": "These organs are blood-filled sponges wrapped in a fragile capsule. Tear one and it bleeds into a cavity that holds litres without looking distended. This is how trauma patients bleed to death with a completely unremarkable-looking abdomen.",
+      "cascade": [
+        {
+          "id": "mechanism",
+          "label": "Force is transmitted to the organ",
+          "sub": "Compression, deceleration, or penetration",
+          "severity": "crit",
+          "structure": "solid-organs",
+          "detail": "Direct compression against the spine or ribs, deceleration tearing the organ away from its ligamentous attachments, or penetrating injury. The spleen is the most commonly injured in blunt trauma. Lower rib fractures on the left threaten the spleen, on the right the liver."
+        },
+        {
+          "id": "capsule-tears",
+          "label": "The capsule and parenchyma tear",
+          "sub": "Sometimes contained at first",
+          "severity": "crit",
+          "detail": "A subcapsular haematoma may form and be temporarily contained by an intact capsule. This is the mechanism behind delayed splenic rupture, where a patient is stable for hours or even days and then bleeds suddenly."
+        },
+        {
+          "id": "bleeding",
+          "label": "Blood pours into the abdomen",
+          "sub": "No tamponade, no compression possible",
+          "severity": "crit",
+          "shared": "concealed-hemorrhage",
+          "detail": "The peritoneal cavity holds litres before any visible distension, and there is nothing to apply pressure to. The liver receives about a quarter of cardiac output and the spleen holds a large reservoir, so both bleed heavily."
+        },
+        {
+          "id": "irritation",
+          "label": "Blood irritates the peritoneum",
+          "sub": "Pain, guarding, shoulder tip pain",
+          "severity": "crit",
+          "shared": "peritoneal-irritation",
+          "detail": "Blood is an irritant. Guarding and tenderness develop, and blood under the diaphragm can refer pain to the shoulder tip, called Kehr's sign, because the diaphragm shares nerve roots with the shoulder. Left shoulder pain after blunt trauma is a splenic bleed until proven otherwise."
+        },
+        {
+          "id": "compensation",
+          "label": "The body compensates",
+          "sub": "Tachycardia with normal pressure",
+          "severity": "crit",
+          "shared": "sympathetic-compensation",
+          "detail": "A healthy young adult holds their blood pressure through substantial loss. The abdomen may be soft and only mildly tender. This is the stage where the diagnosis is made on mechanism and suspicion, not on findings."
+        },
+        {
+          "id": "clotting-fails",
+          "label": "Clotting deteriorates",
+          "sub": "Cold, acidotic, diluted",
+          "severity": "crit",
+          "structure": "blood",
+          "detail": "Hypothermia slows clotting enzymes, acidosis from hypoperfusion impairs them further, and severe liver injury destroys the organ that manufactures clotting factors. The bleeding gets worse rather than better as time passes."
+        },
+        {
+          "id": "decompensation",
+          "label": "Compensation collapses",
+          "sub": "Sudden and late",
+          "severity": "crit",
+          "shared": "decompensated-shock",
+          "detail": "When it fails it fails quickly. This is why a stable-looking abdominal trauma patient is transported urgently rather than observed on scene."
+        }
+      ],
+      "interventions": [
+        {
+          "med": "oxygen",
+          "breaks_at": "compensation",
+          "scope": "EMR",
+          "note": "High concentration in significant trauma."
+        }
+      ],
+      "non_drug_interventions": [
+        {
+          "name": "Suspect it from mechanism, not findings",
+          "breaks_at": "compensation",
+          "scope": "EMR",
+          "note": "The abdomen is unreliable early. Significant blunt force, lower rib fractures, seat belt marks, handlebar injuries, or a fall from height all warrant treating this as present until excluded, regardless of how the abdomen feels."
+        },
+        {
+          "name": "Aggressive warming",
+          "breaks_at": "clotting-fails",
+          "scope": "EMR",
+          "note": "One of the few things you can genuinely do about the bleeding. Hypothermia, acidosis, and coagulopathy reinforce each other, and temperature is the part you control."
+        },
+        {
+          "name": "Minimal scene time",
+          "breaks_at": "bleeding",
+          "scope": "EMR",
+          "note": "No field intervention stops intra-abdominal bleeding. These patients need a surgeon, and time on scene is time bleeding."
+        },
+        {
+          "name": "Handle gently and move once",
+          "breaks_at": "capsule-tears",
+          "scope": "EMR",
+          "note": "Rough handling can disrupt a contained subcapsular haematoma. Plan the move, do it once, and use a scoop rather than repeated log rolls."
+        },
+        {
+          "name": "Document the abdomen serially",
+          "breaks_at": "irritation",
+          "scope": "EMR",
+          "note": "Distension, tenderness, and guarding compared over time is far more useful than a single assessment, and you may be the only person who saw the early picture."
+        },
+        {
+          "name": "Nothing by mouth",
+          "breaks_at": "bleeding",
+          "scope": "EMR",
+          "note": "Surgery is likely."
+        }
+      ],
+      "red_flags": [
+        "Shock with no external blood",
+        "Lower rib fractures",
+        "Seat belt bruising across the abdomen",
+        "Left shoulder tip pain after blunt trauma",
+        "Increasing abdominal distension",
+        "Tachycardia in a trauma patient with a normal blood pressure",
+        "Any hypotension in trauma",
+        "A child who looks well after a significant mechanism, since children compensate then crash"
+      ],
+      "differentiators": [
+        {
+          "vs": "Hollow organ injury",
+          "how": "Hollow organ rupture produces peritonitis and rigidity over hours, driven by spilled contents rather than blood. Solid organ injury produces shock earlier with less dramatic abdominal findings."
+        },
+        {
+          "vs": "Pelvic fracture",
+          "how": "Both bleed heavily and invisibly. Pelvic fracture has pelvic pain, leg length or rotation asymmetry, and sometimes blood at the urethral meatus, and it has a specific field treatment in the binder."
+        },
+        {
+          "vs": "Retroperitoneal bleeding",
+          "how": "Kidney injury bleeds retroperitoneally rather than into the peritoneal cavity, so it causes flank pain and bruising with less peritoneal irritation, and often blood in the urine."
+        }
+      ]
+    }
+  ]
+}

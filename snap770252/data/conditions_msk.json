@@ -1,0 +1,651 @@
+{
+  "conditions": [
+    {
+      "id": "fractures",
+      "name": "Fractures",
+      "structures": ["bones"],
+      "status": "built",
+      "one_liner": "Broken bone is a bleeding injury with a splinting problem attached, not just a structural one.",
+      "in_one_breath": "Bone is living, vascular tissue wrapped in a nerve-rich membrane. Break it and you get severe pain, significant blood loss into the surrounding tissue, and sharp ends that keep moving and keep damaging things until you stop them.",
+      "cascade": [
+        {
+          "id": "break",
+          "label": "The bone fails structurally",
+          "sub": "Direct force, indirect force, or pathological",
+          "severity": "warn",
+          "structure": "bones",
+          "detail": "Direct force breaks bone at the impact point. Indirect force, such as twisting, breaks it away from the impact. Pathological fractures occur through bone weakened by osteoporosis or tumour, sometimes with trivial force. In children, growth plates are weaker than ligaments, so where an adult sprains, a child fractures."
+        },
+        {
+          "id": "periosteum",
+          "label": "The periosteum is torn",
+          "sub": "Severe pain",
+          "severity": "warn",
+          "detail": "The membrane covering bone is densely innervated. Tearing it, and then moving the fragments against it, is what makes fractures so disproportionately painful. Pain drives a catecholamine response that raises heart rate and blood pressure and worsens shock."
+        },
+        {
+          "id": "bleeding",
+          "label": "Bone and muscle bleed",
+          "sub": "Litres, in the big ones",
+          "severity": "crit",
+          "detail": "Bone is highly vascular, and the surrounding muscle is torn too. A closed forearm fracture loses a few hundred millilitres, a humerus or tibia up to about 750, a femur one to two litres, and a pelvis several litres. Multiple long bone fractures alone can cause hemorrhagic shock with no external blood."
+        },
+        {
+          "id": "swelling",
+          "label": "The limb swells",
+          "sub": "Blood and oedema into the compartment",
+          "severity": "crit",
+          "detail": "Bleeding and inflammatory oedema accumulate within the fascial compartments. This is where fractures become more than a bone problem."
+        },
+        {
+          "id": "neurovascular",
+          "label": "Nerves and vessels are threatened",
+          "sub": "By fragments, or by swelling",
+          "severity": "crit",
+          "detail": "Sharp fragments can lacerate or compress arteries and nerves directly. Certain fractures reliably threaten specific structures: supracondylar humerus fractures in children threaten the brachial artery, and mid-shaft humerus fractures threaten the radial nerve."
+        },
+        {
+          "id": "compartment",
+          "label": "Compartment pressure can rise",
+          "sub": "Pulse present, muscle dying",
+          "severity": "crit",
+          "shared": "compartment-pressure",
+          "detail": "Bleeding into an inelastic fascial compartment raises pressure until capillary perfusion stops, while the distal pulse remains perfectly palpable. Tibial fractures and forearm fractures are the classic sites."
+        },
+        {
+          "id": "open-contamination",
+          "label": "An open fracture is contaminated",
+          "sub": "Infection risk changes everything",
+          "severity": "crit",
+          "detail": "If bone communicates with the outside, even through a small puncture, bacteria reach bone that has poor defences and often poor blood supply. Osteomyelitis is difficult to treat and can end in amputation, which is why open fractures are urgent surgical problems rather than just bigger fractures."
+        },
+        {
+          "id": "shock",
+          "label": "Blood loss causes shock",
+          "sub": "Especially femur and pelvis",
+          "severity": "crit",
+          "shared": "hypoperfusion",
+          "detail": "Cumulative loss from multiple fractures, or a single femoral or pelvic fracture, is enough to produce hemorrhagic shock on its own."
+        }
+      ],
+      "interventions": [
+        {
+          "med": "oxygen",
+          "breaks_at": "shock",
+          "scope": "EMR",
+          "note": "If hypoxic or in significant trauma."
+        }
+      ],
+      "non_drug_interventions": [
+        {
+          "name": "Splint it, and understand why",
+          "breaks_at": "bleeding",
+          "scope": "EMR",
+          "note": "Splinting is hemorrhage control, not just comfort. Immobilising the fragments stops them tearing more tissue and lets a clot form. Splint the joint above and below, and check circulation, sensation, and movement before and after."
+        },
+        {
+          "name": "Traction splint for a mid-shaft femur",
+          "breaks_at": "bleeding",
+          "scope": "EMR",
+          "note": "Realigns the bone and reduces the volume of the thigh compartment, which both reduces bleeding and dramatically reduces pain from muscle spasm pulling the fragments together. Not for hip, knee, or pelvic injuries, or for open fractures with bone exposed."
+        },
+        {
+          "name": "Pelvic binder at the greater trochanters",
+          "breaks_at": "shock",
+          "scope": "EMR",
+          "note": "Reduces pelvic volume so clots can hold. Placed at trochanter level, not the iliac crests. Do not spring or rock the pelvis to test it first, because that achieves nothing and can dislodge a clot."
+        },
+        {
+          "name": "Cover open fractures with sterile moist dressing",
+          "breaks_at": "open-contamination",
+          "scope": "EMR",
+          "note": "Do not push protruding bone back in deliberately, though it may retract when the limb is aligned. Note if it does, so the surgical team knows contamination went inward."
+        },
+        {
+          "name": "Realign a grossly deformed pulseless limb",
+          "breaks_at": "neurovascular",
+          "scope": "EMR",
+          "note": "Gentle in-line traction to restore alignment when the limb is pulseless or the skin is tenting and about to break. Restoring perfusion outweighs the theoretical risk. Reassess pulses immediately after."
+        },
+        {
+          "name": "Warmth and horizontal for major fractures",
+          "breaks_at": "shock",
+          "scope": "EMR",
+          "note": "Femoral and pelvic fractures are bleeding injuries. Treat them as such."
+        },
+        {
+          "name": "Analgesia",
+          "breaks_at": "periosteum",
+          "scope": "PCP",
+          "note": "Fracture pain is severe and drives a physiological stress response. Beyond EMR scope pharmacologically, but splinting well is itself excellent analgesia."
+        }
+      ],
+      "red_flags": [
+        "Absent or diminished distal pulse",
+        "Pain out of proportion to the injury, or pain on passive stretch",
+        "Numbness or inability to move fingers or toes",
+        "Open fracture",
+        "Femoral or pelvic fracture",
+        "Multiple long bone fractures",
+        "Tenting or blanching skin over a fragment",
+        "A supracondylar humerus fracture in a child"
+      ],
+      "differentiators": [
+        {
+          "vs": "Dislocation",
+          "how": "Dislocation deforms at the joint and the limb is usually held rigidly in an abnormal position. Fractures deform along the shaft. They frequently occur together."
+        },
+        {
+          "vs": "Sprain",
+          "how": "Not reliably distinguishable in the field, and it does not much matter, because both are splinted and both need imaging. In children, assume fracture."
+        },
+        {
+          "vs": "Compartment syndrome",
+          "how": "A complication rather than an alternative. Pain out of proportion, a tense compartment, and pain on passive stretch, with a pulse still present."
+        }
+      ]
+    },
+    {
+      "id": "dislocation",
+      "name": "Dislocation",
+      "structures": ["joints"],
+      "status": "built",
+      "one_liner": "Bone ends are displaced out of the joint, where they can stretch or compress the nerves and vessels running alongside.",
+      "in_one_breath": "The joint comes apart and the displaced bone sits where it should not. It is intensely painful, and the real urgency is that certain joints have major nerves and arteries running close enough that the displacement compromises them.",
+      "cascade": [
+        {
+          "id": "force",
+          "label": "Force exceeds ligament strength",
+          "sub": "Or the joint is inherently unstable",
+          "severity": "warn",
+          "structure": "joints",
+          "detail": "The shoulder dislocates most easily because it trades stability for range of movement. The hip requires very high energy in a healthy adult, usually a dashboard impact, but dislocates readily if it has been replaced."
+        },
+        {
+          "id": "displacement",
+          "label": "Bone ends separate",
+          "sub": "Locked in an abnormal position",
+          "severity": "crit",
+          "detail": "Surrounding muscles spasm around the displaced position and lock it there. This is why the limb is held rigidly and why any attempt to move it causes severe pain."
+        },
+        {
+          "id": "capsule-ligament",
+          "label": "The capsule and ligaments tear",
+          "sub": "Often with a fracture",
+          "severity": "crit",
+          "detail": "The capsule tears to allow the displacement, and ligaments are stretched or ruptured. Fractures of the joint surfaces occur commonly alongside, which is why these are always imaged."
+        },
+        {
+          "id": "neurovascular-stretch",
+          "label": "Nerves and vessels are stretched or compressed",
+          "sub": "The actual emergency",
+          "severity": "crit",
+          "detail": "Specific joints threaten specific structures with enough reliability to be worth knowing. Knee dislocation, meaning the tibiofemoral joint and not the kneecap, threatens the popliteal artery in a large proportion of cases. Posterior hip dislocation threatens the sciatic nerve. Shoulder dislocation threatens the axillary nerve, so check sensation over the deltoid."
+        },
+        {
+          "id": "ischemia",
+          "label": "Distal tissue loses perfusion",
+          "sub": "Clock starts",
+          "severity": "crit",
+          "detail": "If an artery is compromised, distal tissue is ischemic from that moment. Muscle survives roughly four to six hours. A pulseless dislocated knee is a limb-threatening emergency, not an orthopaedic inconvenience."
+        },
+        {
+          "id": "avascular-necrosis",
+          "label": "The bone end can lose its own blood supply",
+          "sub": "Hip and shoulder particularly",
+          "severity": "crit",
+          "detail": "The femoral head is supplied by vessels running in the joint capsule. Prolonged dislocation can cut that supply and cause the bone to die over subsequent months, which is why hip dislocations are reduced urgently rather than electively."
+        }
+      ],
+      "interventions": [
+        {
+          "med": "oxygen",
+          "breaks_at": "ischemia",
+          "scope": "EMR",
+          "note": "Only if hypoxic or shocked from associated injury."
+        }
+      ],
+      "non_drug_interventions": [
+        {
+          "name": "Check circulation, sensation, and movement first",
+          "breaks_at": "neurovascular-stretch",
+          "scope": "EMR",
+          "note": "Before anything else, and again after any movement, and document both with times. This finding determines the entire urgency of the case."
+        },
+        {
+          "name": "Splint in the position found",
+          "breaks_at": "displacement",
+          "scope": "EMR",
+          "note": "Support it comfortably where it lies with padding and slings. Do not attempt reduction unless it is within your scope and the limb is pulseless with a long transport."
+        },
+        {
+          "name": "Treat a pulseless dislocation as time-critical",
+          "breaks_at": "ischemia",
+          "scope": "EMR",
+          "note": "Particularly the knee. Rapid transport, pre-alert, and a clear statement that the limb is pulseless. Muscle dies within hours."
+        },
+        {
+          "name": "Reduction",
+          "breaks_at": "displacement",
+          "scope": "PCP",
+          "note": "Requires analgesia and often sedation, and is generally done in hospital after imaging to exclude a fracture. Some services permit field reduction for a pulseless limb with a prolonged transport."
+        },
+        {
+          "name": "Ask about previous dislocations",
+          "breaks_at": "force",
+          "scope": "EMR",
+          "note": "Recurrent shoulder dislocations often reduce very easily and the patient may know exactly what works. Prosthetic hips dislocate with minimal force and need to be handled with that in mind."
+        }
+      ],
+      "red_flags": [
+        "Absent or reduced distal pulse",
+        "Any knee dislocation, because of the popliteal artery risk",
+        "Numbness or loss of movement distal to the joint",
+        "Hip dislocation, which is both high-energy and threatens the blood supply to the femoral head",
+        "Cold, pale, or mottled limb distally",
+        "Open dislocation",
+        "Prolonged time since the injury"
+      ],
+      "differentiators": [
+        {
+          "vs": "Fracture",
+          "how": "Deformity at the joint with the limb locked in an abnormal position suggests dislocation. Deformity along a shaft suggests fracture. They coexist frequently and it is not a distinction to agonise over in the field."
+        },
+        {
+          "vs": "Patellar dislocation",
+          "how": "The kneecap slips sideways, usually laterally, and often reduces spontaneously on straightening the leg. Completely different from a true knee dislocation, which is a limb-threatening injury."
+        },
+        {
+          "vs": "Fractured neck of femur",
+          "how": "In an older patient after a fall, a shortened externally rotated leg is far more likely to be a hip fracture than a dislocation, unless the hip has been replaced."
+        }
+      ]
+    },
+    {
+      "id": "compartment-syndrome",
+      "name": "Compartment syndrome",
+      "structures": ["muscle-compartments"],
+      "status": "built",
+      "one_liner": "Pressure inside a fascial compartment squeezes the capillaries shut while the artery stays open and the pulse stays palpable.",
+      "in_one_breath": "The same closed-box physics as the skull, in a limb. Swelling inside an inelastic sheath raises pressure past what capillaries can overcome, so the muscle starves. The pulse is fine, because arteries run at far higher pressure. Muscle dies in four to six hours.",
+      "cascade": [
+        {
+          "id": "swelling-starts",
+          "label": "Something swells inside the compartment",
+          "sub": "Bleeding, oedema, or external constriction",
+          "severity": "warn",
+          "structure": "muscle-compartments",
+          "detail": "Fracture bleeding, crush injury, reperfusion oedema after restored circulation, burns, or a tight cast or circumferential dressing squeezing from outside. The lower leg and the forearm are the classic sites."
+        },
+        {
+          "id": "pressure-rises",
+          "label": "Pressure climbs in an inelastic sheath",
+          "sub": "Fascia won't stretch",
+          "severity": "crit",
+          "detail": "Fascia is tough and does not accommodate. Volume added inside translates almost entirely into pressure. This is exactly the Monro-Kellie problem in a limb."
+        },
+        {
+          "id": "capillaries-close",
+          "label": "Capillary perfusion stops",
+          "sub": "Pulse still present",
+          "severity": "crit",
+          "shared": "compartment-pressure",
+          "detail": "Capillary perfusion pressure is low, in the region of 25 to 30 mmHg. Compartment pressure exceeds that long before it approaches arterial pressure, so the tissue is ischemic while the artery remains open and the distal pulse is easily felt."
+        },
+        {
+          "id": "ischemic-pain",
+          "label": "Severe, disproportionate pain",
+          "sub": "The earliest and best sign",
+          "severity": "crit",
+          "detail": "Ischemic muscle produces pain that is far worse than the injury should explain, and that is worse on passive stretching of the muscles in that compartment. Escalating opioid requirement in a limb injury should raise this immediately."
+        },
+        {
+          "id": "nerve-ischemia",
+          "label": "Nerves running through it are starved",
+          "sub": "Paraesthesia, then numbness",
+          "severity": "crit",
+          "detail": "Nerve tissue is even more sensitive to ischemia than muscle. Altered sensation in the distribution of a nerve passing through the compartment is an early and important sign."
+        },
+        {
+          "id": "muscle-death",
+          "label": "Muscle necroses",
+          "sub": "4 to 6 hours",
+          "severity": "crit",
+          "detail": "Irreversible muscle death begins within four to six hours of the onset of ischemia. The damage cannot be undone, and survivors are left with contractures and permanent functional loss."
+        },
+        {
+          "id": "systemic",
+          "label": "Dead muscle poisons the body",
+          "sub": "Potassium, myoglobin, acid",
+          "severity": "crit",
+          "shared": "rhabdomyolysis",
+          "detail": "Necrotic muscle releases potassium, myoglobin, phosphate, and acid. Potassium can cause fatal arrhythmias and myoglobin causes renal failure. A limb problem becomes a systemic one."
+        }
+      ],
+      "interventions": [
+        {
+          "med": "oxygen",
+          "breaks_at": "capillaries-close",
+          "scope": "EMR",
+          "note": "Supportive. Does not fix a mechanical perfusion problem."
+        }
+      ],
+      "non_drug_interventions": [
+        {
+          "name": "Never rule it out because there's a pulse",
+          "breaks_at": "capillaries-close",
+          "scope": "EMR",
+          "note": "The single most important point. Pulselessness is a very late finding. A strong distal pulse in a patient with disproportionate pain and a tense compartment is entirely compatible with muscle dying right now."
+        },
+        {
+          "name": "Remove anything constricting",
+          "breaks_at": "swelling-starts",
+          "scope": "EMR",
+          "note": "Loosen or split casts, bandages, and circumferential dressings, and remove rings and watches. If you applied it and the limb has deteriorated, take it off. This is often curative in early cases."
+        },
+        {
+          "name": "Keep the limb at heart level",
+          "breaks_at": "pressure-rises",
+          "scope": "EMR",
+          "note": "Counterintuitive. Elevating it reduces arterial inflow pressure without reducing compartment pressure, which worsens the perfusion gradient. Do not elevate a suspected compartment syndrome; keep it level."
+        },
+        {
+          "name": "Test passive stretch and document it",
+          "breaks_at": "ischemic-pain",
+          "scope": "EMR",
+          "note": "Gently extend the toes or fingers. Severe pain on passive stretch is one of the most specific findings available, and your documentation of when it appeared matters to the surgical decision."
+        },
+        {
+          "name": "Fasciotomy",
+          "breaks_at": "pressure-rises",
+          "scope": "ACP",
+          "note": "The only definitive treatment is surgically opening the fascia. It is time-critical, which makes early recognition and rapid transport the entire prehospital contribution."
+        }
+      ],
+      "red_flags": [
+        "Pain out of proportion to the injury",
+        "Pain on passive stretch of the compartment",
+        "A tense, woody, firm compartment",
+        "Escalating analgesia requirement",
+        "Paraesthesia or numbness distally",
+        "Any of the above with a completely normal pulse, which is the expected finding",
+        "Crush injury or prolonged limb compression",
+        "Deterioration after a cast or tight dressing was applied"
+      ],
+      "differentiators": [
+        {
+          "vs": "Arterial injury",
+          "how": "Arterial injury gives a genuinely pulseless, cold, pale limb from the outset. Compartment syndrome gives a warm, swollen, painful limb with a normal pulse."
+        },
+        {
+          "vs": "Simple fracture pain",
+          "how": "Fracture pain settles with splinting and immobilisation. Compartment pain escalates despite them, and that trajectory is the key."
+        },
+        {
+          "vs": "Deep vein thrombosis",
+          "how": "Also gives a swollen painful calf, but without the trauma history and without pain on passive stretch of that severity."
+        }
+      ]
+    },
+    {
+      "id": "crush-injury",
+      "name": "Crush injury and crush syndrome",
+      "structures": ["muscle-compartments", "body-fluid"],
+      "status": "built",
+      "one_liner": "Prolonged compression kills muscle, and releasing the compression sends its contents into the circulation all at once.",
+      "in_one_breath": "While the weight is on, the damage is local and contained. The moment it comes off, potassium and myoglobin from destroyed muscle flood the bloodstream. Patients who were talking to you under the rubble have arrested within minutes of being freed.",
+      "cascade": [
+        {
+          "id": "compression",
+          "label": "Muscle is compressed",
+          "sub": "Rubble, machinery, or lying immobile",
+          "severity": "crit",
+          "structure": "muscle-compartments",
+          "detail": "Not only dramatic entrapments. An older patient who has been lying on the floor for a day, or an unconscious overdose patient who has been on their arm all night, develops exactly the same syndrome. Duration matters more than the weight."
+        },
+        {
+          "id": "ischemia",
+          "label": "Compressed muscle becomes ischemic",
+          "sub": "Direct pressure plus no perfusion",
+          "severity": "crit",
+          "detail": "Direct mechanical damage plus loss of blood supply. Muscle starts dying within a few hours. Because circulation to the area is cut off, the products of that death stay locally sequestered rather than entering the bloodstream."
+        },
+        {
+          "id": "cell-contents",
+          "label": "Dying cells spill their contents locally",
+          "sub": "Potassium, myoglobin, acid, phosphate",
+          "severity": "crit",
+          "detail": "Muscle cells hold very high concentrations of potassium. As they die, potassium, myoglobin, phosphate, and organic acids accumulate in the trapped tissue, building up a toxic load that has nowhere to go while the compression remains."
+        },
+        {
+          "id": "fluid-shift",
+          "label": "Fluid pours into damaged muscle",
+          "sub": "Hypovolemia on release",
+          "severity": "crit",
+          "structure": "body-fluid",
+          "detail": "Damaged muscle is intensely oedematous and can sequester litres of fluid once perfusion returns. The patient becomes profoundly hypovolemic even without external bleeding."
+        },
+        {
+          "id": "release",
+          "label": "Compression is released",
+          "sub": "The dangerous moment",
+          "severity": "crit",
+          "shared": "rhabdomyolysis",
+          "detail": "Circulation is restored, and everything that accumulated washes into the central circulation at once. This is why crush syndrome kills at the moment of rescue rather than during entrapment, and why extrication is coordinated with the medical team rather than done as fast as possible."
+        },
+        {
+          "id": "hyperkalemia",
+          "label": "Potassium hits the heart",
+          "sub": "Arrhythmia and arrest",
+          "severity": "crit",
+          "detail": "Rising potassium disturbs cardiac conduction directly, producing peaked T waves, widening QRS, and then ventricular fibrillation or asystole. This is the immediate killer and it can happen within minutes of release."
+        },
+        {
+          "id": "renal-failure",
+          "label": "Myoglobin blocks the kidneys",
+          "sub": "Over hours to days",
+          "severity": "crit",
+          "detail": "Myoglobin precipitates in the renal tubules, particularly in a dehydrated acidotic patient, causing acute kidney injury. This is the delayed killer, and it is why aggressive early fluid is the mainstay of treatment."
+        },
+        {
+          "id": "compartment",
+          "label": "Compartment syndrome develops",
+          "sub": "Swelling after reperfusion",
+          "severity": "crit",
+          "shared": "compartment-pressure",
+          "detail": "Reperfusion oedema raises compartment pressure, causing a second wave of ischemia in muscle that survived the original crush."
+        }
+      ],
+      "interventions": [
+        {
+          "med": "oxygen",
+          "breaks_at": "release",
+          "scope": "EMR",
+          "note": "High concentration during and after extrication."
+        }
+      ],
+      "non_drug_interventions": [
+        {
+          "name": "Do not release without warning the team",
+          "breaks_at": "release",
+          "scope": "EMR",
+          "note": "The defining principle of crush injury management. If entrapment has exceeded roughly fifteen minutes to an hour, release is a medical event. Coordinate it: fluid running first where available, monitoring on, and everyone ready. Never free a long-entrapped limb simply because you can."
+        },
+        {
+          "name": "Fluid before release where possible",
+          "breaks_at": "renal-failure",
+          "scope": "PCP",
+          "note": "Aggressive crystalloid started before the release dilutes the potassium load and protects the kidneys from myoglobin. Beyond EMR scope, which makes early escalation and a clear description of entrapment time essential."
+        },
+        {
+          "name": "Establish the entrapment time precisely",
+          "breaks_at": "compression",
+          "scope": "EMR",
+          "note": "The single most valuable piece of information you gather. It determines whether this is a simple injury or a crush syndrome, and only you can obtain it. Ask bystanders, check timestamps, be specific."
+        },
+        {
+          "name": "Monitor continuously through and after release",
+          "breaks_at": "hyperkalemia",
+          "scope": "EMR",
+          "note": "Arrhythmia and arrest occur within minutes of reperfusion. Keep hands on, pads on, and reassess constantly."
+        },
+        {
+          "name": "Aggressive warming",
+          "breaks_at": "fluid-shift",
+          "scope": "EMR",
+          "note": "Entrapped patients are usually exposed for prolonged periods and are frequently hypothermic, which worsens arrhythmia risk in an already irritable heart."
+        },
+        {
+          "name": "Do not elevate or wrap the limb tightly",
+          "breaks_at": "compartment",
+          "scope": "EMR",
+          "note": "Elevation worsens the perfusion gradient in a swelling compartment, and tight wrapping adds external pressure to a limb that is already swelling."
+        }
+      ],
+      "red_flags": [
+        "Entrapment longer than about fifteen minutes",
+        "An older patient found on the floor after a long lie",
+        "Dark, tea-coloured urine",
+        "Any arrhythmia during or after extrication",
+        "Tense, swollen, insensate limb",
+        "Sudden deterioration at the moment of release",
+        "A patient who seems well while trapped, which is expected and not reassuring"
+      ],
+      "differentiators": [
+        {
+          "vs": "Simple crush without syndrome",
+          "how": "Brief compression causes local injury without significant systemic release. Duration is the discriminator, which is why the entrapment time matters so much."
+        },
+        {
+          "vs": "Compartment syndrome",
+          "how": "A complication of crush injury rather than an alternative, and it commonly develops after reperfusion."
+        },
+        {
+          "vs": "Hemorrhagic shock",
+          "how": "Crush patients are hypovolemic from fluid sequestration rather than bleeding, though they often have both. The distinguishing features are the hyperkalemia risk and the myoglobin."
+        }
+      ]
+    },
+    {
+      "id": "amputation",
+      "name": "Traumatic amputation",
+      "structures": ["soft-tissue", "arteries"],
+      "status": "built",
+      "one_liner": "A part is severed, and the immediate problem is bleeding while the longer-term one is whether it can be reattached.",
+      "in_one_breath": "Clean guillotine amputations often bleed less than you would expect, because vessels constrict and retract. Crush and avulsion amputations bleed worse and reattach poorly. Control the bleeding first, then preserve the part properly.",
+      "cascade": [
+        {
+          "id": "severance",
+          "label": "The part is severed",
+          "sub": "Guillotine, crush, or avulsion",
+          "severity": "crit",
+          "structure": "soft-tissue",
+          "detail": "A clean guillotine cut has the best reattachment prospects. Crush amputations destroy tissue over a wide zone. Avulsion, where the part is torn off, damages nerves and vessels far up the limb and reattaches poorly. The mechanism determines the surgical outcome."
+        },
+        {
+          "id": "vessel-retraction",
+          "label": "Severed arteries constrict and retract",
+          "sub": "Sometimes less bleeding than expected",
+          "severity": "crit",
+          "structure": "arteries",
+          "detail": "A cleanly transected artery constricts and retracts into surrounding tissue, which can substantially limit blood loss. A partially transected vessel cannot do this and bleeds far worse, which is why an incomplete amputation is often more dangerous than a complete one."
+        },
+        {
+          "id": "hemorrhage",
+          "label": "Blood loss can be catastrophic",
+          "sub": "Especially proximal limbs",
+          "severity": "crit",
+          "shared": "sympathetic-compensation",
+          "detail": "A proximal limb amputation can exsanguinate a patient in minutes. This is exactly the injury that tourniquets exist for, and the evidence for their early use is strong."
+        },
+        {
+          "id": "part-ischemia",
+          "label": "The severed part starts dying",
+          "sub": "The reattachment clock",
+          "severity": "crit",
+          "detail": "Muscle-containing parts survive roughly four to six hours warm, extended to perhaps twelve if properly cooled. Digits, which contain little muscle, tolerate longer, up to around twelve hours warm and twenty-four cooled. Preservation directly changes whether reattachment is possible."
+        },
+        {
+          "id": "contamination",
+          "label": "The wound is contaminated",
+          "sub": "Infection risk",
+          "severity": "crit",
+          "detail": "Almost all traumatic amputations are contaminated. Infection risk is high and influences whether reattachment is attempted at all."
+        },
+        {
+          "id": "shock",
+          "label": "Hemorrhagic shock",
+          "sub": "If bleeding is not controlled",
+          "severity": "crit",
+          "shared": "decompensated-shock",
+          "detail": "Blood loss combined with the pain-driven catecholamine response and often other injuries from the same mechanism."
+        }
+      ],
+      "interventions": [
+        {
+          "med": "oxygen",
+          "breaks_at": "shock",
+          "scope": "EMR",
+          "note": "High concentration in significant blood loss."
+        }
+      ],
+      "non_drug_interventions": [
+        {
+          "name": "Tourniquet early for major limb amputation",
+          "breaks_at": "hemorrhage",
+          "scope": "EMR",
+          "note": "High and tight, tightened until bleeding stops, time written on it. Do not hesitate and do not loosen it. Modern evidence is unambiguous that early tourniquet use in traumatic amputation saves lives and that the limb tolerates it well for hours."
+        },
+        {
+          "name": "Preserve the part correctly",
+          "breaks_at": "part-ischemia",
+          "scope": "EMR",
+          "note": "Wrap it in slightly moistened sterile gauze, seal it in a plastic bag, and place that bag on ice or in ice water. Never put the part directly on ice, which causes freezing injury, and never submerge it in water, which macerates the tissue. Both mistakes destroy any chance of reattachment."
+        },
+        {
+          "name": "Bring the part, but never delay for it",
+          "breaks_at": "part-ischemia",
+          "scope": "EMR",
+          "note": "The patient always takes priority. If the part cannot be found quickly, transport and let others search and follow with it."
+        },
+        {
+          "name": "Handle partial amputations gently",
+          "breaks_at": "vessel-retraction",
+          "scope": "EMR",
+          "note": "Do not complete a partial amputation. Splint it in alignment, dress it, and support it. Partial amputations often bleed worse because the vessels cannot retract."
+        },
+        {
+          "name": "Warmth and horizontal",
+          "breaks_at": "shock",
+          "scope": "EMR",
+          "note": "Hypothermia impairs clotting, and these patients are usually significantly volume-depleted."
+        },
+        {
+          "name": "Look for other injuries",
+          "breaks_at": "severance",
+          "scope": "EMR",
+          "note": "The energy that removed a limb went elsewhere too. The amputation is visually dominant and it is easy to miss a chest or abdominal injury next to it."
+        }
+      ],
+      "red_flags": [
+        "Proximal limb amputation, above the elbow or knee",
+        "Uncontrolled bleeding despite direct pressure",
+        "Signs of shock",
+        "Partial amputation with heavy bleeding",
+        "Crush or avulsion mechanism",
+        "Prolonged time since injury",
+        "Other injuries from the same mechanism"
+      ],
+      "differentiators": [
+        {
+          "vs": "Degloving injury",
+          "how": "Skin is stripped from underlying tissue but the part remains attached. It looks less severe than an amputation and often is not, because the skin has lost its blood supply and will die."
+        },
+        {
+          "vs": "Crush injury with an intact limb",
+          "how": "An intact but crushed limb carries the crush syndrome risks on release. An amputated limb does not, because the damaged tissue is no longer connected."
+        }
+      ]
+    }
+  ]
+}

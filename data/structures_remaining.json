@@ -1,0 +1,347 @@
+{
+  "structures": [
+    {
+      "id": "pancreas",
+      "name": "Pancreas",
+      "system": "metabolic",
+      "parent": null,
+      "failure_mode": "Blood sugar control is lost",
+      "what_it_is": "A gland lying behind the stomach with two entirely separate jobs. The bulk of it makes digestive enzymes that drain into the duodenum. Scattered through it are the islets of Langerhans, clusters of hormone-producing cells that release insulin and glucagon straight into the bloodstream.",
+      "normal_function": [
+        "Beta cells release insulin when blood glucose rises. Insulin unlocks glucose entry into muscle and fat, and tells the liver to store rather than release.",
+        "Alpha cells release glucagon when glucose falls, telling the liver to break down glycogen and manufacture new glucose.",
+        "The two hormones oppose each other continuously, holding blood glucose in a remarkably narrow band around 4 to 7 mmol/L.",
+        "The digestive portion produces enzymes powerful enough to digest the pancreas itself, which is why they are secreted in an inactive form."
+      ],
+      "why_it_matters": "Insulin is the only hormone that lowers blood glucose, while several raise it. That asymmetry means the body is far better defended against low sugar than high, and it is why type 1 diabetes was uniformly fatal before insulin existed. Understanding that insulin also switches off fat breakdown explains ketoacidosis entirely.",
+      "field_relevance": [
+        "Without insulin, cells cannot take up glucose even when the blood is full of it. The patient is starving in the middle of plenty, which is why they break down fat and produce ketones.",
+        "Those digestive enzymes activating inside the gland is acute pancreatitis: the organ digests itself, causing severe pain and massive fluid shifts.",
+        "Islet cells are a tiny fraction of the gland's mass but their failure is what kills."
+      ]
+    },
+    {
+      "id": "adrenal-glands",
+      "name": "Adrenal glands",
+      "system": "metabolic",
+      "parent": null,
+      "failure_mode": "The stress response fails",
+      "what_it_is": "Two small glands capping the kidneys, each with an outer cortex and inner medulla that function as separate organs. The cortex makes steroid hormones; the medulla is effectively a modified sympathetic ganglion that dumps adrenaline directly into the blood.",
+      "normal_function": [
+        "The cortex produces cortisol, which maintains blood pressure, mobilises glucose, and modulates inflammation, and aldosterone, which retains sodium and water and excretes potassium.",
+        "The medulla releases adrenaline and noradrenaline into the circulation during sympathetic activation, producing the body-wide fight-or-flight response.",
+        "Cortisol output rises several-fold under physical stress such as infection, trauma, or surgery."
+      ],
+      "why_it_matters": "Cortisol is permissive: without it, blood vessels stop responding properly to catecholamines. A patient in adrenal crisis is hypotensive and does not respond to the usual compensations, because the hormone that lets those compensations work is missing.",
+      "field_relevance": [
+        "Anyone on long-term steroids has a suppressed adrenal response and cannot mount a stress response. Illness, injury, or abruptly stopping the steroid can precipitate a crisis.",
+        "Adrenal crisis presents as shock with hypotension, vomiting, abdominal pain, confusion, and often low sodium and high potassium.",
+        "Ask about steroid use in any unexplained shock. Many patients carry a steroid card or emergency injection."
+      ]
+    },
+    {
+      "id": "thyroid",
+      "name": "Thyroid gland",
+      "system": "metabolic",
+      "parent": null,
+      "failure_mode": "Metabolic rate is set wrong",
+      "what_it_is": "A butterfly-shaped gland across the front of the trachea, just below the larynx. It produces thyroid hormone, which sets the baseline metabolic rate of essentially every cell in the body.",
+      "normal_function": [
+        "Thyroid hormone determines how fast cells consume oxygen and produce heat.",
+        "It increases the number and sensitivity of beta-adrenergic receptors, which is why thyroid excess looks so much like sympathetic overdrive.",
+        "Output is regulated by TSH from the pituitary in a feedback loop, and turnover is slow, so changes develop over weeks rather than minutes."
+      ],
+      "why_it_matters": "Because it sets the gain on the whole metabolic system, extremes at either end are life-threatening in opposite directions. Thyroid storm produces fever, tachyarrhythmia, agitation, and cardiovascular collapse. Myxoedema coma produces hypothermia, bradycardia, hypoventilation, and unresponsiveness.",
+      "field_relevance": [
+        "Thyroid storm is often triggered by infection, trauma, or surgery in someone with untreated overactive thyroid, and it looks like severe sepsis with a very high temperature.",
+        "Myxoedema coma appears mostly in older women in winter, and the hypothermia does not respond to warming alone.",
+        "A large goitre can compress the trachea and cause airway compromise when the neck is extended."
+      ]
+    },
+    {
+      "id": "body-fluid",
+      "name": "Body fluid and electrolytes",
+      "system": "metabolic",
+      "parent": null,
+      "failure_mode": "Cells swell or shrivel, and nerves misfire",
+      "what_it_is": "Water makes up roughly sixty percent of an adult, split between fluid inside cells and fluid outside them. The extracellular portion divides again into plasma inside vessels and interstitial fluid bathing the tissues. Dissolved electrolytes set how water distributes between these spaces.",
+      "normal_function": [
+        "Sodium is the dominant extracellular ion and is what holds water in the extracellular space. Potassium is the dominant intracellular ion.",
+        "The difference across the membrane, maintained by the sodium-potassium pump, is what makes nerves and muscle electrically excitable at all.",
+        "Water moves passively by osmosis toward whichever side has more dissolved solute.",
+        "The kidneys control the whole system by adjusting what is excreted and what is retained."
+      ],
+      "why_it_matters": "Every nerve impulse and every heartbeat depends on ion gradients across membranes. Derange the electrolytes and the electrical behaviour of the heart and brain changes directly. Potassium is the one that kills fastest: both high and low levels cause lethal arrhythmias, and the therapeutic window is narrow.",
+      "field_relevance": [
+        "Crush injury, burns, and renal failure all release or retain potassium, which is why those patients arrest suddenly.",
+        "Sodium changes act on the brain. Falling sodium pulls water into brain cells, causing confusion and seizures, and it is a common cause of seizure in older patients on diuretics.",
+        "Correcting sodium too quickly is itself dangerous, which is why these patients are managed slowly in hospital rather than fixed in the field."
+      ]
+    },
+    {
+      "id": "hollow-organs",
+      "name": "Hollow abdominal organs",
+      "system": "abdominal",
+      "parent": null,
+      "failure_mode": "Contents spill, or the tube blocks",
+      "what_it_is": "The stomach, small intestine, and large intestine, plus the gallbladder and bladder. All are tubes or sacs with a lumen, a muscular wall, and contents that belong inside them.",
+      "normal_function": [
+        "Peristalsis moves contents along in one direction using coordinated waves of smooth muscle contraction.",
+        "The stomach secretes acid strong enough to require an actively maintained mucus barrier for protection.",
+        "The small intestine absorbs nutrients; the large intestine reclaims water and houses the bacterial population.",
+        "Sensation from these organs travels on autonomic fibres, so pain is poorly localised and typically felt in the midline."
+      ],
+      "why_it_matters": "Hollow organs fail in two ways: they perforate, spilling contents that are chemically and bacterially hostile into the peritoneum, or they obstruct, causing distension, vomiting, and massive fluid sequestration into the bowel. Blunt trauma tends to burst them at fixed points; penetrating trauma opens them anywhere.",
+      "field_relevance": [
+        "Visceral pain from a hollow organ is dull, crampy, and central. When inflammation reaches the parietal peritoneum the pain becomes sharp and localises, which is why appendicitis migrates from the umbilicus to the right lower quadrant.",
+        "Obstruction sequesters litres of fluid into the bowel lumen. These patients are genuinely hypovolemic even though nothing has visibly left the body.",
+        "A perforated organ causes rigid, board-like guarding and a patient who lies completely still, because any movement hurts."
+      ]
+    },
+    {
+      "id": "solid-organs",
+      "name": "Solid abdominal organs",
+      "system": "abdominal",
+      "parent": null,
+      "failure_mode": "Massive concealed bleeding",
+      "what_it_is": "The liver, spleen, pancreas, and kidneys. Dense, highly vascular organs with a rich blood supply and a fragile capsule holding them together.",
+      "normal_function": [
+        "The liver receives about a quarter of cardiac output, manufactures clotting factors and plasma proteins, stores glycogen, and detoxifies.",
+        "The spleen filters blood and holds a reservoir of it.",
+        "The kidneys receive roughly a fifth of cardiac output and regulate fluid, electrolytes, acid-base balance, and blood pressure.",
+        "All are partly protected by the lower ribs, and all are held in place by ligaments that become tearing points during deceleration."
+      ],
+      "why_it_matters": "These organs are essentially blood-filled sponges. When torn, they bleed into the abdominal cavity, which can hold litres without any visible distension until very late. This is where trauma patients bleed to death without a drop appearing on the outside.",
+      "field_relevance": [
+        "Lower rib fractures are a red flag. Left-sided ones threaten the spleen, right-sided ones the liver.",
+        "The spleen is the most commonly injured organ in blunt abdominal trauma, and a delayed rupture hours or days later is well described.",
+        "Referred pain to the left shoulder from a bleeding spleen, called Kehr's sign, comes from blood irritating the diaphragm, which shares nerve roots with the shoulder.",
+        "Liver injury also destroys clotting factor production, so severe liver trauma bleeds and then keeps bleeding."
+      ]
+    },
+    {
+      "id": "peritoneum",
+      "name": "Peritoneum",
+      "system": "abdominal",
+      "parent": null,
+      "failure_mode": "Inflammation, and litres of fluid lost into the abdomen",
+      "what_it_is": "A large serous membrane lining the abdominal cavity and wrapping most of its organs, with a total surface area roughly equal to the skin. The visceral layer covering organs has autonomic innervation; the parietal layer lining the wall has somatic innervation.",
+      "normal_function": [
+        "Secretes a small amount of fluid so organs slide against each other without friction.",
+        "Suspends and anchors the organs.",
+        "Has substantial immune activity and can wall off local infection.",
+        "Absorbs and secretes fluid across an enormous surface area."
+      ],
+      "why_it_matters": "The innervation difference explains the classic evolution of abdominal pain. Visceral irritation gives vague central pain; once the process reaches the parietal peritoneum, the pain becomes sharp, localised, and worse with any movement. And because the surface area is so large, generalised peritonitis sequesters several litres of fluid out of the circulation, causing profound hypovolemic shock with nothing lost externally.",
+      "field_relevance": [
+        "Rigidity, rebound tenderness, and a patient who lies motionless with knees drawn up all indicate parietal peritoneal irritation.",
+        "Guarding that is involuntary and constant is far more significant than voluntary tensing.",
+        "Peritonitis patients are hypovolemic. Treat them as shocked even before the blood pressure falls."
+      ]
+    },
+    {
+      "id": "abdominal-aorta",
+      "name": "Abdominal aorta and great vessels",
+      "system": "abdominal",
+      "parent": null,
+      "failure_mode": "Catastrophic bleeding in seconds",
+      "what_it_is": "The aorta descends through the abdomen just left of the midline and in front of the spine, dividing around the level of the umbilicus into the iliac arteries. The inferior vena cava runs alongside it, returning blood from everything below the diaphragm.",
+      "normal_function": [
+        "Carries the entire cardiac output destined for the abdomen, pelvis, and legs.",
+        "The wall has three layers, with a strong elastic middle layer bearing the pressure.",
+        "It lies retroperitoneally, behind the peritoneum and in front of the vertebral bodies."
+      ],
+      "why_it_matters": "Nothing else in the abdomen can kill this fast. A ruptured abdominal aortic aneurysm can empty the circulation in minutes. Because it sits retroperitoneally, a leak may initially be contained behind the peritoneum, which produces a window of relative stability that ends abruptly when the containment fails.",
+      "field_relevance": [
+        "Atherosclerosis weakens the wall over decades and it balloons. Most aneurysms are silent until they leak.",
+        "The classic triad is abdominal or back pain, hypotension, and a pulsatile abdominal mass, though all three together are uncommon.",
+        "Ruptured aneurysm is frequently mistaken for renal colic. An older patient with new severe flank or back pain and any hemodynamic instability needs this considered.",
+        "Do not palpate deeply or repeatedly if you suspect it."
+      ]
+    },
+    {
+      "id": "bones",
+      "name": "Bones",
+      "system": "musculoskeletal",
+      "parent": null,
+      "failure_mode": "Structure breaks, and bleeds",
+      "what_it_is": "Living tissue with a mineralised matrix, a rich blood supply, and marrow in the centre. Long bones have a hard outer cortex and a spongy interior, wrapped in periosteum that carries nerves and vessels.",
+      "normal_function": [
+        "Provides structural support, protects organs, and gives muscles something to pull against.",
+        "Stores calcium and produces blood cells in the marrow.",
+        "Continuously remodels, so it can heal a fracture completely rather than scarring.",
+        "The periosteum is densely innervated, which is why fractures hurt so much."
+      ],
+      "why_it_matters": "A fracture is not just a structural problem, it is a bleeding problem. Bone is highly vascular and the surrounding muscle bleeds too. A closed femur fracture can lose over a litre into the thigh, a pelvic fracture several litres, and both can do so invisibly. Multiple long bone fractures can cause hemorrhagic shock with no external blood at all.",
+      "field_relevance": [
+        "Splinting is a hemorrhage control measure as much as a comfort measure. Immobilising a fracture reduces movement of the bone ends, which reduces ongoing bleeding.",
+        "Always check circulation, sensation, and movement distal to a fracture, before and after any manipulation, and document both.",
+        "An open fracture communicates with the outside and carries a serious infection risk, which changes urgency.",
+        "In children, growth plates are weaker than ligaments, so where an adult sprains, a child fractures."
+      ]
+    },
+    {
+      "id": "joints",
+      "name": "Joints and ligaments",
+      "system": "musculoskeletal",
+      "parent": null,
+      "failure_mode": "The hinge comes apart",
+      "what_it_is": "Where two bones meet, with cartilage covering the surfaces, a capsule enclosing the space, synovial fluid lubricating it, and ligaments holding bone to bone.",
+      "normal_function": [
+        "Cartilage provides a near-frictionless bearing surface with no direct blood supply, which is why it heals poorly.",
+        "Ligaments allow movement in intended directions and resist it in others.",
+        "Position sensors in the capsule and ligaments tell the brain where the limb is."
+      ],
+      "why_it_matters": "Dislocation is a time-critical problem in a way that sprains are not, because the displaced bone can compress or stretch the nerves and vessels that run close to the joint. Certain dislocations threaten specific structures reliably enough to be worth memorising.",
+      "field_relevance": [
+        "Knee dislocation, as opposed to kneecap dislocation, has a high rate of popliteal artery injury. Check the foot pulses and treat a pulseless dislocated knee as a genuine emergency.",
+        "Posterior hip dislocation threatens the sciatic nerve and the blood supply to the femoral head.",
+        "Shoulder dislocation threatens the axillary nerve, so check sensation over the deltoid.",
+        "Splint dislocations in the position found unless the limb is pulseless. Do not attempt reduction outside your scope."
+      ]
+    },
+    {
+      "id": "muscle-compartments",
+      "name": "Muscles and fascial compartments",
+      "system": "musculoskeletal",
+      "parent": null,
+      "failure_mode": "Pressure rises inside a space that can't expand",
+      "what_it_is": "Muscles are bundled into groups wrapped in fascia, a tough inelastic sheet. Each wrapped group is a compartment containing muscle, nerves, and blood vessels. The lower leg has four; the forearm has three.",
+      "normal_function": [
+        "Muscle converts chemical energy into movement, and contracting muscle in the limbs also pumps venous blood back toward the heart.",
+        "Fascia keeps muscle groups organised and transmits force efficiently.",
+        "Fascia does not stretch meaningfully, which is fine until something inside starts swelling."
+      ],
+      "why_it_matters": "This is the same closed-box problem as the skull and the pericardium, in a limb. Bleeding or swelling inside a compartment raises the pressure, and because the fascia will not give, that pressure squeezes the capillaries shut. The muscle becomes ischemic while a distal pulse is still perfectly palpable, because arterial pressure is far higher than capillary pressure.",
+      "field_relevance": [
+        "The presence of a pulse does not rule out compartment syndrome and is one of the most dangerous false reassurances in trauma.",
+        "The earliest and most reliable sign is pain out of proportion to the injury, and pain on passive stretch of the muscles in that compartment.",
+        "Tight casts, circumferential burns, crush injury, and fractures are the common causes.",
+        "Muscle dies within about four to six hours of ischemia, and the damage is permanent."
+      ]
+    },
+    {
+      "id": "pelvis",
+      "name": "Pelvis",
+      "system": "musculoskeletal",
+      "parent": null,
+      "failure_mode": "A ring breaks and a huge space fills with blood",
+      "what_it_is": "A bony ring formed by two innominate bones and the sacrum, joined by very strong ligaments. It protects the bladder, rectum, reproductive organs, and a dense plexus of veins and arteries.",
+      "normal_function": [
+        "Transfers weight from the spine to the legs.",
+        "Because it is a ring, it is inherently stable and cannot break in only one place. If you find one fracture, there is another.",
+        "The retroperitoneal space behind it can accommodate several litres of blood before anything becomes externally obvious."
+      ],
+      "why_it_matters": "Pelvic fractures kill through hemorrhage. The venous plexus over the back of the pelvis bleeds heavily, the space it bleeds into is large, and the bleeding does not tamponade itself the way a limb might. Mortality in unstable pelvic fractures with hemodynamic instability is very high.",
+      "field_relevance": [
+        "Do not spring or rock the pelvis to test stability. It achieves nothing diagnostically and can disrupt a clot that had formed. Assess by mechanism, pain, and appearance.",
+        "A binder placed at the level of the greater trochanters, not the iliac crests, reduces pelvic volume and helps clots hold. It is one of the highest-value trauma interventions available at EMR level.",
+        "Log-rolling a suspected pelvic fracture can restart bleeding. Use a scoop stretcher instead where possible.",
+        "Blood at the urethral meatus, scrotal or perineal bruising, and leg length or rotation asymmetry all suggest pelvic injury."
+      ]
+    },
+    {
+      "id": "skin-barrier",
+      "name": "Skin as a barrier",
+      "system": "integumentary",
+      "parent": null,
+      "failure_mode": "The seal is breached",
+      "what_it_is": "The largest organ in the body, in three layers. The epidermis is a thin outer sheet of dead keratinised cells, the dermis beneath it holds vessels, nerves, and glands, and below that lies subcutaneous fat.",
+      "normal_function": [
+        "Keeps water in and organisms out. The dead outer layer is the actual waterproof barrier.",
+        "The dermis carries the sensory nerve endings, which is why partial thickness burns are agonising and full thickness burns are numb.",
+        "Sweat glands and hair follicles reach down into the dermis, and skin regenerates from them after a partial thickness injury."
+      ],
+      "why_it_matters": "Breaching the barrier causes two problems at once: fluid pours out, and organisms get in. In a large burn, plasma loss through the damaged surface and into the surrounding tissue is enough to cause hypovolemic shock over hours. Depth matters because it determines whether the structures that regenerate skin still exist.",
+      "field_relevance": [
+        "Superficial burns are red, painful, and blanch. Partial thickness are blistered, wet, and extremely painful. Full thickness are dry, leathery, white or charred, and painless because the nerves are destroyed.",
+        "A painless burn is worse than a painful one, which is the opposite of the intuition.",
+        "Circumferential burns act like a tourniquet as the tissue swells, and around the chest they restrict ventilation."
+      ]
+    },
+    {
+      "id": "thermoregulation",
+      "name": "Temperature regulation",
+      "system": "integumentary",
+      "parent": null,
+      "failure_mode": "Core temperature drifts outside the survivable range",
+      "what_it_is": "A control system with a set point in the hypothalamus, sensors in the skin and core, and effectors that are mostly skin blood vessels, sweat glands, and skeletal muscle.",
+      "normal_function": [
+        "Core temperature is held near 37 degrees within a fraction of a degree.",
+        "To lose heat: vasodilation brings blood to the surface, and sweating removes heat as the water evaporates.",
+        "To conserve heat: vasoconstriction shunts blood away from the surface, and shivering generates heat by muscular work.",
+        "Heat is lost by radiation, conduction, convection, and evaporation. Wet skin and wind massively accelerate all of them."
+      ],
+      "why_it_matters": "Enzymes work within a narrow temperature range. Below about 35 degrees, function progressively fails: clotting slows, the heart becomes irritable, and consciousness falls. Above about 40, proteins begin to denature and cells die. Both extremes eventually disable the very mechanisms that were meant to correct them, which is why severe cases do not self-rescue.",
+      "field_relevance": [
+        "Shivering stops below roughly 32 degrees. A cold patient who has stopped shivering is worse, not better.",
+        "Sweating stops in classic heat stroke, so hot dry skin in a collapsed patient is an emergency.",
+        "Trauma patients become hypothermic quickly even in mild weather, and hypothermia impairs clotting directly. Cutting clothes off and leaving them exposed contributes to their death.",
+        "A severely hypothermic heart is extremely irritable and rough handling can precipitate ventricular fibrillation."
+      ]
+    },
+    {
+      "id": "soft-tissue",
+      "name": "Soft tissue and wounds",
+      "system": "integumentary",
+      "parent": null,
+      "failure_mode": "Tissue is torn, crushed, or devitalised",
+      "what_it_is": "Skin, fat, fascia, and muscle considered together as the tissue that gets injured in most trauma. Different mechanisms damage it in characteristically different ways.",
+      "normal_function": [
+        "Bleeding is stopped by vessel constriction, then a platelet plug, then a fibrin clot.",
+        "Inflammation clears debris and organisms, then new tissue is laid down and remodelled over weeks.",
+        "Healing requires blood supply, so devitalised or heavily contaminated tissue does not heal."
+      ],
+      "why_it_matters": "The mechanism predicts the problem. Clean incisions bleed but heal well. Crush injuries devitalise tissue and release its contents into the circulation. Degloving separates skin from its blood supply so it dies even though it looks intact. Puncture wounds seal over and trap contamination underneath.",
+      "field_relevance": [
+        "An impaled object should be stabilised in place, not removed. It may be the only thing preventing catastrophic bleeding.",
+        "Amputated parts go in a dry sealed bag, then on ice. Never directly on ice and never in water, both of which destroy the tissue.",
+        "Wounds over joints, on the hands, or on the face have functional consequences out of proportion to their size.",
+        "Anything that bit or punctured deeply carries an infection and tetanus question that changes the destination."
+      ]
+    },
+    {
+      "id": "uterus-placenta",
+      "name": "Uterus and placenta",
+      "system": "obstetric",
+      "parent": null,
+      "failure_mode": "Bleeding faster than anywhere else in the body",
+      "what_it_is": "A muscular organ that grows from the size of a pear to filling the abdomen, with the placenta embedded in its wall acting as the fetus's lungs, gut, and kidneys.",
+      "normal_function": [
+        "By term the uterus receives roughly 700 to 900 mL of blood every minute, close to a fifth of cardiac output.",
+        "The placenta exchanges gases and nutrients between two circulations that never actually mix.",
+        "After delivery, the uterus clamps down hard, and that muscular contraction is what physically closes the vessels at the placental site.",
+        "The uterus and placenta are essential to fetal survival but not to maternal survival."
+      ],
+      "why_it_matters": "Two facts govern every obstetric emergency. First, blood flow is enormous, so a bleeding uterus empties a patient faster than almost any other injury. Second, the mechanism that stops postpartum bleeding is muscular contraction rather than clotting, which is why a soft boggy uterus after delivery is a hemorrhage in progress and why massaging it works.",
+      "field_relevance": [
+        "The commonest cause of postpartum hemorrhage is a uterus that has not contracted. Firm fundal massage is an EMR-level intervention that genuinely stops bleeding.",
+        "After about twenty weeks, lying flat compresses the inferior vena cava against the spine and drops cardiac output substantially. Tilt the patient to the left or manually displace the uterus.",
+        "Placental abruption bleeds behind the placenta and may be largely concealed, so a rigid painful uterus with shock and little visible blood is an emergency.",
+        "Placenta praevia bleeds painlessly and bright red. Never perform a vaginal examination in third-trimester bleeding."
+      ]
+    },
+    {
+      "id": "maternal-physiology",
+      "name": "Maternal physiology",
+      "system": "obstetric",
+      "parent": null,
+      "failure_mode": "Compensation hides deterioration until it's late",
+      "what_it_is": "Pregnancy alters almost every system. Understanding those changes is what stops you being falsely reassured by a pregnant patient's vital signs.",
+      "normal_function": [
+        "Blood volume rises by 30 to 50 percent, with plasma increasing more than red cells, so the hemoglobin concentration falls even though total oxygen carrying capacity rises.",
+        "Cardiac output rises by around 40 percent, mostly through increased stroke volume, and resting heart rate rises by 10 to 20 beats.",
+        "Blood pressure falls slightly in the second trimester because systemic vascular resistance drops.",
+        "Tidal volume rises substantially, the diaphragm is pushed up, functional residual capacity falls, and oxygen consumption increases by around 20 percent.",
+        "Blood becomes more prone to clotting, which protects against delivery hemorrhage and raises thromboembolism risk."
+      ],
+      "why_it_matters": "The extra blood volume means a pregnant patient can lose 1,200 to 1,500 mL before showing the usual signs of shock, and the fetus is compromised long before the mother's numbers move. Meanwhile reduced functional residual capacity plus higher oxygen consumption means she desaturates far faster than a non-pregnant patient when breathing is interrupted.",
+      "field_relevance": [
+        "Normal-looking vital signs in a bleeding pregnant patient are not reassuring. The uterus is sacrificed first to protect the mother, so fetal distress precedes maternal signs.",
+        "Treat the mother and you treat the fetus. Oxygen, position, and volume for her are the best fetal resuscitation available.",
+        "Left lateral tilt after twenty weeks, always.",
+        "The airway is more oedematous and more prone to bleeding, and desaturation is fast. Preoxygenate well before anything that interrupts breathing."
+      ]
+    }
+  ]
+}

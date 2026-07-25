@@ -1,0 +1,21 @@
+{
+  "nodes": [
+    {
+      "id": "cells-cant-use-oxygen",
+      "name": "Cells can't use the oxygen",
+      "severity": "crit",
+      "one_liner": "Oxygen arrives at the tissue in normal amounts and the cell is unable to do anything with it.",
+      "what_is_happening": "Aerobic metabolism ends with oxygen accepting electrons at the end of the mitochondrial electron transport chain. If oxygen cannot be carried there, or if the chain itself is poisoned, the cell suffocates in the middle of a perfectly oxygenated bloodstream. Carbon monoxide blocks transport by occupying hemoglobin; cyanide blocks utilisation by disabling cytochrome oxidase inside the mitochondrion.",
+      "why_it_follows": "It follows carbon monoxide poisoning, cyanide poisoning from burning synthetic materials, hydrogen sulphide exposure, and severe sepsis where mitochondrial function is impaired.",
+      "what_you_see": [
+        "A pulse oximeter reading that is normal or high while the patient is dying",
+        "Headache, nausea, dizziness, and confusion with no respiratory findings at all",
+        "Skin that looks normal or flushed rather than cyanotic",
+        "Profound lactic acidosis with fast deep breathing",
+        "Multiple people in the same building unwell at once, which is the single most useful clue"
+      ],
+      "the_trap": "Everything you normally rely on to detect hypoxia is broken here. A standard pulse oximeter cannot distinguish carboxyhemoglobin from oxyhemoglobin and reads falsely high. The patient does not look cyanotic, because the hemoglobin is saturated with the wrong thing. Cyanosis requires desaturated hemoglobin, and in cyanide poisoning the venous blood is fully saturated because no tissue took the oxygen out. If the numbers look fine and the patient is clearly deteriorating, stop trusting the numbers.",
+      "leads_to": ["anaerobic-metabolism", "altered-loc"]
+    }
+  ]
+}

@@ -1,0 +1,253 @@
+{
+  "skills": [
+    {
+      "id": "airway-positioning",
+      "name": "Opening the airway",
+      "scope": "EMR",
+      "one_liner": "The highest-value five seconds in prehospital medicine, and it costs nothing.",
+      "why_it_works": "Consciousness maintains the muscle tone that holds the tongue forward off the posterior pharyngeal wall. Lose consciousness and the tongue falls back, and the airway closes. No drug reverses that. Lifting the jaw forward physically pulls the tongue away from the wall, because the tongue is attached to the mandible.",
+      "steps": [
+        { "do": "Look and listen from the head first", "why": "Snoring means partial obstruction by the tongue. Gurgling means fluid and needs suction before anything else. Silence in a patient who should be breathing means complete obstruction." },
+        { "do": "Head-tilt chin-lift for a non-trauma patient", "why": "Tilting the head extends the neck and lifting the chin moves the mandible forward, taking the tongue with it. Two movements, one result." },
+        { "do": "Jaw thrust if spinal injury is suspected", "why": "Achieves the same mandibular displacement without extending the cervical spine. Note that a patent airway always outranks spinal precaution: if a jaw thrust is not working, use head-tilt chin-lift." },
+        { "do": "Neutral position with shoulder padding in infants", "why": "The infant occiput is proportionally large, so lying supine on a flat surface flexes the neck and closes the airway. Padding under the shoulders restores neutral. Extending an infant's neck like an adult's also closes it." },
+        { "do": "Suction anything you can see, under direct vision", "why": "Blind suctioning pushes material deeper and can trigger vagal bradycardia or laryngospasm. Suction on the way out, and limit each attempt." },
+        { "do": "Reassess after every move", "why": "Airways that were open close again when the patient is moved, rolled, or loaded. Position is not a one-time task." }
+      ],
+      "adjuncts": [
+        { "name": "Oropharyngeal airway", "note": "Sized from the corner of the mouth to the angle of the jaw. Only for a patient with no gag reflex, because it will cause vomiting in anyone with one. It holds the tongue off the pharyngeal wall but does not replace correct positioning." },
+        { "name": "Nasopharyngeal airway", "note": "Sized from the nostril to the earlobe. Tolerated with an intact gag reflex, which makes it useful in seizure, intoxication, and clenched jaws. Avoid in suspected basilar skull fracture." }
+      ],
+      "errors": [
+        "Placing an oropharyngeal airway in a patient who still has a gag reflex, causing vomiting into an unprotected airway",
+        "Over-extending an infant's neck, which closes the airway rather than opening it",
+        "Blind finger sweeps, which push obstructions deeper",
+        "Assuming the airway stays open after you move the patient",
+        "Prioritising a collar over a patent airway"
+      ],
+      "related_conditions": ["opioid-overdose", "seizure", "traumatic-brain-injury", "alcohol-emergencies"]
+    },
+    {
+      "id": "bvm-ventilation",
+      "name": "Bag-valve-mask ventilation",
+      "scope": "EMR",
+      "one_liner": "Harder than it looks, and the single most important skill for the most salvageable emergencies you will attend.",
+      "why_it_works": "You are replacing the negative-pressure system with a positive-pressure one. Normally the chest expands and atmospheric pressure pushes air in. With a bag you push air in directly, which works but has consequences: it raises intrathoracic pressure, which impedes venous return, and it will inflate the stomach if the pressure exceeds what the oesophageal sphincter holds.",
+      "steps": [
+        { "do": "Open and position the airway first", "why": "A bag squeezed against an obstructed airway inflates the stomach, not the lungs. Positioning is not a preliminary, it is the intervention." },
+        { "do": "Get a genuine mask seal, ideally two-person", "why": "Leak is the commonest reason ventilation fails. Two-person technique, one holding the mask with both hands using a thenar-eminence grip while the other squeezes, is substantially more effective and should be the default whenever staffing allows." },
+        { "do": "Attach a reservoir and run 15 L/min oxygen", "why": "Without a reservoir you deliver around 50 percent. With one, close to 100. It costs nothing to attach." },
+        { "do": "Squeeze slowly over about a second, watching the chest", "why": "Fast forceful squeezes generate high pressure that opens the oesophagus and fills the stomach. A full stomach splints the diaphragm, makes ventilation harder, and causes vomiting and aspiration." },
+        { "do": "Deliver only enough volume for visible chest rise", "why": "Visible rise, not maximal rise. Over-inflation raises intrathoracic pressure and reduces venous return, which drops cardiac output in a patient who cannot afford it." },
+        { "do": "Ventilate at the correct rate and count it out loud", "why": "Roughly 10 to 12 per minute in adults, faster in children. Under stress people ventilate far too fast, which both hyperinflates and hyperventilates. Counting aloud is the fix." },
+        { "do": "Allow full exhalation, especially in obstructive disease", "why": "In asthma and COPD, air is already trapped. Stacking breaths on trapped air raises pressure until the blood pressure drops or a lung ruptures. Long expiratory times, low rate." }
+      ],
+      "errors": [
+        "Squeezing too fast and too hard, which inflates the stomach and drops the blood pressure",
+        "One-person technique when two people are available",
+        "Forgetting the reservoir bag",
+        "Hyperventilating a head-injured patient, which constricts cerebral vessels and worsens ischemia",
+        "Bagging an asthmatic at a normal rate, causing breath stacking",
+        "Failing to reposition the airway when ventilation becomes difficult"
+      ],
+      "related_conditions": ["opioid-overdose", "drowning", "neuromuscular-failure", "asthma", "paediatric-deterioration"]
+    },
+    {
+      "id": "cpr",
+      "name": "Chest compressions",
+      "scope": "EMR",
+      "one_liner": "Compressions do not restart the heart. They keep the brain and the myocardium alive until something that can restart it arrives.",
+      "why_it_works": "Compressing the chest raises intrathoracic pressure and directly compresses the heart, forcing blood forward. Even excellent compressions produce only about a quarter to a third of normal cardiac output, which is enough to preserve tissue but not enough to be casual about. Coronary perfusion pressure builds progressively over successive compressions and collapses instantly when you stop.",
+      "steps": [
+        { "do": "Confirm arrest quickly and start", "why": "Agonal gasping is mistaken for breathing in a large proportion of arrests and delays compressions. Not responsive and not breathing normally is enough. Do not spend time on a prolonged pulse check." },
+        { "do": "Centre of the chest, lower half of the sternum", "why": "This position compresses the ventricles most effectively. Too high compresses the atria and achieves little; too low risks the liver." },
+        { "do": "5 to 6 cm deep in an adult", "why": "Shallow compressions do not generate meaningful output. Depth is the most commonly under-delivered element and it directly correlates with survival." },
+        { "do": "100 to 120 per minute", "why": "Faster than 120 reduces depth and prevents the heart refilling between compressions. Slower than 100 does not maintain perfusion pressure." },
+        { "do": "Allow full recoil between compressions", "why": "Recoil is when the heart refills. Leaning on the chest between compressions prevents filling and there is nothing to eject on the next one. It is a very common and invisible error." },
+        { "do": "Minimise every pause", "why": "Coronary perfusion pressure takes several compressions to rebuild and falls to zero the moment you stop. Pauses for analysis, charging, and pulse checks should be measured in seconds." },
+        { "do": "Swap compressors roughly every two minutes", "why": "Quality falls measurably from fatigue well before the person doing it notices. Swap during a rhythm analysis so no additional pause is created." }
+      ],
+      "errors": [
+        "Delaying compressions to assess agonal gasping",
+        "Insufficient depth, which is the commonest quality failure",
+        "Leaning on the chest and preventing recoil",
+        "Long pauses around defibrillation",
+        "Continuing past the point of fatigue rather than swapping",
+        "Compression-only CPR in drowning, children, or any hypoxic arrest, where ventilation is essential"
+      ],
+      "related_conditions": ["sudden-cardiac-arrest", "drowning", "paediatric-deterioration", "hypothermia"]
+    },
+    {
+      "id": "aed",
+      "name": "Defibrillation",
+      "scope": "EMR",
+      "one_liner": "The only intervention that reverses ventricular fibrillation, and every minute of delay costs survival.",
+      "why_it_works": "In ventricular fibrillation, myocardial cells are depolarising chaotically and independently, so the chamber quivers instead of contracting. A shock depolarises all of them simultaneously, producing a brief moment of complete electrical silence from which the fastest natural pacemaker, normally the sinoatrial node, can resume coordinated control. You are not restarting the heart; you are stopping the chaos so it can restart itself.",
+      "steps": [
+        { "do": "Get pads on as early as possible", "why": "In a patient with chest pain, put pads on before they arrest, not after. The likeliest thing to kill an infarct patient in the first hour is a shockable rhythm." },
+        { "do": "Correct pad placement, right upper chest and left lower ribs", "why": "The current must pass through the ventricular mass. Placing both pads too close together sends current across the surface rather than through the heart." },
+        { "do": "Dry the chest and shave heavy hair if needed", "why": "Sweat conducts current across the skin between pads rather than through the chest, and hair prevents contact. Both waste the shock." },
+        { "do": "Continue compressions while the machine charges", "why": "Charging takes several seconds and there is no reason to stop for it. Every second of compression maintains the perfusion pressure that makes the shock more likely to work." },
+        { "do": "Clear briefly, shock, and resume immediately", "why": "Resume compressions the instant the shock is delivered. Do not pause to check for a pulse: the heart rarely produces output immediately after defibrillation, and the pause costs perfusion pressure you have to rebuild." },
+        { "do": "Remove medication patches and avoid pacemakers", "why": "Patches can arc and burn. Place pads at least 8 cm from an implanted device, which is usually visible as a lump under the skin below the collarbone." }
+      ],
+      "errors": [
+        "Delaying pad placement until after arrest in a high-risk patient",
+        "Long pauses before and after the shock",
+        "Checking a pulse straight after a shock instead of resuming compressions",
+        "Pads too close together, or over a wet or hairy chest",
+        "Shocking asystole or PEA, which is not an electrical problem and will not respond",
+        "Not drying a patient pulled from water before applying pads"
+      ],
+      "related_conditions": ["sudden-cardiac-arrest", "acs", "electrical-injury", "hypothermia"]
+    },
+    {
+      "id": "hemorrhage-control",
+      "name": "External hemorrhage control",
+      "scope": "EMR",
+      "one_liner": "Mechanical, sequential, and one of the few things you do that unambiguously saves lives.",
+      "why_it_works": "Bleeding stops when a clot forms and holds. Everything you do is either helping the clot form by holding the vessel closed long enough, or stopping the flow entirely so it can. Pressure needs to be on the bleeding point, not spread vaguely across a wide dressing.",
+      "steps": [
+        { "do": "Direct pressure, precisely on the point, hard", "why": "Most external bleeding stops with correct pressure. If it is not working, you are usually not pressing hard enough or not pressing exactly on the source. Use one or two fingertips rather than a flat palm over a large pad." },
+        { "do": "Do not lift the dressing to check", "why": "A forming clot is fragile and lifting the dressing tears it away, restarting the bleed. Add dressings on top; never replace what is already there." },
+        { "do": "Tourniquet for uncontrolled limb bleeding", "why": "High and tight above the wound, tightened until the bleeding stops and the distal pulse is gone. A partially tightened tourniquet occludes venous return but not arterial inflow and makes bleeding worse." },
+        { "do": "Write the time on it", "why": "Duration determines the surgical decision on arrival. Modern evidence supports leaving a correctly applied tourniquet for a considerable period, and you should not loosen it once applied." },
+        { "do": "Pack junctional wounds with hemostatic gauze", "why": "For groin, axilla, and neck, where a tourniquet cannot go. Pack firmly directly into the cavity onto the bleeding point, then hold sustained pressure for the full recommended time. Stuffing gauze loosely on top does nothing." },
+        { "do": "Keep them warm throughout", "why": "Clotting factors are enzymes and they work poorly when cold. Hypothermia, acidosis, and coagulopathy reinforce each other, and temperature is the part you control." }
+      ],
+      "errors": [
+        "Pressure spread over too wide an area rather than on the bleeding point",
+        "Repeatedly lifting dressings to inspect",
+        "Hesitating to apply a tourniquet",
+        "A tourniquet applied too loosely, which increases bleeding",
+        "Loosening or removing a tourniquet in the field",
+        "Cutting all the clothing off and leaving the patient exposed on a cold scene"
+      ],
+      "related_conditions": ["external-hemorrhage", "amputation", "hemorrhagic-shock", "fractures"]
+    },
+    {
+      "id": "spinal-motion-restriction",
+      "name": "Spinal motion restriction",
+      "scope": "EMR",
+      "one_liner": "The goal is preventing further movement of an unstable column, not strapping every patient to a board.",
+      "why_it_works": "Much of the final damage in spinal cord injury is secondary, caused by movement of an unstable column, plus swelling, bleeding, and poor perfusion in the hours afterward. You cannot undo the primary injury; you can prevent the additional one, and you can protect the cord's perfusion.",
+      "steps": [
+        { "do": "Manual in-line stabilisation from first contact", "why": "Hands on the head immediately, before any assessment or movement, and maintained until the patient is secured. This is the actual intervention; the equipment is just a way of maintaining it." },
+        { "do": "Document a baseline neurological exam", "why": "Movement and sensation in all four limbs and the level at which sensation changes, recorded before and after every move. Whether an injury is complete or incomplete changes prognosis enormously and you may be the only one who documented the early picture." },
+        { "do": "Apply a correctly sized collar, not tight", "why": "A collar limits gross movement but does not immobilise. Critically, a tight collar obstructs jugular venous drainage and measurably raises intracranial pressure, which actively harms a head-injured patient." },
+        { "do": "Use a scoop or vacuum mattress rather than a long board", "why": "Rigid long boards cause pressure injuries within a short time, are painful, and can impair ventilation. Modern practice uses them for extrication and transfers the patient onto a padded surface." },
+        { "do": "Minimise log rolls, especially with a suspected pelvic fracture", "why": "Log rolling a fractured pelvis can disrupt clots and restart heavy bleeding. A scoop stretcher achieves the same result with far less movement." },
+        { "do": "Prioritise airway, breathing, and blood pressure over immobilisation", "why": "The injured cord needs oxygen and perfusion to survive the swelling. Hypoxia and hypotension convert salvageable tissue into permanent deficit, so a patent airway and an adequate pressure matter more than a perfect collar." }
+      ],
+      "errors": [
+        "Immobilising reflexively without considering whether the mechanism warrants it",
+        "A collar applied too tightly on a head-injured patient",
+        "Prolonged time on a rigid board",
+        "Failing to document neurology before and after movement",
+        "Log rolling a patient with a suspected pelvic fracture",
+        "Struggling with immobilisation while the airway is compromised"
+      ],
+      "related_conditions": ["spinal-cord-injury", "traumatic-brain-injury", "neurogenic-shock"]
+    },
+    {
+      "id": "splinting",
+      "name": "Splinting and traction",
+      "scope": "EMR",
+      "one_liner": "Splinting is hemorrhage control and analgesia at the same time, not just tidiness.",
+      "why_it_works": "Fracture ends moving against each other tear muscle and vessels continuously and prevent a clot forming. Immobilising them stops that ongoing damage, allows clot formation, and dramatically reduces pain, which itself reduces the catecholamine response driving up heart rate and oxygen demand.",
+      "steps": [
+        { "do": "Check circulation, sensation, and movement first", "why": "Before and after every intervention, documented with times. If a pulse disappears after you splint, you need to know it was there before." },
+        { "do": "Immobilise the joint above and below", "why": "Movement at either adjacent joint transmits movement to the fracture. Splinting only the fracture site does not immobilise it." },
+        { "do": "Pad generously and splint in the position found, unless pulseless", "why": "Padding prevents pressure injury over a long transport. Moving a fracture hurts and can cause further damage, so accept the position unless perfusion demands otherwise." },
+        { "do": "Apply gentle in-line traction to a pulseless, grossly deformed limb", "why": "Restoring alignment often restores perfusion. Tissue distal to an occluded artery dies within hours, so restoring flow outweighs the theoretical risk of realignment. Reassess pulses immediately after." },
+        { "do": "Traction splint for an isolated mid-shaft femur", "why": "Thigh muscles are powerful and spasm pulls the fragments past each other, causing severe pain and increasing bleeding into the thigh. Traction realigns them and reduces the compartment volume. Not for hip, knee, or pelvic injuries." },
+        { "do": "Pelvic binder at the greater trochanters", "why": "Reduces pelvic volume so accumulating blood can tamponade. Trochanter level, not the iliac crests, which is the commonest placement error. Do not spring the pelvis to test it first." },
+        { "do": "Cover open fractures with sterile moist dressing", "why": "Bone exposed to the environment risks osteomyelitis, which is difficult to treat and can end in amputation. Note if bone retracts inside during alignment, so the surgical team knows contamination went inward." }
+      ],
+      "errors": [
+        "Not checking or documenting distal neurovascular status",
+        "Splinting only the fracture without the adjacent joints",
+        "Pelvic binder placed too high on the iliac crests",
+        "Springing or rocking the pelvis to test stability",
+        "Traction splint on a suspected pelvic or hip injury",
+        "Elevating a limb with suspected compartment syndrome",
+        "Splinting so tightly that it becomes a constricting band as swelling develops"
+      ],
+      "related_conditions": ["fractures", "dislocation", "compartment-syndrome", "hemorrhagic-shock"]
+    },
+    {
+      "id": "recovery-position",
+      "name": "Recovery position",
+      "scope": "EMR",
+      "one_liner": "Free, instant, and it prevents the commonest avoidable death in unconscious patients.",
+      "why_it_works": "An unconscious patient loses the tone that holds the tongue forward and loses the reflexes that clear secretions. Lateral positioning uses gravity for both: the tongue falls forward rather than back, and fluid drains out of the mouth rather than into the trachea.",
+      "steps": [
+        { "do": "Use it for any unconscious patient who is breathing adequately", "why": "Overdose, post-ictal, intoxication, post-arrest with return of circulation, or hypoglycemia awaiting recovery. If they are breathing and not protecting their airway, they belong on their side." },
+        { "do": "Keep the head slightly extended and the mouth lowest", "why": "Allows drainage and keeps the airway aligned. A head that flops forward onto the chest closes the airway even in the lateral position." },
+        { "do": "Support the position so they stay there", "why": "Patients roll back, especially in a moving vehicle. Use the upper leg flexed and pillows or a supporting hand." },
+        { "do": "Have suction ready anyway", "why": "Position helps drainage but does not remove everything, and vomiting can outpace gravity." },
+        { "do": "Reassess breathing continuously", "why": "The reason they are unconscious may still be progressing. Position solves the airway, not the cause." },
+        { "do": "Modify for suspected spinal injury", "why": "Use a coordinated log roll with in-line stabilisation, or a lateral position on a scoop. A patent airway always takes priority over spinal precaution." }
+      ],
+      "errors": [
+        "Leaving an unconscious patient supine because they seem to be breathing fine",
+        "Not securing the position so the patient rolls back",
+        "Head flexed forward, which closes the airway",
+        "Assuming positioning replaces the need for suction",
+        "Using it in a patient who is not breathing adequately, who needs ventilation instead"
+      ],
+      "related_conditions": ["opioid-overdose", "seizure", "alcohol-emergencies", "gi-bleed"]
+    },
+    {
+      "id": "primary-survey",
+      "name": "The primary survey",
+      "scope": "EMR",
+      "one_liner": "A deliberately ordered search for the things that kill fastest, in the order they kill.",
+      "why_it_works": "The sequence is not arbitrary. An obstructed airway kills in minutes, inadequate breathing in a few more, catastrophic bleeding in minutes to an hour, and a brain injury over hours. Working in that order means you address problems in the order they will end the patient's life, and it stops you being drawn to whatever is most visually dramatic.",
+      "steps": [
+        { "do": "Scene safety and general impression from the doorway", "why": "A dead responder helps nobody. And a first impression across the room, particularly in children, is one of the most sensitive assessments available before you touch anything." },
+        { "do": "Catastrophic bleeding first, if present", "why": "Modern trauma practice moves massive external hemorrhage ahead of airway, because a patient can exsanguinate faster than they can suffocate from an airway you have thirty seconds to fix. If blood is pumping out, stop it first." },
+        { "do": "Airway with spinal consideration", "why": "Look, listen, feel. Snoring, gurgling, or silence all mean act now. Spinal precaution is applied alongside, never instead." },
+        { "do": "Breathing: rate, effort, symmetry, saturation", "why": "You are looking for the small number of things that kill immediately: tension pneumothorax, open chest wound, flail segment, and inadequate ventilation. Expose and look at the chest rather than only listening." },
+        { "do": "Circulation: pulse, skin, capillary refill, obvious bleeding", "why": "Skin signs and capillary refill detect compensated shock long before the blood pressure moves. A normal blood pressure does not exclude significant shock." },
+        { "do": "Disability: level of consciousness, pupils, glucose", "why": "AVPU or GCS, pupils, and a glucose reading. Glucose belongs here because hypoglycemia imitates everything neurological and reverses in minutes." },
+        { "do": "Exposure and environment, then cover them back up", "why": "You cannot find what you do not look at, but hypothermia impairs clotting and worsens every trauma outcome. Expose, examine, then actively warm." },
+        { "do": "Reassess from the top after every intervention and every move", "why": "The primary survey is a loop, not a checklist you complete once. Airways close, chests deteriorate, and patients bleed while you are working on something else." }
+      ],
+      "errors": [
+        "Being drawn to a dramatic-looking injury before completing the sequence",
+        "Skipping glucose in an altered patient",
+        "Relying on blood pressure to detect shock",
+        "Completing the survey once and never repeating it",
+        "Leaving the patient exposed after examining them",
+        "Continuing down the sequence when a problem you found is not yet fixed"
+      ],
+      "related_conditions": ["hemorrhagic-shock", "traumatic-brain-injury", "tension-pneumothorax", "hypoglycemia"]
+    },
+    {
+      "id": "oxygen-delivery",
+      "name": "Oxygen delivery and titration",
+      "scope": "EMR",
+      "one_liner": "A drug with a dose, a target, and situations where more is worse.",
+      "why_it_works": "Raising the inspired oxygen fraction raises alveolar oxygen pressure, which increases the gradient driving diffusion into blood. That is the whole mechanism. It compensates for a delivery problem; it does not fix an obstruction, a shunt, a perfusion failure, or a hemoglobin that is already occupied.",
+      "steps": [
+        { "do": "Measure a saturation before deciding", "why": "Oxygen is titrated to a target, not given reflexively. Routine oxygen in normoxic patients with chest pain or stroke has not been shown to help and may cause harm." },
+        { "do": "Target 94 to 98 percent for most patients", "why": "Enough to correct hypoxia without the harms associated with sustained hyperoxia." },
+        { "do": "Target 88 to 92 percent in a known COPD retainer", "why": "A small group rely more on hypoxic drive and on ventilation-perfusion matching that high oxygen disrupts. But never withhold oxygen from a hypoxic COPD patient: hypoxia kills in minutes and retention takes far longer." },
+        { "do": "Choose the device by the concentration you need", "why": "Nasal cannula at 1 to 6 L/min gives roughly 24 to 44 percent. Simple mask at 6 to 10 gives 35 to 60. Non-rebreather at 10 to 15 gives 60 to 90. Never run a simple mask below 6 L/min or the patient rebreathes their own carbon dioxide." },
+        { "do": "Inflate the non-rebreather reservoir before applying it", "why": "An empty bag delivers far less than intended, and the bag should not collapse fully on inspiration. If it does, the flow is too low." },
+        { "do": "Ignore the oximeter entirely in carbon monoxide exposure", "why": "A standard oximeter cannot distinguish carboxyhemoglobin from oxyhemoglobin and reads falsely high. Give high-flow oxygen regardless of the number, because here oxygen is the actual treatment." },
+        { "do": "Reassess and adjust", "why": "Failure to improve on high-flow oxygen is diagnostic information: it points to a shunt, a mechanical problem such as tension pneumothorax, or a perfusion problem such as pulmonary embolism, and it means you need a different intervention rather than more oxygen." }
+      ],
+      "errors": [
+        "Giving high-flow oxygen to every patient regardless of saturation",
+        "Withholding oxygen from a hypoxic COPD patient out of fear of retention",
+        "Running a simple mask below 6 L/min",
+        "Trusting the oximeter in smoke inhalation or suspected carbon monoxide",
+        "Increasing the flow when the patient is not responding, rather than reconsidering the diagnosis",
+        "Forgetting that a hypoxic patient who needs ventilation needs a bag, not a bigger mask"
+      ],
+      "related_conditions": ["copd", "carbon-monoxide", "asthma", "pulmonary-embolism"]
+    }
+  ]
+}

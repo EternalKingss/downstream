@@ -1,0 +1,801 @@
+{
+  "conditions": [
+    {
+      "id": "copd",
+      "name": "COPD",
+      "structures": ["bronchioles", "alveoli"],
+      "status": "built",
+      "one_liner": "Decades of airway inflammation and alveolar destruction, producing obstruction that never fully reverses.",
+      "in_one_breath": "Two diseases in one label. Chronic bronchitis clogs and inflames the airways; emphysema destroys the alveolar walls and the elastic scaffolding that holds small airways open. Most patients have both, and neither reverses. What you treat is the acute worsening on top of a permanently altered baseline.",
+      "cascade": [
+        {
+          "id": "chronic-insult",
+          "label": "Years of irritation",
+          "sub": "Smoking, occupational dust, biomass smoke",
+          "severity": "normal",
+          "detail": "Repeated inhaled injury drives chronic inflammation. In Canada smoking is the dominant cause, though occupational exposures and rarely alpha-1 antitrypsin deficiency also produce it. The damage accumulates for decades before symptoms become limiting."
+        },
+        {
+          "id": "airway-remodelling",
+          "label": "Airways thicken and fill with mucus",
+          "sub": "The chronic bronchitis component",
+          "severity": "warn",
+          "structure": "bronchioles",
+          "detail": "Mucus glands enlarge and multiply, the airway wall thickens with scar tissue, and cilia are destroyed so secretions cannot be cleared. Unlike asthma, this narrowing is structural rather than muscular, which is exactly why bronchodilators help far less."
+        },
+        {
+          "id": "alveolar-destruction",
+          "label": "Alveolar walls are destroyed",
+          "sub": "The emphysema component",
+          "severity": "crit",
+          "structure": "alveoli",
+          "detail": "Inflammatory enzymes digest the walls between alveoli, merging many small sacs into fewer large ones. Two things are lost at once: surface area for diffusion, and the elastic tissue whose outward pull holds the small airways open. That second loss is why these airways collapse on exhalation."
+        },
+        {
+          "id": "dynamic-collapse",
+          "label": "Small airways collapse on exhalation",
+          "sub": "Pursed-lip breathing is the fix",
+          "severity": "crit",
+          "detail": "Without elastic tethering, bronchioles collapse when the pressure around them rises during expiration. Air is trapped behind the collapse. Patients discover pursed-lip breathing on their own because it raises airway pressure from the inside and splints the airways open, and it genuinely works."
+        },
+        {
+          "id": "hyperinflation",
+          "label": "The chest hyperinflates",
+          "sub": "Barrel chest, flattened diaphragm",
+          "severity": "crit",
+          "detail": "Trapped air accumulates. Over years the chest becomes barrel-shaped and the diaphragm is pushed down flat, which puts it at a severe mechanical disadvantage: a flattened diaphragm generates far less pressure per contraction. The patient is doing more work with a worse lever."
+        },
+        {
+          "id": "gas-exchange-fails",
+          "label": "Gas exchange deteriorates",
+          "sub": "Chronic hypoxia, sometimes CO2 retention",
+          "severity": "crit",
+          "shared": "vq-mismatch",
+          "detail": "Lost surface area and poor matching of air to blood produce chronic hypoxia. In some patients carbon dioxide also rises chronically, and the kidneys compensate by retaining bicarbonate, so the pH is near normal despite an abnormal carbon dioxide. These are the patients whose oxygen target is lower."
+        },
+        {
+          "id": "exacerbation",
+          "label": "Something tips the balance",
+          "sub": "Infection, usually",
+          "severity": "crit",
+          "detail": "Most acute presentations are triggered by respiratory infection, sometimes by air quality, heart failure, or a pneumothorax. Increased secretions and inflammation on top of a system with no reserve produce rapid decompensation."
+        },
+        {
+          "id": "fatigue",
+          "label": "Respiratory muscles fail",
+          "sub": "Rising CO2, drowsiness",
+          "severity": "crit",
+          "shared": "respiratory-fatigue",
+          "detail": "A mechanically disadvantaged diaphragm working against high resistance for a sustained period fails. Carbon dioxide climbs acutely on top of the chronic level, pH falls, and the patient becomes drowsy. Carbon dioxide narcosis in a COPD patient is a pre-arrest state."
+        },
+        {
+          "id": "right-heart-strain",
+          "label": "The right heart eventually fails",
+          "sub": "Cor pulmonale",
+          "severity": "warn",
+          "shared": "systemic-congestion",
+          "detail": "Chronic hypoxia causes sustained pulmonary vasoconstriction, raising pulmonary artery pressure. Over years the right ventricle fails against it, producing distended neck veins, swollen legs, and an enlarged liver."
+        }
+      ],
+      "interventions": [
+        {
+          "med": "oxygen",
+          "breaks_at": "gas-exchange-fails",
+          "scope": "EMR",
+          "note": "Target 88 to 92 percent in a known retainer, rather than 94 to 98. Titrate carefully. But never withhold oxygen from a hypoxic COPD patient: hypoxia kills within minutes, carbon dioxide retention takes far longer, and fear of the latter has killed people."
+        },
+        {
+          "med": "salbutamol",
+          "breaks_at": "airway-remodelling",
+          "scope": "EMR",
+          "note": "Helps less than in asthma, because most of the obstruction is structural rather than muscular, but there is usually a reversible component worth treating. Expect a partial response."
+        }
+      ],
+      "non_drug_interventions": [
+        {
+          "name": "Sit upright, forward-leaning",
+          "breaks_at": "hyperinflation",
+          "scope": "EMR",
+          "note": "Lets the flattened diaphragm work with the best mechanical advantage available and fixes the shoulder girdle so accessory muscles can pull effectively."
+        },
+        {
+          "name": "Encourage pursed-lip breathing",
+          "breaks_at": "dynamic-collapse",
+          "scope": "EMR",
+          "note": "Coach it explicitly: breathe in through the nose, out slowly through pursed lips. It creates back-pressure that splints collapsing airways open. Patients who already do it instinctively are telling you they have advanced disease."
+        },
+        {
+          "name": "Slow, gentle assisted ventilation if needed",
+          "breaks_at": "fatigue",
+          "scope": "EMR",
+          "note": "Long expiratory times, low volumes, slow rate. Bagging fast stacks breaths on already trapped air and can drop the blood pressure or cause a pneumothorax."
+        },
+        {
+          "name": "Ask what their normal is",
+          "breaks_at": "exacerbation",
+          "scope": "EMR",
+          "note": "A saturation of 89 percent may be this patient's baseline. Ask about their usual saturation, usual exercise tolerance, home oxygen, and whether they have been ventilated before. Treat the change from baseline, not the absolute number."
+        }
+      ],
+      "red_flags": [
+        "Drowsiness or confusion, suggesting carbon dioxide narcosis",
+        "Silent chest or markedly reduced air entry",
+        "Inability to speak in sentences",
+        "Falling respiratory rate or reduced effort",
+        "Sudden severe deterioration, which may be a pneumothorax rather than an exacerbation",
+        "New chest pain or unilateral absent breath sounds",
+        "Saturation well below the patient's own stated baseline"
+      ],
+      "differentiators": [
+        {
+          "vs": "Asthma",
+          "how": "Asthma is episodic and reversible with a clear trigger and full recovery between attacks, often in a younger patient. COPD is chronic and progressive with a smoking history, daily productive cough, and a baseline they never return from."
+        },
+        {
+          "vs": "Heart failure",
+          "how": "Genuinely difficult, and many older patients have both. Favour heart failure with orthopnea, ankle swelling, frothy sputum, and basal crackles. Favour COPD with a smoking history, prolonged expiration, barrel chest, and purulent sputum."
+        },
+        {
+          "vs": "Pneumothorax",
+          "how": "COPD patients rupture bullae and develop pneumothoraces relatively easily. Sudden deterioration with unilateral chest pain and reduced breath sounds on one side is a pneumothorax until proven otherwise."
+        }
+      ]
+    },
+    {
+      "id": "anaphylaxis",
+      "name": "Anaphylaxis",
+      "structures": ["upper-airway", "bronchioles", "capillaries", "arteries"],
+      "status": "built",
+      "one_liner": "A body-wide allergic reaction that closes the airway and empties the circulation at the same time.",
+      "in_one_breath": "Mast cells across the whole body degranulate at once. The airway swells shut, the bronchioles constrict, the blood vessels dilate, and the capillaries leak circulating volume into the tissues. It is an airway emergency and a shock emergency simultaneously, and one drug fixes all of it if given early enough.",
+      "cascade": [
+        {
+          "id": "sensitisation",
+          "label": "A previous exposure primed the system",
+          "sub": "IgE antibodies already in place",
+          "severity": "normal",
+          "detail": "The first exposure produced IgE antibodies that attached to mast cells throughout the body and did nothing visible. This is why the first contact with an allergen is often uneventful and the second is catastrophic, and why a patient can say they have eaten peanuts safely before."
+        },
+        {
+          "id": "reexposure",
+          "label": "Re-exposure triggers mass degranulation",
+          "sub": "Food, sting, drug, latex",
+          "severity": "crit",
+          "detail": "The allergen cross-links IgE on mast cells everywhere at once, and they release histamine, tryptase, leukotrienes, and prostaglandins into the circulation. Onset is usually within minutes; injected and stung exposures act fastest, ingested ones somewhat slower."
+        },
+        {
+          "id": "airway-swelling",
+          "label": "The upper airway swells",
+          "sub": "Lips, tongue, throat, voice change",
+          "severity": "crit",
+          "structure": "upper-airway",
+          "detail": "Histamine causes vasodilation and capillary leak in the loose tissue of the lips, tongue, and larynx, which swells rapidly. Because flow through a tube falls with the fourth power of the radius, modest swelling causes catastrophic obstruction. A hoarse voice, a lump-in-the-throat sensation, or stridor means the airway is already narrowing."
+        },
+        {
+          "id": "bronchospasm",
+          "label": "The lower airways constrict",
+          "sub": "Wheeze, chest tightness",
+          "severity": "crit",
+          "structure": "bronchioles",
+          "detail": "The same mediators constrict bronchial smooth muscle and swell the mucosa, producing an asthma-like picture on top of the upper airway problem. Patients with existing asthma have worse and more resistant bronchospasm and a higher risk of dying."
+        },
+        {
+          "id": "vasodilation",
+          "label": "Vessels dilate everywhere",
+          "sub": "Flushing, hypotension",
+          "severity": "crit",
+          "structure": "arteries",
+          "detail": "Systemic vascular resistance collapses. The same cardiac output now has to fill a much larger vascular space, so blood pressure falls. The patient is flushed and warm rather than pale and cold, which is the opposite of what most people expect shock to look like."
+        },
+        {
+          "id": "capillary-leak",
+          "label": "Capillaries dump plasma into tissue",
+          "sub": "Up to 35% of volume in minutes",
+          "severity": "crit",
+          "structure": "capillaries",
+          "detail": "Increased permeability lets plasma pour out of the circulation into the interstitium. A substantial fraction of intravascular volume can be lost this way within minutes without a single drop of blood leaving the body. This is where the profound hypotension comes from."
+        },
+        {
+          "id": "shock",
+          "label": "Perfusion collapses",
+          "sub": "Distributive shock",
+          "severity": "crit",
+          "shared": "hypoperfusion",
+          "detail": "Dilated vessels and reduced volume together produce profound hypotension. Cardiac output falls, consciousness drops, and the patient may collapse suddenly, particularly if they are stood or sat up."
+        },
+        {
+          "id": "arrest",
+          "label": "Airway obstruction or circulatory collapse",
+          "sub": "Both routes kill",
+          "severity": "crit",
+          "shared": "cardiac-arrest",
+          "detail": "Death comes either from complete upper airway obstruction or from circulatory collapse, and which one dominates depends on the trigger. Food-triggered reactions tend to kill through the airway; sting and drug reactions more often through shock."
+        }
+      ],
+      "interventions": [
+        {
+          "med": "epinephrine",
+          "breaks_at": "reexposure",
+          "scope": "EMR",
+          "note": "The only drug that addresses every limb at once: alpha-1 constricts vessels and reduces swelling, beta-1 supports the heart, beta-2 opens the airways, and it stabilises mast cells to slow further release. Give it early, intramuscular into the anterolateral thigh, and repeat every 5 to 15 minutes if needed. Delay kills far more people than the drug ever has."
+        },
+        {
+          "med": "oxygen",
+          "breaks_at": "bronchospasm",
+          "scope": "EMR",
+          "note": "High concentration. The patient is hypoxic from both airway narrowing and poor perfusion."
+        },
+        {
+          "med": "salbutamol",
+          "breaks_at": "bronchospasm",
+          "scope": "EMR",
+          "note": "Adjunct only, for persistent wheeze after epinephrine. It does nothing for the swelling or the shock, so it must never be given instead of epinephrine or used to delay it."
+        }
+      ],
+      "non_drug_interventions": [
+        {
+          "name": "Lie them flat, legs raised",
+          "breaks_at": "shock",
+          "scope": "EMR",
+          "note": "One of the genuinely critical instructions in anaphylaxis. Patients have arrested on standing up or being walked to the ambulance, because an empty heart suddenly loses what venous return it had. If they cannot tolerate flat because of breathing, sit them up but never let them stand or walk."
+        },
+        {
+          "name": "Remove the trigger if you can",
+          "breaks_at": "reexposure",
+          "scope": "EMR",
+          "note": "Scrape a bee sting out rather than squeezing it, stop an infusion, remove latex. Do not delay epinephrine to do this."
+        },
+        {
+          "name": "Prepare for airway loss",
+          "breaks_at": "airway-swelling",
+          "scope": "EMR",
+          "note": "A hoarse voice or stridor means you may have minutes. Get suction and a bag-valve-mask ready, position for the best airway, and escalate immediately, because once the larynx closes basic manoeuvres will not open it."
+        },
+        {
+          "name": "Observe for a biphasic reaction",
+          "breaks_at": "reexposure",
+          "scope": "EMR",
+          "note": "A significant minority of patients relapse hours after apparently recovering, sometimes without further exposure. Every anaphylaxis patient goes to hospital, including those who look completely well after their auto-injector."
+        }
+      ],
+      "red_flags": [
+        "Any voice change, hoarseness, or stridor",
+        "Tongue or lip swelling",
+        "Hypotension",
+        "Wheeze in a known asthmatic after an exposure",
+        "Rapid progression over minutes",
+        "Any suggestion the patient wants to stand up or walk",
+        "A patient who used their own auto-injector and improved, who still needs transport"
+      ],
+      "differentiators": [
+        {
+          "vs": "Asthma",
+          "how": "Anaphylaxis involves more than the airway. Look for urticaria, angioedema, gastrointestinal symptoms, hypotension, and a clear exposure. A wheezing hypotensive patient after exposure is anaphylaxis, and treating it as asthma is a fatal error."
+        },
+        {
+          "vs": "Panic attack",
+          "how": "Panic can cause breathlessness, tingling, and a sense of doom, but not urticaria, angioedema, stridor, or hypotension. If in any doubt at all, treat as anaphylaxis."
+        },
+        {
+          "vs": "Vasovagal syncope after an injection",
+          "how": "Fainting after a needle is pale, bradycardic, and resolves on lying flat. Anaphylaxis is flushed, tachycardic, and does not resolve."
+        },
+        {
+          "vs": "Septic shock",
+          "how": "Both are distributive and warm. Sepsis develops over hours with fever and a source; anaphylaxis develops over minutes after an exposure with skin and airway signs."
+        }
+      ]
+    },
+    {
+      "id": "pneumonia",
+      "name": "Pneumonia",
+      "structures": ["alveoli"],
+      "status": "built",
+      "one_liner": "Infection fills the alveoli with fluid and pus, so the sacs that should hold air hold liquid instead.",
+      "in_one_breath": "Organisms reach the alveoli and the immune response floods them. Those alveoli still receive blood but no longer receive air, so blood passes through and comes out unoxygenated. The patient becomes hypoxic in a way that oxygen alone only partly fixes.",
+      "cascade": [
+        {
+          "id": "inoculation",
+          "label": "Organisms reach the alveoli",
+          "sub": "Inhaled, aspirated, or bloodborne",
+          "severity": "warn",
+          "structure": "alveoli",
+          "detail": "Usually inhaled or micro-aspirated from the upper airway. Aspiration pneumonia follows a swallowing failure from stroke, intoxication, seizure, or reduced consciousness, and tends to affect dependent parts of the lung."
+        },
+        {
+          "id": "inflammatory-flood",
+          "label": "The immune response floods the sacs",
+          "sub": "Consolidation",
+          "severity": "crit",
+          "detail": "Neutrophils, fluid, and cellular debris fill the alveolar spaces. This is consolidation, and it is why the affected lung becomes solid rather than airy, why it is dull to percussion, and why crackles appear as fluid-filled alveoli pop open on inspiration."
+        },
+        {
+          "id": "shunt",
+          "label": "Blood passes unventilated alveoli",
+          "sub": "True shunt",
+          "severity": "crit",
+          "shared": "vq-mismatch",
+          "detail": "The flooded alveoli still receive blood flow, but no air can reach them. That blood returns to the left heart still deoxygenated and mixes with well-oxygenated blood from healthy lung. This is shunt, and it is why the response to supplemental oxygen is often disappointing."
+        },
+        {
+          "id": "barrier",
+          "label": "The diffusion barrier thickens",
+          "sub": "In partially involved regions",
+          "severity": "crit",
+          "shared": "diffusion-barrier-thickens",
+          "detail": "In regions not yet completely consolidated, inflammatory fluid lengthens the distance oxygen must travel from alveolus to capillary. These regions do improve with oxygen, which is why the overall response is partial rather than absent."
+        },
+        {
+          "id": "hypoxia",
+          "label": "Oxygen falls",
+          "sub": "Often out of proportion to the exam",
+          "severity": "crit",
+          "shared": "hypoxia",
+          "detail": "Hypoxia develops while carbon dioxide often stays normal or low, because carbon dioxide diffuses far more readily and the patient is breathing fast."
+        },
+        {
+          "id": "work-rises",
+          "label": "Work of breathing rises",
+          "sub": "Stiff, wet lung",
+          "severity": "crit",
+          "shared": "increased-work-of-breathing",
+          "detail": "Consolidated lung is stiff and requires more pressure to inflate. Pleuritic pain from inflamed pleura overlying the infection also causes splinting, which reduces tidal volume and worsens clearance of secretions."
+        },
+        {
+          "id": "systemic",
+          "label": "The response goes systemic",
+          "sub": "Sepsis",
+          "severity": "crit",
+          "shared": "hypoperfusion",
+          "detail": "Pneumonia is the single most common source of sepsis. Once the inflammatory response becomes systemic, the patient has both a gas exchange problem and a circulatory one, and mortality rises steeply."
+        }
+      ],
+      "interventions": [
+        {
+          "med": "oxygen",
+          "breaks_at": "barrier",
+          "scope": "EMR",
+          "note": "Titrate to target. Expect a partial response: the shunted regions cannot be reached by oxygen at all, so a patient who stays hypoxic on high flow has extensive consolidation, not a broken oxygen supply."
+        },
+        {
+          "med": "salbutamol",
+          "breaks_at": "work-rises",
+          "scope": "EMR",
+          "note": "Only if there is genuine bronchospasm, which many pneumonia patients do have alongside the infection. It does nothing for the consolidation itself."
+        }
+      ],
+      "non_drug_interventions": [
+        {
+          "name": "Position with the good lung down",
+          "breaks_at": "shunt",
+          "scope": "EMR",
+          "note": "Gravity increases blood flow to the dependent lung. Putting the healthy side down sends more blood where the air actually is, which improves matching. Counterintuitive but effective in clearly unilateral disease."
+        },
+        {
+          "name": "Sit upright",
+          "breaks_at": "work-rises",
+          "scope": "EMR",
+          "note": "Improves mechanics and lets the diaphragm descend."
+        },
+        {
+          "name": "Screen for sepsis",
+          "breaks_at": "systemic",
+          "scope": "EMR",
+          "note": "Temperature, heart rate, respiratory rate, blood pressure, and mental state. Confusion in an older adult with pneumonia is sepsis until proven otherwise, and it changes the urgency completely."
+        },
+        {
+          "name": "Warmth and fluids as tolerated",
+          "breaks_at": "systemic",
+          "scope": "EMR",
+          "note": "Fever raises metabolic demand and fluid loss. Hypothermia in an infected patient is a bad sign rather than a comfort problem."
+        }
+      ],
+      "red_flags": [
+        "Confusion, especially in an older adult",
+        "Respiratory rate over 30",
+        "Hypotension",
+        "Saturation that stays low on high-flow oxygen",
+        "Temperature below normal in an infected patient",
+        "Exhaustion or reduced effort",
+        "Aspiration risk factors such as recent stroke, seizure, or heavy intoxication"
+      ],
+      "differentiators": [
+        {
+          "vs": "Pulmonary edema",
+          "how": "Edema is bilateral and basal with frothy sputum, orthopnea, ankle swelling, and a cardiac history. Pneumonia is usually focal, febrile, with purulent sputum and pleuritic pain."
+        },
+        {
+          "vs": "COPD exacerbation",
+          "how": "Heavy overlap and they frequently coexist. Pneumonia is more likely with fever, focal findings, and pleuritic pain; a simple exacerbation with generalised wheeze and increased sputum without consolidation."
+        },
+        {
+          "vs": "Pulmonary embolism",
+          "how": "Sudden onset, clear chest, no fever early, and risk factors. Both can cause pleuritic pain, which makes this a genuinely hard call."
+        }
+      ]
+    },
+    {
+      "id": "pulmonary-edema",
+      "name": "Pulmonary edema",
+      "structures": ["alveoli"],
+      "status": "built",
+      "one_liner": "Fluid is forced out of the pulmonary capillaries into the alveoli, drowning the patient from the inside.",
+      "in_one_breath": "Pressure behind the left heart rises until it overcomes the forces holding plasma inside the capillaries. Fluid crosses into the lung tissue and then into the air spaces themselves. The patient is literally drowning in their own plasma, and it can develop over minutes.",
+      "cascade": [
+        {
+          "id": "pressure-rise",
+          "label": "Pressure rises behind the left heart",
+          "sub": "Failure, arrhythmia, or hypertension",
+          "severity": "crit",
+          "structure": "myocardium",
+          "detail": "The left ventricle cannot move forward what the lungs are delivering. Pressure rises in the left atrium, back through the pulmonary veins, and into the pulmonary capillaries. Causes include acute infarction, new atrial fibrillation, a hypertensive crisis, valve failure, or decompensated chronic heart failure."
+        },
+        {
+          "id": "starling-tips",
+          "label": "Fluid is forced out of the capillaries",
+          "sub": "Hydrostatic beats oncotic",
+          "severity": "crit",
+          "structure": "capillaries",
+          "detail": "Fluid movement across the capillary wall is a balance between hydrostatic pressure pushing out and oncotic pressure from plasma proteins pulling in. When capillary pressure rises high enough, the balance tips and plasma is forced into the interstitium."
+        },
+        {
+          "id": "interstitial",
+          "label": "The interstitium fills first",
+          "sub": "Breathlessness before crackles",
+          "severity": "crit",
+          "shared": "diffusion-barrier-thickens",
+          "detail": "Fluid accumulates around the alveoli before entering them. The lung becomes stiffer, the diffusion distance lengthens, and the patient becomes breathless and anxious. At this stage the chest may still sound relatively clear, which fools people."
+        },
+        {
+          "id": "alveolar-flooding",
+          "label": "Fluid enters the alveoli",
+          "sub": "Crackles, then frothy sputum",
+          "severity": "crit",
+          "structure": "alveoli",
+          "detail": "Once the interstitium is saturated, fluid crosses into the air spaces. Crackles appear at the bases and rise. Air mixing with plasma produces the characteristic frothy sputum, which is pink when red cells are forced across too."
+        },
+        {
+          "id": "shunt",
+          "label": "Flooded alveoli are perfused but not ventilated",
+          "sub": "Shunt",
+          "severity": "crit",
+          "shared": "vq-mismatch",
+          "detail": "Blood flows past alveoli full of fluid and returns unoxygenated. As with pneumonia, this is a true shunt, and it explains why some patients respond poorly to oxygen alone."
+        },
+        {
+          "id": "hypoxia-spiral",
+          "label": "Hypoxia weakens the heart further",
+          "sub": "The loop closes",
+          "severity": "crit",
+          "shared": "hypoxia",
+          "detail": "A hypoxic myocardium contracts less effectively, which raises filling pressures, which forces more fluid across, which worsens the hypoxia. This loop is why acute pulmonary edema deteriorates so fast and why interrupting it early matters so much."
+        },
+        {
+          "id": "exhaustion",
+          "label": "The patient tires",
+          "sub": "Rising CO2, falling effort",
+          "severity": "crit",
+          "shared": "respiratory-fatigue",
+          "detail": "Breathing against stiff, wet lungs at a very high rate for a sustained period is exhausting. When effort falls and carbon dioxide starts to rise, the patient is close to needing their breathing taken over entirely."
+        }
+      ],
+      "interventions": [
+        {
+          "med": "oxygen",
+          "breaks_at": "hypoxia-spiral",
+          "scope": "EMR",
+          "note": "High concentration. Interrupting the hypoxia limb of the spiral is the highest-value thing an EMR can do here, because it protects the myocardium that is driving the whole process."
+        },
+        {
+          "med": "nitroglycerin",
+          "breaks_at": "pressure-rise",
+          "scope": "varies",
+          "note": "Dilates veins, drops preload, and lowers the pressure driving fluid across the capillary wall. Genuinely effective and works within minutes, provided the blood pressure supports it. Ineffective and dangerous if the patient is hypotensive, because then the problem is cardiogenic shock."
+        }
+      ],
+      "non_drug_interventions": [
+        {
+          "name": "Sit fully upright, legs dependent",
+          "breaks_at": "pressure-rise",
+          "scope": "EMR",
+          "note": "The single most effective non-drug intervention. Pools blood in the legs, reduces venous return, drops pulmonary capillary pressure, and lets fluid settle away from the upper lung. Works within minutes and requires nothing but a stretcher. Never lay these patients flat, for any reason."
+        },
+        {
+          "name": "CPAP",
+          "breaks_at": "alveolar-flooding",
+          "scope": "PCP",
+          "note": "Positive pressure pushes fluid back out of the alveoli, recruits collapsed lung, and reduces preload. One of the most dramatically effective interventions in prehospital care, and outside EMR scope, so recognising who needs it and escalating early is your contribution."
+        },
+        {
+          "name": "Keep them calm",
+          "breaks_at": "hypoxia-spiral",
+          "scope": "EMR",
+          "note": "These patients are terrified and the anxiety is physiologically real: catecholamines raise heart rate and afterload in a heart that cannot cope with either."
+        },
+        {
+          "name": "Look for the trigger",
+          "breaks_at": "pressure-rise",
+          "scope": "EMR",
+          "note": "Chest pain, a new irregular pulse, or a very high blood pressure changes what the receiving team does first."
+        }
+      ],
+      "red_flags": [
+        "Frothy or pink sputum",
+        "Unable to tolerate lying flat at all",
+        "Crackles rising above the bases",
+        "Hypotension, which reframes this as cardiogenic shock",
+        "Chest pain alongside the breathlessness",
+        "Falling respiratory effort or drowsiness",
+        "Saturation that stays low on high-flow oxygen"
+      ],
+      "differentiators": [
+        {
+          "vs": "Asthma or COPD",
+          "how": "Cardiac wheeze is real and fools people. Favour edema with orthopnea, ankle swelling, frothy sputum, a cardiac history, and basal crackles. Salbutamol in undiagnosed pulmonary edema adds tachycardia to a failing heart."
+        },
+        {
+          "vs": "Pneumonia",
+          "how": "Fever, focal crackles rather than bilateral basal, purulent rather than frothy sputum, and pleuritic pain."
+        },
+        {
+          "vs": "Pulmonary embolism",
+          "how": "Sudden onset with a clear chest and no orthopnea."
+        },
+        {
+          "vs": "Non-cardiogenic pulmonary edema",
+          "how": "Drowning, smoke inhalation, high altitude, and severe sepsis can flood alveoli through capillary damage rather than pressure. The lungs look the same but nitroglycerin will not help, because the pressure was never the problem."
+        }
+      ]
+    },
+    {
+      "id": "foreign-body-obstruction",
+      "name": "Foreign body airway obstruction",
+      "structures": ["upper-airway", "trachea-bronchi"],
+      "status": "built",
+      "one_liner": "A physical object blocking the airway, where the whole management depends on whether any air is still moving.",
+      "in_one_breath": "Something is stuck. If the patient can cough, their own cough generates more pressure than anything you can do and you should leave them to it. If they cannot, you have a few minutes and everything depends on mechanical removal.",
+      "cascade": [
+        {
+          "id": "object-lodges",
+          "label": "An object lodges in the airway",
+          "sub": "Food, dentures, toys, blood, vomit",
+          "severity": "crit",
+          "structure": "upper-airway",
+          "detail": "Most commonly food in adults, especially with alcohol, poor dentition, or a swallowing problem. In children it is small objects and food such as grapes, nuts, and hot dog pieces. The narrowest points are the larynx in adults and the cricoid ring in young children."
+        },
+        {
+          "id": "partial-or-complete",
+          "label": "Partial or complete",
+          "sub": "The single most important distinction",
+          "severity": "crit",
+          "detail": "In partial obstruction air still moves: the patient coughs forcefully, may wheeze or make noise, and can often speak. In complete obstruction nothing moves: no cough, no sound, no air. This distinction determines everything you do next, and it can change in either direction within seconds."
+        },
+        {
+          "id": "cough-fails",
+          "label": "The cough weakens or stops",
+          "sub": "Silence is the emergency",
+          "severity": "crit",
+          "detail": "A forceful cough generates far higher airway pressure than any back blow or thrust, so an effective cough is the best treatment available and should not be interrupted. When the cough becomes weak or silent, the patient has lost the ability to move air and has moved from partial to complete obstruction."
+        },
+        {
+          "id": "ventilation-stops",
+          "label": "Ventilation ceases",
+          "sub": "Clutching the throat, panic, silence",
+          "severity": "crit",
+          "detail": "No gas exchange occurs at all. The patient typically clutches the throat, cannot speak, and rapidly becomes distressed then cyanotic. There is usually two to three minutes of useful consciousness."
+        },
+        {
+          "id": "hypoxia",
+          "label": "Oxygen falls fast",
+          "sub": "No reserve at all",
+          "severity": "crit",
+          "shared": "hypoxia",
+          "detail": "Unlike a gradual respiratory failure, there is no compensation available. Saturation falls steeply and consciousness follows within a couple of minutes."
+        },
+        {
+          "id": "unconscious",
+          "label": "They lose consciousness",
+          "sub": "Which changes the treatment",
+          "severity": "crit",
+          "shared": "altered-loc",
+          "detail": "This is a pivot point rather than an ending. Muscle tone relaxes as consciousness is lost, which can loosen a wedged object, and chest compressions generate airway pressure. Management changes entirely: lower them to the ground and start CPR, checking the mouth each time you open the airway."
+        },
+        {
+          "id": "arrest",
+          "label": "Hypoxic cardiac arrest",
+          "sub": "Highly reversible if the object comes out",
+          "severity": "crit",
+          "shared": "cardiac-arrest",
+          "detail": "The heart stops from hypoxia rather than from any cardiac problem. If the obstruction is relieved, these patients can recover completely, which makes this one of the most rewarding arrests you will ever attend."
+        }
+      ],
+      "non_drug_interventions": [
+        {
+          "name": "If they can cough, encourage coughing",
+          "breaks_at": "partial-or-complete",
+          "scope": "EMR",
+          "note": "Do not intervene. Stay with them, encourage the cough, and be ready. Back blows and thrusts during an effective cough can dislodge a partial obstruction into a complete one."
+        },
+        {
+          "name": "Back blows then abdominal thrusts",
+          "breaks_at": "ventilation-stops",
+          "scope": "EMR",
+          "note": "For complete obstruction in a conscious adult or child over one year: five sharp back blows between the shoulder blades with the patient leaning forward, then five abdominal thrusts, alternating. The mechanism is generating a sudden rise in intrathoracic pressure to expel the object."
+        },
+        {
+          "name": "Chest thrusts for infants, pregnancy, or obesity",
+          "breaks_at": "ventilation-stops",
+          "scope": "EMR",
+          "note": "Infants under one get five back blows and five chest thrusts, never abdominal thrusts, because the liver is large and unprotected. The same applies in late pregnancy and where the abdomen cannot be encircled."
+        },
+        {
+          "name": "Start CPR if they become unresponsive",
+          "breaks_at": "unconscious",
+          "scope": "EMR",
+          "note": "Lower them to the ground and begin compressions. Compressions generate higher airway pressures than abdominal thrusts do. Check the mouth each time you open the airway and remove anything you can actually see. Never sweep blindly, which pushes objects deeper."
+        },
+        {
+          "name": "Magill forceps under direct vision",
+          "breaks_at": "object-lodges",
+          "scope": "PCP",
+          "note": "Direct removal with laryngoscopy is definitive but outside EMR scope. Rapid escalation matters if basic manoeuvres are failing."
+        },
+        {
+          "name": "Transport everyone who received thrusts",
+          "breaks_at": "arrest",
+          "scope": "EMR",
+          "note": "Abdominal thrusts can injure internal organs, and a partially dislodged object can move again. Anyone who received effective thrusts should be assessed, even if they now feel fine."
+        }
+      ],
+      "red_flags": [
+        "Silence in a patient who was choking, which means complete obstruction",
+        "Weak or ineffective cough",
+        "Clutching the throat",
+        "Cyanosis",
+        "Stridor after apparent relief, suggesting a remaining partial obstruction or swelling",
+        "Any deterioration in a patient who was managing"
+      ],
+      "differentiators": [
+        {
+          "vs": "Anaphylaxis",
+          "how": "Both close the airway. Anaphylaxis has urticaria, angioedema, and often hypotension, and develops over minutes rather than instantly during eating. Thrusts will not help swelling."
+        },
+        {
+          "vs": "Asthma",
+          "how": "Asthma gives expiratory wheeze with a history of similar attacks. Foreign body obstruction typically starts abruptly, often during a meal, with a witnessed event."
+        },
+        {
+          "vs": "Epiglottitis or croup",
+          "how": "In children, gradual onset with fever, drooling, and stridor points to infection rather than a foreign body. Do not put anything in the mouth of a child with suspected epiglottitis."
+        }
+      ]
+    },
+    {
+      "id": "drowning",
+      "name": "Drowning",
+      "structures": ["alveoli", "upper-airway"],
+      "status": "built",
+      "one_liner": "Respiratory impairment from submersion, where the killer is hypoxia rather than the volume of water.",
+      "in_one_breath": "The airway is submerged, the larynx spasms, and eventually water or the failure to breathe produces profound hypoxia. Very little water actually enters the lungs in most cases. What enters is enough to destroy surfactant and flood gas exchange, and the brain has already been starved by then.",
+      "cascade": [
+        {
+          "id": "submersion",
+          "label": "The airway goes under",
+          "sub": "Panic, breath holding",
+          "severity": "crit",
+          "detail": "The patient holds their breath, often while struggling, which consumes oxygen rapidly. Contributing factors are frequently the real story: alcohol, a seizure, a head or spinal injury from diving, hypothermia, or an underlying cardiac event."
+        },
+        {
+          "id": "laryngospasm",
+          "label": "The larynx spasms shut",
+          "sub": "Protective, and then harmful",
+          "severity": "crit",
+          "structure": "upper-airway",
+          "detail": "Water contacting the larynx triggers reflex closure, which initially protects the lungs. It also means the patient cannot breathe even when their face clears the water. Most drowning victims aspirate remarkably little; the classic distinction between salt and fresh water drowning has essentially no bearing on prehospital management."
+        },
+        {
+          "id": "hypoxia-early",
+          "label": "Oxygen falls fast",
+          "sub": "Before any water enters",
+          "severity": "crit",
+          "shared": "hypoxia",
+          "detail": "Breath holding plus exertion depletes oxygen within a minute or two. Consciousness is lost, and this is the point at which most of the neurological damage begins, well before any lung injury."
+        },
+        {
+          "id": "aspiration",
+          "label": "Water enters the lungs",
+          "sub": "As the spasm relaxes",
+          "severity": "crit",
+          "structure": "alveoli",
+          "detail": "As consciousness is lost the laryngospasm relaxes and water enters. Water washes out surfactant, so alveoli collapse and stay collapsed, and it damages the alveolar membrane directly. The result is widespread collapse and a chemical inflammatory injury."
+        },
+        {
+          "id": "shunt",
+          "label": "Blood passes collapsed alveoli",
+          "sub": "Severe shunt",
+          "severity": "crit",
+          "shared": "vq-mismatch",
+          "detail": "Collapsed and flooded alveoli are still perfused, so a large fraction of cardiac output passes through the lung without being oxygenated. This is why drowning patients can remain profoundly hypoxic despite high-flow oxygen and why positive pressure helps so much."
+        },
+        {
+          "id": "bradycardia-arrest",
+          "label": "Hypoxic bradycardia, then arrest",
+          "sub": "Respiratory arrest first",
+          "severity": "crit",
+          "shared": "respiratory-arrest",
+          "detail": "This is a hypoxic arrest. Breathing stops before the heart does, and the heart slows progressively into bradycardia and then asystole or PEA. That sequence is precisely why drowning resuscitation begins with rescue breaths rather than compressions alone."
+        },
+        {
+          "id": "secondary-injury",
+          "label": "The lungs worsen over hours",
+          "sub": "Delayed deterioration",
+          "severity": "crit",
+          "shared": "diffusion-barrier-thickens",
+          "detail": "Surfactant loss and chemical injury produce progressive inflammation and pulmonary edema over the following hours. A patient who was pulled out and seemed fine can deteriorate significantly later, which is why anyone who aspirated needs observation."
+        }
+      ],
+      "interventions": [
+        {
+          "med": "oxygen",
+          "breaks_at": "shunt",
+          "scope": "EMR",
+          "note": "High concentration immediately. Expect an incomplete response because of the shunt, and be ready to assist ventilation rather than simply increasing the flow."
+        }
+      ],
+      "non_drug_interventions": [
+        {
+          "name": "Rescue breaths first",
+          "breaks_at": "bradycardia-arrest",
+          "scope": "EMR",
+          "note": "This is the key deviation from standard adult arrest management. Drowning is a hypoxic arrest, so give five initial rescue breaths before compressions, and use a full thirty-to-two ratio with proper ventilation. Compression-only CPR is not appropriate here."
+        },
+        {
+          "name": "Do not attempt to drain water",
+          "breaks_at": "aspiration",
+          "scope": "EMR",
+          "note": "There is very little water in the lungs and any attempt to drain it wastes time and causes vomiting and aspiration. Abdominal thrusts have no role in drowning."
+        },
+        {
+          "name": "Handle spinal injury by mechanism, not reflex",
+          "breaks_at": "submersion",
+          "scope": "EMR",
+          "note": "Routine spinal immobilisation in all drownings delays airway management and is not supported. Restrict motion where there is a genuine mechanism such as diving, a fall, or a watercraft impact."
+        },
+        {
+          "name": "Aggressive warming and careful handling",
+          "breaks_at": "bradycardia-arrest",
+          "scope": "EMR",
+          "note": "Wet patients lose heat extremely fast, and in cold water hypothermia may be profound. Remove wet clothing, dry, and insulate. Handle gently, because a very cold heart is irritable. Hypothermia is also protective, which is why prolonged resuscitation in cold-water drowning is justified."
+        },
+        {
+          "name": "Transport everyone who aspirated",
+          "breaks_at": "secondary-injury",
+          "scope": "EMR",
+          "note": "Delayed deterioration over hours is real. Anyone who required rescue, coughed persistently, or has any respiratory symptom needs observation even if they now feel well."
+        }
+      ],
+      "red_flags": [
+        "Any period of unconsciousness in the water",
+        "Persistent cough, breathlessness, or any abnormal saturation after rescue",
+        "Vomiting, which is very common and threatens the airway",
+        "Hypothermia",
+        "Suspected diving mechanism with neurological signs",
+        "A patient who feels fine but aspirated"
+      ],
+      "differentiators": [
+        {
+          "vs": "Cardiac arrest that caused the submersion",
+          "how": "An adult who collapsed suddenly in shallow water or while swimming strongly may have had a primary cardiac event. The presence of a shockable rhythm points that way and shifts management toward standard arrest care."
+        },
+        {
+          "vs": "Hypothermic cardiac arrest",
+          "how": "In cold water the two are intertwined and hypothermia is protective. Continue resuscitation and rewarming; the usual rules about duration do not apply, and people have survived remarkably long submersions in cold water."
+        },
+        {
+          "vs": "Seizure or intoxication as the cause",
+          "how": "Always ask why they went under. The drowning may be the consequence rather than the event, and the underlying cause still needs treating."
+        }
+      ]
+    }
+  ]
+}

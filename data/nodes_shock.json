@@ -1,0 +1,138 @@
+{
+  "nodes": [
+    {
+      "id": "hypoperfusion",
+      "name": "Tissue perfusion falls",
+      "severity": "warn",
+      "one_liner": "Blood is no longer arriving fast enough to meet what the tissue is spending.",
+      "what_is_happening": "Perfusion is flow through the capillary bed, and it depends on cardiac output and on the vessel tone directing that output. When flow falls below metabolic demand, cells begin drawing down reserves. This is the actual definition of shock, and note that blood pressure does not appear in it anywhere.",
+      "why_it_follows": "There are only four ways to get here, and every kind of shock is one of them: not enough volume in the tank, a pump that will not pump, pipes that are too wide, or something mechanically obstructing the circuit.",
+      "what_you_see": [
+        "Delayed capillary refill, the one bedside sign that looks directly at this level rather than at a proxy",
+        "Pale, cool, clammy skin as flow is diverted away from the periphery",
+        "Rising heart rate",
+        "Anxiety and restlessness from early cerebral hypoperfusion",
+        "Falling urine output, which you will rarely measure but which is happening"
+      ],
+      "the_trap": "Blood pressure is not perfusion. It is a proxy, and in early shock it is a proxy that lies. A patient can clamp down hard enough to keep a textbook-normal pressure while their gut, kidneys, and skin are already starving. Treat the patient in front of you, not the number.",
+      "leads_to": ["sympathetic-compensation", "anaerobic-metabolism", "altered-loc"]
+    },
+    {
+      "id": "sympathetic-compensation",
+      "name": "The body compensates",
+      "severity": "warn",
+      "one_liner": "Catecholamines buy time by making the remaining circulation work harder and cover less ground.",
+      "what_is_happening": "Baroreceptors in the carotid sinus and aortic arch detect falling pressure and trigger a sympathetic surge. Heart rate and contractility rise, arterioles constrict in skin, gut, and muscle, and veins constrict to squeeze stored blood back into circulation. Blood is redistributed to brain and heart at the expense of everything else.",
+      "why_it_follows": "It is the automatic response to any fall in perfusion pressure, regardless of cause.",
+      "what_you_see": [
+        "Tachycardia, usually the earliest measurable sign",
+        "Pale, cool, clammy, sometimes mottled skin",
+        "Narrowing pulse pressure as diastolic climbs and systolic falls",
+        "Anxiety, agitation, a sense of impending doom",
+        "Nausea and reduced bowel sounds as the gut is sacrificed",
+        "A blood pressure that stays stubbornly, misleadingly normal"
+      ],
+      "the_trap": "This is the stage where the patient looks compensated and the numbers look acceptable, and it is the stage where intervention actually works. It is also finite. Some patients cannot mount it at all: those on beta blockers, those with spinal cord injury above the sympathetic outflow, older patients, and well-conditioned athletes with low resting rates. A sick patient who is not tachycardic is more worrying, not less.",
+      "leads_to": ["decompensated-shock"]
+    },
+    {
+      "id": "decompensated-shock",
+      "name": "Compensation fails",
+      "severity": "crit",
+      "one_liner": "The reserves run out and blood pressure finally falls.",
+      "what_is_happening": "Sympathetic mechanisms have a ceiling. Prolonged hypoperfusion produces acidosis, and acidosis blunts the response of vascular smooth muscle and myocardium to catecholamines. The vasoconstriction that was holding pressure up begins to fail, and pressure drops.",
+      "why_it_follows": "It is the endpoint of any sustained hypoperfusion that has not been corrected.",
+      "what_you_see": [
+        "Falling systolic blood pressure, which in an adult usually means around thirty percent of blood volume is already gone",
+        "Weak, thready peripheral pulses, then loss of radial pulse entirely",
+        "Deteriorating level of consciousness",
+        "Mottled, cold skin and capillary refill well beyond three seconds",
+        "Sometimes a paradoxical fall in heart rate as a very late and very bad sign"
+      ],
+      "the_trap": "Falling blood pressure is not the start of shock, it is the announcement that shock has been present and unaddressed for some time. If you wait for hypotension to diagnose shock, you have waited too long. In children this stage arrives late and then collapses fast, which is why paediatric hypotension is treated as near-arrest.",
+      "leads_to": ["anaerobic-metabolism", "cardiac-arrest"]
+    },
+    {
+      "id": "myocardial-ischemia",
+      "name": "Heart muscle starves",
+      "severity": "crit",
+      "one_liner": "The myocardium's oxygen demand exceeds what its own arteries can supply.",
+      "what_is_happening": "Cardiac muscle already extracts around seventy percent of the oxygen in blood passing through it at rest, so it cannot compensate by extracting more. Its only response to increased demand is increased flow. When flow is limited by a narrowed or blocked coronary artery, the muscle switches to anaerobic metabolism, lactate accumulates, and the tissue signals pain.",
+      "why_it_follows": "Either supply drops, from plaque rupture, thrombus, spasm, or profound hypotension, or demand climbs, from tachycardia, hypertension, or exertion. Most real presentations are a bit of both.",
+      "what_you_see": [
+        "Chest discomfort described as pressure, tightness, heaviness, or a band, often not as pain at all",
+        "Radiation to jaw, neck, shoulders, arms, or between the shoulder blades",
+        "Sweating, nausea, and shortness of breath",
+        "A sense of impending doom, which is a genuine clinical finding and not just anxiety",
+        "Presentations without any chest pain in women, older adults, and people with diabetes"
+      ],
+      "the_trap": "Ischemic muscle is irritable muscle, and irritable muscle generates lethal rhythms. The greatest risk in the first hour of an infarct is not pump failure, it is ventricular fibrillation. That is why the AED goes on the patient early and why you do not leave them to walk to the stretcher.",
+      "leads_to": ["pump-failure", "cardiac-arrest"]
+    },
+    {
+      "id": "pump-failure",
+      "name": "Cardiac output falls",
+      "severity": "crit",
+      "one_liner": "The heart is still beating but no longer moving enough blood.",
+      "what_is_happening": "Stroke volume collapses because the muscle cannot contract effectively, because the ventricle cannot fill, or because the valves are not directing flow. Cardiac output falls even though electrical activity and heart rate may look entirely normal on a monitor.",
+      "why_it_follows": "It sits downstream of infarction, of arrhythmia, of tamponade, of tension pneumothorax, and of anything that damages muscle or prevents filling.",
+      "what_you_see": [
+        "Hypotension with cool peripheries",
+        "Blood backing up behind the failing side: crackles and breathlessness for the left, distended neck veins and swollen legs for the right",
+        "Tachycardia attempting to compensate for a stroke volume that will not recover",
+        "Falling level of consciousness"
+      ],
+      "the_trap": "The monitor shows electricity, not output. A perfect-looking rhythm with no pulse is pulseless electrical activity, and it means the problem is mechanical. Defibrillation cannot fix a mechanical problem. Go looking for the cause instead.",
+      "leads_to": ["hypoperfusion", "pulmonary-congestion", "cardiac-arrest"]
+    },
+    {
+      "id": "pulmonary-congestion",
+      "name": "Fluid backs up into the lungs",
+      "severity": "crit",
+      "one_liner": "The left heart can't clear what the lungs deliver, so pressure rises behind it and fluid floods the alveoli.",
+      "what_is_happening": "When the left ventricle fails to empty, pressure rises in the left atrium and back through the pulmonary veins into the pulmonary capillaries. Once hydrostatic pressure there exceeds the oncotic pressure holding fluid in, plasma is forced out into the interstitium and then into the alveoli themselves.",
+      "why_it_follows": "It is the backward consequence of left-sided pump failure from any cause: infarction, arrhythmia, valve failure, or a hypertensive crisis the ventricle cannot pump against.",
+      "what_you_see": [
+        "Severe breathlessness, dramatically worse lying flat",
+        "Fine crackles beginning at the bases and rising as it worsens",
+        "Frothy sputum, sometimes pink from red cells forced across with the fluid",
+        "Wheeze in some patients, which is genuinely hard to distinguish from asthma",
+        "Anxiety, sweating, and a patient who will not tolerate being laid down"
+      ],
+      "the_trap": "Cardiac wheeze exists and it fools people constantly. A wheezing patient with a cardiac history, crackles at the bases, orthopnea, and swollen ankles is not having an asthma attack, and salbutamol will only add tachycardia to a heart that cannot afford it.",
+      "leads_to": ["hypoxia"]
+    },
+    {
+      "id": "systemic-congestion",
+      "name": "Fluid backs up into the body",
+      "severity": "warn",
+      "one_liner": "The right heart can't clear venous return, so pressure rises throughout the venous system.",
+      "what_is_happening": "When the right ventricle fails, blood backs up into the venae cavae and the systemic veins. Venous pressure rises, and fluid is forced out of capillaries into dependent tissue and into the abdomen.",
+      "why_it_follows": "It follows right ventricular infarction, chronic lung disease that has raised pulmonary pressures over years, pulmonary embolism, and long-standing left heart failure that has eventually overloaded the right.",
+      "what_you_see": [
+        "Distended neck veins, visible with the patient sitting up",
+        "Swollen ankles and legs, or swelling over the sacrum in someone bed-bound",
+        "Enlarged tender liver and abdominal distension",
+        "Lungs that are often clear, which surprises people"
+      ],
+      "the_trap": "Right-sided failure makes the patient preload dependent, because a failing right ventricle needs a high filling pressure to produce any output at all. Anything that drops preload, including nitroglycerin and aggressive positive pressure ventilation, can cause abrupt collapse.",
+      "leads_to": []
+    },
+    {
+      "id": "cerebral-hypoperfusion",
+      "name": "Brain blood flow falls",
+      "severity": "crit",
+      "one_liner": "The brain is at the top of the circuit and it notices first.",
+      "what_is_happening": "Cerebral perfusion pressure is mean arterial pressure minus intracranial pressure. The brain autoregulates flow across a wide range of pressures, but below roughly a mean arterial pressure of 60 that autoregulation fails and flow becomes directly dependent on systemic pressure.",
+      "why_it_follows": "It follows from anything that lowers cardiac output or mean arterial pressure, and from anything that raises intracranial pressure.",
+      "what_you_see": [
+        "Anxiety, restlessness, confusion",
+        "Lightheadedness on sitting or standing",
+        "Visual greying, tunnel vision, then syncope",
+        "Progressive fall in level of consciousness if flow does not recover"
+      ],
+      "the_trap": "This is why hypotension is so devastating in a head-injured patient. Their intracranial pressure is already raised, so their perfusion pressure is already squeezed from one side. A single episode of hypotension in traumatic brain injury measurably worsens outcome, which is why the pressure target in those patients is deliberately higher.",
+      "leads_to": ["altered-loc"]
+    }
+  ]
+}

@@ -1,0 +1,279 @@
+{
+  "meds": [
+    {
+      "id": "naloxone",
+      "name": "Naloxone",
+      "aka": "Narcan",
+      "status": "built",
+      "class": "Competitive opioid receptor antagonist",
+      "scope": "EMR",
+      "scope_note": "Widely within EMR scope in Alberta, and available to the public through community take-home kits. Route carried varies by service.",
+      "one_liner": "Physically displaces opioids from their receptors, switching the respiratory drive back on.",
+      "breaks_cascade_at": "Opioids bind brainstem receptors",
+      "mechanism": "Naloxone has a higher affinity for the mu opioid receptor than most opioids do, but no activity of its own once it is there. It simply occupies the site and pushes the opioid off. Because the receptor is now blocked rather than stimulated, the brainstem's response to carbon dioxide is restored and the patient starts breathing again. It is pure competition, which is exactly why the outcome depends on the relative amounts and durations of the two drugs.",
+      "why_it_works_here": "It acts at the top of the cascade rather than partway down. Oxygen treats the hypoxia, ventilation treats the hypoventilation, but naloxone removes the cause. That said, it is not the most urgent intervention: a patient who is being ventilated properly is not dying, whereas a patient waiting for naloxone to work is still apneic for several minutes. Ventilate first, then reverse.",
+      "dosing": [
+        {
+          "route": "Intranasal",
+          "dose": "2 to 4 mg",
+          "notes": "Half the volume in each nostril for better absorption. Poor uptake if the nose is full of blood or secretions. Most common route in take-home kits."
+        },
+        {
+          "route": "Intramuscular",
+          "dose": "0.4 to 2 mg",
+          "notes": "Reliable absorption even when perfusion is poor. Anterolateral thigh or deltoid."
+        },
+        {
+          "route": "Intravenous",
+          "dose": "0.04 to 0.4 mg, titrated",
+          "notes": "Fastest onset and easiest to titrate. Small increments avoid precipitating violent withdrawal. Outside EMR scope."
+        },
+        {
+          "route": "Repeat dosing",
+          "dose": "Every 2 to 3 minutes as needed",
+          "notes": "Fentanyl analogues and carfentanil frequently need several doses. No response after adequate total dose means another cause."
+        }
+      ],
+      "targets": "Adequate spontaneous ventilation, not a fully alert patient. Aim for a respiratory rate above about 10 with reasonable depth, and stop there.",
+      "onset": "1 to 2 minutes intravenously, 2 to 5 minutes intramuscular or intranasal.",
+      "peak": "Around 5 to 10 minutes.",
+      "duration": "30 to 90 minutes, which is frequently shorter than the opioid it reversed.",
+      "working_looks_like": [
+        "Respiratory rate and depth increase, usually the first thing to change",
+        "Colour improves and saturation climbs",
+        "Level of consciousness rises, often lagging behind the breathing",
+        "Pupils dilate from pinpoint back toward normal"
+      ],
+      "not_working_means": "If there is no response to an adequate total dose, the diagnosis is wrong or incomplete. Consider benzodiazepines, alcohol, or other sedatives which naloxone does not touch; head injury from the collapse; hypoglycemia; hypoxic brain injury that has already occurred; or a post-arrest state. Keep ventilating regardless.",
+      "cautions": [
+        {
+          "what": "Its duration is shorter than most opioids",
+          "why": "This is the single most important fact about naloxone. Long-acting opioids, slow-release preparations, and potent fentanyl analogues all outlast it. A patient who wakes up, feels fine, and walks away can re-sedate an hour later with nobody there. Refusal of transport after naloxone is the commonest way these patients die."
+        },
+        {
+          "what": "Precipitated withdrawal",
+          "why": "Reversing too much too fast in a dependent patient causes acute withdrawal: vomiting, agitation, aggression, pain, and diarrhea. It is not usually dangerous in itself, but the vomiting threatens an airway that was already compromised, and the agitation frequently ends with the patient leaving. Titrate to breathing, not to consciousness."
+        },
+        {
+          "what": "Opioid-dependent patients in pain",
+          "why": "Full reversal removes analgesia entirely, which in a patient with a genuine painful condition is both cruel and clinically counterproductive."
+        },
+        {
+          "what": "Pulmonary edema after reversal",
+          "why": "Uncommon but recognised, particularly after rapid full reversal. The mechanism is not fully settled but the catecholamine surge is implicated."
+        }
+      ],
+      "side_effects_as_overshoot": "Almost every adverse effect of naloxone is simply the absence of opioid, arriving too abruptly. Nausea, vomiting, sweating, tremor, tachycardia, hypertension, agitation, and pain are all what the patient's nervous system does when the drug it was saturated with vanishes in ninety seconds. None of it is toxicity, and all of it is avoidable by giving less, more slowly, and aiming at the breathing rather than the eyes.",
+      "used_in": [
+        "opioid-overdose",
+        "neuromuscular-failure"
+      ]
+    },
+    {
+      "id": "asa",
+      "name": "Acetylsalicylic acid",
+      "aka": "Aspirin, ASA",
+      "status": "built",
+      "class": "Antiplatelet",
+      "scope": "EMR",
+      "scope_note": "Within EMR scope in Alberta for suspected cardiac chest pain. Alberta first-response protocols use 160 mg chewed.",
+      "one_liner": "Permanently disables the platelets that are building a clot in a coronary artery.",
+      "breaks_cascade_at": "A clot forms over the tear",
+      "mechanism": "Aspirin irreversibly inhibits the cyclo-oxygenase-1 enzyme inside platelets by acetylating it. That enzyme makes thromboxane A2, which is the signal platelets use to recruit and activate each other. Without it, a platelet cannot participate in aggregation. Crucially, platelets have no nucleus and cannot manufacture new enzyme, so the effect lasts for the platelet's entire lifespan of about seven to ten days rather than for the few hours the drug is present.",
+      "why_it_works_here": "It attacks the clot at the moment it is being built, not after. Aspirin cannot dissolve a clot that already exists and cannot reopen the artery. What it does is stop the clot growing and stop it re-forming, which is why timing matters so much and why it is given before almost anything else. It is one of the highest-value single interventions in prehospital medicine, and it is a chewed tablet.",
+      "dosing": [
+        {
+          "route": "Oral, chewed",
+          "dose": "160 mg",
+          "notes": "Alberta first-response protocol dose. Other jurisdictions use 162 mg as two 81 mg tablets, or up to 324 mg."
+        },
+        {
+          "route": "Why chewed",
+          "dose": "Not swallowed whole",
+          "notes": "Chewing gives buccal absorption and a far faster onset than waiting for a tablet to dissolve in the stomach. Enteric-coated tablets should still be chewed if that is all you have."
+        }
+      ],
+      "targets": "Given as early as possible in suspected acute coronary syndrome. There is no titration and no repeat dose.",
+      "onset": "Measurable platelet inhibition within about 15 to 30 minutes when chewed.",
+      "peak": "Around 1 hour.",
+      "duration": "7 to 10 days, the lifespan of the affected platelets.",
+      "working_looks_like": [
+        "Nothing you can see or measure in the field",
+        "Its benefit is a reduction in mortality, demonstrated in large trials, not a change in the patient in front of you",
+        "Do not judge it by whether the pain improves, because it will not"
+      ],
+      "not_working_means": "This is one of the few drugs where the absence of a visible response tells you nothing at all. Pain relief comes from nitroglycerin and from reperfusion, not from aspirin. Never withhold or repeat it based on symptoms.",
+      "cautions": [
+        {
+          "what": "Known true aspirin allergy",
+          "why": "Genuine allergy exists and can cause anaphylaxis or severe bronchospasm. Ask specifically, and distinguish real allergy from the far more common report of stomach upset."
+        },
+        {
+          "what": "Active gastrointestinal bleeding",
+          "why": "Aspirin inhibits the same enzyme in the stomach lining that maintains its protective mucus layer, and disables platelets that would otherwise stop the bleeding. A patient actively vomiting blood or passing melaena should not receive it."
+        },
+        {
+          "what": "Suspected aortic dissection",
+          "why": "If the chest pain is a dissection rather than an infarct, disabling the clotting response is actively harmful. Tearing pain that is maximal at onset, radiating to the back, or with unequal pulses should give you pause."
+        },
+        {
+          "what": "Suspected hemorrhagic stroke",
+          "why": "The same reasoning. Aspirin is for suspected coronary events, not for undifferentiated neurological presentations."
+        },
+        {
+          "what": "Children and teenagers with a viral illness",
+          "why": "Reye's syndrome, a rare but often fatal encephalopathy and liver failure. Aspirin is essentially never given to children in this context."
+        },
+        {
+          "what": "Reduced consciousness or unsafe swallow",
+          "why": "It is an oral tablet. A patient who cannot protect their airway cannot safely take it."
+        }
+      ],
+      "side_effects_as_overshoot": "Everything unwanted about aspirin comes from the same enzyme inhibition working somewhere other than the coronary platelets. Stomach irritation and bleeding happen because cyclo-oxygenase also maintains the gastric mucus barrier. Easy bruising and prolonged bleeding from cuts happen because platelets everywhere are disabled, not just the ones in the coronary artery. Bronchospasm in aspirin-sensitive asthmatics occurs because blocking the cyclo-oxygenase pathway shunts arachidonic acid down the leukotriene pathway instead, and leukotrienes are potent bronchoconstrictors. One enzyme, one mechanism, several different tissues.",
+      "used_in": [
+        "acs"
+      ]
+    },
+    {
+      "id": "nitroglycerin",
+      "name": "Nitroglycerin",
+      "aka": "GTN, glyceryl trinitrate",
+      "status": "built",
+      "class": "Nitrate vasodilator",
+      "scope": "varies",
+      "scope_note": "Scope varies. Some Alberta first-response protocols place nitroglycerin at EMT level rather than EMR, while national competency profiles list it within EMR scope. Assisting a patient with their own prescribed nitroglycerin is more widely permitted than administering your own. Verify against your service protocol.",
+      "one_liner": "Dilates veins so less blood returns to the heart, which cuts the work the heart has to do.",
+      "breaks_cascade_at": "The muscle starves",
+      "mechanism": "Nitroglycerin is metabolised in vascular smooth muscle to nitric oxide. Nitric oxide activates guanylyl cyclase, raising cyclic GMP, which reduces intracellular calcium and relaxes the muscle. Veins are far more sensitive to this than arteries, so at normal doses the dominant effect is venodilation. Blood pools in the periphery, less returns to the heart, preload falls, the ventricle is less stretched, and it does less work per beat. There is also some direct coronary dilation and relief of coronary spasm, but the preload effect is the main event.",
+      "why_it_works_here": "Ischemia is a supply and demand mismatch. You cannot easily increase supply through a blocked artery in the field, so you reduce demand instead. A less-filled ventricle has less wall tension, and wall tension is one of the largest determinants of myocardial oxygen consumption. This is also why it works so well in pulmonary edema: lowering preload directly lowers the pulmonary capillary pressure that is forcing fluid into the alveoli.",
+      "dosing": [
+        {
+          "route": "Sublingual spray or tablet",
+          "dose": "0.4 mg",
+          "notes": "Under the tongue, not swallowed. The mouth must be moist for a tablet to dissolve."
+        },
+        {
+          "route": "Repeat",
+          "dose": "Every 5 minutes, up to 3 doses",
+          "notes": "Recheck the blood pressure before every single dose, without exception."
+        },
+        {
+          "route": "Assisting a patient's own",
+          "dose": "Their prescribed dose",
+          "notes": "Check it is theirs, in date, and that the blood pressure and contraindications still permit it."
+        }
+      ],
+      "targets": "Relief of pain in ischemia, or improvement in breathing in pulmonary edema, while keeping systolic blood pressure above roughly 100 mmHg. Stop if the pressure falls.",
+      "onset": "1 to 3 minutes.",
+      "peak": "Around 5 minutes.",
+      "duration": "20 to 30 minutes.",
+      "working_looks_like": [
+        "Chest discomfort easing within a few minutes",
+        "In pulmonary edema, reduced work of breathing and improving saturation",
+        "A mild drop in blood pressure, which is expected",
+        "A throbbing headache, which is common and is evidence the dose was absorbed"
+      ],
+      "not_working_means": "Pain that does not respond to three doses is a concerning sign that suggests complete occlusion rather than reversible ischemia. Note also the old teaching that nitroglycerin relief confirms a cardiac cause is simply wrong: oesophageal spasm responds to it too, and plenty of genuine infarcts do not.",
+      "cautions": [
+        {
+          "what": "Systolic blood pressure below about 100",
+          "why": "Nitroglycerin lowers preload, and a patient who is already underfilled has no margin. In cardiogenic shock it can collapse the pressure entirely. Measure before every dose, not just the first."
+        },
+        {
+          "what": "Phosphodiesterase-5 inhibitors",
+          "why": "Sildenafil, tadalafil, and vardenafil work on the same nitric oxide and cyclic GMP pathway from the other end, blocking the breakdown of cyclic GMP. Combined with a nitrate that increases its production, the result is profound, refractory hypotension. Avoid for 24 hours after sildenafil or vardenafil and 48 hours after tadalafil. You must ask, and patients frequently will not volunteer it."
+        },
+        {
+          "what": "Right ventricular or inferior infarction",
+          "why": "A failing right ventricle depends on high filling pressure to produce any output. Dropping the preload can cause abrupt and severe hypotension. A patient whose pressure falls sharply after a first dose has probably told you their infarct is inferior."
+        },
+        {
+          "what": "Severe aortic stenosis",
+          "why": "A fixed outflow obstruction means the ventricle needs high preload to push blood past it. Reducing preload can cause sudden collapse."
+        },
+        {
+          "what": "Heart rate below 50 or above about 100",
+          "why": "Bradycardia limits the ability to compensate for the drop in preload; tachycardia already reduces filling time and worsens ischemia."
+        },
+        {
+          "what": "Suspected head injury or raised intracranial pressure",
+          "why": "It dilates cerebral vessels, which raises intracranial blood volume and therefore pressure."
+        }
+      ],
+      "side_effects_as_overshoot": "Nitroglycerin only does one thing, and every side effect is that one thing in a different vascular bed. Headache, often severe and throbbing, is cerebral vasodilation. Flushing is cutaneous vasodilation. Dizziness and hypotension are systemic venodilation taken slightly too far. Reflex tachycardia is the baroreceptors responding to the fall in pressure. And the interaction with erectile dysfunction drugs is not a quirk of chemistry: those drugs work on exactly the same pathway, and stacking them is simply the same mechanism twice.",
+      "used_in": [
+        "acs",
+        "chf",
+        "pulmonary-edema"
+      ]
+    },
+    {
+      "id": "oral-glucose",
+      "name": "Oral glucose",
+      "aka": "Glucose gel, dextrose gel",
+      "status": "built",
+      "class": "Simple carbohydrate",
+      "scope": "EMR",
+      "scope_note": "Within EMR scope in Alberta, alongside glucometry. Requires an intact gag reflex and the ability to swallow safely.",
+      "one_liner": "Puts fuel back into a brain that has run out and cannot make its own.",
+      "breaks_cascade_at": "The brain runs out of fuel",
+      "mechanism": "There is no receptor and no clever pharmacology here. Glucose is absorbed across the mucous membranes of the mouth and then from the gut, raises blood glucose, and crosses into the brain by facilitated transport. Neurons resume normal metabolism. What makes it work as an emergency drug is that the brain is uniquely dependent: unlike muscle it cannot burn fat, and unlike liver it stores essentially no glycogen, so it fails within minutes of the supply stopping and recovers within minutes of it resuming.",
+      "why_it_works_here": "It is the rare intervention that treats the actual cause rather than a downstream consequence, and it reverses the whole cascade completely. A patient with focal weakness, slurred speech, and confusion who looks exactly like a stroke can be fully normal within fifteen minutes. That is precisely why blood glucose is checked on every patient with altered mental status, every time, without exception.",
+      "dosing": [
+        {
+          "route": "Oral gel",
+          "dose": "15 to 25 g",
+          "notes": "Placed between the cheek and gum, or swallowed if the patient can. Do not squirt it into the back of the throat of a drowsy patient."
+        },
+        {
+          "route": "Oral alternatives",
+          "dose": "15 to 20 g of fast carbohydrate",
+          "notes": "Roughly 150 mL of juice or regular soft drink, or three to four teaspoons of sugar in water. Less predictable absorption than gel."
+        },
+        {
+          "route": "Follow-up",
+          "dose": "Recheck in 15 minutes",
+          "notes": "Repeat if still low. Once corrected, give a complex carbohydrate and protein to prevent a rebound fall."
+        }
+      ],
+      "targets": "Blood glucose above roughly 4.0 mmol/L with resolution of symptoms. Recheck rather than assuming.",
+      "onset": "10 to 20 minutes.",
+      "peak": "Around 30 minutes.",
+      "duration": "Short, roughly 1 to 2 hours, which is why follow-up food matters.",
+      "working_looks_like": [
+        "Level of consciousness improving, usually first",
+        "Confusion, aggression, and slurred speech resolving",
+        "Sweating and tremor settling",
+        "Focal deficits, if hypoglycemia caused them, disappearing entirely",
+        "A patient who has no memory of the episode"
+      ],
+      "not_working_means": "If the glucose has been corrected and the patient has not improved within about fifteen minutes, hypoglycemia was not the whole story. Consider prolonged hypoglycemia that has already caused injury, a stroke, head injury, intoxication, post-ictal state, or sepsis. Recheck the glucose to confirm it actually rose.",
+      "cautions": [
+        {
+          "what": "Reduced consciousness or absent gag reflex",
+          "why": "The absolute contraindication. Putting gel into the mouth of a patient who cannot protect their airway causes aspiration. If they cannot safely swallow, they need intravenous glucose or glucagon, which is beyond EMR scope, so escalate."
+        },
+        {
+          "what": "Sulfonylurea-induced hypoglycemia",
+          "why": "Oral hypoglycemic drugs such as gliclazide and glyburide last far longer than the glucose you give. These patients correct, then fall again hours later, and they all need hospital assessment regardless of how well they look."
+        },
+        {
+          "what": "Alcohol-associated hypoglycemia",
+          "why": "Alcohol suppresses the liver's ability to manufacture new glucose, so the patient cannot maintain their own level once yours runs out. They also recur."
+        },
+        {
+          "what": "The well-looking patient who wants to stay home",
+          "why": "Reasonable for a straightforward insulin-related episode with a clear cause and someone at home. Not reasonable for a first episode, a sulfonylurea, alcohol, no obvious cause, or anyone living alone."
+        }
+      ],
+      "side_effects_as_overshoot": "Glucose is about as close to a side-effect-free drug as exists, because you are replacing something the body was already short of. What problems there are come from the delivery rather than the substance: aspiration if given to someone who cannot swallow, nausea from a large sugar load, and a rebound fall an hour or two later when a fast sugar is given without any complex carbohydrate behind it. In a diabetic patient, overcorrection produces hyperglycemia, which is unpleasant but not remotely as dangerous as the hypoglycemia you just treated.",
+      "used_in": [
+        "seizure",
+        "behavioral-emergency",
+        "hypoglycemia",
+        "adrenal-crisis",
+        "alcohol-emergencies"
+      ]
+    }
+  ]
+}

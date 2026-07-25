@@ -1,0 +1,920 @@
+{
+  "conditions": [
+    {
+      "id": "emphysema",
+      "name": "Emphysema",
+      "structures": ["alveoli"],
+      "status": "built",
+      "one_liner": "The walls between alveoli are digested away, destroying both surface area and the scaffolding that holds small airways open.",
+      "in_one_breath": "Inflammatory enzymes eat the lung's internal architecture. Many small sacs merge into few large ones, so there is far less membrane to exchange gas across, and the elastic tissue that used to tether the bronchioles open is gone, so they collapse whenever the patient breathes out.",
+      "cascade": [
+        {
+          "id": "protease-imbalance",
+          "label": "Enzymes start digesting lung tissue",
+          "sub": "Smoking, or alpha-1 deficiency",
+          "severity": "warn",
+          "structure": "alveoli",
+          "detail": "Inflammatory cells release proteases that break down elastin and other structural proteins. Normally alpha-1 antitrypsin neutralises them. Smoking both increases protease release and inactivates alpha-1 antitrypsin, so the balance tips toward destruction. A minority of patients have an inherited alpha-1 antitrypsin deficiency and develop severe emphysema young, often in their forties, without ever smoking."
+        },
+        {
+          "id": "wall-destruction",
+          "label": "Alveolar walls break down",
+          "sub": "Many small sacs become few large ones",
+          "severity": "crit",
+          "detail": "The partitions between alveoli dissolve, merging them into large air spaces and sometimes into bullae several centimetres across. A given volume of lung now has a fraction of its former internal surface area. The destruction is permanent; alveoli do not regrow."
+        },
+        {
+          "id": "surface-area-lost",
+          "label": "Diffusion surface area collapses",
+          "sub": "Less membrane to cross",
+          "severity": "crit",
+          "detail": "Diffusion depends on gradient, barrier thickness, and surface area. This condition attacks the third one specifically. The barrier is not thickened and the gradient is normal, so oxygen simply has fewer places to cross. That is why supplemental oxygen helps but never fully corrects it."
+        },
+        {
+          "id": "tethering-lost",
+          "label": "Small airways lose their scaffolding",
+          "sub": "Nothing holding them open",
+          "severity": "crit",
+          "structure": "bronchioles",
+          "detail": "This is the part people miss. Bronchioles have no cartilage; they are held open partly by the outward elastic pull of the surrounding alveolar walls. Destroy those walls and the airways lose their tethering. The disease of the alveoli becomes a disease of the airways."
+        },
+        {
+          "id": "expiratory-collapse",
+          "label": "Airways collapse on exhalation",
+          "sub": "Air trapping, pursed-lip breathing",
+          "severity": "crit",
+          "detail": "During expiration the pressure around the untethered bronchioles exceeds the pressure inside them and they close, trapping air behind. Patients discover pursed-lip breathing independently because it raises internal airway pressure and splints them open, and it genuinely works."
+        },
+        {
+          "id": "hyperinflation",
+          "label": "The chest hyperinflates",
+          "sub": "Barrel chest, flat diaphragm",
+          "severity": "crit",
+          "structure": "chest-wall",
+          "detail": "Trapped air accumulates over years. The chest becomes barrel-shaped and the diaphragm is pushed down flat, which is mechanically terrible: a flat diaphragm generates far less pressure per contraction than a domed one. The patient does more work with a worse lever."
+        },
+        {
+          "id": "gas-exchange-fails",
+          "label": "Gas exchange deteriorates",
+          "sub": "Breathless, thin, pink",
+          "severity": "crit",
+          "shared": "vq-mismatch",
+          "detail": "The classic emphysema patient is thin, breathless, and relatively pink, because they maintain their oxygen by working extremely hard at breathing. That effort burns enormous calories, which is why weight loss is characteristic and why these patients have so little reserve."
+        },
+        {
+          "id": "bulla-rupture",
+          "label": "A bulla can rupture",
+          "sub": "Sudden pneumothorax",
+          "severity": "crit",
+          "detail": "Large thin-walled air spaces near the lung surface can burst spontaneously, producing a pneumothorax in a patient with no reserve to absorb it. Any sudden deterioration in an emphysema patient should raise this before you assume an infective exacerbation."
+        }
+      ],
+      "interventions": [
+        {
+          "med": "oxygen",
+          "breaks_at": "surface-area-lost",
+          "scope": "EMR",
+          "note": "Target 88 to 92 percent if they are a known carbon dioxide retainer, otherwise 94 to 98. Never withhold oxygen from a hypoxic patient over retention fears: hypoxia kills in minutes, retention takes far longer."
+        },
+        {
+          "med": "salbutamol",
+          "breaks_at": "expiratory-collapse",
+          "scope": "EMR",
+          "note": "Limited benefit, because the airway collapse here is structural rather than muscular. Most patients still have some reversible component worth treating, so expect partial improvement rather than none."
+        }
+      ],
+      "non_drug_interventions": [
+        {
+          "name": "Coach pursed-lip breathing",
+          "breaks_at": "expiratory-collapse",
+          "scope": "EMR",
+          "note": "In through the nose, out slowly through pursed lips. It creates back-pressure that splints collapsing airways open, and it is one of the few interventions here that directly addresses the mechanism."
+        },
+        {
+          "name": "Sit upright, leaning forward on braced arms",
+          "breaks_at": "hyperinflation",
+          "scope": "EMR",
+          "note": "Gives a flattened diaphragm the best mechanics available and fixes the shoulder girdle so accessory muscles can pull against a stable base."
+        },
+        {
+          "name": "Ventilate slowly with long expiratory times",
+          "breaks_at": "expiratory-collapse",
+          "scope": "EMR",
+          "note": "If assisting ventilation, give plenty of time to exhale. Bagging fast stacks breaths on trapped air, drops the blood pressure, and can rupture a bulla."
+        },
+        {
+          "name": "Establish their baseline",
+          "breaks_at": "gas-exchange-fails",
+          "scope": "EMR",
+          "note": "Ask their usual saturation, usual walking distance, home oxygen, and whether they have ever been ventilated. Treat the change from baseline, not the absolute number."
+        }
+      ],
+      "red_flags": [
+        "Sudden deterioration, which may be a ruptured bulla rather than an exacerbation",
+        "Unilateral reduced breath sounds",
+        "Drowsiness or confusion suggesting carbon dioxide narcosis",
+        "Falling respiratory effort in a patient who was working hard",
+        "Saturation well below their own stated baseline",
+        "Inability to complete a sentence"
+      ],
+      "differentiators": [
+        {
+          "vs": "Chronic bronchitis",
+          "how": "Two halves of COPD and most patients have both. Emphysema classically produces a thin, pink, breathless patient with little sputum. Chronic bronchitis produces a heavier, cyanotic patient with a chronic productive cough and earlier right heart failure."
+        },
+        {
+          "vs": "Asthma",
+          "how": "Asthma is episodic and reversible with full recovery in between. Emphysema is permanent structural destruction with a baseline the patient never returns from."
+        },
+        {
+          "vs": "Pneumothorax",
+          "how": "Emphysema patients get pneumothoraces easily. Sudden unilateral pain with reduced breath sounds on one side is a pneumothorax until proven otherwise."
+        }
+      ]
+    },
+    {
+      "id": "bronchiectasis",
+      "name": "Bronchiectasis",
+      "structures": ["bronchioles"],
+      "status": "built",
+      "one_liner": "Airways permanently widened and scarred by repeated infection, which then pool secretions and get infected again.",
+      "in_one_breath": "Infection damages the airway wall, the airway stretches and loses its cilia, so it can no longer clear itself. Secretions pool in the widened section, bacteria colonise them, and the resulting infection damages the wall further. It is a self-perpetuating loop.",
+      "cascade": [
+        {
+          "id": "initial-insult",
+          "label": "Something damages the airway wall",
+          "sub": "Infection, obstruction, or cystic fibrosis",
+          "severity": "warn",
+          "structure": "bronchioles",
+          "detail": "Severe childhood pneumonia, whooping cough, tuberculosis, an inhaled foreign body causing chronic obstruction, cystic fibrosis, or an immune deficiency. In cystic fibrosis, abnormally thick secretions cause the same cycle from the start."
+        },
+        {
+          "id": "wall-destruction",
+          "label": "The airway wall is destroyed and stretches",
+          "sub": "Permanently widened",
+          "severity": "crit",
+          "detail": "Inflammatory enzymes destroy the muscle and elastic tissue in the airway wall. Without them the airway dilates permanently, sometimes to several times its normal calibre. This is irreversible."
+        },
+        {
+          "id": "cilia-lost",
+          "label": "The clearance mechanism is destroyed",
+          "sub": "The escalator stops",
+          "severity": "crit",
+          "detail": "The ciliated cells that normally sweep mucus upward toward the pharynx are lost and replaced with scar and mucus-producing cells. The airway now produces more secretions and has no way to move them."
+        },
+        {
+          "id": "pooling",
+          "label": "Secretions pool in the widened airway",
+          "sub": "Large volumes of daily sputum",
+          "severity": "crit",
+          "detail": "Because the dilated section is wider than the airways below and above it, and gravity does not favour drainage, secretions collect. These patients typically produce large volumes of sputum daily, often worst in the morning after lying flat overnight."
+        },
+        {
+          "id": "colonisation",
+          "label": "Bacteria colonise the pooled secretions",
+          "sub": "The loop closes",
+          "severity": "crit",
+          "detail": "Stagnant warm mucus is an excellent culture medium. Chronic colonisation, often with Pseudomonas, drives continuous inflammation which destroys more airway wall, which widens it further, which pools more secretions. This is the vicious cycle that defines the disease."
+        },
+        {
+          "id": "obstruction",
+          "label": "Airflow is obstructed",
+          "sub": "Crackles, wheeze, breathlessness",
+          "severity": "crit",
+          "shared": "vq-mismatch",
+          "detail": "Mucus plugging and airway wall thickening obstruct flow. Coarse crackles are characteristic and often change or clear with coughing, which is a useful bedside distinction from the fine crackles of pulmonary edema."
+        },
+        {
+          "id": "hemoptysis",
+          "label": "Airway vessels can bleed",
+          "sub": "Sometimes massively",
+          "severity": "crit",
+          "detail": "Chronic inflammation causes enlarged, fragile bronchial arteries to grow into the airway wall. These are systemic pressure vessels, not pulmonary ones, so when they rupture the bleeding can be torrential. Massive hemoptysis in bronchiectasis is a genuine airway emergency: patients drown rather than exsanguinate."
+        },
+        {
+          "id": "exacerbation",
+          "label": "Acute infection tips the balance",
+          "sub": "The usual reason you're called",
+          "severity": "crit",
+          "shared": "hypoxia",
+          "detail": "Increased sputum volume, change in colour, fever, and worsening breathlessness. Because there is no reserve, an infection that a normal person would shrug off produces respiratory failure here."
+        }
+      ],
+      "interventions": [
+        {
+          "med": "oxygen",
+          "breaks_at": "exacerbation",
+          "scope": "EMR",
+          "note": "Titrate to target, and consider that some of these patients retain carbon dioxide like COPD patients do."
+        },
+        {
+          "med": "salbutamol",
+          "breaks_at": "obstruction",
+          "scope": "EMR",
+          "note": "Helps where there is a reversible bronchospastic component, which many of these patients have alongside the structural disease."
+        }
+      ],
+      "non_drug_interventions": [
+        {
+          "name": "Let them clear their own chest",
+          "breaks_at": "pooling",
+          "scope": "EMR",
+          "note": "These patients usually know exactly how to drain themselves and which positions work. Do not suppress the cough or rush them; it is their only clearance mechanism. Give them a bowl and time."
+        },
+        {
+          "name": "Sit upright, and let them position themselves",
+          "breaks_at": "pooling",
+          "scope": "EMR",
+          "note": "Lying flat lets secretions redistribute across the lung. Many patients have a specific position they use for drainage and it is worth asking."
+        },
+        {
+          "name": "Bleeding side down for hemoptysis",
+          "breaks_at": "hemoptysis",
+          "scope": "EMR",
+          "note": "If you know which side is bleeding, lying on that side keeps blood from flooding the healthy lung. Suction ready, high-flow oxygen, and treat massive hemoptysis as the airway emergency it is."
+        },
+        {
+          "name": "Ask about their usual organisms and antibiotics",
+          "breaks_at": "colonisation",
+          "scope": "EMR",
+          "note": "Many carry a rescue antibiotic pack and know what they are colonised with. That information is genuinely valuable to the receiving team."
+        }
+      ],
+      "red_flags": [
+        "Massive hemoptysis, which threatens the airway rather than the circulation",
+        "Sudden increase in sputum volume with fever",
+        "Saturation below their usual baseline",
+        "Confusion or drowsiness",
+        "Exhaustion from prolonged coughing",
+        "Chest pain with sudden breathlessness, suggesting pneumothorax"
+      ],
+      "differentiators": [
+        {
+          "vs": "COPD",
+          "how": "Bronchiectasis often starts younger, may have no smoking history, and produces much larger daily sputum volumes. Coarse crackles that clear with coughing favour bronchiectasis. The two frequently coexist."
+        },
+        {
+          "vs": "Pneumonia",
+          "how": "Pneumonia is an acute event in previously normal lung. Bronchiectasis is a chronic condition with a longstanding history of daily sputum, and these patients get recurrent pneumonias on top of it."
+        },
+        {
+          "vs": "Pulmonary edema",
+          "how": "Fine crackles that do not clear with coughing, frothy rather than purulent sputum, orthopnea, and a cardiac history."
+        }
+      ]
+    },
+    {
+      "id": "smoke-inhalation",
+      "name": "Smoke inhalation",
+      "structures": ["upper-airway", "alveoli", "blood"],
+      "status": "built",
+      "one_liner": "Three separate injuries arriving together: heat burning the airway, chemicals burning the lung, and gases poisoning the cells.",
+      "in_one_breath": "Smoke is not one problem. Hot gas swells the upper airway shut over hours, particles and chemicals inflame the alveoli, and carbon monoxide and cyanide stop the cells using oxygen at all. The patient can look completely well and still be in serious trouble.",
+      "cascade": [
+        {
+          "id": "exposure",
+          "label": "The patient breathes smoke",
+          "sub": "Enclosed space is the key risk",
+          "severity": "warn",
+          "detail": "Risk is enormously higher in an enclosed space, in a patient found unconscious, or where escape was delayed. Modern building contents are largely synthetic, so the smoke contains a far more toxic mix than wood smoke: cyanide from burning plastics, wool, and foam, alongside carbon monoxide from any incomplete combustion."
+        },
+        {
+          "id": "thermal-injury",
+          "label": "Heat burns the upper airway",
+          "sub": "Swelling develops over hours",
+          "severity": "crit",
+          "structure": "upper-airway",
+          "detail": "Hot gases deposit their heat in the upper airway, which is efficient at cooling inspired air, so thermal injury below the vocal cords is uncommon unless steam was involved. The upper airway swells progressively over the following hours. This is the single most important thing about smoke inhalation: the airway that is patent when you arrive may not be patent later."
+        },
+        {
+          "id": "chemical-injury",
+          "label": "Chemicals inflame the lower airways",
+          "sub": "Bronchospasm, then edema",
+          "severity": "crit",
+          "structure": "bronchioles",
+          "detail": "Particulate matter and irritant chemicals deposit throughout the airways, causing bronchospasm early and an inflammatory chemical burn that develops over hours. Surfactant is destroyed, alveoli collapse, and a non-cardiogenic pulmonary edema develops."
+        },
+        {
+          "id": "co-poisoning",
+          "label": "Carbon monoxide occupies the hemoglobin",
+          "sub": "Oximeter reads falsely normal",
+          "severity": "crit",
+          "structure": "blood",
+          "detail": "Carbon monoxide binds hemoglobin around 250 times more avidly than oxygen. It also shifts the dissociation curve so that whatever oxygen is bound is released less readily to tissue. A standard pulse oximeter cannot distinguish it and will read reassuringly high while the patient is severely hypoxic at tissue level."
+        },
+        {
+          "id": "cyanide",
+          "label": "Cyanide blocks oxygen use",
+          "sub": "Cells suffocate in oxygenated blood",
+          "severity": "crit",
+          "shared": "cells-cant-use-oxygen",
+          "detail": "Cyanide from burning synthetics disables cytochrome oxidase, the final step of the mitochondrial electron transport chain. Oxygen arrives at the cell in normal amounts and the cell cannot use it. Profound lactic acidosis and altered consciousness with normal-looking oxygenation is the signature."
+        },
+        {
+          "id": "hypoxia",
+          "label": "Tissue oxygen collapses",
+          "sub": "By three mechanisms at once",
+          "severity": "crit",
+          "shared": "hypoxia",
+          "detail": "Reduced carrying capacity from carbon monoxide, impaired utilisation from cyanide, and impaired gas exchange from lung injury, all simultaneously. The brain and heart, being the most oxygen-hungry organs, fail first."
+        },
+        {
+          "id": "airway-closure",
+          "label": "The upper airway closes",
+          "sub": "Hours after the fire",
+          "severity": "crit",
+          "shared": "airway-compromise",
+          "detail": "Progressive swelling in the loose tissue of the pharynx and larynx narrows the airway. Because flow falls with the fourth power of the radius, the transition from hoarse voice to complete obstruction can be rapid. Once it closes, basic manoeuvres will not open it."
+        }
+      ],
+      "interventions": [
+        {
+          "med": "oxygen",
+          "breaks_at": "co-poisoning",
+          "scope": "EMR",
+          "note": "High-flow, non-rebreather at 15 L/min, regardless of what the pulse oximeter says. The half-life of carboxyhemoglobin is around four hours on room air and roughly one hour on high-flow oxygen, so this is genuinely therapeutic rather than supportive. Do not titrate it down."
+        },
+        {
+          "med": "salbutamol",
+          "breaks_at": "chemical-injury",
+          "scope": "EMR",
+          "note": "For the bronchospastic component, which is common early. It does nothing for the chemical burn or the swelling."
+        }
+      ],
+      "non_drug_interventions": [
+        {
+          "name": "Assume the airway will get worse",
+          "breaks_at": "thermal-injury",
+          "scope": "EMR",
+          "note": "The defining principle. Soot around the mouth or nose, singed nasal hairs, hoarseness, stridor, facial burns, or a history of being trapped in an enclosed space all mean the airway is at risk even if it looks fine now. Escalate early rather than waiting for the swelling."
+        },
+        {
+          "name": "Do not trust the pulse oximeter",
+          "breaks_at": "co-poisoning",
+          "scope": "EMR",
+          "note": "A normal saturation in a smoke inhalation patient means nothing. Treat on clinical grounds and give high-flow oxygen regardless of the number."
+        },
+        {
+          "name": "Get them out and into fresh air",
+          "breaks_at": "exposure",
+          "scope": "EMR",
+          "note": "Removal from ongoing exposure is the first treatment, but only from a safe area with appropriate protection. Firefighters remove patients from fire scenes; you do not."
+        },
+        {
+          "name": "Transport everyone with a significant exposure",
+          "breaks_at": "airway-closure",
+          "scope": "EMR",
+          "note": "The dangerous features develop over hours. A patient who feels fine at the roadside can have a closing airway later. Anyone from an enclosed-space fire needs assessment even if asymptomatic."
+        },
+        {
+          "name": "Cyanide antidote",
+          "breaks_at": "cyanide",
+          "scope": "ACP",
+          "note": "Hydroxocobalamin binds cyanide and is carried by some services. Outside EMR scope, so flagging the enclosed-space fire and the altered consciousness early is what gets it to the patient."
+        },
+        {
+          "name": "Look for the other injuries",
+          "breaks_at": "exposure",
+          "scope": "EMR",
+          "note": "Fire patients also have burns, trauma from escaping or from collapse, and sometimes the medical event that caused the fire in the first place."
+        }
+      ],
+      "red_flags": [
+        "Enclosed space fire, or found unconscious",
+        "Soot in the mouth, nose, or sputum",
+        "Hoarse voice, stridor, or drooling",
+        "Singed facial or nasal hair, or facial burns",
+        "Altered consciousness with a normal-looking saturation",
+        "Headache, nausea, and confusion in multiple people from the same scene",
+        "Any respiratory symptom, however mild"
+      ],
+      "differentiators": [
+        {
+          "vs": "Isolated carbon monoxide poisoning",
+          "how": "From a faulty furnace or a generator indoors, with no fire and no airway injury. Same cellular problem, same falsely normal oximeter, but no burn risk. Multiple household members unwell together is the giveaway."
+        },
+        {
+          "vs": "Anaphylaxis",
+          "how": "Both cause airway swelling. Anaphylaxis has urticaria, hypotension, and an allergen exposure rather than a fire."
+        },
+        {
+          "vs": "Asthma",
+          "how": "Smoke can trigger a genuine asthma attack in a susceptible patient. The presence of soot, hoarseness, or an enclosed space changes the priority entirely."
+        }
+      ]
+    },
+    {
+      "id": "pleural-effusion",
+      "name": "Pleural effusion",
+      "structures": ["pleural-space"],
+      "status": "built",
+      "one_liner": "Fluid accumulates slowly in the pleural space, compressing the lung from outside.",
+      "in_one_breath": "The same mechanical problem as a hemothorax, arriving over weeks instead of minutes. Because it is slow, the pleural space stretches to accommodate it, and a patient can carry a litre or more while still walking around.",
+      "cascade": [
+        {
+          "id": "imbalance",
+          "label": "Fluid production outpaces drainage",
+          "sub": "Pressure, protein, or inflammation",
+          "severity": "warn",
+          "structure": "pleural-space",
+          "detail": "The pleural space normally holds a few millilitres, continuously produced and reabsorbed. Three things upset that: raised hydrostatic pressure from heart failure, low plasma protein from liver or kidney disease reducing the oncotic pull, or inflammation and malignancy increasing capillary leak and blocking lymphatic drainage."
+        },
+        {
+          "id": "accumulation",
+          "label": "Fluid accumulates slowly",
+          "sub": "Weeks, not minutes",
+          "severity": "warn",
+          "detail": "This is the critical difference from a hemothorax. Slow accumulation lets the pleural space and the chest wall gradually accommodate, so a patient can hold well over a litre with surprisingly modest symptoms. Rate matters far more than volume."
+        },
+        {
+          "id": "compression",
+          "label": "The lung is compressed from below",
+          "sub": "Dull to percussion, absent breath sounds",
+          "severity": "warn",
+          "detail": "Fluid is heavy and collects in the dependent part of the chest, compressing the lower lobe upward. Breath sounds are reduced or absent at the base with dullness to percussion, and often bronchial breathing just above the fluid level where compressed lung transmits sound."
+        },
+        {
+          "id": "volume-lost",
+          "label": "Functional lung volume falls",
+          "sub": "Breathless on exertion first",
+          "severity": "warn",
+          "shared": "increased-work-of-breathing",
+          "detail": "Less lung is available to ventilate and the chest is mechanically restricted. Symptoms typically appear on exertion long before they appear at rest, which is why these patients present late."
+        },
+        {
+          "id": "shunt",
+          "label": "Compressed lung is perfused but not ventilated",
+          "sub": "Mild hypoxia",
+          "severity": "warn",
+          "shared": "vq-mismatch",
+          "detail": "Blood flows past compressed lung and returns unoxygenated. Hypoxic pulmonary vasoconstriction reduces this over time, which is why hypoxia is often milder than the size of the effusion suggests."
+        },
+        {
+          "id": "large-effusion",
+          "label": "A very large effusion shifts the mediastinum",
+          "sub": "Rare, but it happens",
+          "severity": "crit",
+          "detail": "A massive effusion can push the mediastinum toward the other side and impede venous return, producing a picture resembling a tension pneumothorax. This is uncommon but is a genuine emergency when it occurs."
+        }
+      ],
+      "interventions": [
+        {
+          "med": "oxygen",
+          "breaks_at": "shunt",
+          "scope": "EMR",
+          "note": "Titrate to target. The response is usually good, because this is compression rather than a true fixed shunt."
+        }
+      ],
+      "non_drug_interventions": [
+        {
+          "name": "Sit upright",
+          "breaks_at": "volume-lost",
+          "scope": "EMR",
+          "note": "Lets the fluid settle to the base and gives the remaining lung the best chance to expand. Many of these patients cannot lie flat at all."
+        },
+        {
+          "name": "Look for the underlying cause",
+          "breaks_at": "imbalance",
+          "scope": "EMR",
+          "note": "Heart failure, liver disease, kidney failure, cancer, pneumonia, or a pulmonary embolism. The effusion is a symptom, and identifying the cause changes everything the hospital does next."
+        },
+        {
+          "name": "Drainage",
+          "breaks_at": "compression",
+          "scope": "ACP",
+          "note": "Definitive treatment is drainage in hospital. Outside prehospital scope, and rarely urgent unless the effusion is massive."
+        },
+        {
+          "name": "Treat sudden change as something else",
+          "breaks_at": "large-effusion",
+          "scope": "EMR",
+          "note": "Effusions build over weeks. A patient with a known effusion who deteriorates suddenly has developed something new, most likely a pneumothorax, an infection, or a pulmonary embolism."
+        }
+      ],
+      "red_flags": [
+        "Sudden deterioration in a known effusion, which means a new problem",
+        "Fever, suggesting infected fluid",
+        "Hypotension with distended neck veins, suggesting a massive effusion compressing the mediastinum",
+        "Inability to lie flat at all",
+        "Chest pain with sudden breathlessness"
+      ],
+      "differentiators": [
+        {
+          "vs": "Hemothorax",
+          "how": "Identical mechanics, entirely different timescale and urgency. Hemothorax follows trauma, develops in minutes, and causes hemorrhagic shock. Effusion develops over weeks with no bleeding."
+        },
+        {
+          "vs": "Pneumothorax",
+          "how": "Air is hyperresonant to percussion and collects at the apex. Fluid is dull and collects at the base."
+        },
+        {
+          "vs": "Consolidation from pneumonia",
+          "how": "Both give dullness and reduced breath sounds. Pneumonia has fever, crackles, and bronchial breathing throughout rather than only at the upper margin."
+        }
+      ]
+    },
+    {
+      "id": "pulmonary-hypertension",
+      "name": "Pulmonary hypertension",
+      "structures": ["pulmonary-vessels"],
+      "status": "built",
+      "one_liner": "Chronically raised pressure in the pulmonary circulation, which eventually destroys the right ventricle.",
+      "in_one_breath": "The right ventricle was built as a low-pressure pump because the lungs are a low-resistance circuit. Raise that resistance permanently and the right ventricle thickens, dilates, and eventually fails. The lungs cause the problem; the heart is what actually gives out.",
+      "cascade": [
+        {
+          "id": "raised-resistance",
+          "label": "Pulmonary vascular resistance rises",
+          "sub": "Lung disease, clots, or the vessels themselves",
+          "severity": "warn",
+          "structure": "pulmonary-vessels",
+          "detail": "Several routes. Chronic lung disease such as COPD or fibrosis causes sustained hypoxic pulmonary vasoconstriction. Repeated pulmonary emboli obstruct the circuit permanently. Left heart failure raises pressure backward. Or the pulmonary arteries themselves thicken and narrow in idiopathic pulmonary arterial hypertension."
+        },
+        {
+          "id": "vessel-remodelling",
+          "label": "The vessels thicken and stiffen",
+          "sub": "Progressive and largely irreversible",
+          "severity": "crit",
+          "detail": "Chronically constricted pulmonary arterioles remodel: the muscle layer thickens and the lumen narrows permanently. What began as a reversible response to hypoxia becomes fixed structural disease, which is why treating the hypoxia late does not undo it."
+        },
+        {
+          "id": "rv-afterload",
+          "label": "The right ventricle works against high pressure",
+          "sub": "It was never designed for this",
+          "severity": "crit",
+          "structure": "myocardium",
+          "detail": "The right ventricle normally pumps against about a fifth of systemic pressure and has a thin wall to match. Faced with sustained high resistance it hypertrophies, which raises its own oxygen demand while its coronary supply stays the same."
+        },
+        {
+          "id": "rv-failure",
+          "label": "The right ventricle dilates and fails",
+          "sub": "Cor pulmonale",
+          "severity": "crit",
+          "shared": "pump-failure",
+          "detail": "Eventually the hypertrophied ventricle cannot keep up, dilates, and its tricuspid valve begins to leak, which makes it less efficient still. Output through the lungs falls."
+        },
+        {
+          "id": "systemic-backup",
+          "label": "Blood backs up into the body",
+          "sub": "Neck veins, liver, legs",
+          "severity": "crit",
+          "shared": "systemic-congestion",
+          "detail": "Venous pressure rises throughout the systemic circulation. Distended neck veins, an enlarged tender liver, abdominal distension, and swollen legs. The lungs themselves often sound clear, which surprises people expecting crackles."
+        },
+        {
+          "id": "output-falls",
+          "label": "Left-sided filling falls",
+          "sub": "Preload dependent, and fragile",
+          "severity": "crit",
+          "detail": "Less blood crosses the lungs, so less reaches the left heart. Cardiac output falls despite a healthy left ventricle. These patients become extremely preload dependent, and exertional syncope is a characteristic and ominous symptom."
+        },
+        {
+          "id": "decompensation",
+          "label": "Small insults cause collapse",
+          "sub": "No reserve at all",
+          "severity": "crit",
+          "shared": "hypoperfusion",
+          "detail": "A chest infection, dehydration, an arrhythmia, or a small pulmonary embolism can tip these patients into profound shock, because the right ventricle has nothing left to give. Once right heart failure decompensates, it is very difficult to reverse."
+        }
+      ],
+      "interventions": [
+        {
+          "med": "oxygen",
+          "breaks_at": "raised-resistance",
+          "scope": "EMR",
+          "note": "Genuinely therapeutic rather than just supportive. Hypoxia is a potent pulmonary vasoconstrictor, so correcting it lowers pulmonary artery pressure directly and reduces the load on the right ventricle."
+        }
+      ],
+      "non_drug_interventions": [
+        {
+          "name": "Handle them gently and avoid exertion",
+          "breaks_at": "output-falls",
+          "scope": "EMR",
+          "note": "Exertional syncope in these patients means the right ventricle cannot increase output on demand. Carry them, do not let them walk, and be aware they can arrest with sudden exertion or straining."
+        },
+        {
+          "name": "Do not drop the preload",
+          "breaks_at": "output-falls",
+          "scope": "EMR",
+          "note": "A failing right ventricle needs a high filling pressure to produce any output. Nitroglycerin, sitting them upright when hypotensive, and aggressive positive pressure ventilation can all cause abrupt collapse."
+        },
+        {
+          "name": "Ventilate carefully if you must",
+          "breaks_at": "rv-afterload",
+          "scope": "EMR",
+          "note": "Positive pressure raises intrathoracic pressure, which both reduces venous return and increases pulmonary vascular resistance. Both are bad here. Use the lowest pressures that achieve chest rise."
+        },
+        {
+          "name": "Ask about their treatment",
+          "breaks_at": "vessel-remodelling",
+          "scope": "EMR",
+          "note": "Many are on specialist pulmonary vasodilators, sometimes by continuous infusion through an indwelling line. Interrupting that infusion is a genuine emergency, and these patients usually know it better than you do. Listen to them."
+        }
+      ],
+      "red_flags": [
+        "Syncope on exertion, which indicates severe disease",
+        "Hypotension, which in these patients is very difficult to reverse",
+        "Chest pain, which may be right ventricular ischemia",
+        "Any interruption to a continuous prostacyclin infusion",
+        "Rapidly worsening leg swelling or abdominal distension",
+        "New arrhythmia"
+      ],
+      "differentiators": [
+        {
+          "vs": "Left heart failure",
+          "how": "Left-sided failure gives crackles and pulmonary edema. Pulmonary hypertension with right heart failure gives distended neck veins, liver congestion, and leg swelling with often clear lungs."
+        },
+        {
+          "vs": "Pulmonary embolism",
+          "how": "PE is sudden and can occur on a background of chronic pulmonary hypertension. Sudden deterioration in a known pulmonary hypertension patient should raise it."
+        },
+        {
+          "vs": "COPD",
+          "how": "COPD commonly causes pulmonary hypertension, so they coexist. Prominent right heart failure signs in a COPD patient means cor pulmonale has developed."
+        }
+      ]
+    },
+    {
+      "id": "rib-fractures",
+      "name": "Rib fractures",
+      "structures": ["chest-wall"],
+      "status": "built",
+      "one_liner": "Pain that stops the patient breathing deeply, which is far more dangerous than the broken bone itself.",
+      "in_one_breath": "The fracture heals on its own. What harms the patient is that breathing hurts, so they breathe shallowly and stop coughing, secretions accumulate, small airways collapse, and pneumonia follows. In an older patient this chain is genuinely lethal.",
+      "cascade": [
+        {
+          "id": "fracture",
+          "label": "One or more ribs break",
+          "sub": "Blunt force, or minor trauma if elderly",
+          "severity": "warn",
+          "structure": "chest-wall",
+          "detail": "Substantial force in a young person, but often trivial force in an older adult with osteoporotic bone. Ribs one to three take enormous energy to break and imply major trauma; ribs nine to twelve overlie the liver, spleen, and kidneys, so fractures there raise the question of abdominal injury."
+        },
+        {
+          "id": "pain",
+          "label": "Movement of the chest hurts",
+          "sub": "Worst on inspiration and coughing",
+          "severity": "crit",
+          "detail": "The fracture ends move against each other and against the pleura with every breath. This is severe, sharp, and reliably reproduced by exactly the movements the patient most needs to make."
+        },
+        {
+          "id": "splinting",
+          "label": "The patient breathes shallowly",
+          "sub": "And stops coughing",
+          "severity": "crit",
+          "detail": "Voluntary and involuntary splinting reduces tidal volume, and the patient suppresses the cough because it is agonising. This is the pivot point of the whole condition: everything downstream follows from a patient who will not take a deep breath."
+        },
+        {
+          "id": "atelectasis",
+          "label": "Small airways collapse",
+          "sub": "No deep breaths to reopen them",
+          "severity": "crit",
+          "detail": "Alveoli and small airways collapse during normal shallow breathing and are normally reopened by periodic deep breaths and sighs. Without them, regions of lung stay collapsed, which is atelectasis."
+        },
+        {
+          "id": "secretion-retention",
+          "label": "Secretions accumulate",
+          "sub": "The cough was the clearance mechanism",
+          "severity": "crit",
+          "detail": "A suppressed cough means mucus is not cleared. It pools in dependent and collapsed regions and provides an excellent culture medium."
+        },
+        {
+          "id": "shunt",
+          "label": "Collapsed lung is perfused but not ventilated",
+          "sub": "Progressive hypoxia",
+          "severity": "crit",
+          "shared": "vq-mismatch",
+          "detail": "Blood flows past collapsed regions and returns unoxygenated. Hypoxia develops gradually over hours to days rather than immediately, which is why these patients are often discharged and then deteriorate."
+        },
+        {
+          "id": "pneumonia",
+          "label": "Pneumonia develops",
+          "sub": "The actual cause of death",
+          "severity": "crit",
+          "detail": "Retained secretions in collapsed lung become infected. In patients over 65, multiple rib fractures carry a mortality that is far higher than most people expect, and the mechanism is almost always this one. Each additional fractured rib in an older adult measurably increases mortality."
+        },
+        {
+          "id": "underlying-injury",
+          "label": "Something underneath may be injured",
+          "sub": "Lung, liver, spleen, vessels",
+          "severity": "crit",
+          "detail": "The force that broke the rib went somewhere. Pneumothorax, hemothorax, pulmonary contusion, and injury to liver, spleen, or kidney all travel with rib fractures, and any of them may matter more than the fracture."
+        }
+      ],
+      "interventions": [
+        {
+          "med": "oxygen",
+          "breaks_at": "shunt",
+          "scope": "EMR",
+          "note": "Titrate to target. Reassess repeatedly, because the hypoxia here is progressive rather than immediate."
+        }
+      ],
+      "non_drug_interventions": [
+        {
+          "name": "Analgesia is a respiratory intervention",
+          "breaks_at": "pain",
+          "scope": "PCP",
+          "note": "The single most important treatment, and it is not about comfort. A patient with adequate pain control breathes deeply and coughs, which prevents the entire downstream cascade. Undertreated rib fracture pain in an older adult is a genuine cause of death."
+        },
+        {
+          "name": "Never strap or bind the chest",
+          "breaks_at": "splinting",
+          "scope": "EMR",
+          "note": "Old teaching that has been abandoned for good reason. Binding restricts ventilation of the whole side and directly causes the collapse and pneumonia you are trying to avoid."
+        },
+        {
+          "name": "Encourage deep breathing and coughing",
+          "breaks_at": "atelectasis",
+          "scope": "EMR",
+          "note": "Counterintuitive when it hurts, but it is the treatment. A pillow hugged against the chest wall lets patients splint the fracture with their own hands while still taking a deep breath."
+        },
+        {
+          "name": "Position of comfort, usually upright",
+          "breaks_at": "splinting",
+          "scope": "EMR",
+          "note": "Improves mechanics and drainage. Some patients prefer lying on the injured side to splint it, which is acceptable if it lets them breathe more deeply overall."
+        },
+        {
+          "name": "Look hard for what else is injured",
+          "breaks_at": "underlying-injury",
+          "scope": "EMR",
+          "note": "Check breath sounds bilaterally, palpate the abdomen, and reassess. Lower rib fractures with abdominal tenderness means solid organ injury until proven otherwise."
+        },
+        {
+          "name": "Take elderly rib fractures seriously",
+          "breaks_at": "pneumonia",
+          "scope": "EMR",
+          "note": "An older adult with two or three fractured ribs from a standing fall is not a minor injury. They need assessment, analgesia, and often admission, and they are frequently undertriaged."
+        }
+      ],
+      "red_flags": [
+        "Age over 65 with multiple fractures",
+        "Any pre-existing lung disease",
+        "Falling saturation, which may develop over hours",
+        "Reduced or absent breath sounds on one side",
+        "Abdominal tenderness with lower rib fractures",
+        "Fractures of the first three ribs, indicating major force",
+        "Paradoxical chest movement, which is flail chest",
+        "A patient who cannot take a deep breath at all"
+      ],
+      "differentiators": [
+        {
+          "vs": "Flail chest",
+          "how": "Flail chest has a segment moving paradoxically, requiring at least three adjacent ribs broken in two places each. Simple fractures hurt just as much but do not disrupt the mechanics of the chest wall."
+        },
+        {
+          "vs": "Pneumothorax",
+          "how": "Fractured ribs cause pneumothoraces. Unilateral reduced breath sounds with hyperresonance means the fracture has punctured the lung."
+        },
+        {
+          "vs": "Musculoskeletal chest wall pain",
+          "how": "Both are reproducible on palpation. In practice they are managed similarly in the field, and the distinction is made on imaging."
+        }
+      ]
+    },
+    {
+      "id": "neuromuscular-failure",
+      "name": "Neuromuscular respiratory failure",
+      "structures": ["chest-wall", "peripheral-nerves"],
+      "status": "built",
+      "one_liner": "The lungs are perfect and the nerves or muscles that move them are not.",
+      "in_one_breath": "Breathing is a muscular act driven by nerves. Damage the nerve, the junction, or the muscle and ventilation fails with completely healthy lungs. These patients look deceptively calm right up until they stop breathing.",
+      "cascade": [
+        {
+          "id": "lesion",
+          "label": "Nerve or muscle function is lost",
+          "sub": "Cord, nerve, junction, or muscle",
+          "severity": "warn",
+          "structure": "peripheral-nerves",
+          "detail": "Anywhere along the chain can fail. High spinal cord injury cuts the phrenic nerve supply. Guillain-Barré syndrome attacks peripheral nerves in an ascending pattern. Myasthenia gravis blocks the neuromuscular junction. Organophosphates and nerve agents flood the junction. Muscular dystrophy and ALS destroy the muscle or its motor neurons. Botulism blocks acetylcholine release."
+        },
+        {
+          "id": "weak-signal",
+          "label": "The signal to the muscle weakens",
+          "sub": "Or never arrives",
+          "severity": "crit",
+          "detail": "The brainstem is issuing a perfectly normal command to breathe. It simply is not reaching the diaphragm and intercostals with enough strength to move air. This is why these patients feel breathless and cannot do anything about it."
+        },
+        {
+          "id": "tidal-volume-falls",
+          "label": "Tidal volume falls",
+          "sub": "Rate rises to compensate",
+          "severity": "crit",
+          "structure": "chest-wall",
+          "detail": "Weak muscles move less air per breath. The patient compensates by breathing faster, which works for a while. A rising respiratory rate with shallow breaths in a neuromuscular patient is a warning, not reassurance."
+        },
+        {
+          "id": "cough-fails",
+          "label": "The cough becomes ineffective",
+          "sub": "An early and reliable sign",
+          "severity": "crit",
+          "detail": "Coughing requires a deep breath, a closed glottis, and a forceful abdominal and intercostal contraction. It fails before ventilation does. Ask the patient to cough: a weak, breathy cough is one of the earliest and most useful bedside indicators of impending failure."
+        },
+        {
+          "id": "secretion-retention",
+          "label": "Secretions accumulate and lung collapses",
+          "sub": "Atelectasis, then pneumonia",
+          "severity": "crit",
+          "detail": "Without an effective cough or deep breaths, mucus pools and small airways collapse. Aspiration is also common, because the same weakness usually affects swallowing."
+        },
+        {
+          "id": "hypoventilation",
+          "label": "Alveolar ventilation becomes inadequate",
+          "sub": "CO2 rises before oxygen falls",
+          "severity": "crit",
+          "shared": "hypercapnia",
+          "detail": "This is the crucial physiological point. In a ventilation problem with healthy lungs, carbon dioxide rises early. Oxygen saturation often stays near normal until very late, especially on supplemental oxygen. A normal saturation in a tiring neuromuscular patient is meaningless."
+        },
+        {
+          "id": "fatigue",
+          "label": "The remaining muscles fatigue",
+          "sub": "Then fail suddenly",
+          "severity": "crit",
+          "shared": "respiratory-fatigue",
+          "detail": "Weakened muscles working at maximum capacity for hours fail, and they fail abruptly. There is often very little warning between a patient who is coping and a patient who is apneic."
+        },
+        {
+          "id": "arrest",
+          "label": "Ventilation stops",
+          "sub": "Respiratory arrest with a pulse",
+          "severity": "crit",
+          "shared": "respiratory-arrest",
+          "detail": "Breathing ceases while circulation continues. These patients are entirely salvageable with assisted ventilation and often make a full recovery, because the underlying problem is frequently treatable."
+        }
+      ],
+      "interventions": [
+        {
+          "med": "oxygen",
+          "breaks_at": "hypoventilation",
+          "scope": "EMR",
+          "note": "Use it, but understand its limitation clearly. Oxygen corrects the saturation and masks the real problem, which is carbon dioxide retention. A patient with a normal saturation on oxygen can still be in severe ventilatory failure. Never use the saturation to decide these patients are stable."
+        },
+        {
+          "med": "naloxone",
+          "breaks_at": "weak-signal",
+          "scope": "EMR",
+          "note": "Only relevant if opioids are contributing, which they sometimes are in a patient with chronic weakness who has been given analgesia or sedation."
+        }
+      ],
+      "non_drug_interventions": [
+        {
+          "name": "Assist ventilation early",
+          "breaks_at": "fatigue",
+          "scope": "EMR",
+          "note": "The whole management. Do not wait for the saturation to fall or for apnea, because by then you have missed the window. If the patient is tiring, has a weak cough, or cannot count far in one breath, start supporting them."
+        },
+        {
+          "name": "Test the cough and the breath count",
+          "breaks_at": "cough-fails",
+          "scope": "EMR",
+          "note": "Ask them to cough and ask them to count out loud on one breath. A weak breathy cough, or being able to count only to ten or fifteen, indicates significant loss of vital capacity. These take seconds and are far more useful than the pulse oximeter here."
+        },
+        {
+          "name": "Sit them upright unless the cord is injured",
+          "breaks_at": "tidal-volume-falls",
+          "scope": "EMR",
+          "note": "Upright gives weak muscles the best mechanical advantage and keeps abdominal contents off the diaphragm. The exception is a diaphragm-dependent spinal patient, some of whom breathe better supine because the abdominal contents push the diaphragm into a better resting position."
+        },
+        {
+          "name": "Watch for aspiration",
+          "breaks_at": "secretion-retention",
+          "scope": "EMR",
+          "note": "Swallowing weakness usually accompanies respiratory weakness. Suction available, nothing by mouth, and be alert for a gurgling airway."
+        },
+        {
+          "name": "Ask the patient and their family",
+          "breaks_at": "lesion",
+          "scope": "EMR",
+          "note": "These patients often have years of experience with their own condition and know exactly what their deterioration looks like. Many use home ventilation. Their assessment of whether this is worse than usual is more reliable than any number you can measure."
+        }
+      ],
+      "red_flags": [
+        "Weak or absent cough",
+        "Unable to count past about fifteen in one breath",
+        "Rising respiratory rate with shallow breaths",
+        "Difficulty swallowing or a wet-sounding voice",
+        "Any use of accessory muscles in a weak patient",
+        "Ascending weakness reaching the trunk",
+        "A normal saturation in a patient who is clearly tiring, which is a trap rather than reassurance",
+        "Inability to lift the head off the pillow, which correlates closely with diaphragm weakness"
+      ],
+      "differentiators": [
+        {
+          "vs": "Primary lung disease",
+          "how": "Neuromuscular failure has clear lungs, normal breath sounds, and no wheeze or crackles. The problem is entirely mechanical, and oxygen fixes the number while doing nothing for the ventilation."
+        },
+        {
+          "vs": "Opioid overdose",
+          "how": "Also a ventilation problem with healthy lungs, but with reduced consciousness and pinpoint pupils. Neuromuscular patients are usually fully alert and frightened, which is a distressing thing to witness."
+        },
+        {
+          "vs": "Anxiety or hyperventilation",
+          "how": "A dangerous misattribution. These patients are alert, anxious, and breathing fast, which is easy to dismiss. The weak cough, the inability to count, and the difficulty swallowing separate them."
+        },
+        {
+          "vs": "Cholinergic poisoning",
+          "how": "Organophosphates and nerve agents cause weakness alongside massive secretions, tiny pupils, salivation, and diarrhea. The secretions themselves are a major part of the airway problem."
+        }
+      ]
+    }
+  ]
+}

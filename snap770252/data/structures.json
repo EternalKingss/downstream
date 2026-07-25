@@ -1,0 +1,182 @@
+{
+  "systems": [
+    {
+      "id": "respiratory",
+      "name": "Respiratory system",
+      "job": "Move air in, get oxygen into blood, get carbon dioxide out.",
+      "status": "built"
+    },
+    {
+      "id": "circulatory",
+      "name": "Circulatory system",
+      "job": "Move oxygenated blood to tissue and bring it back.",
+      "status": "built"
+    },
+    {
+      "id": "nervous",
+      "name": "Nervous system",
+      "job": "Sense, decide, and drive everything else.",
+      "status": "built"
+    },
+    {
+      "id": "metabolic",
+      "name": "Endocrine and metabolic",
+      "job": "Keep fuel, fluid, and chemistry inside survivable limits.",
+      "status": "built"
+    },
+    {
+      "id": "abdominal",
+      "name": "Abdomen and digestion",
+      "job": "Process food, filter blood, and hold organs that bleed heavily.",
+      "status": "built"
+    },
+    {
+      "id": "musculoskeletal",
+      "name": "Musculoskeletal system",
+      "job": "Structure, protection, movement.",
+      "status": "built"
+    },
+    {
+      "id": "integumentary",
+      "name": "Skin and temperature",
+      "job": "Barrier, thermoregulation, fluid containment.",
+      "status": "built"
+    },
+    {
+      "id": "obstetric",
+      "name": "Pregnancy and childbirth",
+      "job": "Two patients, one of whom you cannot assess directly.",
+      "status": "built"
+    }
+  ],
+  "structures": [
+    {
+      "id": "upper-airway",
+      "name": "Upper airway",
+      "system": "respiratory",
+      "parent": null,
+      "failure_mode": "Air can't get past the entrance",
+      "what_it_is": "Everything from the nose and mouth down to the vocal cords: nasal passages, oropharynx, the epiglottis, and the larynx. It is a shared tube. Food and air both travel through the pharynx, and only the epiglottis keeps them going to the right places.",
+      "normal_function": [
+        "Warms, humidifies, and filters incoming air before it reaches the lungs.",
+        "The epiglottis folds back over the larynx during swallowing so food goes to the esophagus, not the trachea.",
+        "The vocal cords sit at the narrowest point of the adult airway. In children under about eight, the narrowest point is lower, at the cricoid ring.",
+        "Muscle tone holds the tongue forward and off the posterior pharyngeal wall."
+      ],
+      "why_it_matters": "The upper airway is the single most common place a prehospital patient dies, and almost always for a boring reason. An unconscious patient loses the muscle tone that holds the tongue forward, the tongue falls back against the pharyngeal wall, and the airway closes. No drug fixes that. A head-tilt chin-lift does.",
+      "field_relevance": [
+        "It is soft tissue. It swells, and swelling in a tube reduces flow to the fourth power of the radius. Halve the radius and you have cut flow to a sixteenth.",
+        "In small children the airway is proportionally narrower, so the same millimetre of swelling is catastrophic where an adult would barely notice."
+      ]
+    },
+    {
+      "id": "trachea-bronchi",
+      "name": "Trachea and main bronchi",
+      "system": "respiratory",
+      "parent": null,
+      "failure_mode": "The main pipe is blocked or displaced",
+      "what_it_is": "The trachea runs from the cricoid cartilage down to the carina, where it splits into the right and left main bronchi. It is held permanently open by C-shaped cartilage rings, with the open side of the C facing backwards against the esophagus.",
+      "normal_function": [
+        "Conducts air. No gas exchange happens here at all.",
+        "Ciliated cells sweep a mucus layer upward toward the pharynx, carrying trapped debris out.",
+        "Sits midline in the neck, which makes it a useful physical landmark."
+      ],
+      "why_it_matters": "The right main bronchus branches at a shallower angle than the left, so aspirated material and over-inserted tubes both tend to go right. Because the trachea is normally midline and mobile, it is also a pressure gauge for the chest: anything that builds enough pressure in one hemithorax will push it toward the other side.",
+      "field_relevance": [
+        "Tracheal deviation is a late and often absent sign of tension pneumothorax. Do not wait for it.",
+        "The cartilage rings mean this section cannot collapse from bronchospasm the way smaller airways can."
+      ]
+    },
+    {
+      "id": "bronchioles",
+      "name": "Bronchioles",
+      "system": "respiratory",
+      "parent": null,
+      "failure_mode": "Air can't flow through",
+      "what_it_is": "The small airways beyond the segmental bronchi, roughly one millimetre across and smaller. Critically, they have no cartilage. Their walls are smooth muscle wrapped around a mucosa, and their diameter is actively controlled.",
+      "normal_function": [
+        "Smooth muscle tone sets airway calibre. Sympathetic stimulation of beta-2 receptors relaxes the muscle and widens the airway; parasympathetic stimulation narrows it.",
+        "Because there is no cartilage, bronchioles are held open partly by the outward pull of surrounding lung tissue rather than by their own structure.",
+        "That outward pull is strongest when the lung is inflated, which is why airways are wider on inspiration and narrower on expiration."
+      ],
+      "why_it_matters": "This is where obstructive lung disease lives. Three things can narrow a bronchiole and they usually happen together: the muscle constricts, the lining swells, and mucus fills the lumen. A bronchodilator only reverses the first one, which is exactly why a severe asthmatic can look barely improved after salbutamol.",
+      "field_relevance": [
+        "Because airways are narrower on expiration, obstruction always hits exhalation first. That is why asthma produces a prolonged expiratory phase and expiratory wheeze.",
+        "Poiseuille's law applies here with brutal force. Airway resistance rises with the fourth power of the radius, so a small amount of narrowing produces a very large amount of work."
+      ]
+    },
+    {
+      "id": "alveoli",
+      "name": "Alveoli",
+      "system": "respiratory",
+      "parent": null,
+      "failure_mode": "Gas can't cross the membrane",
+      "what_it_is": "Roughly 300 million thin-walled sacs at the end of the airway tree, each wrapped in a capillary net. The barrier between air and blood is about half a micron thick, thinner than a red blood cell is wide.",
+      "normal_function": [
+        "Oxygen and carbon dioxide cross the alveolar-capillary membrane by simple diffusion, driven only by the pressure difference across it.",
+        "Type II cells produce surfactant, which lowers surface tension and stops the sacs collapsing on themselves at the end of expiration.",
+        "The total surface area is around 70 square metres, roughly the floor of a small apartment, folded into your chest."
+      ],
+      "why_it_matters": "Diffusion has no pump behind it. It depends on three things and nothing else: the pressure gradient, the thickness of the barrier, and the surface area available. Every alveolar disease attacks one of those three. Pulmonary edema thickens the barrier. Pneumonia floods and thickens it. Emphysema destroys the surface area. Altitude drops the gradient. Understanding which one you are dealing with tells you whether oxygen will help much.",
+      "field_relevance": [
+        "Carbon dioxide diffuses roughly twenty times more readily than oxygen. In early alveolar disease you see hypoxia first, and CO2 stays normal or even low because the patient is breathing fast. Rising CO2 is a late and ominous sign.",
+        "Supplemental oxygen works by raising the gradient. It does nothing for a thickened membrane or destroyed surface area except push harder against the same obstacle."
+      ]
+    },
+    {
+      "id": "pleural-space",
+      "name": "Pleural space",
+      "system": "respiratory",
+      "parent": null,
+      "failure_mode": "Lung can't expand",
+      "what_it_is": "Not really a space. It is a sealed potential space between two membranes: the visceral pleura stuck to the lung surface and the parietal pleura lining the inside of the chest wall. Between them sits a few millilitres of lubricating fluid and nothing else.",
+      "normal_function": [
+        "The pressure inside is negative, roughly minus five centimetres of water at rest, dropping further on inspiration.",
+        "That negative pressure is the only thing holding the lung against the chest wall. The lung has no attachment of its own and is elastic, so left to itself it would recoil into a small lump near the hilum.",
+        "The thin fluid layer lets the two surfaces slide over each other with almost no friction through every breath."
+      ],
+      "why_it_matters": "The entire respiratory system runs on a vacuum seal. Break the seal and the mechanics fail immediately, no matter how healthy the lung tissue is. This is why every condition in this group looks similar: the lung is fine, it simply cannot inflate. What differs between them is only what got into the space, and how fast.",
+      "field_relevance": [
+        "Air, blood, and fluid all do the same mechanical thing here. What separates pneumothorax, hemothorax, and effusion is the rate of onset and whether the patient is also losing circulating volume.",
+        "A one-way valve leak turns a survivable pneumothorax into a tension pneumothorax, because now pressure keeps climbing with every breath and starts squeezing the heart and great vessels too."
+      ]
+    },
+    {
+      "id": "pulmonary-vessels",
+      "name": "Pulmonary vessels",
+      "system": "respiratory",
+      "parent": null,
+      "failure_mode": "Blood isn't there to pick it up",
+      "what_it_is": "The pulmonary arteries carry deoxygenated blood from the right ventricle to the capillary beds around the alveoli, and the pulmonary veins return oxygenated blood to the left atrium. This is the only place in the body where arteries carry deoxygenated blood.",
+      "normal_function": [
+        "A low-pressure, high-compliance circuit. Pulmonary artery pressure runs around 25/10, a fraction of systemic pressure.",
+        "The whole cardiac output passes through it every minute. There is no parallel path.",
+        "Hypoxic pulmonary vasoconstriction diverts blood away from poorly ventilated regions, matching perfusion to ventilation automatically."
+      ],
+      "why_it_matters": "Ventilation without perfusion is useless. You can move perfect air into a perfect alveolus and achieve nothing if no blood arrives to collect the oxygen. This is why a pulmonary embolism produces profound hypoxia with a clear chest, normal breath sounds, and a patient who looks far sicker than their exam suggests.",
+      "field_relevance": [
+        "A PE patient often has an unremarkable respiratory exam. Sudden onset dyspnea with clear lungs and no obvious cause should raise this immediately.",
+        "Because the entire cardiac output goes through here, a large enough embolus obstructs right ventricular outflow and kills through cardiovascular collapse rather than through hypoxia."
+      ]
+    },
+    {
+      "id": "chest-wall",
+      "name": "Chest wall and diaphragm",
+      "system": "respiratory",
+      "parent": null,
+      "failure_mode": "Nothing is driving the pump",
+      "what_it_is": "The ribs, intercostal muscles, and the diaphragm, plus the nerves that drive them. The diaphragm does most of the work of quiet breathing and is supplied by the phrenic nerve, which arises from cervical roots three, four, and five.",
+      "normal_function": [
+        "Inspiration is active. The diaphragm contracts and flattens, the ribs swing up and out, thoracic volume increases, and pressure inside drops below atmospheric so air flows in.",
+        "Expiration at rest is passive. The lung and chest wall simply recoil.",
+        "Accessory muscles in the neck and abdomen are recruited only when demand is high."
+      ],
+      "why_it_matters": "Air does not get sucked in by the lungs. It gets pushed in by atmospheric pressure because the chest made a vacuum. Anything that stops the chest making that vacuum stops ventilation, no matter how healthy the lungs are. That includes a broken segment of ribs, a paralysed diaphragm, a depressed brainstem, or a patient too exhausted to keep going.",
+      "field_relevance": [
+        "C3, 4, and 5 keep the diaphragm alive. A cervical spine injury above that level takes out spontaneous breathing entirely.",
+        "Opioids do not damage the lungs at all. They suppress the brainstem drive to breathe, which is a chest wall and bellows problem, and it is completely reversible with naloxone.",
+        "Accessory muscle use is not a diagnosis, it is a fuel gauge. Those muscles fatigue, and when they fail the patient stops compensating very suddenly."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,587 @@
+{
+  "conditions": [
+    {
+      "id": "thermal-burns",
+      "name": "Thermal burns",
+      "structures": [
+        "skin-barrier",
+        "soft-tissue"
+      ],
+      "status": "built",
+      "one_liner": "The barrier is destroyed, so fluid pours out and organisms get in, and the damage keeps extending after the heat is gone.",
+      "in_one_breath": "A burn is not a fixed injury. Tissue at the margins is stunned rather than dead and can be saved or lost depending on what happens in the next hours. Meanwhile plasma leaks out through and around the burn for a day, which is why burn shock arrives late rather than immediately.",
+      "cascade": [
+        {
+          "id": "heat-transfer",
+          "label": "Heat destroys tissue",
+          "sub": "Temperature times time",
+          "severity": "crit",
+          "structure": "skin-barrier",
+          "detail": "Protein denatures above roughly 44 degrees, and the damage depends on both temperature and duration of contact. Scalds from hot liquid, contact with hot surfaces, flame, and steam all differ in the depth pattern they produce. Children and older adults burn deeper at lower temperatures because their skin is thinner."
+        },
+        {
+          "id": "zones",
+          "label": "Three zones form around the injury",
+          "sub": "The middle one is salvageable",
+          "severity": "crit",
+          "detail": "A central zone of coagulation is dead. Around it is a zone of stasis where tissue is alive but poorly perfused and can go either way. Outside that is a zone of hyperaemia which recovers. The zone of stasis is what prehospital care influences: hypoperfusion, hypothermia, and further heat all convert it into dead tissue, which is how burns deepen after the event."
+        },
+        {
+          "id": "depth",
+          "label": "Depth determines whether it can regenerate",
+          "sub": "And whether it hurts",
+          "severity": "crit",
+          "detail": "Superficial burns involve epidermis only, are red and painful and blanch. Partial thickness reaches the dermis, blisters, weeps, and is extremely painful because nerve endings are exposed. Full thickness destroys the dermis entirely, so it is dry, leathery, white or charred, and painless. A painless burn is worse than a painful one, which is the opposite of intuition."
+        },
+        {
+          "id": "barrier-lost",
+          "label": "The barrier fails",
+          "sub": "Fluid out, organisms in",
+          "severity": "crit",
+          "detail": "The dead outer layer of skin is what keeps water in and bacteria out. Without it, evaporative loss increases enormously and the burn surface becomes an ideal culture medium. Infection is the leading cause of death in patients who survive the initial injury."
+        },
+        {
+          "id": "capillary-leak",
+          "label": "Plasma leaks out of the circulation",
+          "sub": "Over hours, not minutes",
+          "severity": "crit",
+          "shared": "plasma-loss",
+          "detail": "Heat and inflammatory mediators make capillaries leaky, locally in small burns and body-wide in large ones. Plasma moves into the interstitium and out through the surface. Losses peak in the first eight hours and continue for a day or more."
+        },
+        {
+          "id": "burn-shock",
+          "label": "Hypovolemic shock develops",
+          "sub": "Delayed by hours",
+          "severity": "crit",
+          "shared": "hypoperfusion",
+          "detail": "The critical timing point. Burn shock is not immediate. A large burn patient who is hemodynamically normal at the roadside is early, not stable. Conversely, a burn patient who is shocked within minutes has something else wrong: bleeding, a tension pneumothorax, or another injury."
+        },
+        {
+          "id": "hypothermia",
+          "label": "They lose heat rapidly",
+          "sub": "And cooling makes it worse",
+          "severity": "crit",
+          "shared": "core-temp-falls",
+          "detail": "Burned skin cannot regulate temperature and evaporative loss is enormous. Over-enthusiastic cooling of a large burn causes dangerous hypothermia, which worsens perfusion of the zone of stasis and impairs clotting. This is a genuine and common iatrogenic harm."
+        },
+        {
+          "id": "circumferential",
+          "label": "Circumferential burns act like a tourniquet",
+          "sub": "Limb or chest",
+          "severity": "crit",
+          "detail": "Full-thickness burn forms a rigid inelastic layer. As the tissue beneath swells, that layer constricts like a tourniquet. Around a limb it causes compartment syndrome; around the chest it physically prevents the chest wall expanding, causing ventilatory failure with healthy lungs."
+        }
+      ],
+      "interventions": [
+        {
+          "med": "oxygen",
+          "breaks_at": "burn-shock",
+          "scope": "EMR",
+          "note": "High concentration for any significant burn, and mandatory for anything involving fire in an enclosed space, where carbon monoxide must be assumed regardless of the oximeter reading."
+        }
+      ],
+      "non_drug_interventions": [
+        {
+          "name": "Cool the burn, warm the patient",
+          "breaks_at": "zones",
+          "scope": "EMR",
+          "note": "Cool running water for around twenty minutes, ideally within the first three hours, which genuinely reduces burn depth by protecting the zone of stasis. Then stop, dry the surrounding area, and actively warm the patient. Never use ice, and never leave a large burn under continuous cooling."
+        },
+        {
+          "name": "Stop the burning process and remove constrictions",
+          "breaks_at": "heat-transfer",
+          "scope": "EMR",
+          "note": "Remove smouldering clothing and anything hot, but leave anything stuck to the skin. Remove rings, watches, and bracelets immediately, before swelling makes them tourniquets."
+        },
+        {
+          "name": "Cover with clean dry non-adherent dressing",
+          "breaks_at": "barrier-lost",
+          "scope": "EMR",
+          "note": "Cling film laid on lengthwise, not wrapped circumferentially, is ideal: it does not stick, reduces pain by covering exposed nerve endings, and lets the burn team see the wound. Do not apply creams, ointments, or home remedies."
+        },
+        {
+          "name": "Estimate the burn area properly",
+          "breaks_at": "capillary-leak",
+          "scope": "EMR",
+          "note": "Rule of nines in adults, adjusted for children whose heads are proportionally larger. The patient's own palm including fingers is roughly one percent, which is useful for scattered burns. Count partial and full thickness only, never superficial redness."
+        },
+        {
+          "name": "Anticipate the shock rather than react to it",
+          "breaks_at": "burn-shock",
+          "scope": "EMR",
+          "note": "Large burns need substantial fluid resuscitation started early, before the shock appears. Getting an accurate area estimate and time of injury to the receiving team drives that calculation."
+        },
+        {
+          "name": "Watch the airway in any facial or inhalation burn",
+          "breaks_at": "barrier-lost",
+          "scope": "EMR",
+          "note": "Soot, hoarseness, singed nasal hair, or facial burns mean the airway will swell over hours. Escalate before it becomes a problem, not after."
+        },
+        {
+          "name": "Escharotomy",
+          "breaks_at": "circumferential",
+          "scope": "ACP",
+          "note": "Surgically incising a constricting circumferential burn. Outside prehospital scope for most services, so recognising a chest that cannot expand or a limb losing perfusion, and communicating it urgently, is your role."
+        }
+      ],
+      "red_flags": [
+        "Any facial burn, soot around the mouth or nose, or hoarseness",
+        "Enclosed space fire",
+        "Circumferential burns of a limb or the chest",
+        "Burns over 10 percent in a child or 15 percent in an adult",
+        "Burns to hands, feet, face, genitals, or across joints",
+        "Full thickness burns of any size",
+        "Shock in the first minutes, which means another injury",
+        "Any burn in a child where the history does not fit the pattern"
+      ],
+      "differentiators": [
+        {
+          "vs": "Chemical burns",
+          "how": "Chemicals continue damaging until removed, so irrigation is prolonged rather than twenty minutes. Alkalis penetrate deeper than acids and need longer."
+        },
+        {
+          "vs": "Electrical burns",
+          "how": "Surface appearance massively understates the damage, because current travels through deep tissue. Small entry and exit wounds can conceal extensive muscle destruction."
+        },
+        {
+          "vs": "Non-accidental injury",
+          "how": "Sharply demarcated immersion lines, glove or stocking distribution, symmetrical burns, burns to buttocks or perineum, or a history that changes or does not match the injury. Report your observations factually and follow safeguarding procedure."
+        }
+      ]
+    },
+    {
+      "id": "electrical-injury",
+      "name": "Electrical injury",
+      "structures": [
+        "soft-tissue",
+        "conduction-system"
+      ],
+      "status": "built",
+      "one_liner": "Current travels through the body along the path of least resistance, cooking tissue on the way and potentially stopping the heart.",
+      "in_one_breath": "What you can see is almost irrelevant. Two small marks on the skin can conceal a limb full of destroyed muscle, because the damage happens along the internal path the current took. And if that path crossed the chest, the heart may stop.",
+      "cascade": [
+        {
+          "id": "contact",
+          "label": "Current enters the body",
+          "sub": "Voltage, current, path, duration",
+          "severity": "crit",
+          "detail": "Severity depends on voltage, current, resistance of the tissue, the path taken, and contact duration. Alternating current, as in household supply, causes tetanic muscle contraction that prevents the patient letting go, which massively extends contact time. Direct current tends to throw them clear."
+        },
+        {
+          "id": "path",
+          "label": "It follows the path of least resistance",
+          "sub": "Nerves, vessels, muscle",
+          "severity": "crit",
+          "detail": "Nerve, blood, and muscle conduct well; bone and fat resist and generate heat instead. Hand-to-hand and hand-to-opposite-foot paths cross the chest and are the dangerous ones. Hand-to-same-foot may spare the heart entirely."
+        },
+        {
+          "id": "cardiac",
+          "label": "The heart can be stopped",
+          "sub": "VF, asystole, or later arrhythmia",
+          "severity": "crit",
+          "structure": "conduction-system",
+          "detail": "Current crossing the chest can depolarise the myocardium during its vulnerable period and cause ventricular fibrillation. Low-voltage alternating current characteristically causes VF; high-voltage direct current and lightning more often cause asystole, from which the heart may restart spontaneously while respiration does not."
+        },
+        {
+          "id": "respiratory-arrest",
+          "label": "Breathing can stop independently",
+          "sub": "Tetany or brainstem effect",
+          "severity": "crit",
+          "shared": "respiratory-arrest",
+          "detail": "Current can paralyse the respiratory muscles through tetanic contraction, or suppress the brainstem centre directly. Crucially, breathing often does not restart when the heart does, so a patient can have a pulse and remain apneic. Prolonged ventilation alone saves these patients."
+        },
+        {
+          "id": "deep-burns",
+          "label": "Deep tissue is cooked",
+          "sub": "Surface massively understates it",
+          "severity": "crit",
+          "structure": "soft-tissue",
+          "detail": "Resistance converts electrical energy to heat, and the highest resistance tissues along the path get the hottest. Muscle deep to normal-looking skin can be destroyed over a long track. The visible entry and exit wounds are the least important part of the injury."
+        },
+        {
+          "id": "rhabdo",
+          "label": "Destroyed muscle floods the circulation",
+          "sub": "Potassium and myoglobin",
+          "severity": "crit",
+          "shared": "rhabdomyolysis",
+          "detail": "Extensive deep muscle necrosis releases potassium, myoglobin, and acid. Arrhythmia and renal failure follow, and these patients need aggressive fluid resuscitation calibrated to the internal damage, not the visible burn area."
+        },
+        {
+          "id": "compartment",
+          "label": "Limbs swell inside their fascia",
+          "sub": "Compartment syndrome",
+          "severity": "crit",
+          "shared": "compartment-pressure",
+          "detail": "Deep muscle injury and oedema raise compartment pressure. Electrical injury is one of the commonest causes of compartment syndrome requiring fasciotomy."
+        },
+        {
+          "id": "associated-trauma",
+          "label": "Secondary injuries",
+          "sub": "Falls and violent contraction",
+          "severity": "crit",
+          "detail": "Patients are thrown clear, fall from height, or fracture bones and dislocate joints purely from the violence of the muscle contraction. Posterior shoulder dislocation and spinal fractures from tetany are well described."
+        }
+      ],
+      "interventions": [
+        {
+          "med": "oxygen",
+          "breaks_at": "respiratory-arrest",
+          "scope": "EMR",
+          "note": "High concentration, with ventilation if apneic."
+        }
+      ],
+      "non_drug_interventions": [
+        {
+          "name": "Scene safety absolutely first",
+          "breaks_at": "contact",
+          "scope": "EMR",
+          "note": "Do not approach until the supply is confirmed isolated by someone qualified. For high voltage, maintain a large exclusion zone and wait for the utility company. Rescuers who become second patients are a recurring feature of these incidents."
+        },
+        {
+          "name": "Resuscitate persistently",
+          "breaks_at": "cardiac",
+          "scope": "EMR",
+          "note": "Electrical arrest occurs in otherwise healthy people with healthy hearts, and outcomes are far better than most arrests. In lightning strike with multiple casualties, triage is reversed: treat the apparently dead first, because those who are breathing will usually survive without you."
+        },
+        {
+          "name": "Keep ventilating even after a pulse returns",
+          "breaks_at": "respiratory-arrest",
+          "scope": "EMR",
+          "note": "Respiratory arrest frequently outlasts cardiac arrest here. A patient with a pulse who is not breathing needs continued ventilation, sometimes for a prolonged period, and will often recover fully."
+        },
+        {
+          "name": "Assume the injury is far worse than it looks",
+          "breaks_at": "deep-burns",
+          "scope": "EMR",
+          "note": "Look for entry and exit wounds and think about what lies on the line between them. Two small marks can mean a destroyed forearm. Do not estimate severity from surface area."
+        },
+        {
+          "name": "Spinal precautions where mechanism warrants",
+          "breaks_at": "associated-trauma",
+          "scope": "EMR",
+          "note": "Falls and tetanic contractions cause spinal fractures. Consider it in any high-voltage injury or fall from height."
+        },
+        {
+          "name": "Transport everyone with a significant exposure",
+          "breaks_at": "cardiac",
+          "scope": "EMR",
+          "note": "Delayed arrhythmias occur. Anyone with a current path across the chest, loss of consciousness, high voltage, or any abnormality needs monitoring even if they feel completely well."
+        }
+      ],
+      "red_flags": [
+        "Any loss of consciousness",
+        "High voltage exposure, above 1000 volts",
+        "Current path crossing the chest",
+        "Dark urine, suggesting myoglobin",
+        "Any arrhythmia",
+        "Entry and exit wounds far apart",
+        "Fall from height or being thrown",
+        "Lightning strike",
+        "Wet contact, which reduces skin resistance dramatically"
+      ],
+      "differentiators": [
+        {
+          "vs": "Thermal burns",
+          "how": "Thermal burn severity correlates with visible area. Electrical injury does not, at all. Fluid requirements in electrical injury are calculated on the internal damage and are usually far higher than the visible burn suggests."
+        },
+        {
+          "vs": "Lightning strike",
+          "how": "Massive current for a very brief duration. Causes asystole rather than VF, often with spontaneous cardiac restart, prolonged apnea, and a characteristic branching skin pattern. Deep tissue damage is usually less than industrial electrocution because the duration is so short."
+        },
+        {
+          "vs": "Simple arc flash burn",
+          "how": "An arc flash burns the surface without current passing through the body, so it behaves like a thermal burn without the internal injuries or arrhythmia risk."
+        }
+      ]
+    },
+    {
+      "id": "hypothermia",
+      "name": "Hypothermia",
+      "structures": [
+        "thermoregulation"
+      ],
+      "status": "built",
+      "one_liner": "Core temperature falls until enzyme systems slow and the mechanisms meant to correct it stop working.",
+      "in_one_breath": "Heat loss beats heat production. The body vasoconstricts and shivers until it cannot, and then everything slows: clotting, conduction, consciousness. The heart becomes dangerously irritable, which is why these patients are handled as if they were made of glass.",
+      "cascade": [
+        {
+          "id": "heat-loss",
+          "label": "Heat loss exceeds production",
+          "sub": "Wet and wind multiply it",
+          "severity": "warn",
+          "structure": "thermoregulation",
+          "detail": "Radiation, conduction, convection, and evaporation. Wet clothing conducts heat away roughly twenty-five times faster than dry, and wind strips the warm layer next to the skin. Alberta cases are frequently not dramatic exposure but an older person who fell and lay on a floor overnight, or an intoxicated patient outdoors."
+        },
+        {
+          "id": "compensation",
+          "label": "The body compensates",
+          "sub": "Vasoconstriction and shivering",
+          "severity": "warn",
+          "detail": "Peripheral vasoconstriction reduces surface heat loss, and shivering generates heat through muscular work, raising metabolic rate several-fold. Both are effective and both are finite. Alcohol defeats the first by causing vasodilation, and exhaustion or glucose depletion defeats the second."
+        },
+        {
+          "id": "mild",
+          "label": "Mild hypothermia, 32 to 35",
+          "sub": "Shivering, clumsy, confused",
+          "severity": "warn",
+          "detail": "Vigorous shivering, clumsiness, poor coordination, mumbling speech, and impaired judgement. Patients at this stage make decisions that worsen their situation, which is part of why they deteriorate."
+        },
+        {
+          "id": "shivering-stops",
+          "label": "Shivering stops",
+          "sub": "Below about 32 degrees",
+          "severity": "crit",
+          "shared": "core-temp-falls",
+          "detail": "The single most important transition. Shivering ceases below roughly 32 degrees, and to an observer the patient appears calmer. They are not improving; they have lost their main heat-generating mechanism. Muscles become rigid, consciousness falls, and paradoxical undressing may occur as failing vasoconstriction gives a false sensation of heat."
+        },
+        {
+          "id": "cardiac-irritability",
+          "label": "The heart becomes irritable",
+          "sub": "Handling can trigger VF",
+          "severity": "crit",
+          "structure": "conduction-system",
+          "detail": "Cold myocardium conducts abnormally and is highly prone to ventricular fibrillation. Rough handling, sudden movement, or jolting can precipitate it. This is why severely hypothermic patients are moved horizontally, gently, and as little as possible."
+        },
+        {
+          "id": "coagulopathy",
+          "label": "Clotting fails",
+          "sub": "Enzymes are temperature-dependent",
+          "severity": "crit",
+          "detail": "Clotting factors are enzymes and work poorly when cold. In a trauma patient this closes the lethal triad of hypothermia, acidosis, and coagulopathy, each worsening the others. It is why a warm trauma patient does better than a cold one with identical injuries."
+        },
+        {
+          "id": "severe",
+          "label": "Severe hypothermia, below 28",
+          "sub": "Looks dead but isn't",
+          "severity": "crit",
+          "detail": "Unresponsive, muscles rigid, pupils may be fixed and dilated, pulse and respiration so slow and shallow as to be undetectable. Metabolic demand is very low, so the brain tolerates this state remarkably well. Full neurological recovery has occurred after prolonged severe hypothermia."
+        },
+        {
+          "id": "arrest",
+          "label": "Cardiac arrest",
+          "sub": "But with an extraordinary prognosis",
+          "severity": "crit",
+          "shared": "cardiac-arrest",
+          "detail": "Hypothermic arrest is not like normal arrest. The cold that caused it also protects the brain, so resuscitation is continued far longer than usual and rewarming is part of the resuscitation. Nobody is dead until they are warm and dead."
+        }
+      ],
+      "interventions": [
+        {
+          "med": "oxygen",
+          "breaks_at": "severe",
+          "scope": "EMR",
+          "note": "Warmed and humidified where available. Ventilate at a normal or slightly reduced rate, since metabolic demand is low and hyperventilation can worsen arrhythmia risk."
+        }
+      ],
+      "non_drug_interventions": [
+        {
+          "name": "Handle them extremely gently",
+          "breaks_at": "cardiac-irritability",
+          "scope": "EMR",
+          "note": "The most important rule. Keep them horizontal, avoid jolting, avoid unnecessary movement, and do not let them walk or exert themselves. Rough handling of a severely hypothermic patient can cause ventricular fibrillation."
+        },
+        {
+          "name": "Remove wet clothing and insulate",
+          "breaks_at": "heat-loss",
+          "scope": "EMR",
+          "note": "Cut clothing off rather than manoeuvring limbs. Dry them, insulate including the head, and provide a vapour barrier. Stopping further loss matters more than adding heat."
+        },
+        {
+          "name": "Warm the trunk, not the limbs",
+          "breaks_at": "compensation",
+          "scope": "EMR",
+          "note": "Active warming applied to the torso, axillae, and groin. Warming cold limbs first returns cold acidotic blood to the heart and can drop the core temperature further, which is afterdrop."
+        },
+        {
+          "name": "Prolong resuscitation",
+          "breaks_at": "arrest",
+          "scope": "EMR",
+          "note": "Standard rules do not apply. Continue CPR and rewarming; survival with intact neurology after prolonged hypothermic arrest is well documented, particularly in cold water drowning and avalanche burial."
+        },
+        {
+          "name": "Assess for a long time before declaring absent vitals",
+          "breaks_at": "severe",
+          "scope": "EMR",
+          "note": "Pulse and breathing may be extremely slow and shallow. Check carefully and for longer than usual before concluding they are absent, because starting compressions on a perfusing hypothermic heart can cause fibrillation."
+        },
+        {
+          "name": "Check glucose and look for the cause",
+          "breaks_at": "compensation",
+          "scope": "EMR",
+          "note": "Hypoglycemia, alcohol, hypothyroidism, sepsis, spinal cord injury, and stroke all cause or contribute to hypothermia. In an older patient found cold at home, the cold is often the consequence of something else."
+        }
+      ],
+      "red_flags": [
+        "Shivering that has stopped in a cold patient",
+        "Reduced consciousness",
+        "Rigid muscles",
+        "Very slow or undetectable pulse and breathing",
+        "Any arrhythmia",
+        "Wet clothing, immersion, or prolonged exposure",
+        "A long lie in an older patient",
+        "Trauma with hypothermia, which is a far worse combination than either alone"
+      ],
+      "differentiators": [
+        {
+          "vs": "Death",
+          "how": "The distinction that matters most. Fixed dilated pupils, rigidity, and undetectable vitals are all compatible with survivable severe hypothermia. Resuscitation is continued and rewarming attempted."
+        },
+        {
+          "vs": "Intoxication",
+          "how": "Confusion, poor coordination, and slurred speech look identical, and alcohol causes hypothermia by preventing vasoconstriction. Assume both and measure a temperature."
+        },
+        {
+          "vs": "Stroke or hypoglycemia",
+          "how": "Both cause confusion and can cause a patient to lie exposed for hours. Check a glucose and assess neurologically once warmed."
+        }
+      ]
+    },
+    {
+      "id": "heat-illness",
+      "name": "Heat exhaustion and heat stroke",
+      "structures": [
+        "thermoregulation"
+      ],
+      "status": "built",
+      "one_liner": "Heat gain outstrips the ability to lose it, and past a point the regulatory system itself fails.",
+      "in_one_breath": "Heat exhaustion is a volume and salt problem with an intact brain. Heat stroke is a failure of thermoregulation itself, defined by altered mental state, and it cooks the patient's cells. The line between them is neurological, not thermal.",
+      "cascade": [
+        {
+          "id": "heat-load",
+          "label": "Heat gain exceeds heat loss",
+          "sub": "Environment plus exertion",
+          "severity": "warn",
+          "structure": "thermoregulation",
+          "detail": "Environmental heat, physical exertion generating internal heat, or both. Humidity is the critical modifier, because evaporation is the main cooling mechanism and it fails when the air is already saturated. Older adults, young children, and people on anticholinergics, antipsychotics, or diuretics are far more vulnerable."
+        },
+        {
+          "id": "compensation",
+          "label": "The body sheds heat",
+          "sub": "Vasodilation and sweating",
+          "severity": "warn",
+          "detail": "Skin vessels dilate to bring blood to the surface and sweat glands produce fluid that removes heat as it evaporates. Both cost circulating volume: sweating loses water and salt, and vasodilation redistributes blood to the skin and away from the core."
+        },
+        {
+          "id": "volume-depletion",
+          "label": "Fluid and salt are lost",
+          "sub": "Heat exhaustion",
+          "severity": "warn",
+          "detail": "Heavy sweating without adequate replacement produces dehydration and salt depletion. Weakness, dizziness, headache, nausea, and cramps, with heavy sweating and a normal or mildly raised temperature. Crucially, mental state is preserved: they are miserable but oriented."
+        },
+        {
+          "id": "regulation-fails",
+          "label": "Thermoregulation itself breaks down",
+          "sub": "Heat stroke begins",
+          "severity": "crit",
+          "shared": "core-temp-rises",
+          "detail": "As volume falls and the hypothalamic set point is overwhelmed, the cooling mechanisms fail. Sweating may cease entirely in classic heat stroke, though exertional heat stroke patients are often still drenched. Core temperature climbs above 40 degrees and continues rising."
+        },
+        {
+          "id": "cns-dysfunction",
+          "label": "The brain is affected",
+          "sub": "The defining feature",
+          "severity": "crit",
+          "shared": "altered-loc",
+          "detail": "Confusion, irritability, bizarre behaviour, ataxia, seizures, or coma. This is what separates heat stroke from heat exhaustion, and it is a neurological definition rather than a temperature one. Any altered mental state in a hot patient means heat stroke until proven otherwise."
+        },
+        {
+          "id": "protein-denaturation",
+          "label": "Cells begin to cook",
+          "sub": "Above about 40 to 41 degrees",
+          "severity": "crit",
+          "detail": "Cellular proteins denature and cell membranes fail. Damage is a function of both how high the temperature went and how long it stayed there, which is why speed of cooling directly determines outcome and why cooling takes priority over transport."
+        },
+        {
+          "id": "rhabdo-organ",
+          "label": "Muscle breaks down and organs fail",
+          "sub": "Especially exertional heat stroke",
+          "severity": "crit",
+          "shared": "rhabdomyolysis",
+          "detail": "Muscle necrosis releases potassium and myoglobin. Liver injury, kidney failure, and disseminated intravascular coagulation follow. Exertional heat stroke in young athletic patients is particularly associated with severe rhabdomyolysis."
+        },
+        {
+          "id": "collapse",
+          "label": "Cardiovascular collapse",
+          "sub": "Distributive plus hypovolemic",
+          "severity": "crit",
+          "shared": "decompensated-shock",
+          "detail": "Massive vasodilation combined with genuine volume depletion produces profound shock. Mortality rises sharply with every minute the temperature stays elevated."
+        }
+      ],
+      "interventions": [
+        {
+          "med": "oxygen",
+          "breaks_at": "collapse",
+          "scope": "EMR",
+          "note": "Metabolic demand is enormously elevated. Give oxygen freely in heat stroke."
+        }
+      ],
+      "non_drug_interventions": [
+        {
+          "name": "Cool first, transport second",
+          "breaks_at": "protein-denaturation",
+          "scope": "EMR",
+          "note": "For heat stroke this reverses the usual priority. Outcome depends on how fast the core temperature comes down, and cooling en route is slower and less effective. Begin aggressive cooling on scene."
+        },
+        {
+          "name": "Cold water immersion, or evaporative cooling",
+          "breaks_at": "regulation-fails",
+          "scope": "EMR",
+          "note": "Immersion in cold water is the fastest method and is the standard in exertional heat stroke where facilities allow. Otherwise strip the patient, spray or sponge with tepid water, and fan continuously to drive evaporation. Ice packs to neck, axillae, and groin are an adjunct, not a substitute."
+        },
+        {
+          "name": "Stop cooling around 38 to 39 degrees",
+          "breaks_at": "protein-denaturation",
+          "scope": "EMR",
+          "note": "Cooling has momentum and overshoot into hypothermia is a real risk. Monitor and stop before you reach normal."
+        },
+        {
+          "name": "Do not give antipyretics",
+          "breaks_at": "regulation-fails",
+          "scope": "EMR",
+          "note": "Paracetamol and ibuprofen work by lowering the hypothalamic set point in fever. In heat stroke the set point is not the problem; the cooling machinery has failed. They do not work and they add liver and kidney injury to a patient who already has both."
+        },
+        {
+          "name": "Oral fluids for heat exhaustion only",
+          "breaks_at": "volume-depletion",
+          "scope": "EMR",
+          "note": "A fully alert heat exhaustion patient in a cool environment can be given oral fluid. Anyone with altered mental status gets nothing by mouth and needs IV fluid, which is beyond EMR scope."
+        },
+        {
+          "name": "Check glucose and look for other causes",
+          "breaks_at": "cns-dysfunction",
+          "scope": "EMR",
+          "note": "Sepsis, thyroid storm, stimulant toxicity, and neuroleptic malignant syndrome all cause hyperthermia with altered mental state and are treated differently."
+        }
+      ],
+      "red_flags": [
+        "Any altered mental state in a hot patient, which is heat stroke by definition",
+        "Core temperature above 40",
+        "Seizure",
+        "Hot dry skin, though its absence does not exclude heat stroke",
+        "Dark urine, suggesting rhabdomyolysis",
+        "Hypotension",
+        "A young athlete who collapsed during exertion",
+        "Older patients found in a hot dwelling during a heat wave"
+      ],
+      "differentiators": [
+        {
+          "vs": "Heat exhaustion",
+          "how": "The distinction is neurological. Heat exhaustion patients are miserable, sweaty, weak, and fully oriented. Heat stroke patients have altered mental status. Get this right, because the urgency is completely different."
+        },
+        {
+          "vs": "Sepsis",
+          "how": "Both give fever, tachycardia, and confusion. History and environment usually separate them, and they can coexist."
+        },
+        {
+          "vs": "Stimulant toxicity or serotonin syndrome",
+          "how": "Cocaine, MDMA, and amphetamines cause hyperthermia directly and often with agitation. Serotonin syndrome adds rigidity, clonus, and hyperreflexia. Cooling is still the priority in all of them."
+        },
+        {
+          "vs": "Thyroid storm",
+          "how": "Fever, tachyarrhythmia, agitation, and a history of thyroid disease or a recent precipitating illness."
+        }
+      ]
+    }
+  ]
+}

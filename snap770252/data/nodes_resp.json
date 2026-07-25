@@ -1,0 +1,36 @@
+{
+  "nodes": [
+    {
+      "id": "vq-mismatch",
+      "name": "Ventilation and perfusion stop matching",
+      "severity": "warn",
+      "one_liner": "Air arrives where there is no blood, or blood arrives where there is no air.",
+      "what_is_happening": "Gas exchange requires air and blood to meet at the same alveolus at the same time. Normally the lung matches them closely, diverting blood away from poorly ventilated regions by hypoxic pulmonary vasoconstriction. When that matching breaks, some blood passes through the lung without ever meeting air, and some air enters alveoli that no blood is visiting.",
+      "why_it_follows": "Blocked airways create ventilated-but-unreachable regions. Flooded or collapsed alveoli create perfused-but-unventilated regions, which is shunt. Blocked pulmonary vessels create ventilated-but-unperfused regions, which is dead space. Almost every lung condition produces one or the other.",
+      "what_you_see": [
+        "Hypoxia that is out of proportion to how the chest sounds or how hard the patient appears to be working",
+        "A patient who looks worse than their examination suggests, particularly in pulmonary embolism",
+        "Carbon dioxide that stays normal or low early, because the patient compensates by breathing faster",
+        "Saturation that improves only partially on oxygen when true shunt is present"
+      ],
+      "the_trap": "How well the patient responds to oxygen tells you which problem you have. Simple mismatch improves substantially with supplemental oxygen. True shunt, where blood passes entirely unventilated lung, barely improves at all no matter how much you give, because the oxygen never reaches that blood. A hypoxic patient who does not respond to high-flow oxygen has a shunt, an obstruction, or a perfusion problem, and needs a different intervention rather than more of the same.",
+      "leads_to": ["hypoxia", "hypercapnia"]
+    },
+    {
+      "id": "diffusion-barrier-thickens",
+      "name": "The diffusion barrier thickens",
+      "severity": "warn",
+      "one_liner": "Gas has further to travel between air and blood, so less of it makes the trip.",
+      "what_is_happening": "The alveolar-capillary membrane is normally around half a micron thick, thinner than a red blood cell is wide. Fluid, pus, inflammatory cells, or fibrous tissue between the alveolus and the capillary lengthen that distance, and the rate of diffusion falls accordingly.",
+      "why_it_follows": "It follows pulmonary edema, where plasma is forced across from the capillary side; pneumonia, where infection fills the alveolus from the air side; inflammation from inhaled toxins or drowning; and chronic fibrosis.",
+      "what_you_see": [
+        "Hypoxia, usually well before any rise in carbon dioxide",
+        "Crackles as fluid-filled or collapsed alveoli pop open with inspiration",
+        "Increasing work of breathing as the lung becomes stiffer and harder to inflate",
+        "Saturation that improves with oxygen, unlike a true shunt, though often not to normal"
+      ],
+      "the_trap": "Carbon dioxide diffuses roughly twenty times more readily than oxygen, so in a thickening barrier the patient becomes hypoxic long before carbon dioxide starts to rise, and often has a low carbon dioxide from breathing fast. A rising carbon dioxide in this setting means the patient is tiring rather than that the barrier suddenly got worse, and it is a much later and more serious sign.",
+      "leads_to": ["hypoxia", "increased-work-of-breathing"]
+    }
+  ]
+}

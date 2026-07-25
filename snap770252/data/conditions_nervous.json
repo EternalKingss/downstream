@@ -1,0 +1,1062 @@
+{
+  "conditions": [
+    {
+      "id": "ischemic-stroke",
+      "name": "Ischemic stroke",
+      "structures": ["cerebral-vessels", "cerebrum"],
+      "status": "built",
+      "one_liner": "A vessel supplying the brain blocks, and the tissue it fed begins dying immediately.",
+      "in_one_breath": "A clot occludes a cerebral artery. The core of the territory dies within minutes; a surrounding rim survives on collateral flow and is salvageable if the vessel is reopened fast enough. Everything you do is about protecting that rim and shortening the clock.",
+      "cascade": [
+        {
+          "id": "occlusion",
+          "label": "A cerebral artery blocks",
+          "sub": "Thrombus or embolus",
+          "severity": "crit",
+          "structure": "cerebral-vessels",
+          "detail": "Either a clot forms on an atherosclerotic plaque in the vessel itself, or a clot travels from elsewhere and lodges there. The commonest embolic source is the left atrium in atrial fibrillation, where stagnant blood clots and then throws fragments into the circulation. Roughly eighty-five percent of strokes are ischemic rather than hemorrhagic."
+        },
+        {
+          "id": "flow-stops",
+          "label": "Flow to that territory stops",
+          "sub": "No collateral rescue",
+          "severity": "crit",
+          "detail": "Cerebral arteries are functionally end arteries. The circle of Willis provides some collateral supply but it is complete in fewer people than diagrams suggest, and rarely adequate to rescue a territory acutely."
+        },
+        {
+          "id": "core-dies",
+          "label": "The core infarcts within minutes",
+          "sub": "~2 million neurons per minute",
+          "severity": "crit",
+          "detail": "Neurons have essentially no energy reserve. Without oxygen and glucose the sodium-potassium pumps fail, cells swell, calcium floods in, and the tissue dies. This part is not recoverable by the time you arrive."
+        },
+        {
+          "id": "penumbra",
+          "label": "A rim survives, for now",
+          "sub": "The tissue treatment saves",
+          "severity": "crit",
+          "shared": "ischemic-penumbra",
+          "detail": "Surrounding the dead core is a zone receiving just enough collateral flow to stay alive but not enough to function. It produces the deficit you can see, and it is the entire target of thrombolysis and thrombectomy. It shrinks continuously."
+        },
+        {
+          "id": "deficit",
+          "label": "Function is lost where the tissue is",
+          "sub": "Face, arm, speech, vision, balance",
+          "severity": "crit",
+          "structure": "cerebrum",
+          "detail": "Because function is mapped to location, the deficit tells you the territory. Middle cerebral artery strokes give face and arm weakness with speech involvement. Posterior circulation strokes give dizziness, double vision, ataxia, and vomiting, and are missed far more often because they do not look like the textbook picture."
+        },
+        {
+          "id": "edema",
+          "label": "The infarcted tissue swells",
+          "sub": "Peaks at 24 to 72 hours",
+          "severity": "crit",
+          "shared": "raised-icp",
+          "detail": "Dead and dying tissue swells over the following days. In a large stroke this can raise intracranial pressure enough to cause herniation, which is why a patient who was stable on arrival can deteriorate badly on day two."
+        },
+        {
+          "id": "airway-risk",
+          "label": "Airway protection is lost",
+          "sub": "Swallow and cough fail",
+          "severity": "crit",
+          "shared": "airway-compromise",
+          "detail": "Stroke frequently damages the ability to swallow and to cough, even in a patient who is fully awake. Aspiration is one of the commonest complications and a major cause of death after stroke. Nothing by mouth, including sips of water, until swallowing has been formally assessed."
+        }
+      ],
+      "interventions": [
+        {
+          "med": "oxygen",
+          "breaks_at": "penumbra",
+          "scope": "EMR",
+          "note": "Only if saturation is below 94 percent. Routine oxygen in a normoxic stroke patient has not been shown to help. The penumbra is exquisitely sensitive to hypoxia, so treat any genuine desaturation promptly."
+        }
+      ],
+      "non_drug_interventions": [
+        {
+          "name": "Establish last known well time",
+          "breaks_at": "penumbra",
+          "scope": "EMR",
+          "note": "This is arguably the most valuable single piece of information you will gather all shift. It determines eligibility for thrombolysis and thrombectomy. It is when the patient was last seen normal, not when the deficit was noticed. A patient who woke up with symptoms was last well when they went to bed."
+        },
+        {
+          "name": "Check blood glucose",
+          "breaks_at": "deficit",
+          "scope": "EMR",
+          "note": "Hypoglycemia mimics stroke exactly, including one-sided weakness, and it is completely reversible. Never transport a stroke without a glucose reading."
+        },
+        {
+          "name": "Stroke screen and pre-alert",
+          "breaks_at": "penumbra",
+          "scope": "EMR",
+          "note": "A structured screen, face-arm-speech-time or similar, plus a phone call ahead. A pre-alerted stroke centre can have the scanner and team ready, which saves more minutes than anything you do on scene."
+        },
+        {
+          "name": "Nothing by mouth",
+          "breaks_at": "airway-risk",
+          "scope": "EMR",
+          "note": "No food, no drink, no oral medication. Aspiration pneumonia is a leading cause of death after stroke and it is entirely preventable at this stage."
+        },
+        {
+          "name": "Position and protect",
+          "breaks_at": "airway-risk",
+          "scope": "EMR",
+          "note": "Head elevated around thirty degrees if tolerated, or recovery position on the affected side if consciousness is reduced. Suction available."
+        },
+        {
+          "name": "Do not treat the blood pressure",
+          "breaks_at": "penumbra",
+          "scope": "EMR",
+          "note": "Blood pressure is usually high in acute stroke and that is largely a compensation maintaining flow to the penumbra through collateral vessels. Lowering it prehospital can extend the infarct."
+        }
+      ],
+      "red_flags": [
+        "Any deficit within the treatment window, which makes this a time-critical emergency",
+        "Deteriorating level of consciousness, suggesting a large stroke, swelling, or a bleed instead",
+        "Inability to protect the airway",
+        "Sudden severe headache, which points toward hemorrhage",
+        "Seizure at onset, more common in hemorrhagic stroke",
+        "A patient dismissed as intoxicated who has ataxia, vertigo, and vomiting, which may be a cerebellar stroke"
+      ],
+      "differentiators": [
+        {
+          "vs": "Hemorrhagic stroke",
+          "how": "You cannot reliably tell them apart in the field and you should not try. Hemorrhage is more likely with sudden severe headache, vomiting, rapid deterioration, seizure at onset, and very high blood pressure. The distinction requires a scan, which is another reason the destination matters."
+        },
+        {
+          "vs": "Hypoglycemia",
+          "how": "Can produce identical focal deficits. Check the glucose. Every time."
+        },
+        {
+          "vs": "Todd's paralysis",
+          "how": "Temporary weakness following a seizure, which resolves over minutes to hours. A witnessed seizure at onset makes it more likely, but it is a diagnosis made in retrospect and these patients still go to a stroke centre."
+        },
+        {
+          "vs": "Bell's palsy",
+          "how": "Facial weakness involving the forehead, so the patient cannot wrinkle their brow or close the eye on that side. A stroke spares the forehead because it receives input from both hemispheres."
+        }
+      ]
+    },
+    {
+      "id": "hemorrhagic-stroke",
+      "name": "Hemorrhagic stroke",
+      "structures": ["cerebral-vessels", "meninges-csf"],
+      "status": "built",
+      "one_liner": "A vessel in or around the brain ruptures, and blood becomes a space-occupying lesion.",
+      "in_one_breath": "Bleeding into a closed box does two things at once: it deprives tissue downstream of supply, and it takes up room that nothing has. The pressure problem usually kills faster than the ischemia does.",
+      "cascade": [
+        {
+          "id": "rupture",
+          "label": "A vessel ruptures",
+          "sub": "Hypertensive bleed or aneurysm",
+          "severity": "crit",
+          "structure": "cerebral-vessels",
+          "detail": "Two main patterns. Intracerebral hemorrhage is bleeding directly into brain tissue, usually from small vessels damaged by years of hypertension. Subarachnoid hemorrhage is bleeding into the space around the brain, usually from a ruptured berry aneurysm, and classically announces itself with a thunderclap headache that is maximal at the instant of onset."
+        },
+        {
+          "id": "mass-effect",
+          "label": "Blood occupies space",
+          "sub": "Nothing can be displaced fast enough",
+          "severity": "crit",
+          "shared": "raised-icp",
+          "detail": "The skull is full. Blood arriving inside it displaces cerebrospinal fluid and venous blood until that compensation is exhausted, then pressure rises steeply. Unlike an ischemic stroke, this creates a pressure emergency within minutes rather than an edema problem over days."
+        },
+        {
+          "id": "downstream-ischemia",
+          "label": "Tissue beyond the rupture starves",
+          "sub": "Deficit appears",
+          "severity": "crit",
+          "detail": "The ruptured vessel no longer delivers blood to its territory, so there is an ischemic component on top of the pressure component. Subarachnoid bleeds additionally cause vasospasm in surrounding arteries over the following days, producing delayed ischemia."
+        },
+        {
+          "id": "perfusion-squeeze",
+          "label": "Cerebral perfusion pressure falls",
+          "sub": "Squeezed from both sides",
+          "severity": "crit",
+          "shared": "cerebral-hypoperfusion",
+          "detail": "Perfusion pressure is mean arterial pressure minus intracranial pressure. Intracranial pressure is now climbing, so perfusion falls unless arterial pressure rises to match. The body's answer is to raise the blood pressure, which is exactly why these patients are hypertensive."
+        },
+        {
+          "id": "herniation",
+          "label": "Brain tissue is forced out of place",
+          "sub": "Pupil changes, posturing, Cushing's",
+          "severity": "crit",
+          "shared": "herniation",
+          "detail": "Sustained pressure pushes brain past the rigid folds of dura and toward the foramen magnum, compressing the brainstem on the way. This is what actually kills these patients."
+        },
+        {
+          "id": "brainstem-failure",
+          "label": "Brainstem function stops",
+          "sub": "Breathing ceases",
+          "severity": "crit",
+          "shared": "respiratory-arrest",
+          "detail": "The respiratory and cardiovascular centres are the last thing compressed and the point at which the process becomes irreversible."
+        }
+      ],
+      "interventions": [
+        {
+          "med": "oxygen",
+          "breaks_at": "perfusion-squeeze",
+          "scope": "EMR",
+          "note": "Maintain saturation above 94 percent. Hypoxia causes cerebral vasodilation, which increases blood volume inside the skull, which raises intracranial pressure further."
+        }
+      ],
+      "non_drug_interventions": [
+        {
+          "name": "Head elevated 30 degrees, neck neutral",
+          "breaks_at": "mass-effect",
+          "scope": "EMR",
+          "note": "Improves venous drainage from the head, which lowers intracranial blood volume and therefore pressure. Keep collars and straps from compressing the jugular veins, because a tight collar can measurably raise intracranial pressure."
+        },
+        {
+          "name": "Avoid hypotension absolutely",
+          "breaks_at": "perfusion-squeeze",
+          "scope": "EMR",
+          "note": "With intracranial pressure already raised, any drop in arterial pressure collapses cerebral perfusion. A single hypotensive episode measurably worsens outcome."
+        },
+        {
+          "name": "Keep them calm and minimise stimulation",
+          "breaks_at": "mass-effect",
+          "scope": "EMR",
+          "note": "Pain, agitation, coughing, gagging, and suctioning all spike intracranial pressure. Quiet handling is a treatment."
+        },
+        {
+          "name": "Avoid overventilating",
+          "breaks_at": "perfusion-squeeze",
+          "scope": "EMR",
+          "note": "Hyperventilation lowers CO2, which constricts cerebral vessels and lowers pressure, but it does so by reducing blood flow to a brain that is already starving. Routine hyperventilation causes harm. Ventilate at a normal rate."
+        },
+        {
+          "name": "Serial neurological assessment",
+          "breaks_at": "herniation",
+          "scope": "EMR",
+          "note": "Level of consciousness, pupils, and limb movement, repeated and documented with times. The trend matters more than any single reading, and it is the information the neurosurgical team needs most."
+        }
+      ],
+      "red_flags": [
+        "Sudden severe headache described as the worst of their life, or as instantly maximal",
+        "Vomiting with headache",
+        "Any deterioration in level of consciousness",
+        "Unequal or unreactive pupils",
+        "Rising blood pressure with falling pulse and irregular breathing, which is late herniation",
+        "Seizure at onset",
+        "Posturing"
+      ],
+      "differentiators": [
+        {
+          "vs": "Ischemic stroke",
+          "how": "Not reliably distinguishable in the field, and both go to a stroke centre urgently. Hemorrhage is suggested by sudden severe headache, vomiting, rapid decline in consciousness, and seizure at onset."
+        },
+        {
+          "vs": "Migraine",
+          "how": "Migraine builds over minutes to hours and usually has a history of similar episodes. A headache that is instantly maximal is a subarachnoid hemorrhage until proven otherwise."
+        },
+        {
+          "vs": "Meningitis",
+          "how": "Fever, neck stiffness, photophobia, and a rash, developing over hours. Subarachnoid hemorrhage can also cause neck stiffness from blood irritating the meninges, but without fever and with an abrupt onset."
+        }
+      ]
+    },
+    {
+      "id": "seizure",
+      "name": "Seizure and status epilepticus",
+      "structures": ["cerebrum"],
+      "status": "built",
+      "one_liner": "Uncontrolled synchronous neuronal firing, which threatens the patient mainly through the airway and through its own metabolic cost.",
+      "in_one_breath": "The brain's electrical activity loses its brakes and spreads. Most seizures stop on their own and the patient recovers. The dangerous ones are the ones that do not stop, and the dangerous moment in any of them is the airway.",
+      "cascade": [
+        {
+          "id": "trigger",
+          "label": "The balance tips",
+          "sub": "Epilepsy, glucose, sodium, fever, toxins",
+          "severity": "warn",
+          "detail": "Excitation overwhelms inhibition. Causes include established epilepsy with a missed dose, low glucose, low sodium, hypoxia, fever in young children, alcohol or benzodiazepine withdrawal, stimulant toxicity, head injury, stroke, infection, and eclampsia in pregnancy. Finding the cause is as important as managing the event."
+        },
+        {
+          "id": "spread",
+          "label": "Firing spreads through the cortex",
+          "sub": "Tonic then clonic phases",
+          "severity": "crit",
+          "shared": "neuronal-hyperexcitability",
+          "detail": "A focal discharge recruits neighbouring neurons and generalises. The tonic phase is sustained contraction of every muscle group at once, which is why the patient goes rigid and often cries out as air is forced through the larynx. The clonic phase is rhythmic contraction and relaxation."
+        },
+        {
+          "id": "ventilation-stops",
+          "label": "Effective ventilation stops",
+          "sub": "Cyanosis during the event",
+          "severity": "crit",
+          "detail": "During the tonic phase the respiratory muscles are contracted rather than cycling, so no meaningful gas exchange occurs. Patients commonly become cyanotic during a generalised seizure. This resolves once the seizure stops, which is why a self-limiting seizure is usually not harmful."
+        },
+        {
+          "id": "airway-loss",
+          "label": "The airway is unprotected",
+          "sub": "Secretions, blood, vomit",
+          "severity": "crit",
+          "shared": "airway-compromise",
+          "detail": "The patient cannot maintain their own airway or clear secretions, the tongue may be bitten and bleeding, and vomiting is common. This, not the convulsion, is what actually harms most seizure patients."
+        },
+        {
+          "id": "metabolic-cost",
+          "label": "Metabolic demand goes through the roof",
+          "sub": "Heat, lactate, glucose consumption",
+          "severity": "crit",
+          "shared": "anaerobic-metabolism",
+          "detail": "Continuously firing neurons and contracting muscles consume oxygen and glucose at an enormous rate while producing heat and lactate. Temperature rises, lactic acidosis develops, and glucose is consumed. In a short seizure none of this matters; in a prolonged one it becomes the problem."
+        },
+        {
+          "id": "status",
+          "label": "It doesn't stop",
+          "sub": "Beyond 5 minutes, or recurring",
+          "severity": "crit",
+          "detail": "Status epilepticus is a seizure lasting beyond about five minutes, or repeated seizures without recovery of consciousness in between. At this point the brain's own inhibitory mechanisms have failed, it stops being self-limiting, and neuronal death begins from metabolic exhaustion regardless of oxygenation."
+        },
+        {
+          "id": "postictal",
+          "label": "Postictal recovery",
+          "sub": "Confusion, drowsiness, sometimes weakness",
+          "severity": "warn",
+          "detail": "After a generalised seizure the brain is metabolically depleted and function returns gradually. Confusion, drowsiness, headache, and sometimes temporary focal weakness are expected. A patient who is not steadily improving is not simply postictal, and you should look for another cause."
+        }
+      ],
+      "interventions": [
+        {
+          "med": "oxygen",
+          "breaks_at": "ventilation-stops",
+          "scope": "EMR",
+          "note": "High concentration during and after. Do not attempt to force anything between the teeth to deliver it; a mask held near the face is fine until the convulsion stops."
+        },
+        {
+          "med": "oral-glucose",
+          "breaks_at": "trigger",
+          "scope": "EMR",
+          "note": "Only once the seizure has stopped and the patient can protect their airway and swallow. Never put anything in the mouth of a convulsing patient."
+        }
+      ],
+      "non_drug_interventions": [
+        {
+          "name": "Protect them, don't restrain them",
+          "breaks_at": "spread",
+          "scope": "EMR",
+          "note": "Move furniture and hazards away, pad the head, loosen anything tight around the neck. Do not hold the limbs down, which causes injury and achieves nothing, and never put anything in the mouth. People do not swallow their tongue."
+        },
+        {
+          "name": "Recovery position once convulsing stops",
+          "breaks_at": "airway-loss",
+          "scope": "EMR",
+          "note": "The single highest-value intervention here. Lets secretions, blood, and vomit drain rather than be aspirated, and lets the tongue fall forward."
+        },
+        {
+          "name": "Suction and airway adjuncts",
+          "breaks_at": "airway-loss",
+          "scope": "EMR",
+          "note": "A nasopharyngeal airway is usually better tolerated than an oropharyngeal one in a patient with a clenched jaw or a returning gag reflex."
+        },
+        {
+          "name": "Check glucose",
+          "breaks_at": "trigger",
+          "scope": "EMR",
+          "note": "Hypoglycemia is a common and instantly reversible cause. Check it in every seizure patient, before assuming epilepsy."
+        },
+        {
+          "name": "Time it, and time the gaps",
+          "breaks_at": "status",
+          "scope": "EMR",
+          "note": "Actual clock times, not estimates. Whether this is a two-minute seizure or status epilepticus determines everything the receiving team does, and people consistently overestimate seizure duration."
+        },
+        {
+          "name": "Benzodiazepines",
+          "breaks_at": "status",
+          "scope": "PCP",
+          "note": "The definitive treatment for status, enhancing inhibitory signalling to break the discharge. Outside EMR scope, so recognising status and escalating quickly is the intervention available to you."
+        },
+        {
+          "name": "Cool actively if febrile",
+          "breaks_at": "metabolic-cost",
+          "scope": "EMR",
+          "note": "Prolonged seizing generates significant heat, and hyperthermia worsens neuronal injury."
+        }
+      ],
+      "red_flags": [
+        "Seizure lasting more than five minutes, or a second seizure before recovery",
+        "First seizure in an adult with no history",
+        "Seizure in pregnancy, which is eclampsia until proven otherwise",
+        "Seizure after head injury",
+        "Failure to steadily improve in the postictal period",
+        "Fever with headache and neck stiffness",
+        "Focal weakness that persists"
+      ],
+      "differentiators": [
+        {
+          "vs": "Syncope with myoclonic jerks",
+          "how": "Fainting commonly causes brief jerking from cerebral hypoxia and gets reported as a seizure. Syncope has rapid full recovery once horizontal, with no prolonged postictal confusion."
+        },
+        {
+          "vs": "Cardiac arrest",
+          "how": "Arrest frequently produces a brief convulsion. Always check for a pulse in anyone who collapsed and convulsed, especially if they do not begin recovering."
+        },
+        {
+          "vs": "Hypoglycemia",
+          "how": "Can cause a seizure directly and is fully reversible. Checking glucose distinguishes them and takes seconds."
+        },
+        {
+          "vs": "Psychogenic non-epileptic seizure",
+          "how": "May have preserved awareness, closed and resisting eyes, side-to-side head movement, and no postictal confusion. Do not attempt this call in the field; treat as a seizure."
+        }
+      ]
+    },
+    {
+      "id": "traumatic-brain-injury",
+      "name": "Traumatic brain injury",
+      "structures": ["cerebrum", "meninges-csf", "brainstem"],
+      "status": "built",
+      "one_liner": "Impact damages brain tissue directly, and then the body's response to that damage causes a second, larger injury.",
+      "in_one_breath": "The primary injury happened before you arrived and you cannot change it. The secondary injury, driven by hypoxia, hypotension, and rising pressure, unfolds over the following hours and is almost entirely what prehospital care influences.",
+      "cascade": [
+        {
+          "id": "primary-injury",
+          "label": "Impact damages tissue directly",
+          "sub": "Contusion, shearing, vessel tearing",
+          "severity": "crit",
+          "structure": "cerebrum",
+          "detail": "The brain is soft tissue floating in fluid inside a hard box with bony ridges. Rapid deceleration slams it against the inside of the skull, producing bruising at the impact site and often on the opposite side too. Rotational forces shear axons apart diffusely. This damage is instantaneous and irreversible."
+        },
+        {
+          "id": "bleeding",
+          "label": "Blood collects inside the skull",
+          "sub": "Epidural, subdural, or intracerebral",
+          "severity": "crit",
+          "structure": "meninges-csf",
+          "detail": "Epidural bleeds are arterial, usually from the middle meningeal artery torn by a temporal skull fracture, and they expand fast. Subdural bleeds are venous, from torn bridging veins, and are especially common in older adults and heavy drinkers whose brains have shrunk and stretched those veins. Intracerebral bleeds are within the tissue itself."
+        },
+        {
+          "id": "swelling",
+          "label": "Injured tissue swells",
+          "sub": "Peaks over hours to days",
+          "severity": "crit",
+          "detail": "Damaged cells lose their ability to control water and ions, so they swell. Inflammatory mediators increase capillary permeability. This is cerebral edema, and it adds volume to a container that has none to spare."
+        },
+        {
+          "id": "icp-rises",
+          "label": "Intracranial pressure climbs",
+          "sub": "Compensation, then a cliff",
+          "severity": "crit",
+          "shared": "raised-icp",
+          "detail": "Cerebrospinal fluid and venous blood are displaced first, which buys time and produces the lucid interval. Once that reserve is spent, pressure rises steeply for tiny further increases in volume, and the patient deteriorates suddenly."
+        },
+        {
+          "id": "perfusion-fails",
+          "label": "Cerebral perfusion pressure falls",
+          "sub": "The secondary injury",
+          "severity": "crit",
+          "shared": "cerebral-hypoperfusion",
+          "detail": "Perfusion pressure is mean arterial pressure minus intracranial pressure. As intracranial pressure rises, perfusion falls. If the patient is also hypotensive or hypoxic from other injuries, the effect compounds catastrophically. This is where prehospital care actually changes outcomes."
+        },
+        {
+          "id": "hypoxia-spiral",
+          "label": "Hypoxia and swelling reinforce each other",
+          "sub": "The loop closes",
+          "severity": "crit",
+          "shared": "hypoxia",
+          "detail": "Hypoxia causes cerebral vasodilation, which increases intracranial blood volume, which raises pressure, which further reduces perfusion, which worsens hypoxia. A single episode of hypoxia or hypotension in traumatic brain injury measurably increases mortality."
+        },
+        {
+          "id": "herniation",
+          "label": "Brain is forced out of place",
+          "sub": "Blown pupil, posturing, Cushing's",
+          "severity": "crit",
+          "shared": "herniation",
+          "detail": "The uncal portion of the temporal lobe is pushed down over the edge of the tentorium, compressing the third cranial nerve and then the brainstem. This is the endpoint and it is usually fatal without immediate surgical decompression."
+        }
+      ],
+      "interventions": [
+        {
+          "med": "oxygen",
+          "breaks_at": "hypoxia-spiral",
+          "scope": "EMR",
+          "note": "One of the two highest-value interventions in head injury. Keep saturation above 94 percent, and above 90 at absolute minimum. Hypoxia in traumatic brain injury roughly doubles mortality."
+        }
+      ],
+      "non_drug_interventions": [
+        {
+          "name": "Prevent hypotension at all costs",
+          "breaks_at": "perfusion-fails",
+          "scope": "EMR",
+          "note": "The other highest-value intervention. Control external bleeding, keep them warm, and treat shock aggressively. In a head-injured patient the blood pressure target is deliberately higher than usual, because the brain needs a higher driving pressure to overcome the raised intracranial pressure."
+        },
+        {
+          "name": "Head up 30 degrees, neck neutral, collar not tight",
+          "breaks_at": "icp-rises",
+          "scope": "EMR",
+          "note": "Improves jugular venous drainage and lowers intracranial blood volume. A collar applied too tightly obstructs those veins and measurably raises intracranial pressure, so a poorly applied collar can actively harm a head injury."
+        },
+        {
+          "name": "Ventilate at a normal rate, not fast",
+          "breaks_at": "perfusion-fails",
+          "scope": "EMR",
+          "note": "Hyperventilation lowers CO2 and constricts cerebral vessels, which reduces pressure by reducing blood flow to a brain that is already starving. Routine hyperventilation worsens outcomes. Ventilate to a normal rate and avoid overdoing it."
+        },
+        {
+          "name": "Serial GCS with times",
+          "breaks_at": "icp-rises",
+          "scope": "EMR",
+          "note": "The trend is the diagnosis. A patient who was 15 and is now 13 is deteriorating, and that trajectory is what determines whether they need a neurosurgeon now. Document actual times."
+        },
+        {
+          "name": "Check glucose and keep them warm",
+          "breaks_at": "hypoxia-spiral",
+          "scope": "EMR",
+          "note": "Hypoglycemia mimics and worsens brain injury. Hypothermia worsens coagulopathy and bleeding."
+        },
+        {
+          "name": "Minimise stimulation",
+          "breaks_at": "icp-rises",
+          "scope": "EMR",
+          "note": "Pain, suctioning, coughing, and rough handling all spike intracranial pressure. Calm, gentle, efficient care is genuinely therapeutic here."
+        }
+      ],
+      "red_flags": [
+        "Any deterioration in GCS, especially a drop of two or more points",
+        "Unequal, sluggish, or fixed pupils",
+        "Lucid interval followed by decline, which is the classic epidural pattern",
+        "Rising blood pressure with falling pulse and irregular breathing",
+        "Posturing, either flexion or extension",
+        "Clear or bloody fluid from the nose or ears",
+        "Seizure after head injury",
+        "Vomiting, particularly repeated",
+        "Anticoagulant use, which turns a minor head injury into a major one"
+      ],
+      "differentiators": [
+        {
+          "vs": "Intoxication",
+          "how": "The most dangerous assumption in prehospital medicine. Intoxicated patients fall and hit their heads constantly. Alcohol never explains a deteriorating GCS, unequal pupils, or a focal deficit. Assume brain injury and let the hospital exclude it."
+        },
+        {
+          "vs": "Hypoglycemia",
+          "how": "Can cause identical confusion and reduced consciousness. Check the glucose, every time."
+        },
+        {
+          "vs": "Hypoxia or shock from other injuries",
+          "how": "Both cause altered consciousness in a trauma patient. Fix the airway, breathing, and circulation first and then reassess the neurology, because the confusion may resolve."
+        }
+      ]
+    },
+    {
+      "id": "spinal-cord-injury",
+      "name": "Spinal cord injury",
+      "structures": ["spinal-cord"],
+      "status": "built",
+      "one_liner": "The cable is damaged, and everything below the damage is disconnected.",
+      "in_one_breath": "Bone or disc material injures the cord, and then swelling, bleeding, and poor perfusion over the following hours convert some of the salvageable tissue into permanent damage. Handling and oxygenation are how you influence that second part.",
+      "cascade": [
+        {
+          "id": "mechanical-injury",
+          "label": "Bone or disc damages the cord",
+          "sub": "Flexion, extension, rotation, compression",
+          "severity": "crit",
+          "structure": "spinal-cord",
+          "detail": "Vertebrae fracture or dislocate and impinge on the cord, or ligaments tear and allow abnormal movement. In older adults with pre-existing spinal narrowing, cord injury can occur with no fracture at all, from a relatively minor fall involving neck extension."
+        },
+        {
+          "id": "disconnection",
+          "label": "Signals stop crossing the injury",
+          "sub": "Motor and sensory loss below the level",
+          "severity": "crit",
+          "detail": "Descending motor tracts and ascending sensory tracts are interrupted. The level of injury determines what is lost, because everything below is cut off. Complete injuries lose everything below; incomplete injuries retain some function and have far better prognosis, which is why documenting exactly what is preserved matters."
+        },
+        {
+          "id": "breathing-threatened",
+          "label": "Breathing may be lost",
+          "sub": "C3-4-5 keeps the diaphragm alive",
+          "severity": "crit",
+          "structure": "chest-wall",
+          "detail": "The phrenic nerve arises from C3, C4, and C5. An injury above that level stops spontaneous breathing entirely and immediately. An injury lower in the cervical or upper thoracic cord spares the diaphragm but paralyses the intercostals, leaving a patient breathing with the diaphragm alone, who will tire over hours."
+        },
+        {
+          "id": "sympathetic-loss",
+          "label": "Sympathetic control is lost",
+          "sub": "If the injury is above T6",
+          "severity": "crit",
+          "structure": "autonomic-nervous-system",
+          "detail": "Sympathetic outflow leaves the cord between T1 and L2. An injury above that disconnects it, causing vasodilation, loss of the ability to increase heart rate, and loss of the ability to shiver or sweat below the injury."
+        },
+        {
+          "id": "neurogenic-shock",
+          "label": "Blood pressure falls without tachycardia",
+          "sub": "Warm, dry, pink, bradycardic",
+          "severity": "crit",
+          "shared": "hypoperfusion",
+          "detail": "Vessels dilate, blood pools, preload falls, and the heart cannot speed up to compensate because the accelerator fibres are also cut. Vagal input is unaffected because it travels in a cranial nerve, so the patient becomes bradycardic instead of tachycardic."
+        },
+        {
+          "id": "secondary-injury",
+          "label": "Swelling and poor perfusion extend the damage",
+          "sub": "Hours after the impact",
+          "severity": "crit",
+          "detail": "Bleeding into the cord, edema, and inflammation over the following hours damage tissue that survived the initial impact. Hypotension and hypoxia accelerate this markedly. This is the part of the injury that prehospital care actually affects."
+        },
+        {
+          "id": "hypothermia",
+          "label": "Temperature control fails",
+          "sub": "Can't shiver or vasoconstrict",
+          "severity": "warn",
+          "detail": "Below the injury the patient cannot vasoconstrict, cannot shiver, and cannot sweat. They become poikilothermic, drifting toward ambient temperature. In Alberta this is not a footnote; these patients become hypothermic remarkably fast, even indoors."
+        }
+      ],
+      "interventions": [
+        {
+          "med": "oxygen",
+          "breaks_at": "secondary-injury",
+          "scope": "EMR",
+          "note": "The injured cord is highly sensitive to hypoxia. Maintain saturation above 94 percent, and watch for tiring diaphragmatic breathing."
+        }
+      ],
+      "non_drug_interventions": [
+        {
+          "name": "Spinal motion restriction",
+          "breaks_at": "mechanical-injury",
+          "scope": "EMR",
+          "note": "Manual in-line stabilisation from the moment of first contact, then appropriate immobilisation. The goal is preventing further movement of an unstable column, not immobilising a patient rigidly for the sake of it. Modern practice favours minimal handling and a scoop or vacuum mattress over a rigid long board."
+        },
+        {
+          "name": "Document a baseline neurological exam",
+          "breaks_at": "disconnection",
+          "scope": "EMR",
+          "note": "Movement and sensation in all four limbs, with the level at which sensation changes, recorded before and after every move. Whether an injury is complete or incomplete changes prognosis and management enormously, and your baseline may be the only pre-hospital record of it."
+        },
+        {
+          "name": "Watch the breathing continuously",
+          "breaks_at": "breathing-threatened",
+          "scope": "EMR",
+          "note": "Diaphragmatic breathing with no chest wall movement means the intercostals are out. That patient is working on one muscle group and will fatigue. Be ready to assist ventilation before they fail rather than after."
+        },
+        {
+          "name": "Treat for hemorrhage first",
+          "breaks_at": "neurogenic-shock",
+          "scope": "EMR",
+          "note": "A hypotensive trauma patient is far more likely to be bleeding than to have neurogenic shock. Neurogenic shock is a field diagnosis of exclusion, and getting this the wrong way round is dangerous."
+        },
+        {
+          "name": "Aggressive warming",
+          "breaks_at": "hypothermia",
+          "scope": "EMR",
+          "note": "These patients cannot thermoregulate below the injury. Blankets on early, minimise exposure, warm the compartment."
+        },
+        {
+          "name": "Maintain blood pressure",
+          "breaks_at": "secondary-injury",
+          "scope": "EMR",
+          "note": "The injured cord needs perfusion to survive the swelling. Hypotension converts salvageable tissue into permanent deficit."
+        }
+      ],
+      "red_flags": [
+        "Any weakness, numbness, or tingling after trauma",
+        "Neck or back pain with midline tenderness",
+        "Diaphragmatic breathing with no chest movement",
+        "Hypotension without tachycardia",
+        "Priapism, uncommon but highly specific",
+        "Loss of bladder or bowel control",
+        "A patient who cannot be reliably assessed because of intoxication, distracting injury, or altered consciousness"
+      ],
+      "differentiators": [
+        {
+          "vs": "Neurogenic shock alone",
+          "how": "Neurogenic shock is the circulatory consequence of cord injury, not a separate event. The distinction that matters in the field is neurogenic shock versus hemorrhagic shock, not versus cord injury."
+        },
+        {
+          "vs": "Spinal shock",
+          "how": "A confusingly named neurological phenomenon: temporary total loss of cord function below the injury, with flaccid paralysis and absent reflexes, which may resolve over days to weeks. It means the initial exam can overstate the eventual deficit."
+        },
+        {
+          "vs": "Peripheral nerve injury",
+          "how": "Follows the distribution of a single nerve or root rather than a level below which everything is lost. A patient with an isolated wrist drop has a radial nerve problem, not a cord problem."
+        }
+      ]
+    },
+    {
+      "id": "syncope",
+      "name": "Syncope",
+      "structures": ["cerebral-vessels", "autonomic-nervous-system"],
+      "status": "built",
+      "one_liner": "A brief global drop in brain perfusion that causes collapse and then resolves once the patient is horizontal.",
+      "in_one_breath": "Standing up costs the circulation something. When it can no longer pay, the brain drops off the top of the circuit, the patient falls over, gravity fixes the problem, and they wake up. The question is never the faint itself, it is what caused it.",
+      "cascade": [
+        {
+          "id": "trigger",
+          "label": "Something drops cerebral flow",
+          "sub": "Vagal, postural, or cardiac",
+          "severity": "warn",
+          "detail": "Three broad groups. Vasovagal, from pain, fear, prolonged standing, straining, or the sight of blood, where a vagal surge slows the heart and dilates vessels. Orthostatic, from volume depletion, medication, or autonomic failure. Cardiac, from an arrhythmia or an outflow obstruction, and this is the group that kills people."
+        },
+        {
+          "id": "perfusion-drops",
+          "label": "Cerebral perfusion falls",
+          "sub": "The brain is at the top of the circuit",
+          "severity": "crit",
+          "shared": "cerebral-hypoperfusion",
+          "detail": "Standing means the brain sits well above the heart, so it needs adequate pressure to be perfused at all. A sudden fall in cardiac output or vascular tone drops flow below what the brain needs within seconds."
+        },
+        {
+          "id": "warning",
+          "label": "Prodrome, if there is one",
+          "sub": "Lightheaded, greying vision, nausea",
+          "severity": "warn",
+          "detail": "Vasovagal and orthostatic syncope usually give warning: lightheadedness, tunnel or greying vision, nausea, sweating, ringing in the ears. Cardiac syncope characteristically gives no warning at all, and the patient simply drops. That absence of warning is one of the most useful discriminators you can ask about."
+        },
+        {
+          "id": "collapse",
+          "label": "Consciousness is lost and they fall",
+          "sub": "Sometimes with brief jerking",
+          "severity": "crit",
+          "shared": "altered-loc",
+          "detail": "Loss of consciousness follows within seconds. Brief myoclonic jerking from cerebral hypoxia is common and is regularly reported by bystanders as a seizure. The fall itself causes injury, and in older adults a syncopal head injury is often the more serious problem."
+        },
+        {
+          "id": "gravity-fixes-it",
+          "label": "Lying flat restores flow",
+          "sub": "Recovery within seconds",
+          "severity": "warn",
+          "detail": "Horizontal removes the pressure penalty of getting blood to the head. Perfusion is restored and consciousness returns quickly, usually within seconds to a minute, with no prolonged confusion. Sitting the patient up too early can cause an immediate second episode."
+        },
+        {
+          "id": "underlying-cause",
+          "label": "The cause is still present",
+          "sub": "This is the real question",
+          "severity": "crit",
+          "detail": "The faint has resolved; whatever caused it may not have. Cardiac syncope means an arrhythmia or obstruction that can recur and cause arrest. Syncope from bleeding means the patient is still bleeding. The event is a symptom, and treating it as the diagnosis is how these patients get missed."
+        }
+      ],
+      "interventions": [
+        {
+          "med": "oxygen",
+          "breaks_at": "perfusion-drops",
+          "scope": "EMR",
+          "note": "Only if hypoxic. Most simple syncope does not need it."
+        }
+      ],
+      "non_drug_interventions": [
+        {
+          "name": "Lie them flat",
+          "breaks_at": "perfusion-drops",
+          "scope": "EMR",
+          "note": "Restores cerebral perfusion immediately. Keep them supine for a while and sit them up slowly, because premature standing frequently causes a second episode."
+        },
+        {
+          "name": "Assess for injury from the fall",
+          "breaks_at": "collapse",
+          "scope": "EMR",
+          "note": "An unguarded fall from standing regularly produces head injuries, facial fractures, and hip fractures. In an older adult on anticoagulants, that head injury is the emergency, not the faint."
+        },
+        {
+          "name": "Ask about the prodrome",
+          "breaks_at": "warning",
+          "scope": "EMR",
+          "note": "No warning, syncope during exertion, or syncope while lying down all point toward a cardiac cause. That single question meaningfully changes the risk."
+        },
+        {
+          "name": "Check glucose and take a full history",
+          "breaks_at": "underlying-cause",
+          "scope": "EMR",
+          "note": "Glucose, medications especially antihypertensives and diuretics, recent bleeding, chest pain, palpitations, and family history of sudden death in a young person."
+        },
+        {
+          "name": "Do not dismiss it",
+          "breaks_at": "underlying-cause",
+          "scope": "EMR",
+          "note": "The patient looks completely well by the time you assess them, which is exactly why cardiac syncope gets left at home. A well-looking patient with unexplained syncope still needs assessment."
+        }
+      ],
+      "red_flags": [
+        "No warning at all before collapse",
+        "Syncope during exertion",
+        "Syncope while sitting or lying down",
+        "Chest pain or palpitations before or after",
+        "Family history of sudden cardiac death under 40",
+        "Abnormal or irregular pulse",
+        "Any injury from the fall, especially head injury on anticoagulants",
+        "Failure to recover fully within a minute or two"
+      ],
+      "differentiators": [
+        {
+          "vs": "Seizure",
+          "how": "Seizure has a prolonged postictal confusion; syncope recovers within seconds. Tongue biting on the side and incontinence favour seizure, though incontinence occurs in both. Brief jerking is common in syncope and does not make it a seizure."
+        },
+        {
+          "vs": "Cardiac arrest",
+          "how": "If they do not wake up, it is not syncope. Check the pulse in every collapse."
+        },
+        {
+          "vs": "Stroke or TIA",
+          "how": "Focal deficits, and generally without complete loss of consciousness. Syncope is a global perfusion problem and should not leave focal signs."
+        },
+        {
+          "vs": "Hypoglycemia",
+          "how": "Slower onset, sweating and confusion that persists after lying down, and it does not resolve simply by being horizontal."
+        }
+      ]
+    },
+    {
+      "id": "meningitis",
+      "name": "Meningitis and meningococcal sepsis",
+      "structures": ["meninges-csf"],
+      "status": "built",
+      "one_liner": "Infection of the membranes around the brain and cord, which in its bacterial form can kill a healthy person within hours.",
+      "in_one_breath": "The membranes wrapping the central nervous system become infected and inflamed. Because that space is continuous around the brain and cord, the infection is never localised, and when the organism spills into the bloodstream it causes a form of septic shock that moves faster than almost anything else you will see.",
+      "cascade": [
+        {
+          "id": "invasion",
+          "label": "Organisms reach the meninges",
+          "sub": "Bloodstream, sinuses, or skull fracture",
+          "severity": "warn",
+          "structure": "meninges-csf",
+          "detail": "Most commonly bacteria colonising the nasopharynx cross into the bloodstream and then into the cerebrospinal fluid. It can also spread directly from sinus or ear infection, or through a skull fracture. Viral meningitis is far commoner and usually far less dangerous; bacterial meningitis is the emergency."
+        },
+        {
+          "id": "inflammation",
+          "label": "The membranes inflame",
+          "sub": "Headache, neck stiffness, photophobia",
+          "severity": "crit",
+          "detail": "Cerebrospinal fluid is normally a near-sterile, immunologically quiet space, so the inflammatory response when something enters it is intense. Inflamed meninges are exquisitely sensitive to stretch, which produces neck stiffness and pain on any movement that tugs on them, and to light."
+        },
+        {
+          "id": "cerebral-edema",
+          "label": "The brain swells",
+          "sub": "Pressure rises inside the box",
+          "severity": "crit",
+          "shared": "raised-icp",
+          "detail": "Inflammation increases capillary permeability and impairs cerebrospinal fluid reabsorption. Both add volume inside a rigid skull, so intracranial pressure climbs and consciousness falls."
+        },
+        {
+          "id": "bacteremia",
+          "label": "The organism spills into the blood",
+          "sub": "Meningococcal sepsis",
+          "severity": "crit",
+          "detail": "In meningococcal disease particularly, the organism multiplies in the bloodstream and releases endotoxin. This can occur with or without meningitis, and the septic form is the one that kills fastest. Deterioration from feeling unwell to profound shock can take a matter of hours."
+        },
+        {
+          "id": "vascular-damage",
+          "label": "Small vessels are damaged and clot",
+          "sub": "The non-blanching rash",
+          "severity": "crit",
+          "structure": "capillaries",
+          "detail": "Endotoxin damages the endothelium and activates clotting throughout the microcirculation. Small vessels leak and thrombose, producing bleeding into the skin. That is the petechial or purpuric rash, and it does not blanch under pressure because the blood is outside the vessels."
+        },
+        {
+          "id": "septic-shock",
+          "label": "Circulation fails",
+          "sub": "Distributive shock",
+          "severity": "crit",
+          "shared": "hypoperfusion",
+          "detail": "Widespread vasodilation and capillary leak produce distributive shock, while microvascular thrombosis simultaneously blocks delivery. Peripheral tissue can become ischemic enough to require amputation in survivors."
+        },
+        {
+          "id": "collapse",
+          "label": "Consciousness and circulation fail",
+          "sub": "Hours from first symptom",
+          "severity": "crit",
+          "shared": "decompensated-shock",
+          "detail": "Raised intracranial pressure and profound shock together produce rapid deterioration to unresponsiveness, seizure, and death. Speed of recognition is essentially the whole prognosis."
+        }
+      ],
+      "interventions": [
+        {
+          "med": "oxygen",
+          "breaks_at": "septic-shock",
+          "scope": "EMR",
+          "note": "High concentration if hypoxic or shocked. Metabolic demand is high from fever and inflammation."
+        }
+      ],
+      "non_drug_interventions": [
+        {
+          "name": "Look for the rash, everywhere",
+          "breaks_at": "vascular-damage",
+          "scope": "EMR",
+          "note": "Check the whole body including the trunk, soles, and conjunctivae, and use the glass test: a rash that does not blanch under pressure is bleeding into the skin. It is a late sign, so its absence is not reassuring, but its presence is a genuine emergency."
+        },
+        {
+          "name": "Recognise and pre-alert",
+          "breaks_at": "bacteremia",
+          "scope": "EMR",
+          "note": "Antibiotics are time-critical and are not yours to give. Getting the patient to them fast, with the hospital warned, is the intervention that changes survival."
+        },
+        {
+          "name": "Minimise light and stimulation",
+          "breaks_at": "inflammation",
+          "scope": "EMR",
+          "note": "Photophobia is genuine and distressing. Dim the compartment, handle gently, and avoid unnecessary movement of the neck."
+        },
+        {
+          "name": "Keep them horizontal if shocked",
+          "breaks_at": "septic-shock",
+          "scope": "EMR",
+          "note": "Maximises venous return in a patient whose vascular space is far too large for their volume."
+        },
+        {
+          "name": "Protect yourself",
+          "breaks_at": "invasion",
+          "scope": "EMR",
+          "note": "Meningococcal disease is transmitted by respiratory droplets. Mask the patient and yourself, document the exposure, and follow your service's post-exposure prophylaxis process. This is one of the few genuinely important self-protection scenarios in EMS."
+        }
+      ],
+      "red_flags": [
+        "Non-blanching rash of any size, anywhere",
+        "Fever with headache and neck stiffness",
+        "Photophobia",
+        "Altered consciousness or confusion with fever",
+        "Cold hands and feet with a fever, an early sign in children",
+        "Leg pain, unusual skin colour, and cold extremities, which precede the rash in children",
+        "A rapid deterioration over hours",
+        "A bulging fontanelle or high-pitched cry in an infant"
+      ],
+      "differentiators": [
+        {
+          "vs": "Subarachnoid hemorrhage",
+          "how": "Both give headache and neck stiffness. Subarachnoid is instantly maximal and afebrile; meningitis builds over hours with fever."
+        },
+        {
+          "vs": "Influenza or a viral illness",
+          "how": "The single hardest and most consequential call, because early meningococcal disease looks exactly like flu. Cold hands and feet with fever, leg pain, abnormal skin colour, and rapid progression are the discriminators. If the parents say the child is deteriorating faster than any illness they have seen, believe them."
+        },
+        {
+          "vs": "Viral meningitis",
+          "how": "Much commoner and usually far less severe, but not distinguishable in the field. Treat every suspected meningitis as bacterial."
+        }
+      ]
+    },
+    {
+      "id": "behavioral-emergency",
+      "name": "Behavioural emergency and severe agitation",
+      "structures": ["cerebrum", "autonomic-nervous-system"],
+      "status": "built",
+      "one_liner": "Agitation severe enough to threaten the patient or others, which is a medical presentation until proven otherwise.",
+      "in_one_breath": "Every behavioural emergency starts as a medical assessment, because hypoxia, hypoglycemia, head injury, and toxins all present as disturbed behaviour. And severe agitation is itself physiologically dangerous, because struggling patients generate acidosis fast and can arrest during restraint.",
+      "cascade": [
+        {
+          "id": "underlying-cause",
+          "label": "Something disturbs brain function",
+          "sub": "Medical, toxic, or psychiatric",
+          "severity": "warn",
+          "structure": "cerebrum",
+          "detail": "Hypoxia, hypoglycemia, head injury, stroke, infection, post-ictal state, stimulant intoxication, alcohol or benzodiazepine withdrawal, or a primary psychiatric illness. The list is important because the first several are lethal and reversible, and they are routinely misattributed to behaviour."
+        },
+        {
+          "id": "agitation",
+          "label": "Agitation escalates",
+          "sub": "Fear, aggression, disorganised behaviour",
+          "severity": "warn",
+          "detail": "The patient becomes frightened, confused, or aggressive. Whether this is a psychiatric crisis or a hypoxic brain, the presentation looks the same from the doorway, and de-escalation is the correct first response either way."
+        },
+        {
+          "id": "sympathetic-surge",
+          "label": "The sympathetic system floods",
+          "sub": "Tachycardia, hypertension, hyperthermia",
+          "severity": "crit",
+          "structure": "autonomic-nervous-system",
+          "detail": "Extreme agitation, especially with stimulant use, produces a massive catecholamine surge: heart rate and blood pressure climb, temperature rises, and the patient may be diaphoretic and appear to feel no pain."
+        },
+        {
+          "id": "exertional-acidosis",
+          "label": "Struggling produces severe acidosis",
+          "sub": "Lactate builds fast",
+          "severity": "crit",
+          "shared": "anaerobic-metabolism",
+          "detail": "Sustained maximal muscular exertion against restraint produces lactic acid faster than the body can buffer it, on top of any acidosis from stimulants or hyperthermia. This is the mechanism that turns a restraint into a resuscitation."
+        },
+        {
+          "id": "restraint-compromise",
+          "label": "Restraint restricts breathing",
+          "sub": "Prone position, weight on the chest",
+          "severity": "crit",
+          "shared": "hypoxia",
+          "detail": "A patient held prone, or with weight across the back or chest, cannot expand the chest to compensate for a profound acidosis that demands enormous minute ventilation. Restriction of ventilation at exactly the moment ventilation matters most is how these deaths happen."
+        },
+        {
+          "id": "collapse",
+          "label": "Sudden collapse and arrest",
+          "sub": "Often just as they go quiet",
+          "severity": "crit",
+          "shared": "cardiac-arrest",
+          "detail": "Severe acidosis, hyperthermia, catecholamine excess, and impaired ventilation combine to produce arrest, frequently at the moment the patient stops struggling. Anyone becoming suddenly calm during a violent struggle is deteriorating, not complying."
+        }
+      ],
+      "interventions": [
+        {
+          "med": "oxygen",
+          "breaks_at": "restraint-compromise",
+          "scope": "EMR",
+          "note": "Agitation is hypoxia until proven otherwise. Apply oxygen early rather than treating restlessness as purely behavioural."
+        },
+        {
+          "med": "oral-glucose",
+          "breaks_at": "underlying-cause",
+          "scope": "EMR",
+          "note": "If hypoglycemic and able to swallow safely. Aggression is a classic presentation of low blood sugar and it resolves completely with treatment."
+        }
+      ],
+      "non_drug_interventions": [
+        {
+          "name": "Rule out the medical causes first",
+          "breaks_at": "underlying-cause",
+          "scope": "EMR",
+          "note": "Glucose, oxygen saturation, temperature, pupils, and a look for head injury. Diagnosing a psychiatric emergency without checking these is how hypoxic and hypoglycemic patients get restrained instead of treated."
+        },
+        {
+          "name": "De-escalate before anything else",
+          "breaks_at": "agitation",
+          "scope": "EMR",
+          "note": "Calm voice, open posture, space, one person speaking, no crowding, no cornering. Remove your own audience. This works far more often than people expect and it costs nothing."
+        },
+        {
+          "name": "Never restrain prone",
+          "breaks_at": "restraint-compromise",
+          "scope": "EMR",
+          "note": "The most important rule here. No weight on the chest or back, no hobbling ankles to wrists, no sandwiching between boards. If restraint is unavoidable, get them supine or on their side as fast as possible and keep the chest completely free."
+        },
+        {
+          "name": "Monitor continuously during restraint",
+          "breaks_at": "collapse",
+          "scope": "EMR",
+          "note": "A restrained patient is a critically ill patient. Watch the breathing, the colour, and the level of consciousness continuously. Sudden calm is a warning sign, not a resolution."
+        },
+        {
+          "name": "Cool an overheated patient",
+          "breaks_at": "sympathetic-surge",
+          "scope": "EMR",
+          "note": "Hyperthermia is a major contributor to death in stimulant-associated agitation. Remove excess clothing, cool actively, and treat a high temperature as an emergency."
+        },
+        {
+          "name": "Scene safety and police coordination",
+          "breaks_at": "agitation",
+          "scope": "EMR",
+          "note": "Your safety comes first and you cannot help anyone from inside an ambulance you have been pulled out of. But a patient in police custody is still your patient medically, and their physiology is your responsibility."
+        }
+      ],
+      "red_flags": [
+        "Extreme agitation with hyperthermia and diaphoresis",
+        "Apparent insensitivity to pain",
+        "Sudden calm after a violent struggle",
+        "Any prone restraint, at any point",
+        "Abnormal vital signs of any kind, which reframes this as medical",
+        "Low or unrecorded blood glucose",
+        "Head injury, however minor it appears",
+        "Hypoxia"
+      ],
+      "differentiators": [
+        {
+          "vs": "Hypoglycemia",
+          "how": "Aggression, confusion, and sweating with a low glucose. Reverses completely within minutes of treatment. Check it before anything else."
+        },
+        {
+          "vs": "Hypoxia",
+          "how": "Restlessness and combativeness are classic early hypoxia. Check the saturation and give oxygen before concluding that behaviour is the problem."
+        },
+        {
+          "vs": "Head injury",
+          "how": "Agitation is common in traumatic brain injury and is regularly attributed to intoxication. Look for external signs, ask about mechanism, and reassess the level of consciousness repeatedly."
+        },
+        {
+          "vs": "Post-ictal state",
+          "how": "Confusion and combativeness after a seizure is normal and self-limiting. It should steadily improve. If it does not, look for another cause."
+        }
+      ]
+    }
+  ]
+}

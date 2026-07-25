@@ -1,0 +1,585 @@
+{
+  "conditions": [
+    {
+      "id": "carbon-monoxide",
+      "name": "Carbon monoxide poisoning",
+      "structures": [
+        "blood"
+      ],
+      "status": "built",
+      "one_liner": "A gas with no smell occupies the hemoglobin, so blood circulates normally while carrying almost no oxygen.",
+      "in_one_breath": "Carbon monoxide binds hemoglobin hundreds of times more tightly than oxygen and will not let go. The patient looks pink, the oximeter reads fine, and the tissues are suffocating. Every tool you normally trust is lying to you.",
+      "cascade": [
+        {
+          "id": "exposure",
+          "label": "Incomplete combustion produces CO",
+          "sub": "Colourless, odourless, tasteless",
+          "severity": "warn",
+          "detail": "Faulty furnaces and water heaters, blocked flues, generators or barbecues used indoors, vehicle exhaust, and any fire. In Alberta the classic winter presentation is a whole household unwell with a faulty furnace. Because the gas has no warning properties at all, exposure continues until someone collapses."
+        },
+        {
+          "id": "hemoglobin-binding",
+          "label": "CO occupies the hemoglobin",
+          "sub": "About 250 times the affinity of oxygen",
+          "severity": "crit",
+          "structure": "blood",
+          "detail": "Carbon monoxide binds the same site oxygen uses, with vastly greater affinity, forming carboxyhemoglobin. Oxygen simply cannot compete. Effective oxygen-carrying capacity falls in proportion to how much hemoglobin is occupied."
+        },
+        {
+          "id": "curve-shift",
+          "label": "Remaining oxygen is held too tightly",
+          "sub": "The second, worse injury",
+          "severity": "crit",
+          "detail": "This is the part that gets forgotten. Carbon monoxide also shifts the oxygen dissociation curve leftward, so the oxygen still bound to unoccupied sites is released far less readily to tissue. The patient is worse off than the carboxyhemoglobin level alone would suggest."
+        },
+        {
+          "id": "cellular-block",
+          "label": "It also poisons the mitochondria",
+          "sub": "Binds cytochrome oxidase",
+          "severity": "crit",
+          "shared": "cells-cant-use-oxygen",
+          "detail": "Carbon monoxide binds cytochrome oxidase in the mitochondria as well, so even oxygen that does reach the cell cannot be used properly. This is why symptoms sometimes exceed what the blood level predicts and why recovery can lag behind clearance."
+        },
+        {
+          "id": "false-reassurance",
+          "label": "Every instrument lies",
+          "sub": "Oximeter high, skin pink",
+          "severity": "crit",
+          "detail": "A standard pulse oximeter uses two wavelengths and cannot distinguish carboxyhemoglobin from oxyhemoglobin, so it reads falsely high, often 98 to 100 percent. Carboxyhemoglobin is bright red, so the patient looks well-perfused rather than cyanotic. The cherry-red appearance is a late and unreliable sign; pink and normal-looking is the usual one."
+        },
+        {
+          "id": "organ-hypoxia",
+          "label": "Brain and heart starve first",
+          "sub": "Headache, nausea, confusion",
+          "severity": "crit",
+          "shared": "hypoxia",
+          "detail": "The highest-demand organs fail first. Headache, nausea, dizziness, and fatigue at lower levels, progressing to confusion, chest pain, breathlessness, and collapse. It is routinely misdiagnosed as influenza, migraine, or food poisoning, particularly when a whole family presents together."
+        },
+        {
+          "id": "collapse",
+          "label": "Consciousness and circulation fail",
+          "sub": "Seizure, arrhythmia, arrest",
+          "severity": "crit",
+          "shared": "altered-loc",
+          "detail": "Severe poisoning causes seizures, myocardial ischemia even in young healthy hearts, arrhythmias, and death. Anyone found unconscious at the scene has had a severe exposure regardless of how they look once removed."
+        },
+        {
+          "id": "delayed-sequelae",
+          "label": "Delayed neurological injury",
+          "sub": "Days to weeks later",
+          "severity": "crit",
+          "detail": "A significant minority of survivors develop delayed neurological problems weeks later: memory impairment, personality change, movement disorders. This risk is part of why hyperbaric therapy is considered even in patients who recover quickly."
+        }
+      ],
+      "interventions": [
+        {
+          "med": "oxygen",
+          "breaks_at": "hemoglobin-binding",
+          "scope": "EMR",
+          "note": "The treatment, not just supportive care. High-flow via non-rebreather at 15 L/min regardless of the saturation reading. Carboxyhemoglobin half-life is about four hours on room air, roughly one hour on high-flow oxygen, and around twenty minutes in a hyperbaric chamber. Do not titrate down."
+        }
+      ],
+      "non_drug_interventions": [
+        {
+          "name": "Remove from the source safely",
+          "breaks_at": "exposure",
+          "scope": "EMR",
+          "note": "Do not enter an unventilated space without appropriate breathing apparatus. Responders have been poisoned entering to retrieve patients. This is a fire service task."
+        },
+        {
+          "name": "Suspect it when several people are unwell together",
+          "breaks_at": "false-reassurance",
+          "scope": "EMR",
+          "note": "The most useful diagnostic clue available. Multiple people in one building with headache and nausea, or a household plus their pets, is carbon monoxide until proven otherwise. Symptoms that improve when they leave the building and return when they go back is close to diagnostic."
+        },
+        {
+          "name": "Ignore the pulse oximeter entirely",
+          "breaks_at": "false-reassurance",
+          "scope": "EMR",
+          "note": "It cannot detect this and will actively mislead you. A CO-oximeter measures it correctly if your service carries one. Treat on clinical suspicion."
+        },
+        {
+          "name": "Transport everyone exposed",
+          "breaks_at": "delayed-sequelae",
+          "scope": "EMR",
+          "note": "Including those who feel better after removal, and specifically including pregnant patients, because fetal hemoglobin binds carbon monoxide even more avidly and the fetus is at far greater risk than the mother."
+        },
+        {
+          "name": "Flag candidates for hyperbaric therapy",
+          "breaks_at": "delayed-sequelae",
+          "scope": "EMR",
+          "note": "Loss of consciousness, neurological signs, cardiac ischemia, pregnancy, or very high levels. This changes the destination decision, so raise it early."
+        },
+        {
+          "name": "Get the source addressed",
+          "breaks_at": "exposure",
+          "scope": "EMR",
+          "note": "Ensure fire service or the utility attends. Sending a patient home to the same faulty furnace is a preventable second call."
+        }
+      ],
+      "red_flags": [
+        "Multiple people or pets from one location unwell together",
+        "Any loss of consciousness",
+        "Symptoms that resolve away from the building and recur on return",
+        "Chest pain or arrhythmia, particularly in a young patient",
+        "Pregnancy",
+        "Neurological signs of any kind",
+        "Winter, an enclosed space, and a combustion appliance"
+      ],
+      "differentiators": [
+        {
+          "vs": "Influenza or viral illness",
+          "how": "The classic misdiagnosis. Headache, nausea, fatigue, and myalgia are shared. Flu does not affect everyone in the house simultaneously within hours, and it does not improve when you step outside."
+        },
+        {
+          "vs": "Cyanide poisoning",
+          "how": "Frequently coexists in fire smoke. Cyanide causes profound lactic acidosis with rapid collapse and normal-looking oxygenation. High-flow oxygen treats both; cyanide additionally needs a specific antidote."
+        },
+        {
+          "vs": "Food poisoning",
+          "how": "Another common misattribution when a family is unwell together. Nausea without diarrhoea, plus headache and confusion, should raise carbon monoxide."
+        }
+      ]
+    },
+    {
+      "id": "stimulant-toxicity",
+      "name": "Stimulant toxicity",
+      "structures": [
+        "autonomic-nervous-system",
+        "myocardium"
+      ],
+      "status": "built",
+      "one_liner": "Massive sympathetic overdrive that overheats the patient, strains the heart, and can kill through hyperthermia rather than the drug itself.",
+      "in_one_breath": "Cocaine, methamphetamine, and MDMA flood the body with catecholamines and stop them being cleared. Everything speeds up and heats up. The heart is squeezed between rising demand and constricted coronary arteries, and the temperature climbs until proteins start denaturing.",
+      "cascade": [
+        {
+          "id": "catecholamine-flood",
+          "label": "Catecholamines flood the system",
+          "sub": "Released and not reabsorbed",
+          "severity": "crit",
+          "structure": "autonomic-nervous-system",
+          "detail": "Stimulants block the reuptake of noradrenaline, dopamine, and serotonin, and amphetamines also force their release. The result is sustained sympathetic activation far beyond anything the body produces naturally, acting on every adrenergic receptor at once."
+        },
+        {
+          "id": "cardiovascular",
+          "label": "Heart rate, contractility, and pressure surge",
+          "sub": "Beta-1 and alpha-1",
+          "severity": "crit",
+          "structure": "myocardium",
+          "detail": "Beta-1 stimulation raises rate and force of contraction, sharply increasing myocardial oxygen demand. Alpha-1 stimulation constricts arteries and raises blood pressure, increasing afterload. Both push demand up together."
+        },
+        {
+          "id": "coronary-constriction",
+          "label": "Coronary arteries constrict",
+          "sub": "Demand up, supply down",
+          "severity": "crit",
+          "structure": "coronary-arteries",
+          "detail": "The specific lethality of cocaine. It constricts the coronary arteries at the same moment it raises myocardial demand, so supply and demand move in opposite directions. It also promotes platelet aggregation and accelerates atherosclerosis. Cocaine causes infarcts in people in their twenties with clean arteries."
+        },
+        {
+          "id": "ischemia",
+          "label": "The myocardium starves",
+          "sub": "Chest pain, arrhythmia",
+          "severity": "crit",
+          "shared": "myocardial-ischemia",
+          "detail": "Ischemia in a hyperadrenergic heart is intensely arrhythmogenic. Ventricular tachycardia and fibrillation, aortic dissection, and infarction all occur, and the risk persists for hours after use."
+        },
+        {
+          "id": "hyperthermia",
+          "label": "Temperature climbs",
+          "sub": "The main killer",
+          "severity": "crit",
+          "shared": "core-temp-rises",
+          "detail": "Heat production rises from agitation and muscular activity while vasoconstriction impairs heat loss through the skin. In MDMA toxicity this is compounded by dancing in hot environments. Temperatures above 41 degrees denature proteins and are the commonest mechanism of death in stimulant toxicity."
+        },
+        {
+          "id": "agitation",
+          "label": "Severe agitation and psychosis",
+          "sub": "And the restraint risk",
+          "severity": "crit",
+          "shared": "neuronal-hyperexcitability",
+          "detail": "Paranoia, hallucinations, and violent agitation. This is where restraint enters, and where sustained struggling against restraint produces a lactic acidosis that the patient cannot compensate for if their chest is restricted. Seizures occur directly from the drug as well."
+        },
+        {
+          "id": "rhabdo",
+          "label": "Muscle breaks down",
+          "sub": "Hyperthermia plus exertion",
+          "severity": "crit",
+          "shared": "rhabdomyolysis",
+          "detail": "Sustained maximal muscular activity plus hyperthermia destroys muscle, releasing potassium and myoglobin. Hyperkalemia causes arrhythmia and myoglobin causes renal failure."
+        },
+        {
+          "id": "collapse",
+          "label": "Cardiovascular collapse",
+          "sub": "Often just as they go quiet",
+          "severity": "crit",
+          "shared": "cardiac-arrest",
+          "detail": "Severe acidosis, hyperthermia, hyperkalemia, and catecholamine excess combine. Collapse frequently occurs at the moment the patient stops struggling, which is why sudden calm during a violent restraint is an emergency and not a resolution."
+        }
+      ],
+      "interventions": [
+        {
+          "med": "oxygen",
+          "breaks_at": "ischemia",
+          "scope": "EMR",
+          "note": "High concentration. Demand is enormously elevated and delivery may be impaired by coronary constriction."
+        }
+      ],
+      "non_drug_interventions": [
+        {
+          "name": "Cool them aggressively",
+          "breaks_at": "hyperthermia",
+          "scope": "EMR",
+          "note": "The highest-value intervention. Remove clothing, wet the skin, fan, apply ice to the neck, axillae, and groin. Hyperthermia is what kills, and cooling is what prevents it. Treat a hot agitated patient as a thermal emergency."
+        },
+        {
+          "name": "Never restrain prone",
+          "breaks_at": "agitation",
+          "scope": "EMR",
+          "note": "A patient generating severe lactic acidosis needs an enormous minute volume to compensate. Prone restraint or weight on the chest removes exactly that capacity at exactly the wrong moment. Supine or lateral, chest completely free, monitored continuously."
+        },
+        {
+          "name": "De-escalate and reduce stimulation",
+          "breaks_at": "agitation",
+          "scope": "EMR",
+          "note": "Quiet, dim, few people, calm voices. Physical struggle directly worsens the acidosis and the hyperthermia, so genuinely calming the patient is a physiological intervention with measurable benefit."
+        },
+        {
+          "name": "Treat chest pain as cardiac",
+          "breaks_at": "coronary-constriction",
+          "scope": "EMR",
+          "note": "Chest pain after cocaine use in a young person is a genuine infarct risk and must not be dismissed on the basis of age. Note that beta blockers are avoided in cocaine toxicity because blocking beta receptors leaves alpha-mediated vasoconstriction unopposed."
+        },
+        {
+          "name": "Check glucose and temperature",
+          "breaks_at": "hyperthermia",
+          "scope": "EMR",
+          "note": "Measure a temperature rather than estimating it. Hyperthermia is frequently missed because nobody takes it in an agitated patient, and it is the finding that changes the whole management."
+        },
+        {
+          "name": "Benzodiazepines",
+          "breaks_at": "catecholamine-flood",
+          "scope": "PCP",
+          "note": "The mainstay of treatment: they reduce agitation, lower heart rate and blood pressure, drop temperature, and treat seizures, all by damping the central drive. Outside EMR scope, so early escalation matters."
+        }
+      ],
+      "red_flags": [
+        "Temperature above 39",
+        "Chest pain at any age",
+        "Sudden calm during a struggle",
+        "Any prone restraint",
+        "Seizure",
+        "Dark urine",
+        "Altered consciousness",
+        "Severe hypertension with headache or neurological signs"
+      ],
+      "differentiators": [
+        {
+          "vs": "Heat stroke",
+          "how": "Overlapping physiology and management, and stimulants are a common cause of hyperthermia. Cooling is the priority in both."
+        },
+        {
+          "vs": "Serotonin syndrome",
+          "how": "Adds rigidity, clonus especially at the ankles, and hyperreflexia. Often follows a combination of serotonergic drugs rather than a single stimulant."
+        },
+        {
+          "vs": "Alcohol or benzodiazepine withdrawal",
+          "how": "Also produces agitation, tremor, tachycardia, sweating, and seizures. History and pupils help: stimulants dilate pupils markedly, and withdrawal follows cessation rather than use."
+        },
+        {
+          "vs": "Thyroid storm or sepsis",
+          "how": "Both cause fever, tachycardia, and agitation. Check glucose, look for a source, and treat the hyperthermia regardless of cause."
+        }
+      ]
+    },
+    {
+      "id": "alcohol-emergencies",
+      "name": "Alcohol intoxication and withdrawal",
+      "structures": [
+        "cerebrum",
+        "body-fluid"
+      ],
+      "status": "built",
+      "one_liner": "Intoxication suppresses the brain and the airway; withdrawal does the opposite and is the more dangerous of the two.",
+      "in_one_breath": "Alcohol is a depressant, so acutely it threatens the airway and masks injury. But a brain that has adapted to it becomes dangerously overexcitable when it is removed, and severe withdrawal has a real mortality that intoxication mostly does not.",
+      "cascade": [
+        {
+          "id": "acute-depression",
+          "label": "Acute alcohol depresses the brain",
+          "sub": "Enhances inhibition, blocks excitation",
+          "severity": "warn",
+          "structure": "cerebrum",
+          "detail": "Alcohol enhances GABA, the main inhibitory neurotransmitter, and blocks glutamate, the main excitatory one. Both push in the same direction: less brain activity. The cerebellum is affected early, which is why coordination and speech go first."
+        },
+        {
+          "id": "airway-risk",
+          "label": "Airway protection is lost",
+          "sub": "The actual danger of intoxication",
+          "severity": "crit",
+          "shared": "airway-compromise",
+          "detail": "Reduced consciousness with a full stomach and a high likelihood of vomiting. Aspiration is the commonest way acute intoxication kills. Recovery position and suction are the treatment, and this is not a trivial call."
+        },
+        {
+          "id": "masks-injury",
+          "label": "It hides everything else",
+          "sub": "The dangerous assumption",
+          "severity": "crit",
+          "detail": "Intoxicated patients fall, are assaulted, become hypothermic, and become hypoglycemic. Alcohol blunts pain and clouds the history, so injuries are missed. Alcohol never explains a deteriorating level of consciousness, unequal pupils, or a focal deficit."
+        },
+        {
+          "id": "hypoglycemia-risk",
+          "label": "It causes hypoglycemia",
+          "sub": "Blocks new glucose production",
+          "severity": "crit",
+          "shared": "neuroglycopenia",
+          "detail": "Alcohol suppresses the liver's ability to manufacture new glucose. In a patient who has not eaten, and particularly in children and malnourished chronic drinkers, this produces genuine hypoglycemia that looks exactly like intoxication."
+        },
+        {
+          "id": "adaptation",
+          "label": "The brain adapts to chronic alcohol",
+          "sub": "Fewer brakes, more accelerator",
+          "severity": "warn",
+          "detail": "With sustained exposure the brain downregulates inhibitory GABA receptors and upregulates excitatory glutamate receptors to maintain balance. The system is now calibrated to work in the presence of alcohol."
+        },
+        {
+          "id": "withdrawal",
+          "label": "Removing it leaves an overexcited brain",
+          "sub": "6 to 24 hours after the last drink",
+          "severity": "crit",
+          "shared": "neuronal-hyperexcitability",
+          "detail": "The adaptations remain but the alcohol is gone, leaving excitation unopposed. Tremor, sweating, anxiety, tachycardia, hypertension, nausea, and insomnia begin within six to twenty-four hours. This is the mirror image of intoxication and it is far more dangerous."
+        },
+        {
+          "id": "withdrawal-seizures",
+          "label": "Seizures, then delirium tremens",
+          "sub": "24 to 72 hours",
+          "severity": "crit",
+          "detail": "Generalised seizures typically at twelve to forty-eight hours. Delirium tremens at around forty-eight to seventy-two hours: severe confusion, hallucinations, agitation, fever, and profound autonomic instability. Untreated, delirium tremens has a mortality of several percent, which is why withdrawal is the emergency and intoxication usually is not."
+        },
+        {
+          "id": "chronic-consequences",
+          "label": "Long-term damage compounds everything",
+          "sub": "Clotting, thiamine, falls",
+          "severity": "crit",
+          "detail": "Liver disease impairs clotting, so head injuries bleed more and gastrointestinal bleeding is harder to stop. Thiamine deficiency causes Wernicke's encephalopathy, with confusion, eye movement abnormalities, and ataxia, which is reversible if treated and permanent if not. Brain shrinkage stretches bridging veins, making subdural haematoma common after apparently minor falls."
+        }
+      ],
+      "interventions": [
+        {
+          "med": "oxygen",
+          "breaks_at": "airway-risk",
+          "scope": "EMR",
+          "note": "If hypoxic or reduced consciousness."
+        },
+        {
+          "med": "oral-glucose",
+          "breaks_at": "hypoglycemia-risk",
+          "scope": "EMR",
+          "note": "If hypoglycemic and able to swallow safely. Alcohol-related hypoglycemia recurs, because the liver still cannot make new glucose, so these patients need hospital rather than a snack."
+        }
+      ],
+      "non_drug_interventions": [
+        {
+          "name": "Never assume alcohol explains it",
+          "breaks_at": "masks-injury",
+          "scope": "EMR",
+          "note": "The single most important principle. Head injury, hypoglycemia, stroke, hypothermia, infection, and other drugs all present identically and all coexist with alcohol constantly. Check glucose, check temperature, look for head injury, and reassess."
+        },
+        {
+          "name": "Recovery position and suction",
+          "breaks_at": "airway-risk",
+          "scope": "EMR",
+          "note": "Aspiration is the killer in acute intoxication. Never leave an intoxicated patient supine or unobserved."
+        },
+        {
+          "name": "Take withdrawal seriously",
+          "breaks_at": "withdrawal-seizures",
+          "scope": "EMR",
+          "note": "A shaking, sweating, tachycardic patient who has stopped drinking is in a genuinely dangerous state. Ask when the last drink was, because the timeline predicts what is coming."
+        },
+        {
+          "name": "Watch for head injury in every fall",
+          "breaks_at": "chronic-consequences",
+          "scope": "EMR",
+          "note": "Chronic drinkers have impaired clotting and stretched bridging veins. A minor-seeming fall can produce a subdural that presents days later. Have a very low threshold for transport."
+        },
+        {
+          "name": "Keep them warm",
+          "breaks_at": "masks-injury",
+          "scope": "EMR",
+          "note": "Alcohol causes vasodilation and defeats the main defence against cold. Intoxicated patients outdoors in Alberta become hypothermic remarkably fast."
+        },
+        {
+          "name": "Benzodiazepines and thiamine",
+          "breaks_at": "withdrawal",
+          "scope": "PCP",
+          "note": "Benzodiazepines replace the missing inhibition and are the definitive treatment for withdrawal. Thiamine prevents Wernicke's encephalopathy. Both beyond EMR scope, so recognising withdrawal and escalating is your contribution."
+        }
+      ],
+      "red_flags": [
+        "Any deterioration in consciousness rather than gradual improvement",
+        "Unequal pupils or any focal neurological sign",
+        "Head injury, however minor it appears",
+        "Seizure",
+        "Low glucose",
+        "Hypothermia",
+        "Tremor, sweating, and tachycardia in someone who has stopped drinking",
+        "Confusion with abnormal eye movements and ataxia, suggesting Wernicke's",
+        "Vomiting blood"
+      ],
+      "differentiators": [
+        {
+          "vs": "Head injury",
+          "how": "The critical one. Intoxication improves slowly over hours; a head injury deteriorates. Any decline, asymmetry, or focal sign is a head injury until proven otherwise, whatever the alcohol level."
+        },
+        {
+          "vs": "Hypoglycemia",
+          "how": "Indistinguishable clinically and frequently caused by the alcohol itself. Check the glucose on every intoxicated patient."
+        },
+        {
+          "vs": "Stroke",
+          "how": "Cerebellar stroke causes ataxia, slurred speech, and vomiting and is regularly dismissed as drunkenness. Focal signs are not alcohol."
+        },
+        {
+          "vs": "Opioid or sedative overdose",
+          "how": "Mixed overdoses are the rule. Pinpoint pupils and a very low respiratory rate suggest opioids and warrant naloxone."
+        }
+      ]
+    },
+    {
+      "id": "cholinergic-toxicity",
+      "name": "Cholinergic toxicity",
+      "structures": [
+        "autonomic-nervous-system",
+        "peripheral-nerves"
+      ],
+      "status": "built",
+      "one_liner": "Acetylcholine cannot be cleared, so every cholinergic synapse fires continuously and the patient drowns in their own secretions.",
+      "in_one_breath": "Organophosphates and nerve agents disable the enzyme that switches off acetylcholine. Every parasympathetic effect runs continuously: secretions everywhere, tiny pupils, a slow heart, and eventually paralysis of the breathing muscles. It is also the one poisoning that can harm you.",
+      "cascade": [
+        {
+          "id": "exposure",
+          "label": "The patient is exposed",
+          "sub": "Pesticides, nerve agents, some mushrooms",
+          "severity": "crit",
+          "detail": "Organophosphate and carbamate pesticides are the common cause, through agricultural exposure or deliberate ingestion. Nerve agents such as sarin are the deliberate-harm version. Absorption is through skin, inhalation, and ingestion, and skin absorption continues for as long as the chemical remains on them."
+        },
+        {
+          "id": "enzyme-inhibited",
+          "label": "Acetylcholinesterase is disabled",
+          "sub": "The off-switch is gone",
+          "severity": "crit",
+          "structure": "autonomic-nervous-system",
+          "detail": "Acetylcholine is normally broken down within milliseconds of release by acetylcholinesterase. These agents bind and inactivate the enzyme, so acetylcholine accumulates at every synapse that uses it. With organophosphates the binding becomes permanent over hours, a process called ageing, which is why antidote timing matters."
+        },
+        {
+          "id": "muscarinic",
+          "label": "Parasympathetic effects run continuously",
+          "sub": "Secretions everywhere",
+          "severity": "crit",
+          "detail": "Salivation, tearing, urination, defecation, gastrointestinal cramping, and vomiting. Plus bradycardia, pinpoint pupils, and bronchospasm with massive bronchial secretions. The classic mnemonics are SLUDGE and DUMBELS, but the underlying idea is simpler: every gland switched on and every smooth muscle constricted."
+        },
+        {
+          "id": "airway-flooding",
+          "label": "The airway floods",
+          "sub": "The actual cause of death",
+          "severity": "crit",
+          "shared": "airway-compromise",
+          "detail": "Bronchial secretions and bronchoconstriction together are what kills these patients. Volumes can be extraordinary, described as drowning in secretions. Suction is not a supportive measure here, it is a primary intervention."
+        },
+        {
+          "id": "nicotinic",
+          "label": "Neuromuscular junctions overstimulate then fail",
+          "sub": "Fasciculation, then paralysis",
+          "severity": "crit",
+          "structure": "peripheral-nerves",
+          "detail": "At the neuromuscular junction, excess acetylcholine first causes fasciculation and weakness, then depolarising blockade and paralysis. The diaphragm is affected, so respiratory failure comes from muscle paralysis as well as from secretions."
+        },
+        {
+          "id": "cns",
+          "label": "Central effects",
+          "sub": "Confusion, seizures, coma",
+          "severity": "crit",
+          "shared": "neuronal-hyperexcitability",
+          "detail": "Acetylcholine accumulation in the brain causes anxiety, confusion, seizures, and coma, and directly depresses the respiratory centre. So respiration is attacked at three levels at once: secretions, muscle paralysis, and central drive."
+        },
+        {
+          "id": "respiratory-failure",
+          "label": "Ventilation fails",
+          "sub": "Three mechanisms together",
+          "severity": "crit",
+          "shared": "respiratory-arrest",
+          "detail": "Flooded airways, paralysed respiratory muscles, and a suppressed brainstem. This is what kills, and it is why aggressive suction and ventilation are as important as the antidote."
+        }
+      ],
+      "interventions": [
+        {
+          "med": "oxygen",
+          "breaks_at": "respiratory-failure",
+          "scope": "EMR",
+          "note": "High concentration with ventilation as needed, and expect to be suctioning constantly while you do it."
+        }
+      ],
+      "non_drug_interventions": [
+        {
+          "name": "Protect yourself and decontaminate",
+          "breaks_at": "exposure",
+          "scope": "EMR",
+          "note": "One of the very few poisonings that genuinely threatens responders, through skin contact and off-gassing. Full personal protective equipment, remove and bag all clothing, and irrigate the skin copiously with water. Decontamination comes before treatment, because otherwise you become the next patient."
+        },
+        {
+          "name": "Suction, relentlessly",
+          "breaks_at": "airway-flooding",
+          "scope": "EMR",
+          "note": "The single most life-saving practical intervention available to you. Secretion volumes are enormous and continuous. Position for drainage and keep suctioning."
+        },
+        {
+          "name": "Recognise the pattern",
+          "breaks_at": "muscarinic",
+          "scope": "EMR",
+          "note": "Pinpoint pupils, streaming secretions, bradycardia, and muscle twitching together is close to diagnostic. It is easily mistaken for opioid overdose because of the pinpoint pupils, but opioids dry secretions rather than causing them."
+        },
+        {
+          "name": "Ventilate expecting difficulty",
+          "breaks_at": "nicotinic",
+          "scope": "EMR",
+          "note": "Bronchoconstriction plus secretions makes these patients hard to ventilate. Expect high resistance and keep the airway clear between breaths."
+        },
+        {
+          "name": "Consider it a multi-casualty scene",
+          "breaks_at": "exposure",
+          "scope": "EMR",
+          "note": "Agricultural incidents and deliberate releases produce multiple patients and contaminated responders. Get hazardous materials resources moving early."
+        }
+      ],
+      "red_flags": [
+        "Pinpoint pupils with copious secretions",
+        "Any suggestion of pesticide or chemical exposure",
+        "Multiple casualties with similar symptoms",
+        "Muscle fasciculation",
+        "Bradycardia with secretions",
+        "Seizures",
+        "Responders developing symptoms",
+        "A smell of solvent or garlic on the patient or their clothing"
+      ],
+      "differentiators": [
+        {
+          "vs": "Opioid overdose",
+          "how": "Both give pinpoint pupils and respiratory failure. Opioids give dry secretions, a normal or slow heart rate without the gastrointestinal storm, and no fasciculation. Naloxone does nothing for cholinergic toxicity."
+        },
+        {
+          "vs": "Anticholinergic toxicity",
+          "how": "The exact opposite: dry as a bone, hot, flushed, dilated pupils, and delirium. Caused by antihistamines, tricyclics, and some plants."
+        },
+        {
+          "vs": "Asthma or pulmonary edema",
+          "how": "Both cause wheeze and secretions. The pinpoint pupils, the gastrointestinal symptoms, and the exposure history separate them."
+        },
+        {
+          "vs": "Treatment: why not epinephrine",
+          "how": "Epinephrine is not a treatment for cholinergic toxicity and should not be given. The muscarinic effects are reversed by atropine. Pralidoxime reactivates acetylcholinesterase before the organophosphate bond ages and becomes permanent. Both are beyond EMR scope."
+        }
+      ]
+    }
+  ]
+}

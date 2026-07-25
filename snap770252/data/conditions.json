@@ -1,0 +1,269 @@
+{
+  "conditions": [
+    {
+      "id": "asthma",
+      "name": "Asthma",
+      "structures": [
+        "bronchioles"
+      ],
+      "status": "built",
+      "one_liner": "Reversible narrowing of the small airways, driven by muscle spasm, swelling, and mucus.",
+      "in_one_breath": "An overreactive airway constricts, swells, and fills with mucus. Air gets in more easily than it gets out, so the chest progressively overinflates while the patient works harder and harder to empty it.",
+      "cascade": [
+        {
+          "id": "trigger",
+          "label": "Trigger exposure",
+          "sub": "Allergen, cold air, exertion, infection",
+          "severity": "normal",
+          "detail": "An asthmatic airway is chronically inflamed and hyperresponsive even between attacks. A trigger that would do nothing to a normal airway provokes a disproportionate response here. Common triggers are allergens, respiratory infections, cold dry air, exercise, smoke, and emotional stress."
+        },
+        {
+          "id": "immune-response",
+          "label": "Inflammatory response fires",
+          "sub": "Mast cells degranulate",
+          "severity": "normal",
+          "detail": "Mast cells in the airway wall release histamine, leukotrienes, and prostaglandins. These mediators act on smooth muscle, blood vessels, and mucus glands simultaneously, which is why the next step happens in three ways at once rather than one."
+        },
+        {
+          "id": "three-hit",
+          "label": "Airway narrows three ways",
+          "sub": "Spasm, swelling, mucus",
+          "severity": "warn",
+          "structure": "bronchioles",
+          "detail": "Smooth muscle constricts around the bronchiole. The mucosa lining it swells. Goblet cells pour out thick mucus that plugs the lumen. All three reduce the radius, and airway resistance rises with the fourth power of the radius, so modest narrowing produces enormous resistance. This step is the single most important thing to understand about asthma, because bronchodilators reverse only the first of the three."
+        },
+        {
+          "id": "air-trapping",
+          "label": "Air gets trapped on exhalation",
+          "sub": "Wheeze, prolonged expiratory phase",
+          "severity": "warn",
+          "detail": "Bronchioles have no cartilage and are held open partly by the outward pull of surrounding inflated lung. On inspiration the lung expands and airways widen slightly; on expiration they narrow. So an already narrowed airway closes off first during exhalation. Air enters more easily than it leaves, the chest progressively hyperinflates, and the diaphragm is pushed into a flattened, mechanically inefficient position."
+        },
+        {
+          "id": "increased-work-of-breathing",
+          "label": "Work of breathing rises",
+          "sub": "Accessory muscles, tripod position",
+          "severity": "warn",
+          "shared": "increased-work-of-breathing",
+          "detail": "The patient now has to generate far more pressure for every breath, against high resistance, using a diaphragm that hyperinflation has already put at a disadvantage. Accessory muscles are recruited. Speech shortens from sentences to phrases to single words, which is one of the most reliable field measures of severity you have."
+        },
+        {
+          "id": "hypoxia",
+          "label": "Tissue oxygen falls",
+          "sub": "Anxiety, restlessness, falling SpO2",
+          "severity": "warn",
+          "shared": "hypoxia",
+          "detail": "Poorly ventilated alveoli behind obstructed airways still receive blood flow, so blood passes through without picking up oxygen. Meanwhile the respiratory muscles are consuming a rapidly increasing share of the oxygen that does get in."
+        },
+        {
+          "id": "hypercapnia",
+          "label": "Carbon dioxide starts to rise",
+          "sub": "Late sign, ominous",
+          "severity": "crit",
+          "shared": "hypercapnia",
+          "detail": "Early in an attack CO2 is usually low, because the patient is breathing fast and CO2 diffuses readily. A normal CO2 in a severe asthmatic is therefore not reassuring, it is a warning that ventilation is beginning to fail. A rising CO2 means the patient can no longer move enough air, and is close to exhaustion."
+        },
+        {
+          "id": "respiratory-fatigue",
+          "label": "Respiratory muscles fail",
+          "sub": "Silent chest, falling effort",
+          "severity": "crit",
+          "shared": "respiratory-fatigue",
+          "detail": "The muscles have been working many times harder than normal, for a long time, while hypoxic. They fail. The wheeze disappears, not because the airways opened but because there is no longer enough airflow to make a sound. This is the most dangerous misreading in respiratory medicine."
+        },
+        {
+          "id": "respiratory-arrest",
+          "label": "Breathing stops",
+          "sub": "Then hypoxic cardiac arrest",
+          "severity": "crit",
+          "shared": "respiratory-arrest",
+          "detail": "Effort ceases. A pulse is usually present for a few minutes. Ventilation at this point is often entirely effective, but it is difficult, because the chest is hyperinflated and air still cannot escape easily."
+        }
+      ],
+      "interventions": [
+        {
+          "med": "salbutamol",
+          "breaks_at": "three-hit",
+          "note": "Relaxes bronchial smooth muscle. Reverses the spasm component only, which is why a severe attack can look barely improved after a dose."
+        },
+        {
+          "med": "oxygen",
+          "breaks_at": "hypoxia",
+          "note": "Raises the alveolar oxygen gradient. Buys time downstream but does nothing to the obstruction itself."
+        },
+        {
+          "med": "epinephrine",
+          "breaks_at": "three-hit",
+          "scope": "ACP",
+          "note": "Hits further upstream than salbutamol: beta-2 relaxes muscle, alpha-1 vasoconstriction reduces mucosal swelling, and mast cell stabilisation slows further mediator release. Reserved for severe or near-arrest presentations, and outside EMR scope."
+        }
+      ],
+      "non_drug_interventions": [
+        {
+          "name": "Position of comfort, upright",
+          "breaks_at": "increased-work-of-breathing",
+          "scope": "EMR",
+          "note": "Sitting upright and leaning forward fixes the shoulder girdle so accessory muscles can pull against a stable base. Never force an asthmatic to lie flat."
+        },
+        {
+          "name": "Calm the patient",
+          "breaks_at": "increased-work-of-breathing",
+          "scope": "EMR",
+          "note": "Anxiety raises respiratory rate and oxygen demand, worsening air trapping. This is not hand-holding, it is a physiological intervention with a measurable effect."
+        },
+        {
+          "name": "Assisted ventilation",
+          "breaks_at": "respiratory-fatigue",
+          "scope": "EMR",
+          "note": "Slow rate, long expiratory time, low volume. The instinct to bag fast is wrong here; you will stack breaths on top of already trapped air and can drop the blood pressure or cause a pneumothorax."
+        }
+      ],
+      "red_flags": [
+        "Silent chest, or a wheeze that fades without treatment",
+        "Speaking in single words, or unable to speak at all",
+        "Falling respiratory rate or reduced effort in a patient who was working hard",
+        "Drowsiness, confusion, or agitation",
+        "Exhaustion, or a patient who says they cannot keep going"
+      ],
+      "differentiators": [
+        {
+          "vs": "COPD",
+          "how": "Asthma is reversible and episodic, often with a clear trigger and a history of similar attacks that resolved. COPD is chronic with a smoking history, chronic productive cough, and a baseline the patient never fully returns from."
+        },
+        {
+          "vs": "Anaphylaxis",
+          "how": "Anaphylaxis affects more than the airway. Look for urticaria, angioedema, gastrointestinal symptoms, and hypotension. If the patient is wheezing and hypotensive after an exposure, treat it as anaphylaxis."
+        },
+        {
+          "vs": "Pulmonary edema",
+          "how": "Cardiac history, orthopnea, crackles rather than wheeze, frothy pink sputum, and peripheral edema. Cardiac wheeze exists and can genuinely fool you, so weigh the whole picture."
+        }
+      ]
+    },
+    {
+      "id": "tension-pneumothorax",
+      "name": "Tension pneumothorax",
+      "structures": [
+        "pleural-space"
+      ],
+      "status": "built",
+      "one_liner": "Air enters the pleural space through a one-way valve and pressure keeps climbing until it strangles the circulation.",
+      "in_one_breath": "A simple pneumothorax becomes lethal when the leak only lets air in. Every breath adds more, the lung collapses, and eventually the pressure crushes the great vessels so blood cannot return to the heart. This kills through shock, not through hypoxia.",
+      "cascade": [
+        {
+          "id": "pleural-breach",
+          "label": "The pleural seal breaks",
+          "sub": "Penetrating or blunt injury",
+          "severity": "warn",
+          "structure": "pleural-space",
+          "detail": "Air enters the pleural space, either through the chest wall from outside or from a torn lung surface. The negative pressure that held the lung expanded is lost."
+        },
+        {
+          "id": "one-way-valve",
+          "label": "A one-way valve forms",
+          "sub": "Air in, none out",
+          "severity": "crit",
+          "detail": "Tissue flaps over the breach so that inspiration draws air in but expiration cannot push it back out. This is the single feature that separates a tension pneumothorax from a simple one, and it is why this condition gets progressively worse rather than staying stable."
+        },
+        {
+          "id": "lung-collapse",
+          "label": "The lung collapses",
+          "sub": "Absent breath sounds on that side",
+          "severity": "crit",
+          "detail": "Without negative pressure to hold it out, the elastic lung recoils toward the hilum. Ventilation on that side stops. Blood continues to flow past the collapsed lung without picking up oxygen."
+        },
+        {
+          "id": "pressure-rise",
+          "label": "Intrathoracic pressure climbs",
+          "sub": "Every breath adds more air",
+          "severity": "crit",
+          "detail": "The trapped air has nowhere to go and the volume increases with each breath. Pressure in the affected hemithorax now exceeds atmospheric, reversing the normal state of the chest entirely."
+        },
+        {
+          "id": "mediastinal-shift",
+          "label": "The mediastinum is pushed across",
+          "sub": "Great vessels compressed",
+          "severity": "crit",
+          "detail": "Rising pressure shifts the heart, trachea, and great vessels toward the opposite side. The superior and inferior vena cava are thin-walled, low-pressure vessels and they kink and compress easily."
+        },
+        {
+          "id": "venous-return-fails",
+          "label": "Blood can't get back to the heart",
+          "sub": "Obstructive shock",
+          "severity": "crit",
+          "detail": "With venous return obstructed, the right ventricle has nothing to pump. Cardiac output collapses. Neck veins distend because blood is backing up behind the obstruction, though this sign disappears if the patient is also hypovolemic from bleeding."
+        },
+        {
+          "id": "hypoxia",
+          "label": "Tissue oxygen falls",
+          "sub": "From both collapse and shock",
+          "severity": "crit",
+          "shared": "hypoxia",
+          "detail": "Two mechanisms stack here: one lung is not ventilating, and circulation is failing so what oxygen there is cannot be delivered."
+        },
+        {
+          "id": "cardiac-arrest",
+          "label": "Circulation stops",
+          "sub": "Usually PEA",
+          "severity": "crit",
+          "shared": "cardiac-arrest",
+          "detail": "The heart typically continues to produce organised electrical activity with no output, because the problem is entirely mechanical. Compressions and defibrillation will not fix it. Only decompression will."
+        }
+      ],
+      "interventions": [
+        {
+          "med": "oxygen",
+          "breaks_at": "hypoxia",
+          "note": "High concentration. Supports the one lung still working while the underlying obstruction is addressed."
+        }
+      ],
+      "non_drug_interventions": [
+        {
+          "name": "Release the occlusive dressing",
+          "breaks_at": "one-way-valve",
+          "scope": "EMR",
+          "note": "If you sealed an open chest wound and the patient then deteriorated, you may have created the valve yourself. Lifting the dressing to let trapped air escape is within EMR scope, costs nothing, and can reverse the entire cascade in seconds. This is the highest-value thing an EMR can do for this patient."
+        },
+        {
+          "name": "Vented chest seal",
+          "breaks_at": "one-way-valve",
+          "scope": "EMR",
+          "note": "A commercial vented seal lets air out while preventing it from being drawn back in, which is exactly the opposite of the pathological valve."
+        },
+        {
+          "name": "Needle decompression",
+          "breaks_at": "pressure-rise",
+          "scope": "ACP",
+          "note": "Definitive prehospital treatment. Outside EMR and generally outside PCP scope in Alberta, so for an EMR the intervention is early recognition and getting the right resource moving."
+        },
+        {
+          "name": "Recognise and escalate early",
+          "breaks_at": "pressure-rise",
+          "scope": "EMR",
+          "note": "This condition is fully reversible right up until it is not. Recognition is the intervention at this level."
+        }
+      ],
+      "red_flags": [
+        "Absent or markedly reduced breath sounds on one side after chest trauma",
+        "Rapidly worsening shortness of breath with rising pulse and falling blood pressure",
+        "Distended neck veins, though absent if the patient is also bleeding",
+        "Deterioration shortly after an occlusive dressing was applied",
+        "A ventilated patient who becomes suddenly harder to bag and drops their pressure"
+      ],
+      "differentiators": [
+        {
+          "vs": "Simple pneumothorax",
+          "how": "Simple pneumothorax is stable. Tension is progressive and comes with shock. If the patient is deteriorating in front of you rather than holding steady, assume tension."
+        },
+        {
+          "vs": "Hemothorax",
+          "how": "Blood is dull to percussion and sits at the base; air is hyperresonant and collects at the apex. Hemothorax also causes hypovolemia directly, so neck veins are flat rather than distended."
+        },
+        {
+          "vs": "Cardiac tamponade",
+          "how": "Both cause obstructive shock with distended neck veins. Tamponade has muffled heart sounds and equal breath sounds bilaterally; tension has unilaterally absent breath sounds."
+        }
+      ]
+    }
+  ]
+}

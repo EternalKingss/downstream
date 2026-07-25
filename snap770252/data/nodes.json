@@ -1,0 +1,177 @@
+{
+  "nodes": [
+    {
+      "id": "increased-work-of-breathing",
+      "name": "Work of breathing rises",
+      "severity": "warn",
+      "one_liner": "Breathing stops being free and starts costing real energy.",
+      "what_is_happening": "Quiet breathing normally uses about three percent of your total oxygen consumption. When resistance or stiffness increases, the respiratory muscles have to generate far more pressure for the same tidal volume. The body recruits accessory muscles in the neck, shoulders, and abdomen to help.",
+      "why_it_follows": "Any obstruction to flow, any loss of lung compliance, and any restriction of chest movement forces the same compensation. The body's only option is to push harder.",
+      "what_you_see": [
+        "Accessory muscle use: sternocleidomastoid standing out, shoulders rising with each breath",
+        "Intercostal, subcostal, and suprasternal retractions, most obvious in children",
+        "Tripod positioning, hands braced on knees or a table to fix the shoulder girdle",
+        "Nasal flaring in infants and small children",
+        "Speaking in short phrases, then single words, then not at all"
+      ],
+      "the_trap": "This is a compensation, not a failure. A patient working hard is still winning. The dangerous moment is when the work suddenly decreases without treatment, because that usually means they have run out of fuel rather than gotten better.",
+      "leads_to": ["respiratory-fatigue", "hypoxia"]
+    },
+    {
+      "id": "hypoxia",
+      "name": "Tissue oxygen falls",
+      "severity": "warn",
+      "one_liner": "Cells stop getting the oxygen they need to make energy.",
+      "what_is_happening": "Cells make ATP by aerobic metabolism, which requires oxygen as the final electron acceptor. Without it they switch to anaerobic metabolism, which produces roughly a sixteenth as much energy per glucose molecule and generates lactic acid as a byproduct. High-demand tissue fails first.",
+      "why_it_follows": "There are only four ways to arrive here, and every respiratory and circulatory emergency is one of them: not enough oxygen going in, not enough gas exchange happening, not enough blood carrying it, or not enough flow delivering it.",
+      "what_you_see": [
+        "Anxiety and restlessness, often before anything else and often mistaken for panic",
+        "Falling SpO2, though this is a late indicator because of the shape of the oxygen dissociation curve",
+        "Tachycardia and tachypnea as the body tries to move more oxygen faster",
+        "Cyanosis, which requires a substantial amount of desaturated hemoglobin and is therefore also late",
+        "Deteriorating level of consciousness as the brain runs short"
+      ],
+      "the_trap": "Restlessness and combativeness are hypoxia until proven otherwise. Treating an agitated hypoxic patient as a behavioural problem instead of a respiratory one is a classic and lethal error.",
+      "leads_to": ["altered-loc", "cyanosis", "compensatory-tachycardia", "anaerobic-metabolism"]
+    },
+    {
+      "id": "hypercapnia",
+      "name": "Carbon dioxide accumulates",
+      "severity": "warn",
+      "one_liner": "CO2 builds up because it isn't being blown off fast enough.",
+      "what_is_happening": "CO2 is produced continuously by metabolism and cleared only by ventilation. When alveolar ventilation drops, CO2 accumulates and combines with water to form carbonic acid, dropping blood pH. This is respiratory acidosis.",
+      "why_it_follows": "CO2 clearance depends almost entirely on how much air actually reaches the alveoli each minute. Slow breathing, shallow breathing, and trapped air all reduce that, even when the rate looks normal or high.",
+      "what_you_see": [
+        "Headache, flushing, and warm peripheries from CO2-driven vasodilation",
+        "Drowsiness progressing to confusion, then unresponsiveness",
+        "Bounding pulse",
+        "In severe cases, a flapping tremor of the outstretched hands"
+      ],
+      "the_trap": "CO2 diffuses about twenty times more easily than oxygen, so in most lung disease hypoxia arrives well before hypercapnia. A rising CO2 in a respiratory patient usually means ventilation itself is failing, which is a much later and more serious stage than hypoxia alone.",
+      "leads_to": ["altered-loc"]
+    },
+    {
+      "id": "compensatory-tachycardia",
+      "name": "Heart rate climbs",
+      "severity": "warn",
+      "one_liner": "The pump speeds up to move the same oxygen more often.",
+      "what_is_happening": "Chemoreceptors and baroreceptors detect falling oxygen or falling pressure and trigger a sympathetic response. Cardiac output is heart rate multiplied by stroke volume, so when stroke volume or oxygen content falls, raising rate is the fastest available compensation.",
+      "why_it_follows": "It is the body's default answer to almost every oxygen delivery problem, whether the cause is respiratory, haemorrhagic, or distributive.",
+      "what_you_see": [
+        "Rising pulse rate, often the earliest measurable change in a deteriorating patient",
+        "Narrowing pulse pressure if the cause is volume loss",
+        "Pale, cool, clammy skin from accompanying peripheral vasoconstriction"
+      ],
+      "the_trap": "Tachycardia is nonspecific but it is rarely nothing. More importantly, its absence in a sick patient is alarming. A patient on beta blockers, a well-conditioned athlete, or a patient with a spinal injury may not be able to mount this response at all.",
+      "leads_to": []
+    },
+    {
+      "id": "cyanosis",
+      "name": "Skin turns blue",
+      "severity": "crit",
+      "one_liner": "Enough hemoglobin is running empty that you can see it through the skin.",
+      "what_is_happening": "Oxygenated hemoglobin is bright red; deoxygenated hemoglobin is dark blue-purple. Cyanosis becomes visible when roughly 50 grams per litre of hemoglobin in the capillary bed is desaturated.",
+      "why_it_follows": "It is a direct visual readout of desaturated hemoglobin, so it appears downstream of any cause of hypoxia, regardless of which one.",
+      "what_you_see": [
+        "Central cyanosis around the lips, tongue, and oral mucosa, which reflects true arterial desaturation",
+        "Peripheral cyanosis in the fingers, toes, and nail beds, which can also be caused by cold or poor perfusion alone"
+      ],
+      "the_trap": "Cyanosis depends on the absolute amount of desaturated hemoglobin, not the percentage. A severely anemic patient may be dangerously hypoxic and never turn blue, because they do not have enough hemoglobin to reach the visible threshold. A patient with carbon monoxide poisoning may be cherry red while their tissues suffocate. Never rule out hypoxia because the patient looks pink.",
+      "leads_to": []
+    },
+    {
+      "id": "altered-loc",
+      "name": "Level of consciousness drops",
+      "severity": "crit",
+      "one_liner": "The brain is the first organ to complain and the first to shut down.",
+      "what_is_happening": "The brain consumes about twenty percent of the body's oxygen while making up two percent of its mass, and it stores essentially no reserve. Any interruption to its oxygen or glucose supply shows up in behaviour within seconds to minutes.",
+      "why_it_follows": "It sits downstream of almost everything: hypoxia, hypercapnia, hypoglycemia, hypoperfusion, toxins, raised intracranial pressure, and seizure activity all converge here.",
+      "what_you_see": [
+        "Anxiety and restlessness first, which is easy to misread",
+        "Confusion, disorientation, and inappropriate answers",
+        "Combativeness, which is often the last thing before collapse",
+        "Progressive drowsiness, then response only to voice, then only to pain, then nothing",
+        "Loss of airway reflexes and airway tone, which creates a second, mechanical problem on top of the first"
+      ],
+      "the_trap": "This node is the single most important convergence point in prehospital medicine, and precisely because so many things lead here it tells you almost nothing on its own about the cause. Its value is as an alarm and as a severity marker, not as a diagnosis.",
+      "leads_to": ["airway-compromise"]
+    },
+    {
+      "id": "airway-compromise",
+      "name": "Airway stops protecting itself",
+      "severity": "crit",
+      "one_liner": "Muscle tone goes, the tongue falls back, and reflexes stop working.",
+      "what_is_happening": "Consciousness maintains pharyngeal muscle tone and the gag and cough reflexes. As consciousness falls, the tongue loses tone and falls against the posterior pharyngeal wall, and the patient loses the ability to clear secretions, blood, or vomit.",
+      "why_it_follows": "It is a direct mechanical consequence of falling level of consciousness, whatever caused that fall.",
+      "what_you_see": [
+        "Snoring or gurgling respirations",
+        "Paradoxical or see-saw chest movement with no air movement",
+        "Absent gag reflex",
+        "Silence, which in a previously noisy airway means complete obstruction, not improvement"
+      ],
+      "the_trap": "This is a second, independent lethal problem stacked on top of the original one. A patient can survive their overdose and die of their airway. It is also the one thing on this entire site that is fixed by positioning alone, at no cost, in under five seconds.",
+      "leads_to": ["hypoxia"]
+    },
+    {
+      "id": "respiratory-fatigue",
+      "name": "Respiratory muscles fail",
+      "severity": "crit",
+      "one_liner": "The muscles that were compensating run out of fuel.",
+      "what_is_happening": "The diaphragm and accessory muscles are skeletal muscle, and they fatigue like any other. When a patient has been working many times harder than normal for a sustained period, and is simultaneously hypoxic, those muscles begin to fail.",
+      "why_it_follows": "It is the endpoint of prolonged increased work of breathing, made worse because the muscles doing the work are themselves being starved of oxygen.",
+      "what_you_see": [
+        "A patient who was working hard and now appears calmer or sleepier without any treatment",
+        "Falling respiratory rate in a patient who was previously tachypneic",
+        "Decreasing chest excursion and quieter breath sounds",
+        "In asthma, a silent chest, because there is no longer enough air movement to generate a wheeze"
+      ],
+      "the_trap": "This looks like improvement and it is the opposite of improvement. A quieting asthmatic with a falling respiratory rate is minutes from arrest, not recovering. Any apparent improvement without a corresponding intervention should terrify you.",
+      "leads_to": ["respiratory-arrest"]
+    },
+    {
+      "id": "anaerobic-metabolism",
+      "name": "Cells switch to anaerobic metabolism",
+      "severity": "crit",
+      "one_liner": "Energy production collapses and acid accumulates.",
+      "what_is_happening": "Without oxygen, cells can only extract about two ATP per glucose instead of roughly thirty-six, and lactic acid accumulates as a byproduct. Falling pH impairs enzyme function, reduces cardiac contractility, and blunts the response to catecholamines.",
+      "why_it_follows": "It is the cellular consequence of sustained hypoxia from any cause, which is why this node is shared by respiratory failure, shock, and cardiac arrest alike.",
+      "what_you_see": [
+        "Metabolic acidosis, which the body tries to buffer by breathing faster and deeper",
+        "Progressive failure of compensation as acidosis blunts the sympathetic response",
+        "Cool, mottled skin and prolonged capillary refill"
+      ],
+      "the_trap": "This is the point where the cascade becomes self-reinforcing. Acidosis reduces cardiac output, which worsens delivery, which worsens acidosis. Once the loop closes, correcting the original cause alone may no longer be enough.",
+      "leads_to": ["cardiac-arrest"]
+    },
+    {
+      "id": "respiratory-arrest",
+      "name": "Breathing stops",
+      "severity": "crit",
+      "one_liner": "Ventilation ceases while a pulse is still present.",
+      "what_is_happening": "Respiratory effort ends, either because the drive to breathe has failed or because the muscles can no longer generate it. Circulation continues for a few minutes on already-oxygenated blood, then fails.",
+      "why_it_follows": "It is the terminal point of respiratory fatigue, central respiratory depression, or complete airway obstruction.",
+      "what_you_see": [
+        "No chest rise, no air movement, no breath sounds",
+        "A palpable pulse that is often still present initially",
+        "Deepening cyanosis",
+        "Bradycardia developing, particularly rapidly in children"
+      ],
+      "the_trap": "This is the most salvageable emergency you will attend. A patient in respiratory arrest with a pulse needs ventilation and will very often recover completely. If you wait, it becomes cardiac arrest, and survival drops off a cliff. In children this progression is the usual route to arrest, which is why paediatric resuscitation is airway and breathing first.",
+      "leads_to": ["cardiac-arrest"]
+    },
+    {
+      "id": "cardiac-arrest",
+      "name": "Circulation stops",
+      "severity": "crit",
+      "one_liner": "The pump stops and delivery goes to zero.",
+      "what_is_happening": "The heart stops producing effective output, either through a shockable rhythm or through progressive hypoxic bradycardia to asystole. Tissue oxygen delivery ceases entirely.",
+      "why_it_follows": "It is the common terminal endpoint of every uncorrected cascade on this site.",
+      "what_you_see": [
+        "Unresponsive, not breathing normally, no palpable pulse",
+        "Agonal gasps, which are not breathing and must not delay compressions"
+      ],
+      "the_trap": "Hypoxic arrest is not the same problem as sudden cardiac arrest. In a hypoxic arrest the heart stopped because it ran out of oxygen, so the fix is oxygen and ventilation alongside compressions. Defibrillation alone will not solve a problem that was never electrical.",
+      "leads_to": []
+    }
+  ]
+}

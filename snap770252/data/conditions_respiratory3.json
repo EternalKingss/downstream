@@ -1,0 +1,628 @@
+{
+  "conditions": [
+    {
+      "id": "pneumothorax",
+      "name": "Simple pneumothorax",
+      "structures": ["pleural-space"],
+      "status": "built",
+      "one_liner": "Air in the pleural space breaks the vacuum seal, so the elastic lung recoils and collapses.",
+      "in_one_breath": "The lung is held expanded only by negative pressure in a sealed space. Let air in and the seal is gone, so the lung springs back toward its own resting size. Nothing is wrong with the lung tissue at all; it simply has nothing holding it out.",
+      "cascade": [
+        {
+          "id": "air-enters",
+          "label": "Air enters the pleural space",
+          "sub": "Traumatic or spontaneous",
+          "severity": "warn",
+          "structure": "pleural-space",
+          "detail": "Either from outside through a chest wall wound, or from inside through a tear in the lung surface. Spontaneous pneumothorax classically occurs in tall thin young men from a ruptured apical bleb, and in COPD patients from ruptured emphysematous bullae. Rib fractures can puncture the lung from within."
+        },
+        {
+          "id": "seal-broken",
+          "label": "The vacuum seal is lost",
+          "sub": "Negative pressure gone",
+          "severity": "warn",
+          "detail": "Pleural pressure rises toward atmospheric. The only force holding the lung against the chest wall disappears."
+        },
+        {
+          "id": "lung-recoils",
+          "label": "The lung recoils inward",
+          "sub": "Absent or reduced breath sounds",
+          "severity": "warn",
+          "detail": "Lung tissue is elastic and under tension when inflated. Without the outward pull of negative pressure it collapses toward the hilum. Breath sounds are reduced or absent over the collapsed area, and percussion is hyperresonant because air has replaced lung."
+        },
+        {
+          "id": "shunt",
+          "label": "Blood passes unventilated lung",
+          "sub": "Shunt on the affected side",
+          "severity": "warn",
+          "shared": "vq-mismatch",
+          "detail": "The collapsed lung still receives some blood flow, which returns unoxygenated. Hypoxic pulmonary vasoconstriction reduces this over time, which is why a small pneumothorax may cause surprisingly little desaturation."
+        },
+        {
+          "id": "work-rises",
+          "label": "Work of breathing rises",
+          "sub": "Pleuritic pain, splinting",
+          "severity": "warn",
+          "shared": "increased-work-of-breathing",
+          "detail": "The patient breathes faster and shallower, partly from reduced functional lung and partly because pleuritic pain makes deep breaths hurt. Splinting further reduces tidal volume."
+        },
+        {
+          "id": "tension-risk",
+          "label": "It may become a tension",
+          "sub": "If a one-way valve forms",
+          "severity": "crit",
+          "detail": "This is the reason a simple pneumothorax is never simply observed in the field. If tissue flaps so that air enters but cannot leave, pressure climbs with every breath and the condition converts into a tension pneumothorax. Positive pressure ventilation makes that conversion dramatically more likely."
+        }
+      ],
+      "interventions": [
+        {
+          "med": "oxygen",
+          "breaks_at": "shunt",
+          "scope": "EMR",
+          "note": "High concentration. Beyond correcting hypoxia, breathing a high oxygen concentration speeds reabsorption of the trapped air, because nitrogen is washed out of the blood and the gas in the pleural space is absorbed faster."
+        }
+      ],
+      "non_drug_interventions": [
+        {
+          "name": "Vented chest seal for open wounds",
+          "breaks_at": "air-enters",
+          "scope": "EMR",
+          "note": "An open chest wound needs a seal that lets air escape but not enter. A fully occlusive dressing can create the one-way valve you are trying to avoid."
+        },
+        {
+          "name": "Position of comfort, affected side down if tolerated",
+          "breaks_at": "work-rises",
+          "scope": "EMR",
+          "note": "Lying on the affected side can splint it and improve ventilation of the good lung. Let the patient's own comfort guide it."
+        },
+        {
+          "name": "Monitor relentlessly for tension",
+          "breaks_at": "tension-risk",
+          "scope": "EMR",
+          "note": "Repeated observations of breath sounds, saturation, pulse, and blood pressure. A stable simple pneumothorax that becomes unstable is a tension until proven otherwise, and it can happen in minutes."
+        },
+        {
+          "name": "Ventilate cautiously if you must",
+          "breaks_at": "tension-risk",
+          "scope": "EMR",
+          "note": "Positive pressure forces more air through the leak. If assisted ventilation is unavoidable, use the smallest volumes that achieve chest rise and watch continuously for deterioration."
+        }
+      ],
+      "red_flags": [
+        "Any progressive deterioration, which suggests tension",
+        "Increasing breathlessness or falling saturation",
+        "Rising pulse with falling blood pressure",
+        "Distended neck veins",
+        "Sudden deterioration after starting positive pressure ventilation",
+        "Subcutaneous emphysema, which feels like bubble wrap under the skin"
+      ],
+      "differentiators": [
+        {
+          "vs": "Tension pneumothorax",
+          "how": "Tension is progressive and comes with shock. If the patient is deteriorating in front of you rather than holding steady, treat it as tension."
+        },
+        {
+          "vs": "Hemothorax",
+          "how": "Blood is dull to percussion and collects at the base; air is hyperresonant and collects at the apex. Hemothorax also causes hypovolemia, so those patients are shocked from blood loss as well."
+        },
+        {
+          "vs": "Pulmonary embolism",
+          "how": "Both give sudden pleuritic pain and breathlessness with a relatively unremarkable chest, but breath sounds are equal in PE."
+        }
+      ]
+    },
+    {
+      "id": "hemothorax",
+      "name": "Hemothorax",
+      "structures": ["pleural-space", "blood"],
+      "status": "built",
+      "one_liner": "Blood fills the pleural space, collapsing the lung and draining the circulation at the same time.",
+      "in_one_breath": "Two problems from one injury. The blood in the chest stops the lung expanding, and the blood in the chest is blood that is no longer in the circulation. A hemithorax can hold well over a litre, which is enough to kill on its own.",
+      "cascade": [
+        {
+          "id": "vessel-torn",
+          "label": "A vessel bleeds into the chest",
+          "sub": "Intercostal, lung, or great vessel",
+          "severity": "crit",
+          "structure": "pleural-space",
+          "detail": "Rib fractures tearing intercostal vessels are a common cause, as is lung laceration. Injury to the great vessels or the heart produces a massive hemothorax that is usually rapidly fatal. A single hemithorax can hold well over a litre and a half of blood."
+        },
+        {
+          "id": "space-fills",
+          "label": "Blood fills the pleural space",
+          "sub": "Dull to percussion, collects at the base",
+          "severity": "crit",
+          "detail": "Unlike air, blood is heavy and pools in the dependent part of the chest. Breath sounds are reduced at the base and percussion is dull rather than hyperresonant, which is the bedside distinction from a pneumothorax."
+        },
+        {
+          "id": "lung-compressed",
+          "label": "The lung is compressed",
+          "sub": "Ventilation lost on that side",
+          "severity": "crit",
+          "detail": "The lung cannot expand into a space occupied by fluid. Functional lung volume falls, and the affected region is perfused but not ventilated."
+        },
+        {
+          "id": "shunt",
+          "label": "Blood passes unventilated lung",
+          "sub": "Hypoxia",
+          "severity": "crit",
+          "shared": "vq-mismatch",
+          "detail": "As with any collapse, blood flows past lung that is not exchanging gas and returns unoxygenated."
+        },
+        {
+          "id": "volume-loss",
+          "label": "Circulating volume is lost",
+          "sub": "Into the chest, not onto the floor",
+          "severity": "crit",
+          "structure": "blood",
+          "detail": "This is the part people underestimate. The blood is gone from the circulation just as surely as if it were on the ground, and it is invisible. The patient is bleeding heavily with no external evidence."
+        },
+        {
+          "id": "shock",
+          "label": "Hemorrhagic shock develops",
+          "sub": "Flat neck veins, not distended",
+          "severity": "crit",
+          "shared": "hypoperfusion",
+          "detail": "Tachycardia, cool clammy skin, and eventually hypotension. Neck veins are typically flat because the patient is hypovolemic, which is an important distinction from tension pneumothorax and tamponade where they distend."
+        },
+        {
+          "id": "combined-failure",
+          "label": "Hypoxia and shock compound",
+          "sub": "Two lethal problems, one injury",
+          "severity": "crit",
+          "shared": "decompensated-shock",
+          "detail": "The patient cannot oxygenate well and cannot deliver what oxygen they have. A massive hemothorax may also compress the mediastinum and impede venous return, adding an obstructive component."
+        }
+      ],
+      "interventions": [
+        {
+          "med": "oxygen",
+          "breaks_at": "shunt",
+          "scope": "EMR",
+          "note": "High concentration. With reduced hemoglobin and reduced ventilated lung, maximising the saturation of what remains matters."
+        }
+      ],
+      "non_drug_interventions": [
+        {
+          "name": "Recognise it as bleeding",
+          "breaks_at": "volume-loss",
+          "scope": "EMR",
+          "note": "The most important mental shift. This is major hemorrhage that happens to be inside the chest. Treat the patient as a bleeding trauma patient, not simply a breathing problem."
+        },
+        {
+          "name": "Do not seal a chest wound completely",
+          "breaks_at": "space-fills",
+          "scope": "EMR",
+          "note": "A vented seal allows drainage and prevents tension. A fully occlusive dressing traps everything inside."
+        },
+        {
+          "name": "Aggressive warming",
+          "breaks_at": "shock",
+          "scope": "EMR",
+          "note": "Hypothermia impairs clotting, which worsens the bleeding into the chest. The lethal triad applies here as much as anywhere."
+        },
+        {
+          "name": "Chest drainage",
+          "breaks_at": "space-fills",
+          "scope": "ACP",
+          "note": "Definitive treatment is a chest tube, often followed by surgery. Outside EMR scope, so short scene time and a trauma centre destination is what you control."
+        },
+        {
+          "name": "Minimal scene time",
+          "breaks_at": "combined-failure",
+          "scope": "EMR",
+          "note": "These patients need a surgeon and blood. Everything else is delay."
+        }
+      ],
+      "red_flags": [
+        "Reduced breath sounds with dullness to percussion after chest trauma",
+        "Shock with flat neck veins after chest trauma",
+        "Rapidly worsening breathlessness with rising pulse",
+        "Any penetrating chest wound",
+        "Hypotension, which means substantial volume is already lost"
+      ],
+      "differentiators": [
+        {
+          "vs": "Tension pneumothorax",
+          "how": "Tension gives hyperresonance and distended neck veins; hemothorax gives dullness and flat neck veins. Both give reduced breath sounds and shock."
+        },
+        {
+          "vs": "Cardiac tamponade",
+          "how": "Tamponade has equal breath sounds, muffled heart sounds, and distended neck veins."
+        },
+        {
+          "vs": "Simple pneumothorax",
+          "how": "A simple pneumothorax does not cause hemorrhagic shock. Shock with a chest injury means blood is going somewhere."
+        }
+      ]
+    },
+    {
+      "id": "pulmonary-embolism",
+      "name": "Pulmonary embolism",
+      "structures": ["pulmonary-vessels"],
+      "status": "built",
+      "one_liner": "A clot blocks pulmonary blood flow, so perfectly ventilated alveoli have no blood arriving to collect the oxygen.",
+      "in_one_breath": "Ventilation is fine, the chest sounds clear, and the patient is profoundly hypoxic. The air is getting in; the blood is not getting to it. Large emboli kill by obstructing the right ventricle rather than by causing hypoxia at all.",
+      "cascade": [
+        {
+          "id": "clot-forms",
+          "label": "A clot forms, usually in a leg vein",
+          "sub": "Stasis, injury, hypercoagulability",
+          "severity": "warn",
+          "detail": "Most pulmonary emboli originate as deep vein thromboses in the legs or pelvis. Risk factors are stasis from immobility, surgery, or long travel; vessel injury; and increased clotting from pregnancy, oestrogen-containing contraception, cancer, or inherited disorders."
+        },
+        {
+          "id": "embolises",
+          "label": "It breaks free and travels",
+          "sub": "Straight to the lungs",
+          "severity": "crit",
+          "structure": "pulmonary-vessels",
+          "detail": "The clot travels up the venous system, through the right heart, and into the pulmonary arteries, where the vessels narrow and it lodges. There is nowhere else for it to go, because the pulmonary circulation is the first capillary bed it meets."
+        },
+        {
+          "id": "dead-space",
+          "label": "Alveoli are ventilated but not perfused",
+          "sub": "Dead space",
+          "severity": "crit",
+          "shared": "vq-mismatch",
+          "detail": "The alveoli beyond the blockage receive air perfectly well but no blood arrives to collect the oxygen. This is dead space ventilation, and it is the mirror image of a shunt. It explains the single most distinctive feature of PE: severe hypoxia with a completely clear chest."
+        },
+        {
+          "id": "vasoconstriction",
+          "label": "Mediators constrict remaining vessels",
+          "sub": "It gets worse than the clot alone",
+          "severity": "crit",
+          "detail": "Platelets in the clot release serotonin and thromboxane, which constrict pulmonary vessels and bronchioles more widely. The physiological impact is therefore greater than the mechanical blockage alone would predict, and some patients wheeze."
+        },
+        {
+          "id": "rv-strain",
+          "label": "The right ventricle strains",
+          "sub": "The real killer",
+          "severity": "crit",
+          "structure": "myocardium",
+          "detail": "The right ventricle is a thin-walled, low-pressure pump that was never built to work against high resistance. Faced with a suddenly obstructed pulmonary circulation, it dilates and fails quickly. This, not hypoxia, is what kills in a massive PE."
+        },
+        {
+          "id": "output-falls",
+          "label": "Left-sided filling falls",
+          "sub": "Obstructive shock",
+          "severity": "crit",
+          "shared": "pump-failure",
+          "detail": "Blood cannot get through the lungs, so it cannot reach the left heart. Left ventricular filling collapses and cardiac output falls despite a completely healthy left ventricle. Neck veins distend as blood backs up behind the obstruction."
+        },
+        {
+          "id": "arrest",
+          "label": "Circulation stops",
+          "sub": "Usually PEA",
+          "severity": "crit",
+          "shared": "cardiac-arrest",
+          "detail": "Organised electrical activity continues with no output, because the obstruction is mechanical. PE is one of the classic reversible causes of PEA arrest and should be considered in any sudden collapse with risk factors."
+        }
+      ],
+      "interventions": [
+        {
+          "med": "oxygen",
+          "breaks_at": "dead-space",
+          "scope": "EMR",
+          "note": "High concentration, though expect a limited response. Oxygen cannot fix a perfusion problem: the alveoli already have plenty of oxygen in them and no blood is arriving to take it. A hypoxic patient with a clear chest who does not respond to oxygen should raise this diagnosis."
+        }
+      ],
+      "non_drug_interventions": [
+        {
+          "name": "Think of it when the picture doesn't fit",
+          "breaks_at": "dead-space",
+          "scope": "EMR",
+          "note": "Sudden breathlessness, a clear chest, and hypoxia out of proportion to the examination is the signature. This diagnosis is missed constantly because there is so little to find."
+        },
+        {
+          "name": "Look for risk factors deliberately",
+          "breaks_at": "clot-forms",
+          "scope": "EMR",
+          "note": "Recent surgery or immobility, long-haul travel, a cast, pregnancy or recent delivery, oestrogen-containing contraception, cancer, previous clots, and unilateral leg swelling or calf pain. This history is often the only supporting evidence you can gather."
+        },
+        {
+          "name": "Keep them still and horizontal",
+          "breaks_at": "rv-strain",
+          "scope": "EMR",
+          "note": "Exertion increases demand on a right ventricle that is already failing, and movement may dislodge further clot. Carry them."
+        },
+        {
+          "name": "Rapid transport and pre-alert",
+          "breaks_at": "rv-strain",
+          "scope": "EMR",
+          "note": "Definitive treatment is anticoagulation or thrombolysis, neither of which is yours. Recognition and speed are the intervention."
+        }
+      ],
+      "red_flags": [
+        "Hypoxia with a clear chest",
+        "Sudden onset breathlessness with no obvious cause",
+        "Hypotension or syncope with breathlessness, suggesting a massive PE",
+        "Unilateral leg swelling or calf tenderness",
+        "Pleuritic chest pain with risk factors",
+        "Coughing blood",
+        "PEA arrest in a patient with risk factors"
+      ],
+      "differentiators": [
+        {
+          "vs": "Acute coronary syndrome",
+          "how": "PE is dominated by breathlessness rather than pressure-like chest pain, and the pain when present is often sharp and pleuritic. A clear chest with severe hypoxia favours PE."
+        },
+        {
+          "vs": "Pneumonia",
+          "how": "Fever, purulent sputum, and focal crackles favour pneumonia. Both can cause pleuritic pain, and PE can cause a low-grade fever, so this is a genuinely difficult call."
+        },
+        {
+          "vs": "Pneumothorax",
+          "how": "Unilateral absent breath sounds and hyperresonance in pneumothorax; equal breath sounds in PE."
+        },
+        {
+          "vs": "Anxiety or hyperventilation",
+          "how": "A dangerous mistake. Anxiety does not cause hypoxia. A breathless patient with a low saturation is not hyperventilating from anxiety, whatever else is going on."
+        }
+      ]
+    },
+    {
+      "id": "flail-chest",
+      "name": "Flail chest",
+      "structures": ["chest-wall"],
+      "status": "built",
+      "one_liner": "A segment of ribs broken in two places moves opposite to the rest of the chest, wrecking the bellows.",
+      "in_one_breath": "A free-floating chunk of chest wall gets sucked in when it should move out. Ventilation suffers from the mechanics, but the real damage is the bruised lung underneath, which worsens over hours.",
+      "cascade": [
+        {
+          "id": "fractures",
+          "label": "Ribs break in two places each",
+          "sub": "Three or more adjacent ribs",
+          "severity": "crit",
+          "structure": "chest-wall",
+          "detail": "Significant blunt force fractures three or more adjacent ribs in at least two places, creating a segment no longer connected to the rest of the rib cage. It takes considerable energy in a young person; in an elderly patient with osteoporotic bone, far less."
+        },
+        {
+          "id": "paradoxical-movement",
+          "label": "The segment moves paradoxically",
+          "sub": "In on inspiration, out on expiration",
+          "severity": "crit",
+          "detail": "Because the segment is no longer anchored, it follows pressure rather than the rest of the chest wall. It is drawn inward when intrathoracic pressure drops during inspiration and pushed outward during expiration. This may be hidden initially by muscle spasm and become apparent only as the patient tires."
+        },
+        {
+          "id": "ventilation-inefficient",
+          "label": "Ventilation becomes inefficient",
+          "sub": "Effort without volume",
+          "severity": "crit",
+          "detail": "Some of the pressure the patient generates is wasted moving the flail segment instead of moving air. Tidal volume falls for the same effort, and the work of breathing rises substantially."
+        },
+        {
+          "id": "pain-splinting",
+          "label": "Pain prevents deep breaths",
+          "sub": "Massively underestimated",
+          "severity": "crit",
+          "detail": "Multiple rib fractures are severely painful, and the patient splints: shallow breaths, suppressed cough, no deep inspiration. Retained secretions and progressive collapse of small airways follow, which is why analgesia is genuinely a respiratory intervention here."
+        },
+        {
+          "id": "contusion",
+          "label": "The lung underneath is bruised",
+          "sub": "The actual problem",
+          "severity": "crit",
+          "structure": "alveoli",
+          "detail": "The force that broke the ribs also bruised the lung beneath them. Blood and fluid leak into the alveoli and interstitium, and this worsens progressively over the first twelve to twenty-four hours. Pulmonary contusion, not the flail segment, is the main determinant of how these patients do."
+        },
+        {
+          "id": "shunt",
+          "label": "Contused lung is perfused but not ventilated",
+          "sub": "Hypoxia",
+          "severity": "crit",
+          "shared": "vq-mismatch",
+          "detail": "Blood flows past bruised, fluid-filled alveoli and returns unoxygenated. Hypoxia is often progressive over hours rather than immediate, so an initially stable patient can deteriorate significantly during a long transport."
+        },
+        {
+          "id": "fatigue",
+          "label": "The patient tires",
+          "sub": "Rising CO2",
+          "severity": "crit",
+          "shared": "respiratory-fatigue",
+          "detail": "High work of breathing, pain, and worsening lung injury together exhaust the patient. When effort falls and carbon dioxide climbs, they need their breathing supported."
+        }
+      ],
+      "interventions": [
+        {
+          "med": "oxygen",
+          "breaks_at": "shunt",
+          "scope": "EMR",
+          "note": "High concentration. The contusion will worsen over hours, so reassess frequently rather than assuming a stable early saturation will hold."
+        }
+      ],
+      "non_drug_interventions": [
+        {
+          "name": "Do not strap or tape the segment",
+          "breaks_at": "ventilation-inefficient",
+          "scope": "EMR",
+          "note": "Old teaching, long abandoned. Strapping the chest restricts ventilation of the whole side and worsens the underlying contusion. Support the segment with a hand or a soft pad if it helps the patient, but do not bind the chest."
+        },
+        {
+          "name": "Position with the injured side down if tolerated",
+          "breaks_at": "ventilation-inefficient",
+          "scope": "EMR",
+          "note": "Splints the flail segment against the stretcher and lets the uninjured lung ventilate more freely. Only if there is no spinal concern and the patient tolerates it."
+        },
+        {
+          "name": "Analgesia",
+          "breaks_at": "pain-splinting",
+          "scope": "PCP",
+          "note": "Genuinely a respiratory intervention rather than a comfort measure. A patient who can take a deep breath and cough clears secretions and avoids collapse. Outside EMR scope but worth requesting early."
+        },
+        {
+          "name": "Assist ventilation if they tire",
+          "breaks_at": "fatigue",
+          "scope": "EMR",
+          "note": "Positive pressure splints the flail internally and supports the failing bellows. Watch closely for pneumothorax, which is common alongside flail chest and can become a tension under positive pressure."
+        },
+        {
+          "name": "Expect deterioration and reassess",
+          "breaks_at": "contusion",
+          "scope": "EMR",
+          "note": "The contusion peaks over twelve to twenty-four hours. A patient who looks acceptable on scene may be substantially worse by arrival."
+        }
+      ],
+      "red_flags": [
+        "Visible paradoxical chest movement",
+        "Falling saturation despite oxygen",
+        "Rising respiratory rate then falling effort",
+        "Unilateral absent breath sounds, suggesting an associated pneumothorax",
+        "Shock, which suggests hemothorax or another bleeding source",
+        "Any deterioration after starting positive pressure ventilation"
+      ],
+      "differentiators": [
+        {
+          "vs": "Simple rib fractures",
+          "how": "Simple fractures hurt and cause splinting but do not move paradoxically. The management overlap is large, and both need good analgesia and monitoring for contusion."
+        },
+        {
+          "vs": "Tension pneumothorax",
+          "how": "Both deteriorate after trauma. Tension has unilaterally absent breath sounds with distended neck veins and shock; flail chest has visible paradoxical movement with progressive hypoxia."
+        },
+        {
+          "vs": "Isolated pulmonary contusion",
+          "how": "Contusion can occur with no flail segment at all, particularly in children whose flexible ribs transmit force without breaking. Suspect it from mechanism and worsening hypoxia."
+        }
+      ]
+    },
+    {
+      "id": "opioid-overdose",
+      "name": "Opioid overdose",
+      "structures": ["chest-wall", "brainstem"],
+      "status": "built",
+      "one_liner": "The brainstem's drive to breathe is suppressed while the lungs themselves are completely healthy.",
+      "in_one_breath": "Opioids do not damage the lungs at all. They switch off the brainstem's response to carbon dioxide, so the patient simply stops breathing enough. It is a ventilation problem with a perfect set of lungs, and it is one of the most completely reversible emergencies in medicine.",
+      "cascade": [
+        {
+          "id": "receptor-binding",
+          "label": "Opioids bind brainstem receptors",
+          "sub": "Mu receptors in the respiratory centre",
+          "severity": "warn",
+          "structure": "brainstem",
+          "detail": "Opioids act on mu receptors throughout the central nervous system. In the medulla they suppress the chemoreceptor response to rising carbon dioxide, which is the primary stimulus to breathe. The lungs, the chest wall, and the airway are all mechanically normal."
+        },
+        {
+          "id": "drive-suppressed",
+          "label": "The drive to breathe is suppressed",
+          "sub": "Slow, shallow, then irregular",
+          "severity": "crit",
+          "detail": "Respiratory rate falls, often to single figures, and tidal volume drops. The patient does not feel breathless because the sensation of air hunger is generated by the same suppressed system. They are entirely comfortable while suffocating."
+        },
+        {
+          "id": "hypoventilation",
+          "label": "Alveolar ventilation falls",
+          "sub": "CO2 rises, oxygen falls",
+          "severity": "crit",
+          "shared": "hypercapnia",
+          "detail": "Not enough air reaches the alveoli each minute. Carbon dioxide accumulates and oxygen falls. Unlike most respiratory emergencies, both go wrong together, because the problem is total ventilation rather than gas exchange."
+        },
+        {
+          "id": "sedation",
+          "label": "Consciousness falls",
+          "sub": "Pinpoint pupils, unrousable",
+          "severity": "crit",
+          "shared": "altered-loc",
+          "detail": "Sedation from the drug is compounded by hypoxia and carbon dioxide narcosis. Pinpoint pupils are characteristic but not universal, and are absent in some mixed overdoses and in severe hypoxia where the pupils may dilate."
+        },
+        {
+          "id": "airway-loss",
+          "label": "The airway is lost",
+          "sub": "Tongue, secretions, vomit",
+          "severity": "crit",
+          "shared": "airway-compromise",
+          "detail": "Muscle tone falls, the tongue occludes the pharynx, and the gag reflex disappears. Vomiting is common with opioids, so aspiration is a genuine and frequent second injury. This is often what actually kills, rather than the respiratory depression alone."
+        },
+        {
+          "id": "hypoxia",
+          "label": "Tissue oxygen falls",
+          "sub": "Cyanosis, bradycardia",
+          "severity": "crit",
+          "shared": "hypoxia",
+          "detail": "Progressive hypoxia leads to cyanosis and then to hypoxic bradycardia as the heart itself begins to fail."
+        },
+        {
+          "id": "arrest",
+          "label": "Respiratory then cardiac arrest",
+          "sub": "Fully reversible if caught",
+          "severity": "crit",
+          "shared": "respiratory-arrest",
+          "detail": "Breathing stops while the heart continues for some minutes. This window is enormous, because a patient in opioid-induced respiratory arrest who receives ventilation will very often recover completely. If it progresses to cardiac arrest, survival falls sharply."
+        }
+      ],
+      "interventions": [
+        {
+          "med": "naloxone",
+          "breaks_at": "receptor-binding",
+          "scope": "EMR",
+          "note": "A competitive antagonist that displaces opioids from the receptor, reversing the whole cascade at its source. Its duration is often shorter than the opioid it reversed, which is the single most important thing to know about it: patients can re-sedate."
+        },
+        {
+          "med": "oxygen",
+          "breaks_at": "hypoxia",
+          "scope": "EMR",
+          "note": "High concentration. Useful, but it does not fix the problem, because the patient is not moving enough air to use it."
+        }
+      ],
+      "non_drug_interventions": [
+        {
+          "name": "Ventilate them",
+          "breaks_at": "hypoventilation",
+          "scope": "EMR",
+          "note": "This is the actual treatment, and it is more important than naloxone. Bag-valve-mask ventilation reverses the hypoxia immediately while naloxone takes minutes. A patient who is ventilated well does not die of an opioid overdose."
+        },
+        {
+          "name": "Open and protect the airway",
+          "breaks_at": "airway-loss",
+          "scope": "EMR",
+          "note": "Head-tilt chin-lift, suction ready, adjunct as needed, and recovery position once breathing adequately. Vomiting is very common, both from the opioid and after naloxone."
+        },
+        {
+          "name": "Titrate naloxone to breathing, not to consciousness",
+          "breaks_at": "receptor-binding",
+          "scope": "EMR",
+          "note": "The goal is adequate ventilation, not a fully awake patient. Reversing too aggressively precipitates acute withdrawal: vomiting, agitation, and a patient who leaves before the naloxone wears off."
+        },
+        {
+          "name": "Do not let them refuse transport",
+          "breaks_at": "arrest",
+          "scope": "EMR",
+          "note": "Naloxone commonly wears off before long-acting opioids do, and fentanyl analogues can outlast several doses. A patient who wakes up, feels fine, and walks away can re-sedate and die alone. This is the commonest fatal error in overdose management."
+        },
+        {
+          "name": "Consider what else is on board",
+          "breaks_at": "sedation",
+          "scope": "EMR",
+          "note": "Naloxone does nothing for benzodiazepines, alcohol, or stimulants. A patient who does not wake up after adequate naloxone has something else going on, including possibly a head injury from the collapse."
+        }
+      ],
+      "red_flags": [
+        "Respiratory rate under 10",
+        "Any period of apnea",
+        "Cyanosis",
+        "Failure to respond to adequate naloxone, which means another cause",
+        "A patient who wants to leave after naloxone",
+        "Known fentanyl or carfentanil exposure, which may need repeated dosing",
+        "Signs of aspiration, or a head injury from the collapse"
+      ],
+      "differentiators": [
+        {
+          "vs": "Other sedative overdose",
+          "how": "Benzodiazepines and alcohol cause sedation with less profound respiratory depression and normal-sized pupils. Naloxone will not reverse them, and mixed overdoses are the rule rather than the exception."
+        },
+        {
+          "vs": "Head injury",
+          "how": "Reduced consciousness with pinpoint pupils can also occur with a pontine bleed. A patient who does not respond to naloxone, or who has any external head trauma, needs to be treated as a head injury."
+        },
+        {
+          "vs": "Hypoglycemia",
+          "how": "Check the glucose. It is quick and it is a completely different treatment."
+        },
+        {
+          "vs": "Hypoxia from another cause",
+          "how": "Any cause of severe hypoxia produces reduced consciousness. The distinguishing feature of opioid overdose is that the respiratory rate is low rather than high."
+        }
+      ]
+    }
+  ]
+}

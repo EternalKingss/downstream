@@ -1,0 +1,172 @@
+{
+  "nodes": [
+    {
+      "id": "osmotic-diuresis",
+      "name": "Sugar drags water out of the body",
+      "severity": "crit",
+      "one_liner": "Glucose spills into the urine and pulls litres of water and electrolytes with it.",
+      "what_is_happening": "The kidney reabsorbs all filtered glucose until blood levels exceed roughly 10 mmol/L. Above that the transporters are saturated and glucose remains in the urine, where it is osmotically active and holds water in the tubule. The patient produces enormous volumes of urine and loses sodium, potassium, and magnesium along with it.",
+      "why_it_follows": "It follows any sustained hyperglycemia, and it is the mechanism behind the dehydration in both diabetic ketoacidosis and hyperosmolar states.",
+      "what_you_see": [
+        "Passing large volumes of urine frequently, often the first symptom the patient noticed",
+        "Extreme thirst and a dry mouth",
+        "Dry mucous membranes, sunken eyes, poor skin turgor",
+        "Tachycardia and postural dizziness",
+        "Weight loss over days"
+      ],
+      "the_trap": "The fluid deficit is far larger than it looks. A patient in established ketoacidosis is typically five to eight litres down, and a hyperosmolar patient can be ten or more. They arrived at that deficit over days, so they compensate remarkably well until they suddenly do not. Treat them as profoundly dehydrated regardless of how stable the blood pressure looks.",
+      "leads_to": ["hypoperfusion", "altered-loc"]
+    },
+    {
+      "id": "ketoacidosis",
+      "name": "Fat breakdown acidifies the blood",
+      "severity": "crit",
+      "one_liner": "Without insulin the body burns fat for fuel, and the byproducts are acids.",
+      "what_is_happening": "Insulin does two things: it lets glucose into cells and it suppresses fat breakdown. Without it, cells starve despite high blood glucose, so the body mobilises fat. The liver converts fatty acids into ketone bodies, which are usable fuel but are also acids. They accumulate faster than they can be buffered and blood pH falls.",
+      "why_it_follows": "It follows absolute insulin deficiency, which means type 1 diabetes almost exclusively: a missed dose, a pump failure, or an infection raising insulin requirement beyond what was given.",
+      "what_you_see": [
+        "Deep, rapid, sighing respirations as the lungs try to blow off carbon dioxide to compensate",
+        "A sweet or fruity smell on the breath from acetone",
+        "Nausea, vomiting, and abdominal pain that can mimic a surgical abdomen",
+        "Drowsiness progressing to unresponsiveness",
+        "Dehydration from the accompanying osmotic diuresis"
+      ],
+      "the_trap": "The compensatory hyperventilation is doing essential work. Those deep sighing breaths are not distress, they are the only thing keeping the pH survivable. If that respiratory effort falls, either from exhaustion or from sedation, the pH crashes. Never suppress or take over this patient's breathing without understanding that you must then match their minute volume.",
+      "leads_to": ["altered-loc", "anaerobic-metabolism"]
+    },
+    {
+      "id": "peritoneal-irritation",
+      "name": "The peritoneum becomes inflamed",
+      "severity": "crit",
+      "one_liner": "Something has spilled or ruptured, and the membrane lining the abdomen is reacting to it.",
+      "what_is_happening": "Blood, bowel contents, bile, pancreatic enzymes, urine, or pus contact the peritoneum. The visceral layer gives vague central pain; once the parietal layer lining the abdominal wall is involved, the pain becomes sharp, localised, and worsened by any movement that stretches it.",
+      "why_it_follows": "It follows perforation of any hollow organ, rupture of a solid organ, appendicitis, pancreatitis, ectopic pregnancy, and penetrating abdominal trauma.",
+      "what_you_see": [
+        "Pain that started vague and central and has become sharp and localised",
+        "Involuntary guarding, where the abdominal wall tenses without the patient choosing to",
+        "Rigidity, described as board-like in advanced cases",
+        "A patient who lies completely still, often with knees drawn up, and does not want to be moved",
+        "Pain on coughing, on speed bumps, on any jolt"
+      ],
+      "the_trap": "The peritoneum has a surface area comparable to the skin, and inflamed peritoneum weeps fluid across all of it. Several litres can be sequestered into the abdomen, producing genuine hypovolemic shock with nothing lost externally. Treat peritonitis as a volume loss problem as well as a pain problem.",
+      "leads_to": ["hypoperfusion", "sympathetic-compensation"]
+    },
+    {
+      "id": "concealed-hemorrhage",
+      "name": "Bleeding you cannot see",
+      "severity": "crit",
+      "one_liner": "Blood is leaving the circulation into a body cavity, and nothing appears on the outside.",
+      "what_is_happening": "The chest, abdomen, retroperitoneum, pelvis, and thighs can each accommodate litres of blood without visible distension. The blood is as lost to the circulation as if it were on the floor, and there is nothing to apply pressure to.",
+      "why_it_follows": "It follows solid organ injury, pelvic and femoral fractures, ruptured aortic aneurysm, ectopic pregnancy, gastrointestinal bleeding, and hemothorax.",
+      "what_you_see": [
+        "Shock that does not match any visible injury",
+        "Tachycardia with pale, cool, clammy skin and a narrowing pulse pressure",
+        "Abdominal or flank tenderness, or an abdomen that seems to be distending",
+        "Bruising over the flanks or umbilicus, which is a late sign",
+        "A mechanism of injury that should have caused more damage than you can see"
+      ],
+      "the_trap": "The classic error is being reassured by the absence of external blood. If the patient is showing signs of shock and there is nothing on the outside, the bleeding is internal until proven otherwise, and no field intervention will stop it. These patients need a surgeon, and the only variable you control is time.",
+      "leads_to": ["sympathetic-compensation", "decompensated-shock"]
+    },
+    {
+      "id": "compartment-pressure",
+      "name": "Pressure rises inside a closed compartment",
+      "severity": "crit",
+      "one_liner": "Swelling inside an inelastic fascial sheath squeezes the capillaries shut.",
+      "what_is_happening": "Bleeding or oedema inside a fascial compartment raises the pressure within it. Fascia does not stretch, so the pressure rises until it exceeds capillary pressure and perfusion through the muscle stops. Arteries have far higher pressure and stay open, so a distal pulse persists while the muscle inside is dying.",
+      "why_it_follows": "It follows fractures, crush injury, tight casts or dressings, circumferential burns, prolonged limb compression, and reperfusion after restored circulation.",
+      "what_you_see": [
+        "Pain far out of proportion to the apparent injury, and the earliest reliable sign",
+        "Severe pain on passive stretching of the muscles in that compartment",
+        "A compartment that feels tense and woody rather than soft",
+        "Paraesthesia in the nerves running through the compartment",
+        "Pallor, paralysis, and pulselessness, all of which are very late"
+      ],
+      "the_trap": "The presence of a distal pulse is the single most dangerous false reassurance in limb trauma. Capillary pressure is far lower than arterial pressure, so muscle can be completely ischemic with a strong, easily palpable pulse. Muscle dies within four to six hours and the damage is irreversible. Never rule this out because you can feel the foot.",
+      "leads_to": ["rhabdomyolysis"]
+    },
+    {
+      "id": "rhabdomyolysis",
+      "name": "Damaged muscle releases its contents",
+      "severity": "crit",
+      "one_liner": "Dying muscle dumps potassium, myoglobin, and acid into the circulation.",
+      "what_is_happening": "Muscle cells hold enormous amounts of potassium, along with myoglobin, phosphate, and organic acids. When large volumes of muscle are damaged and then reperfused, all of it enters the bloodstream at once. Potassium disrupts cardiac conduction directly, and myoglobin precipitates in the kidney tubules and causes renal failure.",
+      "why_it_follows": "It follows crush injury, prolonged compression from lying immobile, compartment syndrome, extensive burns, electrocution, severe exertion, prolonged seizure, and stimulant toxicity with hyperthermia.",
+      "what_you_see": [
+        "Swollen, tender, weak muscles",
+        "Dark tea-coloured or cola-coloured urine from myoglobin",
+        "Cardiac arrhythmias from rising potassium, which may be the first sign",
+        "Shock from fluid sequestering into damaged muscle",
+        "A patient who was stable while trapped and deteriorates on release"
+      ],
+      "the_trap": "The dangerous moment is release, not entrapment. While a limb is compressed, the toxic load stays locally sequestered. Restoring circulation washes it all into the central circulation at once, and patients have arrested within minutes of being freed. This is why prolonged extrication is coordinated carefully and why the receiving hospital needs warning before the release, not after.",
+      "leads_to": ["cardiac-arrest", "decompensated-shock"]
+    },
+    {
+      "id": "plasma-loss",
+      "name": "Plasma leaks out through damaged tissue",
+      "severity": "crit",
+      "one_liner": "Burned or inflamed tissue leaks fluid out of the circulation for hours.",
+      "what_is_happening": "Heat and inflammatory mediators damage capillary walls, so plasma escapes into the interstitium and out through the burned surface. In a large burn this becomes a body-wide capillary leak rather than a local one. Losses are greatest in the first eight hours and continue for a day or more.",
+      "why_it_follows": "It follows burns of significant surface area, severe inflammation, sepsis, and anaphylaxis.",
+      "what_you_see": [
+        "Progressive swelling of the burned area and often beyond it",
+        "Rising heart rate over hours in a patient who initially seemed stable",
+        "Falling urine output",
+        "Thirst",
+        "Hypotension developing hours after the injury rather than at the time"
+      ],
+      "the_trap": "Burn shock is not immediate. A patient with a large burn who is hemodynamically normal at the roadside is not reassuring, they are simply early. If a burn patient is shocked in the first minutes, suspect another injury such as bleeding or a tension pneumothorax, because the burn itself has not had time to do it yet.",
+      "leads_to": ["hypoperfusion", "decompensated-shock"]
+    },
+    {
+      "id": "core-temp-falls",
+      "name": "Core temperature falls",
+      "severity": "crit",
+      "one_liner": "Enzyme systems slow down, and eventually the mechanisms meant to fix it stop working too.",
+      "what_is_happening": "Heat loss exceeds heat production. The body vasoconstricts and shivers to compensate, but both have limits. As the core cools, every enzyme-driven process slows: clotting, cardiac conduction, consciousness, and metabolism.",
+      "why_it_follows": "It follows cold exposure, immersion, trauma with exposure, alcohol, hypoglycemia, hypothyroidism, spinal cord injury, and simply lying on a cold floor for hours, which is the commonest version in older adults.",
+      "what_you_see": [
+        "Mild, 32 to 35 degrees: shivering, clumsiness, confusion, mumbling",
+        "Moderate, 28 to 32: shivering stops, muscles stiffen, consciousness falls, pulse and breathing slow",
+        "Severe, below 28: unresponsive, barely detectable pulse and breathing, high risk of ventricular fibrillation",
+        "Cold, pale, sometimes paradoxically undressed patients who felt hot as vasoconstriction failed"
+      ],
+      "the_trap": "Two things. First, a patient who has stopped shivering has deteriorated, not improved. Second, a severely hypothermic heart is exquisitely irritable, and rough handling can precipitate ventricular fibrillation, so these patients are moved gently and horizontally. Hypothermia is also protective of the brain, which is why resuscitation is continued far longer than normal and why nobody is dead until they are warm and dead.",
+      "leads_to": ["cardiac-arrest", "altered-loc"]
+    },
+    {
+      "id": "core-temp-rises",
+      "name": "Core temperature rises",
+      "severity": "crit",
+      "one_liner": "Heat gain outstrips heat loss until proteins begin to denature.",
+      "what_is_happening": "Heat production or environmental heat load exceeds the body's ability to shed it. Vasodilation and sweating compensate until fluid runs out, humidity prevents evaporation, or the regulatory system itself fails. Above roughly 40 degrees, cellular proteins begin to denature and tissue dies.",
+      "why_it_follows": "It follows environmental heat with exertion, high humidity, dehydration, drugs that impair sweating or raise heat production, stimulant toxicity, thyroid storm, and prolonged seizure activity.",
+      "what_you_see": [
+        "Heat exhaustion: heavy sweating, weakness, nausea, headache, cramps, with a preserved mental state",
+        "Heat stroke: core temperature above 40 with altered mental state, which is the defining feature",
+        "Hot skin that may be dry in classic heat stroke or still sweaty in exertional heat stroke",
+        "Confusion, agitation, seizures, then unresponsiveness",
+        "Tachycardia and eventually cardiovascular collapse"
+      ],
+      "the_trap": "The distinction between heat exhaustion and heat stroke is neurological, not thermal. Any altered mental state in a hot patient means heat stroke and is a genuine emergency where cooling is the treatment and delay causes permanent brain injury. The teaching that heat stroke skin is dry is unreliable: exertional heat stroke patients are often drenched in sweat.",
+      "leads_to": ["altered-loc", "rhabdomyolysis"]
+    },
+    {
+      "id": "fetal-compromise",
+      "name": "The fetus is compromised",
+      "severity": "crit",
+      "one_liner": "Placental blood flow falls, and the fetus has no reserve of its own.",
+      "what_is_happening": "The fetus depends entirely on maternal blood flow through the placenta. That circulation has no autoregulation, so it falls directly with maternal blood pressure or cardiac output. It is also the first vascular bed sacrificed when the mother compensates for blood loss.",
+      "why_it_follows": "It follows maternal hemorrhage, maternal hypoxia, maternal hypotension including from lying supine, placental abruption, cord compression or prolapse, and uterine trauma.",
+      "what_you_see": [
+        "Reduced fetal movements reported by the mother",
+        "Abnormal fetal heart rate if you can assess it",
+        "Maternal signs that may still look entirely normal",
+        "Vaginal bleeding or a rigid tender uterus"
+      ],
+      "the_trap": "The fetus is compromised long before the mother shows any sign, because maternal compensation works by shutting down the uterine circulation first. A pregnant trauma patient with completely normal vital signs may already have a distressed fetus. The corollary is the single most useful principle in obstetric emergencies: resuscitate the mother and you resuscitate the fetus. Oxygen, left lateral tilt, and volume for her are the best fetal treatment available to you.",
+      "leads_to": []
+    }
+  ]
+}

@@ -1,0 +1,260 @@
+{
+  "signs": [
+    {
+      "id": "altered-loc",
+      "name": "Altered level of consciousness",
+      "one_liner": "The most common presenting problem on this site and the least specific, because almost every cascade ends here.",
+      "what_it_means": "The brain consumes a fifth of the body's oxygen while storing essentially no reserve of oxygen or glucose. Anything that interrupts either supply, poisons the cells, raises the pressure around them, or disrupts their electrical activity will change consciousness within minutes. That is why this sign appears at the end of so many chains and tells you almost nothing on its own about which chain you are in.",
+      "first_moves": [
+        "Check glucose. Every time, without exception, before anything else diagnostic.",
+        "Check oxygen saturation and give oxygen if low. Restlessness and combativeness are hypoxia until proven otherwise.",
+        "Look at the pupils: pinpoint suggests opioids or a pontine lesion, unequal suggests raised intracranial pressure, dilated suggests stimulants or anticholinergics.",
+        "Position for airway protection. The reduced consciousness is now creating a second, mechanical problem on top of the first.",
+        "Take a temperature. Both hyperthermia and hypothermia cause this and both are treatable."
+      ],
+      "causes": [
+        { "condition": "hypoglycemia", "clue": "Sweating, tremor, rapid onset, and it reverses completely with glucose. Check it first because it is the fastest thing to exclude." },
+        { "condition": "opioid-overdose", "clue": "Respiratory rate under 10, pinpoint pupils, and a history or paraphernalia. Ventilation fixes it before naloxone does." },
+        { "condition": "traumatic-brain-injury", "clue": "Any mechanism, external signs, a deteriorating trend, or unequal pupils. Never let alcohol explain a falling GCS." },
+        { "condition": "ischemic-stroke", "clue": "Focal deficits with preserved alertness early. Establish a last known well time." },
+        { "condition": "hemorrhagic-stroke", "clue": "Sudden severe headache, vomiting, rapid decline, seizure at onset." },
+        { "condition": "seizure", "clue": "Witnessed convulsion, tongue biting, incontinence, and a postictal state that should be steadily improving." },
+        { "condition": "dka", "clue": "Deep sighing breathing, fruity breath, dehydration, high glucose." },
+        { "condition": "hyperosmolar-state", "clue": "Older type 2 diabetic, very high glucose, profound dehydration over a week, sometimes focal signs." },
+        { "condition": "carbon-monoxide", "clue": "Several people or pets from one building unwell together, normal-looking oximetry, winter, combustion appliance." },
+        { "condition": "septic-shock", "clue": "Fever or hypothermia with a source of infection. Confusion may be the only sign in an older adult." },
+        { "condition": "meningitis", "clue": "Fever, headache, neck stiffness, photophobia, non-blanching rash." },
+        { "condition": "alcohol-emergencies", "clue": "A diagnosis of exclusion. Alcohol never explains deterioration, asymmetry, or a focal sign." },
+        { "condition": "hypothermia", "clue": "Cold environment or a long lie. Shivering that has stopped is worse, not better." },
+        { "condition": "heat-illness", "clue": "Hot environment or exertion. Altered mental state plus heat is heat stroke by definition." },
+        { "condition": "hemorrhagic-shock", "clue": "Cerebral hypoperfusion from blood loss. Tachycardia, pale cool skin, and often no visible blood." }
+      ]
+    },
+    {
+      "id": "shortness-of-breath",
+      "name": "Shortness of breath",
+      "one_liner": "The lung has five ways to fail, and the structure involved tells you which one you are in.",
+      "what_it_means": "Breathlessness means the body cannot meet its gas exchange demand. That happens if air cannot flow, if gas cannot cross the membrane, if the lung cannot expand, if blood is not arriving to collect the oxygen, or if nothing is driving the pump. It also occurs with no lung problem at all, when the heart cannot move blood or the blood cannot carry oxygen.",
+      "first_moves": [
+        "Sit them upright unless they are hypotensive.",
+        "Saturation, and give oxygen to target.",
+        "Listen: wheeze, crackles, or a clear chest. A clear chest with severe hypoxia is a specific and important finding.",
+        "Compare the two sides. Unilateral absent breath sounds changes everything immediately.",
+        "Count the respiratory rate properly and note the effort, and remember that falling effort is deterioration."
+      ],
+      "causes": [
+        { "condition": "asthma", "clue": "Expiratory wheeze, prolonged expiration, known trigger, previous similar attacks that resolved fully." },
+        { "condition": "copd", "clue": "Smoking history, chronic productive cough, barrel chest, pursed-lip breathing, a baseline they never return from." },
+        { "condition": "pulmonary-edema", "clue": "Orthopnea, frothy or pink sputum, basal crackles, ankle swelling, cardiac history." },
+        { "condition": "pneumonia", "clue": "Fever, focal crackles, purulent sputum, pleuritic pain." },
+        { "condition": "pulmonary-embolism", "clue": "Sudden onset, clear chest, hypoxia out of proportion to the exam, risk factors, unilateral leg swelling." },
+        { "condition": "tension-pneumothorax", "clue": "Unilateral absent breath sounds with shock and distended neck veins. Progressive deterioration." },
+        { "condition": "pneumothorax", "clue": "Unilateral absent breath sounds, hyperresonance, sudden pleuritic pain, tall thin young patient or COPD." },
+        { "condition": "hemothorax", "clue": "Unilateral absent breath sounds with dullness, after trauma, with shock and flat neck veins." },
+        { "condition": "anaphylaxis", "clue": "Exposure, urticaria, angioedema, voice change or stridor, hypotension. More than just the airway." },
+        { "condition": "chf", "clue": "Orthopnea, ankle swelling, waking breathless at night, known cardiac history, a clear trigger such as infection or missed medication." },
+        { "condition": "hemorrhagic-shock", "clue": "Breathlessness without lung findings, because the problem is delivery rather than gas exchange." },
+        { "condition": "dka", "clue": "Deep, rapid, sighing breathing that is compensation for acidosis rather than distress. Do not suppress it." },
+        { "condition": "neuromuscular-failure", "clue": "Clear lungs, weak cough, cannot count far on one breath, alert and frightened. Saturation is a trap here." },
+        { "condition": "carbon-monoxide", "clue": "Normal-looking saturation with breathlessness and headache, often several people affected." }
+      ]
+    },
+    {
+      "id": "chest-pain",
+      "name": "Chest pain",
+      "one_liner": "A handful of causes will kill within the hour and the rest will not, so the whole assessment is about separating them.",
+      "what_it_means": "The chest contains the heart, great vessels, lungs, pleura, oesophagus, and a chest wall, and all of them generate pain. Visceral pain from the heart is dull, central, and poorly localised because it travels on autonomic fibres, which is why it refers to the jaw, arm, and back. Sharp pain that moves with breathing usually means pleura or chest wall.",
+      "first_moves": [
+        "Assume cardiac until you have reason not to, and get pads on early in anyone high risk.",
+        "Rest them completely. No walking, no stairs, no self-transfer to the stretcher.",
+        "Saturation and oxygen only if below 94 percent.",
+        "Ask what they were doing at onset, whether it was maximal immediately, and what makes it better or worse.",
+        "Check blood pressure in both arms if dissection is a consideration."
+      ],
+      "causes": [
+        { "condition": "acs", "clue": "Pressure or heaviness, gradual build, radiation to jaw or arm, sweating, nausea, doom. May have no chest pain at all in women, older adults, and diabetics." },
+        { "condition": "pulmonary-embolism", "clue": "Sudden breathlessness dominating over pain, pleuritic and sharp, clear chest, risk factors." },
+        { "condition": "aaa-rupture", "clue": "Tearing pain maximal at onset, radiating to back, pulsatile mass, hypotension. Aspirin is harmful here." },
+        { "condition": "tension-pneumothorax", "clue": "Unilateral absent breath sounds, progressive shortness of breath, shock, distended neck veins." },
+        { "condition": "pneumothorax", "clue": "Sudden sharp pleuritic pain with unilateral reduced breath sounds and hyperresonance." },
+        { "condition": "cardiac-tamponade", "clue": "Penetrating chest trauma or a cardiac history, shock with distended neck veins, muffled heart sounds, equal breath sounds." },
+        { "condition": "pneumonia", "clue": "Pleuritic pain with fever, cough, and focal crackles." },
+        { "condition": "stimulant-toxicity", "clue": "Chest pain after cocaine in a young person is a genuine infarct risk, not anxiety." },
+        { "condition": "rib-fractures", "clue": "Reproducible on palpation with a trauma history, and pain that stops them breathing deeply." },
+        { "condition": "chf", "clue": "Breathlessness dominating, orthopnea, crackles, swollen ankles." }
+      ]
+    },
+    {
+      "id": "shock-hypotension",
+      "name": "Shock and hypotension",
+      "one_liner": "Four mechanisms, and telling them apart determines whether fluid helps or harms.",
+      "what_it_means": "Shock is inadequate tissue perfusion, not a blood pressure number. There are only four ways to get there: not enough volume, a pump that will not pump, vessels that are too wide, or something mechanically obstructing the circuit. Blood pressure falls late in all four, so a normal pressure never excludes shock.",
+      "first_moves": [
+        "Horizontal, warm, and oxygen.",
+        "Look at the neck veins. Flat means volume loss; distended means obstruction or pump failure. This one observation splits the four categories in half.",
+        "Listen to the chest. Crackles suggest the pump; unilateral absence suggests tension pneumothorax.",
+        "Feel the skin. Cold and clammy suggests hypovolemic or cardiogenic; warm and flushed suggests distributive.",
+        "Look for bleeding you can control, then consider the places you cannot see: chest, abdomen, pelvis, thighs, and the floor."
+      ],
+      "causes": [
+        { "condition": "hemorrhagic-shock", "clue": "Flat neck veins, clear chest, cold clammy skin, tachycardia. Look hard for concealed bleeding." },
+        { "condition": "external-hemorrhage", "clue": "Visible and controllable. Pressure, tourniquet, packing." },
+        { "condition": "cardiogenic-shock", "clue": "Distended neck veins with crackles, cardiac history, cold peripheries. Fluid makes this worse." },
+        { "condition": "septic-shock", "clue": "Fever or hypothermia, warm flushed skin early, wide pulse pressure, a source of infection." },
+        { "condition": "anaphylaxis", "clue": "Exposure, urticaria, angioedema, wheeze. Lie them flat and give epinephrine early." },
+        { "condition": "neurogenic-shock", "clue": "Warm, dry, pink, and bradycardic after spinal trauma. A field diagnosis of exclusion; assume bleeding first." },
+        { "condition": "tension-pneumothorax", "clue": "Distended neck veins with unilaterally absent breath sounds and hyperresonance." },
+        { "condition": "cardiac-tamponade", "clue": "Distended neck veins with equal breath sounds and muffled heart sounds." },
+        { "condition": "pulmonary-embolism", "clue": "Distended neck veins with a clear chest and severe hypoxia." },
+        { "condition": "aaa-rupture", "clue": "Older patient, severe back or flank pain, often a deceptively soft abdomen." },
+        { "condition": "adrenal-crisis", "clue": "Hypotension that does not respond to fluid, in a patient on long-term steroids." },
+        { "condition": "obstetric-hemorrhage", "clue": "Pregnant or recently delivered. Normal-looking observations are not reassuring, and a soft uterus after delivery is an open tap." },
+        { "condition": "peritonitis", "clue": "Rigid abdomen, lies still, litres sequestered into the abdomen with nothing lost externally." }
+      ]
+    },
+    {
+      "id": "abdominal-pain",
+      "name": "Abdominal pain",
+      "one_liner": "Where it started and where it moved to is worth more than where it hurts now.",
+      "what_it_means": "Organs themselves have only autonomic innervation, so pain from them is dull, crampy, and felt in the midline regardless of which organ is involved. Once inflammation reaches the parietal peritoneum lining the wall, which has somatic innervation, the pain becomes sharp, localised, and worse with movement. That migration is the single most useful thing you can document.",
+      "first_moves": [
+        "Position of comfort, usually knees flexed, and drive gently.",
+        "Vital signs including a heart rate trend, because tachycardia with a normal pressure is compensated shock.",
+        "Ask about the onset: sudden and maximal suggests perforation or a vascular catastrophe; gradual suggests inflammation.",
+        "In any woman of childbearing age, consider ectopic pregnancy regardless of what she says about the possibility.",
+        "Check the glucose, because diabetic ketoacidosis mimics a surgical abdomen convincingly."
+      ],
+      "causes": [
+        { "condition": "peritonitis", "clue": "Rigid abdomen, involuntary guarding, lies completely still, pain that migrated from central to localised." },
+        { "condition": "aaa-rupture", "clue": "Over 50, severe back or flank pain, pulsatile mass, hypotension, often a soft abdomen." },
+        { "condition": "gi-bleed", "clue": "Vomited blood or melaena, liver disease or anticoagulants, postural dizziness." },
+        { "condition": "solid-organ-injury", "clue": "Trauma mechanism, lower rib fractures, seat belt marks, left shoulder tip pain, shock with no external blood." },
+        { "condition": "dka", "clue": "Genuine abdominal pain with vomiting, deep sighing breathing, high glucose. Check it before assuming surgery." },
+        { "condition": "obstetric-hemorrhage", "clue": "Pregnancy, or possible early pregnancy with shoulder tip pain and shock suggesting ruptured ectopic." },
+        { "condition": "preeclampsia-eclampsia", "clue": "Right upper quadrant or epigastric pain in pregnancy with hypertension. HELLP syndrome is regularly mistaken for gastritis." },
+        { "condition": "acs", "clue": "Inferior infarcts present with epigastric pain, nausea, and vomiting. Consider it in older patients with upper abdominal pain." },
+        { "condition": "adrenal-crisis", "clue": "Abdominal pain, vomiting, and shock in a steroid-dependent patient." },
+        { "condition": "septic-shock", "clue": "An abdominal source with fever, confusion, and hemodynamic instability." }
+      ]
+    },
+    {
+      "id": "weakness-one-sided",
+      "name": "One-sided weakness",
+      "one_liner": "Usually a stroke, sometimes something that reverses completely, so check the reversible one first.",
+      "what_it_means": "Motor pathways cross over, so weakness on one side means a problem on the opposite side of the brain, or a problem below the crossing in the cord or peripheral nerve. Because function is mapped to location, the pattern of deficit tells you roughly where the lesion sits.",
+      "first_moves": [
+        "Check the glucose before anything else. Hypoglycemia produces identical focal deficits and reverses in minutes.",
+        "Establish the last known well time precisely, because it determines treatment eligibility.",
+        "Run a structured stroke screen and pre-alert.",
+        "Nothing by mouth, because swallowing is frequently impaired even in an alert patient.",
+        "Do not treat the blood pressure, which is usually maintaining flow to salvageable tissue."
+      ],
+      "causes": [
+        { "condition": "ischemic-stroke", "clue": "Sudden onset, face, arm, and speech involvement, atrial fibrillation or vascular risk factors." },
+        { "condition": "hemorrhagic-stroke", "clue": "Sudden severe headache, vomiting, rapid decline in consciousness, seizure at onset, very high blood pressure." },
+        { "condition": "hypoglycemia", "clue": "Sweating, tremor, low glucose, and complete resolution with treatment. Always exclude it." },
+        { "condition": "hyperosmolar-state", "clue": "Older type 2 diabetic, very high glucose, profound dehydration. Focal signs occur and resolve with treatment." },
+        { "condition": "seizure", "clue": "Todd's paralysis after a witnessed seizure, resolving over minutes to hours. Still goes to a stroke centre." },
+        { "condition": "traumatic-brain-injury", "clue": "Mechanism, external signs, deteriorating consciousness, unequal pupils." },
+        { "condition": "spinal-cord-injury", "clue": "A level below which sensation and movement change, rather than one side of the body." },
+        { "condition": "preeclampsia-eclampsia", "clue": "Pregnancy or recent delivery with headache, visual changes, and hypertension." }
+      ]
+    },
+    {
+      "id": "seizure-presenting",
+      "name": "Seizure",
+      "one_liner": "The convulsion is rarely what harms them; the airway and the cause are.",
+      "what_it_means": "Excitation has overwhelmed inhibition somewhere in the brain and the discharge has spread. The seizure itself is usually self-limiting. What matters is protecting the airway during and after, timing it accurately, and finding the cause, because several causes are lethal and reversible.",
+      "first_moves": [
+        "Protect from injury, do not restrain, and put nothing in the mouth.",
+        "Time it with an actual clock. People consistently overestimate duration and the number determines treatment.",
+        "Recovery position and suction the moment convulsing stops.",
+        "Check glucose.",
+        "In a pregnant or recently delivered patient, treat as eclampsia until proven otherwise."
+      ],
+      "causes": [
+        { "condition": "seizure", "clue": "Known epilepsy, missed medication, recognisable pattern, and a postictal phase that steadily improves." },
+        { "condition": "hypoglycemia", "clue": "Low glucose, sweating. Fully reversible and must be excluded in every case." },
+        { "condition": "preeclampsia-eclampsia", "clue": "Pregnant or delivered within six weeks. Hypertension, headache, visual changes. Needs magnesium rather than a benzodiazepine." },
+        { "condition": "traumatic-brain-injury", "clue": "Seizure after head injury is a significant finding and suggests structural damage." },
+        { "condition": "hemorrhagic-stroke", "clue": "Seizure at onset with sudden severe headache." },
+        { "condition": "meningitis", "clue": "Fever, headache, neck stiffness, non-blanching rash." },
+        { "condition": "alcohol-emergencies", "clue": "Withdrawal seizures typically 12 to 48 hours after the last drink, and a marker for impending delirium tremens." },
+        { "condition": "stimulant-toxicity", "clue": "Agitation, hyperthermia, dilated pupils, recent use." },
+        { "condition": "sudden-cardiac-arrest", "clue": "Arrest commonly causes a brief convulsion. Always check a pulse in anyone who collapsed and convulsed." },
+        { "condition": "heat-illness", "clue": "Hot environment or exertion with altered mental state and high core temperature." },
+        { "condition": "cholinergic-toxicity", "clue": "Pinpoint pupils with copious secretions, fasciculation, and an exposure history." }
+      ]
+    },
+    {
+      "id": "cyanosis-presenting",
+      "name": "Cyanosis",
+      "one_liner": "A late sign that requires enough desaturated hemoglobin to be visible, so its absence proves nothing.",
+      "what_it_means": "Deoxygenated hemoglobin is dark blue-purple and becomes visible through the skin at roughly 50 grams per litre in the capillary bed. That is an absolute amount, not a percentage, which is why an anemic patient can be profoundly hypoxic and never turn blue, and why a carbon monoxide patient can be cherry pink while suffocating.",
+      "first_moves": [
+        "High-flow oxygen immediately and assess whether they are ventilating adequately.",
+        "Distinguish central from peripheral: check the lips, tongue, and oral mucosa, which reflect true arterial desaturation.",
+        "If there is no response to oxygen, think shunt, obstruction, or a perfusion problem rather than turning the flow up further.",
+        "Look at the chest for symmetry and effort."
+      ],
+      "causes": [
+        { "condition": "asthma", "clue": "Wheeze, prolonged expiration, accessory muscle use. Cyanosis here means a severe attack." },
+        { "condition": "copd", "clue": "Chronic disease with an established baseline, often chronically slightly cyanotic." },
+        { "condition": "foreign-body-obstruction", "clue": "Sudden onset during eating, clutching the throat, silence." },
+        { "condition": "opioid-overdose", "clue": "Respiratory rate under 10 with pinpoint pupils." },
+        { "condition": "drowning", "clue": "Submersion history, frothy secretions, profound hypoxia poorly responsive to oxygen." },
+        { "condition": "tension-pneumothorax", "clue": "Unilateral absent breath sounds with shock." },
+        { "condition": "pulmonary-edema", "clue": "Frothy sputum, crackles, orthopnea." },
+        { "condition": "cardiogenic-shock", "clue": "Peripheral cyanosis from poor flow rather than poor oxygenation." },
+        { "condition": "hypothermia", "clue": "Peripheral cyanosis from vasoconstriction, with a cold patient." },
+        { "condition": "seizure", "clue": "Cyanosis during the tonic phase is expected and resolves when the seizure stops." }
+      ]
+    },
+    {
+      "id": "headache-presenting",
+      "name": "Severe headache",
+      "one_liner": "Most are benign; the ones that are not announce themselves by how they started.",
+      "what_it_means": "Brain tissue itself has no pain receptors. Headache comes from the meninges, blood vessels, and surrounding structures. That means a headache signalling something dangerous is usually signalling stretched or irritated meninges, distended vessels, or rising pressure.",
+      "first_moves": [
+        "Ask whether it was instantly maximal. A thunderclap onset is a subarachnoid hemorrhage until proven otherwise.",
+        "Take a temperature and look for neck stiffness and rash.",
+        "Full neurological assessment including pupils and limb power.",
+        "Check the blood pressure, and in a pregnant patient treat hypertension with headache as pre-eclampsia.",
+        "Dim the lights and minimise stimulation, which is both humane and clinically useful."
+      ],
+      "causes": [
+        { "condition": "hemorrhagic-stroke", "clue": "Instantly maximal, worst ever, vomiting, neck stiffness, sometimes collapse at onset." },
+        { "condition": "meningitis", "clue": "Fever, neck stiffness, photophobia, non-blanching rash, developing over hours." },
+        { "condition": "traumatic-brain-injury", "clue": "Mechanism, external signs, deteriorating consciousness, and worse if anticoagulated." },
+        { "condition": "carbon-monoxide", "clue": "Multiple people affected, improves away from the building, normal-looking oximetry." },
+        { "condition": "preeclampsia-eclampsia", "clue": "Pregnant or recently delivered, hypertension, visual disturbance, epigastric pain." },
+        { "condition": "hypertension-related", "clue": "Very high blood pressure with neurological signs. Note that most high readings with headache are not emergencies; the neurology is what matters.", "no_page": true },
+        { "condition": "heat-illness", "clue": "Hot environment, exertion, with weakness and nausea." }
+      ]
+    },
+    {
+      "id": "trauma-no-obvious-injury",
+      "name": "Shock with no visible injury",
+      "one_liner": "If they are shocked and there is nothing on the outside, the blood is on the inside.",
+      "what_it_means": "Five spaces can each hold enough blood to kill: the chest, the abdomen, the retroperitoneum, the pelvis, and the thighs. Plus the floor, which people forget to look at. None of them will look obviously distended until far too late, and none of them can be compressed.",
+      "first_moves": [
+        "Assume internal bleeding and treat as major hemorrhage.",
+        "Check breath sounds bilaterally to exclude a chest source.",
+        "Palpate the abdomen gently and note tenderness or distension, then reassess later for change.",
+        "Consider the pelvis by mechanism, apply a binder if indicated, and do not spring it to test.",
+        "Warm aggressively, minimise scene time, and pre-alert a trauma centre."
+      ],
+      "causes": [
+        { "condition": "solid-organ-injury", "clue": "Blunt mechanism, lower rib fractures, seat belt marks, left shoulder tip pain." },
+        { "condition": "hemothorax", "clue": "Unilateral reduced breath sounds with dullness, flat neck veins." },
+        { "condition": "fractures", "clue": "Femur can lose one to two litres, pelvis several. Multiple long bones alone can cause shock." },
+        { "condition": "aaa-rupture", "clue": "Over 50, severe back or flank pain, often a soft abdomen because the blood is retroperitoneal." },
+        { "condition": "gi-bleed", "clue": "Melaena or haematemesis may not yet have appeared, so ask about black stools and dizziness." },
+        { "condition": "obstetric-hemorrhage", "clue": "Placental abruption conceals blood behind the placenta. Rigid painful uterus with shock and little visible blood." },
+        { "condition": "cardiac-tamponade", "clue": "Distended neck veins with equal breath sounds after penetrating chest trauma." },
+        { "condition": "tension-pneumothorax", "clue": "Distended neck veins with unilaterally absent breath sounds." },
+        { "condition": "neurogenic-shock", "clue": "Warm, dry, pink, bradycardic. Assume bleeding first and treat accordingly." }
+      ]
+    }
+  ]
+}

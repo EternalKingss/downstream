@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600" role="img" aria-label="Cross-section of skin layers with heat loss">
+  <defs>
+    <linearGradient id="epi" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FDE8DA"/>
+      <stop offset="1" stop-color="#F6CDB4"/>
+    </linearGradient>
+    <linearGradient id="derm" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F1B79C"/>
+      <stop offset="1" stop-color="#E09277"/>
+    </linearGradient>
+    <linearGradient id="sub" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FBE6A8"/>
+      <stop offset="1" stop-color="#F1D07A"/>
+    </linearGradient>
+    <linearGradient id="heat" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0" stop-color="#DC2626" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#DC2626" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="600" height="600" fill="#F8FAFC"/>
+
+  <!-- radiating heat above the surface -->
+  <rect x="60" y="40" width="480" height="110" fill="url(#heat)"/>
+  <g stroke="#DC2626" stroke-opacity="0.45" stroke-width="3" fill="none" stroke-linecap="round">
+    <path d="M150 140 C138 118 162 108 150 86 C138 64 162 54 150 34"/>
+    <path d="M250 148 C238 126 262 116 250 94 C238 72 262 62 250 42"/>
+    <path d="M350 148 C338 126 362 116 350 94 C338 72 362 62 350 42"/>
+    <path d="M450 140 C438 118 462 108 450 86 C438 64 462 54 450 34"/>
+  </g>
+
+  <!-- skin block -->
+  <g>
+    <rect x="60" y="150" width="480" height="60" fill="url(#epi)"/>
+    <rect x="60" y="210" width="480" height="150" fill="url(#derm)"/>
+    <rect x="60" y="360" width="480" height="150" fill="url(#sub)"/>
+    <rect x="60" y="150" width="480" height="360" fill="none" stroke="#CBD5E1" stroke-width="2"/>
+    <line x1="60" y1="210" x2="540" y2="210" stroke="#FFFFFF" stroke-opacity="0.65" stroke-width="2"/>
+    <line x1="60" y1="360" x2="540" y2="360" stroke="#FFFFFF" stroke-opacity="0.65" stroke-width="2"/>
+  </g>
+
+  <!-- capillary loops in the dermis, dilated on the left, constricted on the right -->
+  <g fill="none" stroke="#DC2626" stroke-linecap="round">
+    <path d="M110 360 L110 275 C110 250 145 250 145 275 L145 360" stroke-width="9" stroke-opacity="0.75"/>
+    <path d="M205 360 L205 285 C205 263 236 263 236 285 L236 360" stroke-width="7" stroke-opacity="0.7"/>
+    <path d="M305 360 L305 297 C305 280 330 280 330 297 L330 360" stroke-width="5" stroke-opacity="0.65"/>
+    <path d="M400 360 L400 308 C400 295 420 295 420 308 L420 360" stroke-width="3.5" stroke-opacity="0.6"/>
+    <path d="M486 360 L486 316 C486 306 502 306 502 316 L502 360" stroke-width="2.5" stroke-opacity="0.55"/>
+  </g>
+
+  <!-- sweat gland and duct -->
+  <g stroke="#2563EB" stroke-width="4" fill="none" stroke-linecap="round">
+    <path d="M262 150 C262 200 250 220 258 250"/>
+    <path d="M258 250 c-22 6 -26 34 -6 42 c20 8 34 -14 22 -30"/>
+  </g>
+  <g fill="#2563EB" fill-opacity="0.75">
+    <circle cx="262" cy="128" r="7"/>
+    <circle cx="286" cy="106" r="5"/>
+    <circle cx="242" cy="100" r="4"/>
+  </g>
+
+  <!-- hair shaft and follicle -->
+  <g stroke="#475569" stroke-width="4" fill="none" stroke-linecap="round">
+    <path d="M372 150 C372 110 384 96 392 74"/>
+    <path d="M372 150 L372 300"/>
+    <path d="M372 300 c-16 4 -18 26 0 30 c18 4 22 -22 6 -30" stroke-width="3.5"/>
+  </g>
+
+  <!-- labels -->
+  <g font-family="Inter, Segoe UI, sans-serif" font-size="17" fill="#475569">
+    <text x="60" y="547" font-size="15" letter-spacing="1.4" fill="#94A3B8">BARRIER &#183; THERMOREGULATION &#183; FLUID</text>
+    <text x="562" y="186" text-anchor="end" font-size="15" fill="#7C4A32">epidermis</text>
+    <text x="562" y="292" text-anchor="end" font-size="15" fill="#7C4A32">dermis</text>
+    <text x="562" y="442" text-anchor="end" font-size="15" fill="#8A6B22">subcutaneous fat</text>
+  </g>
+</svg>

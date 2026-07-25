@@ -1,0 +1,66 @@
+{
+  "_note": "Hand-written questions. Everything in data/*.json feeds the generator, but this file is for items the site's structure cannot express: scene management, legal, documentation, judgement calls. Written fresh, not copied from any question bank. 'answer' may be the index or the exact text of the correct choice. 'page' is the site page to reread; 'ref' is the textbook pointer.",
+
+  "questions": [
+    {
+      "id": "own-scene-1",
+      "topic": "Scene size-up",
+      "stem": "You arrive at a single-vehicle collision on a rural highway at dusk. The car is off the shoulder, one occupant is moving inside, and there is a smell of fuel. What is your first action?",
+      "choices": [
+        "Assess the scene for hazards and establish whether it is safe to approach",
+        "Get to the patient quickly and start a primary assessment",
+        "Open the driver's door to check responsiveness",
+        "Begin spinal motion restriction before moving anything"
+      ],
+      "answer": 0,
+      "why": "Scene safety comes before patient contact, every time. A leaking fuel source, live traffic and failing light are all threats to you, and an injured responder converts one patient into two. Nothing in the patient assessment sequence is worth entering an unsafe scene for.",
+      "page": "skill/primary-survey.html",
+      "ref": "EMR ch. 6, Scene Size-Up (p. 120)"
+    },
+    {
+      "id": "own-legal-1",
+      "topic": "Legal and ethical",
+      "stem": "An adult patient who is oriented and appears to understand their situation refuses your assessment after a fall. What does refusal of care require from you?",
+      "choices": [
+        "Explain the risks in terms they understand, document the refusal, and leave the door open",
+        "Treat anyway, because a fall always carries a head injury risk",
+        "Have a bystander sign as a witness that the patient is being unreasonable",
+        "Withdraw immediately without further discussion"
+      ],
+      "answer": 0,
+      "why": "A competent adult can refuse. Your obligation is informed refusal: describe what you are worried about and what could happen, offer again, make it easy for them to change their mind, and document what you said and what they said. Treating over a competent refusal is battery.",
+      "page": "about.html",
+      "ref": "EMR ch. 3, Medical, Legal and Ethical Issues (p. 44)"
+    },
+    {
+      "id": "own-doc-1",
+      "topic": "Documentation",
+      "stem": "Halfway through writing your report you realise you recorded the wrong respiratory rate. What is the correct fix?",
+      "choices": [
+        "Draw a single line through it, initial it, and write the correct value beside it",
+        "Erase or white out the entry so the record stays clean",
+        "Leave it and mention the error verbally at handover",
+        "Start the report again on a fresh form and discard the first"
+      ],
+      "answer": 0,
+      "why": "A patient care record is a legal document. Errors get struck through once so the original remains legible, initialled so it is clear who changed it, and corrected alongside. Obliterating an entry looks like concealment, which is far worse than the original mistake.",
+      "page": "about.html",
+      "ref": "EMR ch. 9, Communication and Documentation (p. 211)"
+    },
+    {
+      "id": "own-lift-1",
+      "topic": "Lifting and moving",
+      "stem": "You need to move a heavy patient from the floor to the stretcher. What keeps your own back out of the injury list?",
+      "choices": [
+        "Keep the weight close, back straight, and lift with the legs while a partner calls the count",
+        "Bend at the waist and use your back, which is stronger than the legs over short distances",
+        "Twist as you lift so the movement is one continuous motion",
+        "Lift quickly to shorten the time the load is on your spine"
+      ],
+      "answer": 0,
+      "why": "Load close to the body, spine in a neutral line, power from the legs, and one person coordinating the timing. Twisting under load is what causes most lifting injuries in EMS, and a rushed lift is a dropped patient.",
+      "page": "about.html",
+      "ref": "EMR ch. 5, Lifting and Moving Patients (p. 84)"
+    }
+  ]
+}

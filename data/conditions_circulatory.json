@@ -1,0 +1,1074 @@
+{
+  "conditions": [
+    {
+      "id": "acs",
+      "name": "Acute coronary syndrome",
+      "structures": ["coronary-arteries", "myocardium"],
+      "status": "built",
+      "one_liner": "A plaque ruptures in a coronary artery, a clot forms on it, and the muscle downstream begins to die.",
+      "in_one_breath": "Cholesterol plaque has been narrowing a coronary artery for decades without symptoms. Its cap tears, the body treats the tear like an injury and clots over it, and that clot blocks the artery in minutes. Everything the artery fed now has a countdown on it.",
+      "cascade": [
+        {
+          "id": "plaque",
+          "label": "Plaque has been building for years",
+          "sub": "Silent until it isn't",
+          "severity": "normal",
+          "structure": "coronary-arteries",
+          "detail": "Lipid, inflammatory cells, and fibrous tissue accumulate in the arterial wall over decades. A vessel can narrow by half without causing any symptom at all, because flow at rest is still adequate. Some patients get warning in the form of exertional angina; many get none whatsoever, and the infarct is the first thing that happens to them."
+        },
+        {
+          "id": "rupture",
+          "label": "The plaque cap tears",
+          "sub": "The trigger event",
+          "severity": "warn",
+          "detail": "The fibrous cap over the plaque ruptures or erodes, exposing the thrombogenic material underneath to flowing blood. Crucially, the plaques that rupture are often not the most severely narrowed ones. This is why a patient with a normal stress test last year can still infarct today."
+        },
+        {
+          "id": "thrombus",
+          "label": "A clot forms over the tear",
+          "sub": "Platelets arrive within seconds",
+          "severity": "crit",
+          "detail": "The body cannot distinguish a torn plaque from a cut vessel, so it does exactly what it does for any injury: platelets adhere, activate, and aggregate, and the clotting cascade lays fibrin over them. In a coronary artery, that perfectly appropriate response is the thing that kills the patient. A partial clot causes unstable angina or a NSTEMI; a complete occlusion causes a STEMI."
+        },
+        {
+          "id": "ischemia",
+          "label": "The muscle starves",
+          "sub": "Pressure, radiation, sweating, doom",
+          "severity": "crit",
+          "shared": "myocardial-ischemia",
+          "detail": "Myocardium already extracts most of the oxygen available to it, so it has no reserve to draw on. Within seconds of occlusion the affected muscle switches to anaerobic metabolism, lactate builds, and the tissue signals pain through autonomic fibres, which is why the pain is poorly localised and often referred to the jaw, arm, or back."
+        },
+        {
+          "id": "electrical-instability",
+          "label": "The muscle becomes electrically unstable",
+          "sub": "The main killer in hour one",
+          "severity": "crit",
+          "structure": "conduction-system",
+          "detail": "Ischemic myocardium has an unstable membrane potential and conducts unevenly. Some regions are dead, some are dying, some are normal, and impulses circle between them. This is the substrate for ventricular tachycardia and fibrillation, and it is why most deaths from infarction happen in the first hour, before any pump problem has developed."
+        },
+        {
+          "id": "necrosis",
+          "label": "Muscle dies",
+          "sub": "Roughly 20 minutes to 6 hours",
+          "severity": "crit",
+          "detail": "Cells begin dying within twenty to thirty minutes of complete occlusion, working outward from the inner layer of the ventricle where pressure is highest and supply worst. Infarction is largely complete by around six hours. What is lost becomes scar: it does not contract and it conducts badly. Everything prehospital is about shortening this window."
+        },
+        {
+          "id": "pump-failure",
+          "label": "The pump weakens",
+          "sub": "If enough muscle is lost",
+          "severity": "crit",
+          "shared": "pump-failure",
+          "detail": "Once roughly a quarter of the left ventricle is affected, cardiac output falls measurably. Beyond about forty percent, cardiogenic shock develops and mortality climbs steeply."
+        },
+        {
+          "id": "cardiac-arrest",
+          "label": "Circulation stops",
+          "sub": "Usually VF, sometimes pump failure",
+          "severity": "crit",
+          "shared": "cardiac-arrest",
+          "detail": "Most commonly through ventricular fibrillation arising from the irritable ischemic tissue. Less commonly through progressive pump failure, or through mechanical catastrophe such as ventricular wall or papillary muscle rupture."
+        }
+      ],
+      "interventions": [
+        {
+          "med": "asa",
+          "breaks_at": "thrombus",
+          "scope": "EMR",
+          "note": "Blocks platelet aggregation irreversibly, which limits how much bigger the clot can get. It cannot dissolve what is already there. This is the single highest-value drug an EMR gives, and it is given early for exactly that reason."
+        },
+        {
+          "med": "nitroglycerin",
+          "breaks_at": "ischemia",
+          "scope": "varies",
+          "note": "Dilates veins, drops preload, and reduces the work the heart has to do, which narrows the gap between supply and demand. Also dilates coronary vessels somewhat. Check right-sided involvement and PDE5 inhibitor use first."
+        },
+        {
+          "med": "oxygen",
+          "breaks_at": "ischemia",
+          "scope": "EMR",
+          "note": "Only if the saturation is below 94 percent. Routine oxygen in a normoxic cardiac patient has not been shown to help and may cause harm."
+        }
+      ],
+      "non_drug_interventions": [
+        {
+          "name": "Rest and stop all exertion",
+          "breaks_at": "ischemia",
+          "scope": "EMR",
+          "note": "Reduces myocardial oxygen demand directly. Carry the patient. Do not let them walk to the ambulance, climb stairs, or move themselves onto the stretcher."
+        },
+        {
+          "name": "AED on the patient early",
+          "breaks_at": "electrical-instability",
+          "scope": "EMR",
+          "note": "The most likely thing to kill this patient in the next hour is a rhythm you can shock. Pads on before they arrest, not after."
+        },
+        {
+          "name": "Rapid transport to a PCI centre",
+          "breaks_at": "necrosis",
+          "scope": "EMR",
+          "note": "Nothing you carry reopens the artery. The intervention is time, and the destination decision matters more than almost anything you do on scene."
+        },
+        {
+          "name": "Calm and reassure",
+          "breaks_at": "ischemia",
+          "scope": "EMR",
+          "note": "Anxiety drives catecholamine release, which raises rate and contractility, which raises oxygen demand in a heart that cannot meet it. This is a physiological intervention."
+        }
+      ],
+      "red_flags": [
+        "Pain unrelieved after rest and the patient's own nitroglycerin",
+        "Hypotension, especially if it worsens after nitroglycerin, which suggests right ventricular involvement",
+        "New irregular pulse, very slow pulse, or very fast pulse",
+        "Crackles, frothy sputum, or breathlessness suggesting the pump is already failing",
+        "Syncope, which in a cardiac patient may mean a rhythm that self-terminated and will return"
+      ],
+      "differentiators": [
+        {
+          "vs": "Aortic dissection",
+          "how": "Tearing pain, maximal at onset rather than building, often radiating to the back, sometimes with unequal pulses or blood pressures between arms. Aspirin and any anticoagulation are harmful here, so it matters."
+        },
+        {
+          "vs": "Pulmonary embolism",
+          "how": "Sudden breathlessness dominates over pain, the chest is clear, the pain is often pleuritic and sharp rather than pressure-like, and there may be risk factors such as recent surgery, immobility, or leg swelling."
+        },
+        {
+          "vs": "Pericarditis",
+          "how": "Sharp pain that is worse lying flat and better sitting forward, often in a younger patient, often after a viral illness."
+        },
+        {
+          "vs": "Reflux or musculoskeletal pain",
+          "how": "Reproducible on palpation or on movement points away from cardiac cause, but never rule out ACS on that basis alone. Chest wall tenderness does not exclude an infarct."
+        }
+      ]
+    },
+    {
+      "id": "sudden-cardiac-arrest",
+      "name": "Sudden cardiac arrest",
+      "structures": ["conduction-system", "myocardium"],
+      "status": "built",
+      "one_liner": "The heart's electrical activity disorganises and coordinated contraction stops instantly.",
+      "in_one_breath": "This is an electrical event, not a plumbing one. The muscle is quivering rather than pumping, the patient collapses within seconds, and the only thing that reliably fixes it is a shock delivered fast. Everything else you do is buying minutes until that shock arrives.",
+      "cascade": [
+        {
+          "id": "substrate",
+          "label": "An unstable substrate exists",
+          "sub": "Ischemia, scar, or electrolytes",
+          "severity": "warn",
+          "structure": "conduction-system",
+          "detail": "Something has made the myocardium electrically uneven: acute ischemia, old infarct scar, cardiomyopathy, an inherited channel disorder, or a derangement of potassium, magnesium, or calcium. Areas conduct at different speeds, which is exactly what a re-entrant circuit needs."
+        },
+        {
+          "id": "trigger-beat",
+          "label": "A trigger beat lands badly",
+          "sub": "Ectopic beat in a vulnerable window",
+          "severity": "crit",
+          "detail": "A premature ventricular beat arriving during the repolarisation phase, when parts of the muscle are recovered and parts are not, can start a circuit that spirals into ventricular tachycardia."
+        },
+        {
+          "id": "vf",
+          "label": "Coordinated contraction stops",
+          "sub": "VF or pulseless VT",
+          "severity": "crit",
+          "detail": "The ventricles receive hundreds of disorganised impulses per second. Individual fibres contract, but they do so out of phase with each other, so the chamber quivers rather than squeezes. Output is effectively zero from the first moment."
+        },
+        {
+          "id": "output-zero",
+          "label": "Circulation stops instantly",
+          "sub": "Collapse within seconds",
+          "severity": "crit",
+          "shared": "cardiac-arrest",
+          "detail": "Unlike hypoxic arrest, which arrives at the end of a long deterioration, this happens with no warning. Consciousness is lost in around ten seconds. Agonal gasping is common in the first minutes and is frequently mistaken for breathing by bystanders and by responders."
+        },
+        {
+          "id": "brain-clock",
+          "label": "The brain starts dying",
+          "sub": "Minutes, not hours",
+          "severity": "crit",
+          "shared": "cerebral-hypoperfusion",
+          "detail": "The brain has essentially no oxygen reserve. Irreversible damage begins within about four to six minutes of zero flow. Survival with intact neurology falls by roughly seven to ten percent for every minute without CPR and defibrillation."
+        },
+        {
+          "id": "rhythm-decay",
+          "label": "The shockable rhythm decays",
+          "sub": "VF coarsens, then fades to asystole",
+          "severity": "crit",
+          "detail": "Ventricular fibrillation consumes energy. Without compressions to deliver some substrate to the myocardium, it becomes progressively finer and eventually flatlines into asystole, which is far less survivable. Good compressions preserve the window in which a shock can still work."
+        }
+      ],
+      "interventions": [
+        {
+          "med": "oxygen",
+          "breaks_at": "brain-clock",
+          "scope": "EMR",
+          "note": "Via bag-valve-mask with reservoir. Ventilation matters less in the first minutes of a primary cardiac arrest than compressions do, but it matters increasingly as time passes."
+        }
+      ],
+      "non_drug_interventions": [
+        {
+          "name": "Immediate high-quality compressions",
+          "breaks_at": "output-zero",
+          "scope": "EMR",
+          "note": "Roughly 100 to 120 per minute, 5 to 6 cm deep, full recoil, minimal interruption. Compressions do not restart the heart. They keep the brain and the myocardium alive long enough for the shock to have something to work with."
+        },
+        {
+          "name": "Defibrillation as early as possible",
+          "breaks_at": "vf",
+          "scope": "EMR",
+          "note": "This is the only intervention that actually reverses the problem. It depolarises the whole myocardium at once so the natural pacemaker can resume control. Every minute of delay costs survival."
+        },
+        {
+          "name": "Minimise pauses around the shock",
+          "breaks_at": "rhythm-decay",
+          "scope": "EMR",
+          "note": "Coronary perfusion pressure builds over successive compressions and collapses the moment you stop. Long pauses to analyse, charge, or check pulses undo work you already did."
+        },
+        {
+          "name": "Treat reversible causes",
+          "breaks_at": "substrate",
+          "scope": "EMR",
+          "note": "Hypoxia, hypovolemia, hypothermia, hypo- and hyperkalemia, tension pneumothorax, tamponade, toxins, and thrombus. Recognition of these is within your scope even when the treatment is not."
+        }
+      ],
+      "red_flags": [
+        "Agonal gasping mistaken for breathing, which delays compressions in a large proportion of arrests",
+        "Any pause in compressions longer than ten seconds",
+        "Prolonged pulse checks",
+        "Delaying defibrillation to complete other tasks",
+        "Assuming a hypoxic arrest in a child is primarily cardiac, when it almost never is"
+      ],
+      "differentiators": [
+        {
+          "vs": "Hypoxic cardiac arrest",
+          "how": "Hypoxic arrest is preceded by a visible respiratory deterioration, tends toward PEA and asystole rather than VF, and needs airway and ventilation alongside compressions. Sudden cardiac arrest happens without warning and is more likely to be shockable."
+        },
+        {
+          "vs": "Syncope",
+          "how": "A syncopal patient regains consciousness within seconds once horizontal, and has a pulse throughout. If they do not wake up, treat it as arrest."
+        },
+        {
+          "vs": "Seizure",
+          "how": "Arrest often causes a brief tonic or myoclonic episode from cerebral hypoxia, and it is regularly reported as a seizure. Always check the pulse in anyone who has collapsed and convulsed."
+        }
+      ]
+    },
+    {
+      "id": "external-hemorrhage",
+      "name": "External hemorrhage",
+      "structures": ["arteries", "veins", "blood"],
+      "status": "built",
+      "one_liner": "Blood is leaving the circuit through a breach you can see, and therefore one you can close.",
+      "in_one_breath": "The only survivable major bleeding is the bleeding you can reach. Everything about managing it is mechanical: put pressure exactly on the hole, hard enough and long enough that a clot can form, and do not keep lifting the dressing to check.",
+      "cascade": [
+        {
+          "id": "breach",
+          "label": "A vessel is opened",
+          "sub": "Arterial, venous, or capillary",
+          "severity": "warn",
+          "structure": "arteries",
+          "detail": "Arterial bleeding is bright red and pulsatile, driven by systolic pressure, and loses volume fastest. Venous bleeding is darker and steady but can still be substantial from a large vein. Capillary bleeding oozes and generally stops on its own."
+        },
+        {
+          "id": "volume-loss",
+          "label": "Circulating volume falls",
+          "sub": "Whole blood, not just fluid",
+          "severity": "warn",
+          "structure": "blood",
+          "detail": "Hemorrhage loses plasma and red cells together, so the patient loses volume and oxygen-carrying capacity simultaneously. This is why bleeding is worse than dehydration of equivalent volume, and why replacing volume alone dilutes what carrying capacity remains."
+        },
+        {
+          "id": "preload-drops",
+          "label": "Venous return drops",
+          "sub": "Less coming back means less going out",
+          "severity": "warn",
+          "structure": "veins",
+          "detail": "With less volume in the system, less blood returns to the heart. Stroke volume falls in direct proportion, because a ventricle can only eject what it received."
+        },
+        {
+          "id": "compensation",
+          "label": "The body compensates",
+          "sub": "Tachycardia, pale cool clammy skin",
+          "severity": "warn",
+          "shared": "sympathetic-compensation",
+          "detail": "Veins constrict to squeeze stored blood back into circulation, arterioles clamp down in skin and gut, and heart rate rises. This is remarkably effective and can hold a normal blood pressure through roughly thirty percent volume loss in a healthy adult."
+        },
+        {
+          "id": "hypoperfusion",
+          "label": "Tissue perfusion falls",
+          "sub": "Despite a normal blood pressure",
+          "severity": "warn",
+          "shared": "hypoperfusion",
+          "detail": "The compensation that preserves blood pressure does so by sacrificing flow to skin, gut, muscle, and kidney. Those tissues are already in trouble while the numbers still look acceptable."
+        },
+        {
+          "id": "decompensation",
+          "label": "Compensation fails",
+          "sub": "Blood pressure finally drops",
+          "severity": "crit",
+          "shared": "decompensated-shock",
+          "detail": "Acidosis from anaerobic metabolism blunts the vascular response to catecholamines, the vasoconstriction fails, and pressure falls. In an adult this typically corresponds to around thirty to forty percent volume loss."
+        },
+        {
+          "id": "arrest",
+          "label": "Circulation stops",
+          "sub": "PEA from an empty tank",
+          "severity": "crit",
+          "shared": "cardiac-arrest",
+          "detail": "The heart continues to generate organised electrical activity with nothing to pump. This is hypovolemic PEA, and it is not fixed by defibrillation or by drugs. It is fixed by stopping the bleeding and restoring volume."
+        }
+      ],
+      "non_drug_interventions": [
+        {
+          "name": "Direct pressure, hard and precise",
+          "breaks_at": "breach",
+          "scope": "EMR",
+          "note": "Firm pressure with a gloved hand directly over the bleeding point, not spread vaguely over a large dressing. Most external bleeding stops with pressure applied properly. If it is not working, you are probably not pressing hard enough or not pressing in the right place."
+        },
+        {
+          "name": "Don't lift the dressing",
+          "breaks_at": "breach",
+          "scope": "EMR",
+          "note": "A forming clot is fragile and lifting the dressing tears it off, restarting the bleed. Add more dressings on top instead of replacing what is there."
+        },
+        {
+          "name": "Tourniquet for uncontrolled limb bleeding",
+          "breaks_at": "breach",
+          "scope": "EMR",
+          "note": "Apply high and tight, tighten until the bleeding stops, and write the time on it. Modern evidence is clear that a properly applied tourniquet is safe for a considerable period and that hesitation costs lives. Do not loosen it once applied."
+        },
+        {
+          "name": "Hemostatic dressing packed into the wound",
+          "breaks_at": "breach",
+          "scope": "EMR",
+          "note": "For junctional wounds where a tourniquet cannot go: groin, axilla, neck. Pack firmly into the cavity and hold pressure for the full recommended time."
+        },
+        {
+          "name": "Keep them warm",
+          "breaks_at": "decompensation",
+          "scope": "EMR",
+          "note": "Hypothermia impairs clotting enzymes directly, which worsens bleeding, which worsens shock, which worsens hypothermia. Cutting clothing off and leaving a patient exposed on a cold Alberta scene actively contributes to their death."
+        }
+      ],
+      "red_flags": [
+        "Bright red pulsatile bleeding, or bleeding that soaks through dressings faster than you can apply them",
+        "Tachycardia with pale, cool, clammy skin and a normal blood pressure, which is shock before hypotension",
+        "Narrowing pulse pressure",
+        "Anxiety or agitation in a bleeding patient",
+        "Any fall in blood pressure, which means compensation has already failed"
+      ],
+      "differentiators": [
+        {
+          "vs": "Internal hemorrhage",
+          "how": "Same physiology, no visible blood. Suspect it from the mechanism, from abdominal or pelvic tenderness, from femur fractures, and from shock that does not match any visible injury."
+        },
+        {
+          "vs": "Neurogenic shock",
+          "how": "Both are hypotensive after trauma, but neurogenic shock is warm, dry, and pink below the injury and often bradycardic rather than tachycardic. A patient who is hypotensive and not tachycardic after trauma should make you think spinal cord."
+        }
+      ]
+    },
+    {
+      "id": "hemorrhagic-shock",
+      "name": "Hemorrhagic and hypovolemic shock",
+      "structures": ["blood", "veins", "capillaries"],
+      "status": "built",
+      "one_liner": "There is not enough volume in the circuit to fill the pump.",
+      "in_one_breath": "The tank is empty. Everything the body does from that point is an attempt to make less blood cover the same distance, and every one of those attempts costs something. Blood pressure is the last thing to fail and the worst thing to wait for.",
+      "cascade": [
+        {
+          "id": "loss",
+          "label": "Volume leaves the circuit",
+          "sub": "Bleeding, burns, vomiting, diarrhea",
+          "severity": "warn",
+          "detail": "Either whole blood is lost through hemorrhage, or plasma is lost through burns, or water and electrolytes are lost through the gut. The mechanism differs but the circulatory consequence is identical."
+        },
+        {
+          "id": "preload",
+          "label": "Preload falls",
+          "sub": "Less returning to the heart",
+          "severity": "warn",
+          "structure": "veins",
+          "detail": "Roughly two thirds of blood volume normally sits in the venous system. As volume falls, venous return falls, and by the Frank-Starling relationship a less-filled ventricle contracts less forcefully and ejects less."
+        },
+        {
+          "id": "compensation",
+          "label": "The body compensates hard",
+          "sub": "Class I and II, pressure still normal",
+          "severity": "warn",
+          "shared": "sympathetic-compensation",
+          "detail": "Venoconstriction returns stored blood to circulation, arteriolar constriction raises resistance, and heart rate rises. Skin, gut, muscle, and kidney are sacrificed to preserve brain and heart. A fit young adult can lose a litre and a half and still show a normal blood pressure."
+        },
+        {
+          "id": "hypoperfusion",
+          "label": "Tissue perfusion falls",
+          "sub": "Cap refill, cool skin, anxiety",
+          "severity": "warn",
+          "shared": "hypoperfusion",
+          "detail": "The sacrificed tissues are already ischemic. Capillary refill lengthens, skin cools, urine output falls, and the patient becomes anxious as cerebral flow starts to drop."
+        },
+        {
+          "id": "anaerobic",
+          "label": "Cells switch to anaerobic metabolism",
+          "sub": "Lactate accumulates",
+          "severity": "crit",
+          "shared": "anaerobic-metabolism",
+          "detail": "Energy production collapses to a fraction of normal and lactic acid builds up. The falling pH begins to impair the very compensation keeping the patient alive."
+        },
+        {
+          "id": "decompensation",
+          "label": "Compensation collapses",
+          "sub": "Class III to IV, pressure falls",
+          "severity": "crit",
+          "shared": "decompensated-shock",
+          "detail": "Acidosis blunts vascular and myocardial responsiveness to catecholamines. Vasoconstriction fails, pressure drops, consciousness falls, and the loop becomes self-reinforcing: worse perfusion produces worse acidosis produces worse perfusion."
+        },
+        {
+          "id": "arrest",
+          "label": "Circulation stops",
+          "sub": "Hypovolemic PEA",
+          "severity": "crit",
+          "shared": "cardiac-arrest",
+          "detail": "An empty heart cannot generate output no matter how well it is contracting or how organised its rhythm looks. Compressions on an empty ventricle achieve very little; the answer is volume and hemorrhage control."
+        }
+      ],
+      "non_drug_interventions": [
+        {
+          "name": "Stop the bleeding first",
+          "breaks_at": "loss",
+          "scope": "EMR",
+          "note": "Nothing else matters while volume is still leaving. Direct pressure, tourniquet, wound packing, pelvic binding, splinting long bones. This is the only intervention that addresses the actual cause."
+        },
+        {
+          "name": "Keep them horizontal",
+          "breaks_at": "preload",
+          "scope": "EMR",
+          "note": "Supine improves venous return to the heart and cerebral perfusion. Routine leg elevation has fallen out of favour and is not required, but sitting a shocked patient upright is actively harmful."
+        },
+        {
+          "name": "Aggressive warming",
+          "breaks_at": "anaerobic",
+          "scope": "EMR",
+          "note": "Hypothermia, acidosis, and coagulopathy reinforce each other in what trauma care calls the lethal triad. Warmth is one of the few parts of that triangle you can influence directly in the field."
+        },
+        {
+          "name": "Oxygen and rapid transport",
+          "breaks_at": "hypoperfusion",
+          "scope": "EMR",
+          "note": "Maximise the oxygen content of the blood that remains, and get the patient somewhere that can give blood and stop internal bleeding. Definitive care for major hemorrhage is a surgeon."
+        }
+      ],
+      "red_flags": [
+        "Tachycardia with cool, clammy skin and a normal blood pressure",
+        "Narrowing pulse pressure",
+        "Capillary refill beyond two seconds",
+        "Agitation, anxiety, or confusion",
+        "Any hypotension, which means at least thirty percent volume loss in an adult",
+        "A child who looks well but has a mechanism that should have hurt them, because children compensate then crash"
+      ],
+      "differentiators": [
+        {
+          "vs": "Cardiogenic shock",
+          "how": "Both are cold and clammy, but cardiogenic shock has signs of congestion: crackles, distended neck veins, and a cardiac history. Hypovolemic shock has flat neck veins and clear lungs."
+        },
+        {
+          "vs": "Septic shock",
+          "how": "Early sepsis is typically warm, flushed, and febrile with a bounding pulse and wide pulse pressure, which is the opposite picture. Late sepsis becomes cold and looks identical."
+        },
+        {
+          "vs": "Obstructive shock",
+          "how": "Tension pneumothorax and tamponade both cause distended neck veins with a mechanical obstruction to filling. Hypovolemia gives flat neck veins."
+        }
+      ]
+    },
+    {
+      "id": "cardiogenic-shock",
+      "name": "Cardiogenic shock",
+      "structures": ["myocardium", "conduction-system"],
+      "status": "built",
+      "one_liner": "The tank is full and the pipes are fine, but the pump has failed.",
+      "in_one_breath": "Enough heart muscle has stopped working that cardiac output can no longer meet demand. Fluid backs up behind the failing ventricle while the tissues in front of it starve, so the patient is simultaneously overloaded and underperfused.",
+      "cascade": [
+        {
+          "id": "muscle-lost",
+          "label": "Contractile muscle is lost",
+          "sub": "Usually a large infarct",
+          "severity": "crit",
+          "structure": "myocardium",
+          "detail": "Most commonly a large anterior infarct destroying a substantial portion of the left ventricle. It can also follow sustained arrhythmia, myocarditis, end-stage cardiomyopathy, valve rupture, or severe cardiac contusion after blunt trauma."
+        },
+        {
+          "id": "stroke-volume",
+          "label": "Stroke volume collapses",
+          "sub": "Roughly 40 percent of LV involved",
+          "severity": "crit",
+          "shared": "pump-failure",
+          "detail": "The ventricle fills normally but cannot eject effectively. Cardiac output falls, and the heart compensates the only way it can, by increasing rate, which shortens diastole, which reduces both filling time and coronary perfusion time. The compensation makes the problem worse."
+        },
+        {
+          "id": "backward-failure",
+          "label": "Fluid backs up into the lungs",
+          "sub": "Crackles, frothy sputum, orthopnea",
+          "severity": "crit",
+          "shared": "pulmonary-congestion",
+          "detail": "Blood the left ventricle cannot move forward accumulates behind it, raising pulmonary capillary pressure until fluid is forced into the alveoli. The patient is now hypoxic on top of being hypoperfused."
+        },
+        {
+          "id": "forward-failure",
+          "label": "Tissue perfusion falls",
+          "sub": "Cold, mottled, confused",
+          "severity": "crit",
+          "shared": "hypoperfusion",
+          "detail": "Forward flow is inadequate. Skin becomes cold and mottled, capillary refill lengthens, and the patient becomes confused. The classic picture is a patient who is wet in the lungs and dry at the fingertips."
+        },
+        {
+          "id": "coronary-spiral",
+          "label": "The heart starves itself",
+          "sub": "The self-reinforcing loop",
+          "severity": "crit",
+          "shared": "myocardial-ischemia",
+          "detail": "Coronary perfusion depends on diastolic blood pressure, which is now falling. So the failing heart receives less blood, which weakens it further, which lowers the pressure further. This is the loop that makes cardiogenic shock so lethal, and it is why simply loading fluid does not fix it."
+        },
+        {
+          "id": "arrest",
+          "label": "Circulation stops",
+          "sub": "Progressive, or a terminal rhythm",
+          "severity": "crit",
+          "shared": "cardiac-arrest",
+          "detail": "Either through progressive failure to asystole and PEA, or through a lethal arrhythmia arising from the ischemic, dilated, and electrolyte-deranged myocardium."
+        }
+      ],
+      "interventions": [
+        {
+          "med": "oxygen",
+          "breaks_at": "backward-failure",
+          "scope": "EMR",
+          "note": "Titrate to 94 percent or above. These patients are hypoxic from pulmonary edema on top of being hypoperfused, so the oxygen content of what little output they have matters enormously."
+        }
+      ],
+      "non_drug_interventions": [
+        {
+          "name": "Position upright if pressure allows",
+          "breaks_at": "backward-failure",
+          "scope": "EMR",
+          "note": "Sitting up lets fluid settle to the bases and improves the mechanics of breathing. Balance this against the fact that they are hypotensive, and let the patient's own tolerance guide you."
+        },
+        {
+          "name": "Do not load fluid reflexively",
+          "breaks_at": "backward-failure",
+          "scope": "EMR",
+          "note": "This is the one shock where the tank is already full. Fluid worsens the pulmonary edema without improving output. Recognising cardiogenic shock and flagging it early is the intervention at EMR level."
+        },
+        {
+          "name": "Minimise exertion completely",
+          "breaks_at": "coronary-spiral",
+          "scope": "EMR",
+          "note": "Every bit of work this patient does raises myocardial oxygen demand in a heart that is already starving itself."
+        },
+        {
+          "name": "Early recognition and escalation",
+          "breaks_at": "stroke-volume",
+          "scope": "EMR",
+          "note": "Mortality is very high and definitive treatment is well beyond prehospital scope. Getting the right resources moving early is what you can actually change."
+        }
+      ],
+      "red_flags": [
+        "Hypotension with crackles and distended neck veins together",
+        "Cold, mottled peripheries with a wet-sounding chest",
+        "Chest pain with hypotension",
+        "Deteriorating level of consciousness in a cardiac patient",
+        "Blood pressure falling after nitroglycerin, which suggests right ventricular involvement"
+      ],
+      "differentiators": [
+        {
+          "vs": "Hypovolemic shock",
+          "how": "Flat neck veins and clear lungs point to volume loss. Distended neck veins and crackles point to the pump."
+        },
+        {
+          "vs": "Obstructive shock",
+          "how": "Tension pneumothorax has unilaterally absent breath sounds; tamponade has muffled heart sounds with clear lungs. Cardiogenic shock usually has crackles and a cardiac history."
+        },
+        {
+          "vs": "Septic shock",
+          "how": "Fever, a source of infection, warm skin early, and a wide pulse pressure. Cardiogenic shock is cold from the start."
+        }
+      ]
+    },
+    {
+      "id": "septic-shock",
+      "name": "Septic shock",
+      "structures": ["capillaries", "arteries"],
+      "status": "built",
+      "one_liner": "The response to infection dilates the vessels and makes them leak, so the same volume no longer fills a much bigger container.",
+      "in_one_breath": "Infection triggers a body-wide inflammatory response. Blood vessels dilate and become porous, so circulating volume both spreads too thin and drains into the tissues. There was never a shortage of blood; the container simply got too large and started leaking.",
+      "cascade": [
+        {
+          "id": "infection",
+          "label": "Infection is established",
+          "sub": "Lung, urine, skin, abdomen",
+          "severity": "normal",
+          "detail": "Pneumonia and urinary infection are the most common sources, followed by skin and soft tissue, and abdominal sources. In older adults the classic signs of infection are often absent and confusion may be the only presentation."
+        },
+        {
+          "id": "inflammatory-cascade",
+          "label": "The response goes systemic",
+          "sub": "Mediators enter the bloodstream",
+          "severity": "warn",
+          "detail": "Bacterial products and the body's own inflammatory mediators enter the circulation and act on vessels everywhere, not just at the site of infection. The response that should have been local becomes body-wide, and it is this response rather than the bacteria that causes the shock."
+        },
+        {
+          "id": "vasodilation",
+          "label": "Vessels dilate everywhere",
+          "sub": "Warm, flushed, bounding pulse",
+          "severity": "warn",
+          "structure": "arteries",
+          "detail": "Systemic vascular resistance collapses. The same cardiac output now has to fill a far larger vascular space, so pressure falls even though the heart may be pumping more than usual. This is why early sepsis looks warm and flushed rather than cold and pale, and why it is so often missed."
+        },
+        {
+          "id": "capillary-leak",
+          "label": "Capillaries start leaking",
+          "sub": "Fluid drains into the tissues",
+          "severity": "crit",
+          "structure": "capillaries",
+          "detail": "Inflammatory mediators increase capillary permeability, so plasma escapes into the interstitium. The patient can be visibly swollen and fluid overloaded while their intravascular space is profoundly empty. This is a relative hypovolemia stacked on top of the vasodilation."
+        },
+        {
+          "id": "maldistribution",
+          "label": "Blood goes to the wrong places",
+          "sub": "Flow without delivery",
+          "severity": "crit",
+          "detail": "Microvascular regulation breaks down. Some capillary beds are overperfused and others are shut, and even where flow exists the cells may be unable to use the oxygen properly. Lactate rises despite what looks like adequate delivery, which is a feature that distinguishes this from simple hypovolemia."
+        },
+        {
+          "id": "hypoperfusion",
+          "label": "Tissue perfusion fails",
+          "sub": "Then the skin turns cold",
+          "severity": "crit",
+          "shared": "hypoperfusion",
+          "detail": "As the process advances, compensatory vasoconstriction and falling cardiac output turn the warm flushed patient into a cold mottled one. By this point the mortality is very high."
+        },
+        {
+          "id": "organ-failure",
+          "label": "Organs begin to fail",
+          "sub": "Kidneys, liver, clotting, brain",
+          "severity": "crit",
+          "shared": "anaerobic-metabolism",
+          "detail": "Sustained maldistributed perfusion and widespread inflammation damage multiple organ systems at once. Clotting becomes deranged, kidneys shut down, and consciousness falls."
+        }
+      ],
+      "interventions": [
+        {
+          "med": "oxygen",
+          "breaks_at": "hypoperfusion",
+          "scope": "EMR",
+          "note": "Titrate to target. Oxygen demand is elevated by fever and by the inflammatory response itself."
+        }
+      ],
+      "non_drug_interventions": [
+        {
+          "name": "Recognise it early",
+          "breaks_at": "vasodilation",
+          "scope": "EMR",
+          "note": "Sepsis kills more people than most of the dramatic conditions on this site, and the single biggest determinant of survival is how early it is identified. Fever or hypothermia, a rate over 90, a respiratory rate over 20, and confusion in the context of possible infection is enough to escalate."
+        },
+        {
+          "name": "Keep them horizontal",
+          "breaks_at": "hypoperfusion",
+          "scope": "EMR",
+          "note": "Maximises what venous return there is in a patient whose vascular space is far too large for their volume."
+        },
+        {
+          "name": "Temperature management",
+          "breaks_at": "infection",
+          "scope": "EMR",
+          "note": "Fever raises metabolic demand considerably. Hypothermia in sepsis is a bad sign rather than a comfort issue and needs active warming."
+        },
+        {
+          "name": "Rapid transport and pre-alert",
+          "breaks_at": "organ-failure",
+          "scope": "EMR",
+          "note": "Antibiotics and fluid resuscitation are time-critical and are not available to you. Getting the receiving hospital ready is the intervention."
+        }
+      ],
+      "red_flags": [
+        "Confusion in an older adult with any sign of infection, which may be the only presentation",
+        "Fever or an abnormally low temperature",
+        "Respiratory rate over 20 without an obvious respiratory cause",
+        "Warm, flushed skin with hypotension, which is the opposite of what shock is supposed to look like",
+        "Mottled skin or a non-blanching rash",
+        "A patient who says they feel like they are dying"
+      ],
+      "differentiators": [
+        {
+          "vs": "Hypovolemic shock",
+          "how": "Early sepsis is warm with a wide pulse pressure and bounding pulses; hypovolemia is cold with a narrow pulse pressure. Late sepsis looks identical to hypovolemia."
+        },
+        {
+          "vs": "Anaphylaxis",
+          "how": "Both are distributive. Anaphylaxis is sudden, follows an exposure, and comes with urticaria, angioedema, and airway involvement. Sepsis develops over hours to days with a fever and an infective source."
+        },
+        {
+          "vs": "Neurogenic shock",
+          "how": "Neurogenic shock is warm and dry below the level of injury, usually bradycardic, and follows spinal trauma. Septic patients are usually tachycardic and often diaphoretic."
+        }
+      ]
+    },
+    {
+      "id": "neurogenic-shock",
+      "name": "Neurogenic shock",
+      "structures": ["arteries", "veins"],
+      "status": "built",
+      "one_liner": "The nerves that keep blood vessels tight are cut, so the vessels relax and the circulation loses its tone.",
+      "in_one_breath": "A high spinal cord injury severs the sympathetic outflow. Below that level the blood vessels dilate and stay dilated, the heart loses its ability to speed up, and the patient becomes hypotensive while remaining warm, dry, and pink.",
+      "cascade": [
+        {
+          "id": "cord-injury",
+          "label": "The cord is injured above T6",
+          "sub": "Usually cervical or high thoracic",
+          "severity": "crit",
+          "detail": "Sympathetic outflow leaves the cord between roughly T1 and L2. An injury above that level, most often cervical, disconnects the brain from the entire sympathetic chain below it."
+        },
+        {
+          "id": "sympathetic-loss",
+          "label": "Sympathetic tone is lost",
+          "sub": "Vessels stop being told to constrict",
+          "severity": "crit",
+          "structure": "arteries",
+          "detail": "Arterioles and veins depend on continuous background sympathetic signalling to maintain tone. Without it they dilate to their resting diameter, and systemic vascular resistance falls sharply."
+        },
+        {
+          "id": "venous-pooling",
+          "label": "Blood pools in dilated veins",
+          "sub": "Relative hypovolemia",
+          "severity": "crit",
+          "structure": "veins",
+          "detail": "Since the veins hold most of the blood volume and are now dilated, a large proportion of circulating volume sits in the periphery rather than returning to the heart. Preload collapses even though not a millilitre of blood has been lost."
+        },
+        {
+          "id": "no-compensation",
+          "label": "The heart can't compensate",
+          "sub": "Bradycardia instead of tachycardia",
+          "severity": "crit",
+          "detail": "The cardiac accelerator fibres arise from T1 to T4 and are also cut. Vagal tone to the heart travels in the vagus nerve, which is a cranial nerve and is completely unaffected. So the patient is left with unopposed parasympathetic input: the heart slows down instead of speeding up. This is the single most distinctive feature of neurogenic shock."
+        },
+        {
+          "id": "hypoperfusion",
+          "label": "Perfusion falls",
+          "sub": "Warm, dry, pink, and shocked",
+          "severity": "crit",
+          "shared": "hypoperfusion",
+          "detail": "Blood pressure falls with no compensatory tachycardia and no vasoconstriction. The skin below the injury stays warm, dry, and well-coloured because the vessels there are dilated, which makes the patient look far better than they are."
+        },
+        {
+          "id": "cord-secondary-injury",
+          "label": "The cord itself is starved",
+          "sub": "Injury worsens",
+          "severity": "crit",
+          "shared": "cerebral-hypoperfusion",
+          "detail": "The injured spinal cord needs perfusion to survive the swelling that follows trauma. Hypotension deprives it, converting salvageable tissue into permanent damage. Managing the pressure is managing the cord."
+        }
+      ],
+      "interventions": [
+        {
+          "med": "oxygen",
+          "breaks_at": "cord-secondary-injury",
+          "scope": "EMR",
+          "note": "The injured cord is exquisitely sensitive to both hypoxia and hypotension. Keeping saturation up is directly neuroprotective."
+        }
+      ],
+      "non_drug_interventions": [
+        {
+          "name": "Spinal motion restriction",
+          "breaks_at": "cord-injury",
+          "scope": "EMR",
+          "note": "Prevents further mechanical injury to an already unstable cord. Core EMR skill and the one thing here that addresses the actual cause."
+        },
+        {
+          "name": "Keep them supine and warm",
+          "breaks_at": "venous-pooling",
+          "scope": "EMR",
+          "note": "Horizontal maximises venous return from dilated peripheral veins. Warming matters more than usual because these patients cannot vasoconstrict or shiver below the injury and will become hypothermic remarkably fast, even indoors."
+        },
+        {
+          "name": "Watch the breathing closely",
+          "breaks_at": "cord-injury",
+          "scope": "EMR",
+          "note": "Injury at or above C3 to C5 takes out the diaphragm. Injury lower in the cervical or thoracic cord takes out the intercostals, leaving diaphragmatic breathing only, which fatigues. Be prepared to ventilate."
+        },
+        {
+          "name": "Do not assume this diagnosis",
+          "breaks_at": "hypoperfusion",
+          "scope": "EMR",
+          "note": "A trauma patient is far more likely to be hypotensive from bleeding than from their cord. Treat for hemorrhage first and look hard for a bleeding source; neurogenic shock is a diagnosis of exclusion in the field."
+        }
+      ],
+      "red_flags": [
+        "Hypotension without tachycardia after trauma",
+        "Bradycardia in a hypotensive trauma patient",
+        "Warm, dry, pink skin below an injury with cold clammy skin above it",
+        "Priapism, which is an uncommon but highly specific sign of cord injury",
+        "Diaphragmatic breathing with no chest wall movement",
+        "Falling temperature in a patient who is not exposed"
+      ],
+      "differentiators": [
+        {
+          "vs": "Hemorrhagic shock",
+          "how": "The critical distinction. Hemorrhagic shock is cold, clammy, pale, and tachycardic. Neurogenic shock is warm, dry, pink, and bradycardic. When in doubt, assume bleeding and treat accordingly, because getting that wrong is far more dangerous."
+        },
+        {
+          "vs": "Spinal shock",
+          "how": "Different thing entirely, despite the similar name. Spinal shock is the temporary loss of all cord function below an injury, causing flaccid paralysis and areflexia. It is a neurological phenomenon, not a circulatory one, and the two can occur together."
+        },
+        {
+          "vs": "Vasovagal syncope",
+          "how": "Also bradycardic and hypotensive, but transient, resolves on lying flat, and has no neurological deficit or traumatic mechanism."
+        }
+      ]
+    },
+    {
+      "id": "cardiac-tamponade",
+      "name": "Cardiac tamponade",
+      "structures": ["pericardium", "myocardium"],
+      "status": "built",
+      "one_liner": "Fluid fills the sac around the heart and squeezes it until it can no longer fill.",
+      "in_one_breath": "The pericardium does not stretch quickly. Blood or fluid accumulating inside it raises the pressure around the heart until the thin-walled right side collapses during diastole. The heart is undamaged and beating normally; it simply cannot fill.",
+      "cascade": [
+        {
+          "id": "fluid-enters",
+          "label": "Fluid enters the pericardial sac",
+          "sub": "Blood, pus, or effusion",
+          "severity": "warn",
+          "structure": "pericardium",
+          "detail": "Penetrating trauma to the chest, blunt cardiac injury, myocardial rupture after infarct, aortic dissection leaking backwards, or non-traumatic causes such as malignancy, uremia, or pericarditis."
+        },
+        {
+          "id": "pressure-rise",
+          "label": "Pressure rises fast in a rigid sac",
+          "sub": "As little as 100 to 150 mL acutely",
+          "severity": "crit",
+          "detail": "The fibrous pericardium cannot stretch acutely. Rate matters far more than volume: a small amount arriving quickly is lethal, while a slowly growing chronic effusion can reach a litre with the patient still ambulatory. This is the same lesson as the pleural space in a smaller container."
+        },
+        {
+          "id": "diastolic-collapse",
+          "label": "The right side can't fill",
+          "sub": "Thin-walled chambers collapse first",
+          "severity": "crit",
+          "detail": "The right atrium and ventricle have the lowest pressures in the heart, so external pressure collapses them first, and it does so during diastole when they should be filling. Note that this is a filling problem, not a contraction problem: the myocardium itself is working perfectly."
+        },
+        {
+          "id": "preload-fails",
+          "label": "Preload collapses",
+          "sub": "Neck veins distend",
+          "severity": "crit",
+          "structure": "veins",
+          "detail": "Blood cannot enter the heart, so it backs up into the venae cavae and the jugular veins. Neck vein distension is the visible evidence of that backup, and it is what separates obstructive shock from hypovolemic shock at the bedside."
+        },
+        {
+          "id": "output-falls",
+          "label": "Cardiac output collapses",
+          "sub": "Obstructive shock",
+          "severity": "crit",
+          "shared": "pump-failure",
+          "detail": "A ventricle can only eject what it received. Stroke volume falls dramatically, the heart compensates by racing, and the shortened diastole gives even less time to fill against the external pressure. The compensation makes it worse."
+        },
+        {
+          "id": "hypoperfusion",
+          "label": "Perfusion fails",
+          "sub": "Hypotension, narrow pulse pressure",
+          "severity": "crit",
+          "shared": "hypoperfusion",
+          "detail": "Pulse pressure narrows markedly. Pulsus paradoxus, an exaggerated fall in systolic pressure during inspiration, is classically described and rarely measured in the field."
+        },
+        {
+          "id": "arrest",
+          "label": "Circulation stops",
+          "sub": "PEA with a rhythm on the monitor",
+          "severity": "crit",
+          "shared": "cardiac-arrest",
+          "detail": "Electrical activity continues perfectly while output is zero. Compressions are largely futile against a heart that cannot fill, and defibrillation is irrelevant. Only drainage helps."
+        }
+      ],
+      "interventions": [
+        {
+          "med": "oxygen",
+          "breaks_at": "hypoperfusion",
+          "scope": "EMR",
+          "note": "Maximises the oxygen content of whatever output remains."
+        }
+      ],
+      "non_drug_interventions": [
+        {
+          "name": "Recognise it in a penetrating chest wound",
+          "breaks_at": "pressure-rise",
+          "scope": "EMR",
+          "note": "Any wound between the nipples and the costal margin can reach the heart. Shock with distended neck veins and equal breath sounds after penetrating chest trauma is tamponade until proven otherwise."
+        },
+        {
+          "name": "Keep them supine and avoid overventilating",
+          "breaks_at": "preload-fails",
+          "scope": "EMR",
+          "note": "These patients are entirely preload dependent. Sitting them up or bagging them aggressively raises intrathoracic pressure and further reduces the little filling they have left."
+        },
+        {
+          "name": "Pericardiocentesis or thoracotomy",
+          "breaks_at": "pressure-rise",
+          "scope": "ACP",
+          "note": "Definitive treatment is drainage, which is well outside EMR scope. Recognition and rapid transport to a surgical facility is the intervention available to you."
+        },
+        {
+          "name": "Immediate transport, minimal scene time",
+          "breaks_at": "output-falls",
+          "scope": "EMR",
+          "note": "Nothing on your truck fixes this. Scene time is the variable you control."
+        }
+      ],
+      "red_flags": [
+        "Penetrating chest trauma with shock and equal breath sounds",
+        "Distended neck veins with a clear chest",
+        "Muffled or distant heart sounds",
+        "Narrow pulse pressure",
+        "Shock that does not improve, or worsens, with fluid",
+        "PEA arrest after chest trauma"
+      ],
+      "differentiators": [
+        {
+          "vs": "Tension pneumothorax",
+          "how": "Both give obstructive shock with distended neck veins. Tension has unilaterally absent breath sounds and hyperresonance; tamponade has equal breath sounds and muffled heart sounds. If in doubt in a trauma patient, tension is more common and more treatable in the field."
+        },
+        {
+          "vs": "Hemorrhagic shock",
+          "how": "Flat neck veins point to volume loss. Distended neck veins point to obstruction. Note that a patient bleeding heavily and tamponading can have flat neck veins, which is a genuine and dangerous trap."
+        },
+        {
+          "vs": "Cardiogenic shock",
+          "how": "Both have distended neck veins, but cardiogenic shock usually has pulmonary crackles from backward left-sided failure. Tamponade classically has clear lungs."
+        }
+      ]
+    },
+    {
+      "id": "chf",
+      "name": "Congestive heart failure",
+      "structures": ["myocardium", "heart-valves"],
+      "status": "built",
+      "one_liner": "A chronically weakened heart that has run out of the compensations keeping it stable.",
+      "in_one_breath": "The heart has been failing for years and the body has been hiding it by retaining fluid and remodelling the muscle. Those compensations eventually make things worse, and something tips the balance so that fluid backs up faster than the heart can clear it.",
+      "cascade": [
+        {
+          "id": "chronic-weakness",
+          "label": "The heart weakens over years",
+          "sub": "Old infarcts, hypertension, valves",
+          "severity": "warn",
+          "structure": "myocardium",
+          "detail": "Accumulated damage from previous infarcts, decades of hypertension forcing the ventricle to work against high afterload, valve disease, or cardiomyopathy. Output falls gradually and the body adapts."
+        },
+        {
+          "id": "compensation",
+          "label": "The body compensates, then overshoots",
+          "sub": "Fluid retention and remodelling",
+          "severity": "warn",
+          "detail": "The kidneys interpret low output as low volume and retain salt and water to raise preload. The ventricle dilates and thickens. Both help briefly and then hurt: a dilated ventricle contracts less efficiently, and a thickened one needs more oxygen and fills less easily. The compensations become part of the disease."
+        },
+        {
+          "id": "decompensating-event",
+          "label": "Something tips the balance",
+          "sub": "Infection, arrhythmia, salt, missed meds",
+          "severity": "crit",
+          "detail": "Chest infection, new atrial fibrillation, a dietary salt load, missed diuretics, a new infarct, or uncontrolled hypertension. There is nearly always a trigger, and identifying it is part of the assessment."
+        },
+        {
+          "id": "backward-left",
+          "label": "Fluid backs up into the lungs",
+          "sub": "Breathless, worse lying flat",
+          "severity": "crit",
+          "shared": "pulmonary-congestion",
+          "detail": "Left ventricular filling pressure rises, transmits back through the pulmonary veins, and forces fluid into the alveoli. Lying flat redistributes fluid from the legs into the chest, which is why orthopnea and waking breathless at night are such characteristic features."
+        },
+        {
+          "id": "backward-right",
+          "label": "Fluid backs up into the body",
+          "sub": "Swollen legs, distended neck veins",
+          "severity": "warn",
+          "shared": "systemic-congestion",
+          "detail": "Long-standing left-sided failure eventually raises pulmonary pressures enough to overload the right ventricle. Then venous pressure rises systemically, producing dependent edema, an enlarged tender liver, and abdominal distension."
+        },
+        {
+          "id": "hypoxia",
+          "label": "Oxygen falls",
+          "sub": "Fluid across the diffusion barrier",
+          "severity": "crit",
+          "shared": "hypoxia",
+          "detail": "Fluid in the interstitium and alveoli thickens the diffusion barrier and reduces available surface area. The patient is working hard to breathe and getting progressively less for it."
+        },
+        {
+          "id": "spiral",
+          "label": "Hypoxia weakens the heart further",
+          "sub": "The loop closes",
+          "severity": "crit",
+          "shared": "myocardial-ischemia",
+          "detail": "Hypoxic, overworked myocardium contracts less well, which raises filling pressures, which worsens the edema, which worsens the hypoxia. Acute pulmonary edema is a genuine emergency because of how fast this loop turns."
+        }
+      ],
+      "interventions": [
+        {
+          "med": "oxygen",
+          "breaks_at": "hypoxia",
+          "scope": "EMR",
+          "note": "High concentration if hypoxic. Interrupting the hypoxia limb is the fastest way to slow the spiral with the tools an EMR carries."
+        },
+        {
+          "med": "nitroglycerin",
+          "breaks_at": "backward-left",
+          "scope": "varies",
+          "note": "Dilates veins, drops preload, and reduces the pressure driving fluid into the alveoli. Genuinely effective in acute pulmonary edema, provided the blood pressure supports it."
+        }
+      ],
+      "non_drug_interventions": [
+        {
+          "name": "Sit them fully upright, legs dependent",
+          "breaks_at": "backward-left",
+          "scope": "EMR",
+          "note": "Pools blood in the legs, reduces venous return, and lets fluid settle away from the upper lung fields. It is a preload reduction you can achieve with a stretcher and no drug at all, and it works within minutes. Never lay these patients flat."
+        },
+        {
+          "name": "Do not force a supine position for anything",
+          "breaks_at": "backward-left",
+          "scope": "EMR",
+          "note": "Including for transport or assessment convenience. A patient in acute pulmonary edema laid flat can deteriorate within a minute."
+        },
+        {
+          "name": "Keep them calm and minimise exertion",
+          "breaks_at": "spiral",
+          "scope": "EMR",
+          "note": "Anxiety and effort raise oxygen demand and catecholamine levels in a heart already failing."
+        },
+        {
+          "name": "Look for the trigger",
+          "breaks_at": "decompensating-event",
+          "scope": "EMR",
+          "note": "Fever, a new irregular pulse, chest pain, or a history of missed medication changes what the receiving team does. Ask about it."
+        }
+      ],
+      "red_flags": [
+        "Frothy or pink sputum",
+        "Unable to lie flat at all, or sleeping upright in a chair at home",
+        "Crackles rising above the bases",
+        "Hypotension in a patient with pulmonary edema, which means cardiogenic shock",
+        "Chest pain accompanying the breathlessness",
+        "New irregular pulse"
+      ],
+      "differentiators": [
+        {
+          "vs": "COPD exacerbation",
+          "how": "The commonest hard call in prehospital medicine, and many patients have both. Favour heart failure with orthopnea, ankle swelling, frothy sputum, cardiac history, and crackles. Favour COPD with a smoking history, chronic productive cough, prolonged expiration, and a barrel chest."
+        },
+        {
+          "vs": "Pneumonia",
+          "how": "Fever, focal crackles rather than bilateral basal ones, purulent rather than frothy sputum, and pleuritic pain."
+        },
+        {
+          "vs": "Pulmonary embolism",
+          "how": "Sudden onset, clear chest, no orthopnea, and risk factors such as immobility or recent surgery."
+        }
+      ]
+    }
+  ]
+}

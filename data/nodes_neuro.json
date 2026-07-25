@@ -1,0 +1,86 @@
+{
+  "nodes": [
+    {
+      "id": "raised-icp",
+      "name": "Intracranial pressure rises",
+      "severity": "crit",
+      "one_liner": "Something is taking up space inside a box that cannot expand.",
+      "what_is_happening": "The skull contains brain, blood, and cerebrospinal fluid in a fixed total volume. Adding anything, whether a hematoma, a tumour, or swollen tissue, means something else must be displaced. The body first squeezes out cerebrospinal fluid and venous blood, which buys a surprising amount of room. Once that is used up, pressure climbs very steeply for very small further increases in volume.",
+      "why_it_follows": "It follows any bleed inside the skull, any significant brain swelling from trauma or hypoxia, any large stroke, any mass, and any infection causing cerebral edema.",
+      "what_you_see": [
+        "Headache, often described as the worst ever, and vomiting that may be sudden and without nausea",
+        "Deteriorating level of consciousness, which is the most sensitive sign and the one to track",
+        "Restlessness and confusion progressing to drowsiness",
+        "Pupil changes as pressure reaches the brainstem",
+        "In infants, a bulging fontanelle and a high-pitched cry"
+      ],
+      "the_trap": "The compensation phase is why the lucid interval exists. A patient with an epidural bleed can be knocked out, wake up, hold a conversation, and appear entirely normal while a hematoma quietly expands. When compensation runs out they deteriorate within minutes. A normal exam after a head injury does not mean the patient is safe, and repeated assessment is the whole game.",
+      "leads_to": ["cerebral-hypoperfusion", "herniation"]
+    },
+    {
+      "id": "herniation",
+      "name": "Brain tissue is forced out of place",
+      "severity": "crit",
+      "one_liner": "Pressure pushes brain through the openings in and below the skull.",
+      "what_is_happening": "When intracranial pressure exceeds what the compartments can contain, brain tissue is squeezed past the rigid folds of dura and through the foramen magnum at the base of the skull. Structures get compressed on the way, and the brainstem is at the bottom of the funnel.",
+      "why_it_follows": "It is the terminal consequence of uncontrolled intracranial pressure from any cause.",
+      "what_you_see": [
+        "A pupil that becomes fixed and dilated, usually on the same side as the lesion, as the third cranial nerve is compressed",
+        "Cushing's triad: rising blood pressure, falling heart rate, and irregular breathing. This is a very late finding",
+        "Posturing, with arms flexed inward or extended and rotated outward",
+        "Rapid fall to unresponsiveness",
+        "Abnormal breathing patterns, then apnea"
+      ],
+      "the_trap": "Cushing's triad is taught as the classic sign of raised intracranial pressure and it is genuinely useful, but it appears far too late to be a warning. If you are waiting for hypertension with bradycardia, you are watching herniation happen rather than preventing it. The sign to act on is the falling level of consciousness, which comes hours earlier.",
+      "leads_to": ["respiratory-arrest", "cardiac-arrest"]
+    },
+    {
+      "id": "ischemic-penumbra",
+      "name": "Brain tissue starves but isn't dead yet",
+      "severity": "crit",
+      "one_liner": "A ring of tissue around the dead core that is salvageable, and shrinking.",
+      "what_is_happening": "When a cerebral artery blocks, the tissue at the centre of its territory loses flow completely and dies within minutes. Around it lies a zone kept marginally alive by collateral vessels: not working, but not yet dead. This is the penumbra, and it is what reperfusion treatment saves.",
+      "why_it_follows": "It follows any acute occlusion of a cerebral vessel, and it exists for a limited and shrinking window afterward.",
+      "what_you_see": [
+        "A neurological deficit that is present but has not yet become permanent",
+        "Deficits that fluctuate slightly, as marginal collateral flow varies with blood pressure",
+        "Nothing visible that distinguishes salvageable tissue from dead tissue at the bedside, which is exactly why imaging and time matter"
+      ],
+      "the_trap": "This node is the entire reason stroke is a time-critical emergency rather than a diagnosis to be sorted out at hospital. Roughly two million neurons die every minute in a large vessel occlusion. Everything prehospital, including establishing an accurate last-known-well time, exists to protect this tissue.",
+      "leads_to": ["altered-loc"]
+    },
+    {
+      "id": "neuronal-hyperexcitability",
+      "name": "Neurons fire uncontrollably",
+      "severity": "crit",
+      "one_liner": "Excitation overwhelms inhibition and electrical activity spreads without brakes.",
+      "what_is_happening": "Normal brain function depends on a balance between excitatory and inhibitory signalling. When excitation dominates, a group of neurons discharges synchronously and recruits neighbours, and the discharge spreads. Firing neurons consume oxygen and glucose at an enormous rate while contracting muscles produce heat and lactate.",
+      "why_it_follows": "It follows epilepsy, structural brain lesions, low sodium, low glucose, low oxygen, fever in small children, alcohol and benzodiazepine withdrawal, stimulant toxicity, eclampsia, and head injury.",
+      "what_you_see": [
+        "Loss of consciousness with generalised stiffening then rhythmic jerking, in a generalised seizure",
+        "Focal twitching, altered awareness, or strange sensory experiences in a focal seizure",
+        "Incontinence and tongue biting, typically the side of the tongue",
+        "Rising temperature and lactic acidosis if it continues",
+        "A postictal period of confusion and drowsiness afterward"
+      ],
+      "the_trap": "The seizure itself is usually not what harms the patient. The airway is: they cannot protect it, they may vomit, and they are not ventilating properly while it continues. And a seizure that does not stop, or that recurs without recovery in between, is status epilepticus, where the brain begins consuming itself metabolically. Beyond about five minutes it stops being self-limiting and becomes an emergency.",
+      "leads_to": ["airway-compromise", "hypoxia"]
+    },
+    {
+      "id": "neuroglycopenia",
+      "name": "The brain runs out of fuel",
+      "severity": "crit",
+      "one_liner": "Glucose is the brain's only usable fuel, and it stores almost none.",
+      "what_is_happening": "Unlike muscle, the brain cannot burn fat and cannot store meaningful glycogen. It depends on a continuous supply of glucose from the blood, using around 120 grams a day. When blood glucose falls, brain function fails within minutes, well before any other organ notices.",
+      "why_it_follows": "It follows too much insulin or oral hypoglycemic medication, missed meals, unusual exertion, alcohol, sepsis, liver failure, and adrenal insufficiency.",
+      "what_you_see": [
+        "Sympathetic warning signs first: sweating, tremor, pallor, hunger, anxiety, palpitations",
+        "Then confusion, slurred speech, and odd or aggressive behaviour",
+        "Focal deficits that can mimic a stroke exactly, including one-sided weakness",
+        "Seizures and unresponsiveness if it continues"
+      ],
+      "the_trap": "Hypoglycemia imitates almost everything: stroke, intoxication, psychiatric emergency, head injury. It is also completely reversible within minutes. That combination is why glucose is checked on every patient with altered mental status, every time, without exception. Patients on beta blockers may lose the sympathetic warning signs entirely and go straight to confusion, and long-standing diabetics can develop the same hypoglycemia unawareness.",
+      "leads_to": ["altered-loc", "neuronal-hyperexcitability"]
+    }
+  ]
+}

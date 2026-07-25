@@ -1,0 +1,586 @@
+{
+  "conditions": [
+    {
+      "id": "normal-childbirth",
+      "name": "Normal childbirth",
+      "structures": ["uterus-placenta", "maternal-physiology"],
+      "status": "built",
+      "one_liner": "A physiological process you assist rather than perform, with two predictable danger points at the end.",
+      "in_one_breath": "Labour does itself. Your job is to catch, keep the baby warm and breathing, and then watch the uterus, because the two things that go wrong afterwards are a baby that does not start breathing and a uterus that does not clamp down.",
+      "cascade": [
+        {
+          "id": "first-stage",
+          "label": "First stage: the cervix opens",
+          "sub": "Hours, usually",
+          "severity": "normal",
+          "structure": "uterus-placenta",
+          "detail": "Regular contractions dilate the cervix from closed to fully open. This is the longest stage, typically many hours in a first pregnancy and much faster in subsequent ones. Most patients are transported during this stage without difficulty."
+        },
+        {
+          "id": "imminence",
+          "label": "Delivery becomes imminent",
+          "sub": "The decision point",
+          "severity": "warn",
+          "detail": "Contractions every two to three minutes, an urge to push or to bear down, a sensation of needing to open the bowels, and crowning. If the head is visible, you are delivering here. Attempting to transport during crowning risks delivering in a moving vehicle with no space to work."
+        },
+        {
+          "id": "second-stage",
+          "label": "Second stage: the baby is delivered",
+          "sub": "Support, don't pull",
+          "severity": "crit",
+          "detail": "The head crowns and delivers, usually facing downward, then rotates to face one thigh as the shoulders align. The anterior shoulder delivers with gentle downward guidance, then the posterior with upward guidance, then the body comes quickly. Support throughout; never pull."
+        },
+        {
+          "id": "newborn-transition",
+          "label": "The newborn must switch to breathing air",
+          "sub": "The most important minute",
+          "severity": "crit",
+          "detail": "The fetal circulation must convert to adult circulation, driven by the first breaths inflating the lungs and dropping pulmonary vascular resistance. Most babies do this themselves given warmth, drying, and stimulation. Drying vigorously is both warming and stimulation, and it is usually all that is needed."
+        },
+        {
+          "id": "third-stage",
+          "label": "Third stage: the placenta delivers",
+          "sub": "Usually within 30 minutes",
+          "severity": "warn",
+          "detail": "The uterus contracts down and shears the placenta off the wall. Signs are a gush of blood, lengthening of the cord, and the uterus becoming firm and globular. Never pull on the cord: it can invert the uterus, which causes catastrophic hemorrhage and shock."
+        },
+        {
+          "id": "uterine-contraction",
+          "label": "The uterus must clamp down",
+          "sub": "This is what stops the bleeding",
+          "severity": "crit",
+          "detail": "The single most important physiological fact in obstetrics. At term the uterus receives 700 to 900 mL per minute. Bleeding from the placental site is stopped by muscular contraction physically compressing those vessels, not by clotting. A soft boggy uterus is an open tap."
+        },
+        {
+          "id": "hemorrhage-risk",
+          "label": "Postpartum hemorrhage",
+          "sub": "If it doesn't contract",
+          "severity": "crit",
+          "shared": "concealed-hemorrhage",
+          "detail": "Failure of the uterus to contract is the commonest cause of postpartum hemorrhage. Blood loss can be rapid and enormous, and because the patient has expanded blood volume she compensates well and then crashes."
+        }
+      ],
+      "interventions": [
+        {
+          "med": "oxygen",
+          "breaks_at": "hemorrhage-risk",
+          "scope": "EMR",
+          "note": "For the mother if she is bleeding or shocked. Routine oxygen in uncomplicated labour is not needed."
+        }
+      ],
+      "non_drug_interventions": [
+        {
+          "name": "Decide whether to stay or go",
+          "breaks_at": "imminence",
+          "scope": "EMR",
+          "note": "If the head is crowning, deliver where you are. Assess by asking how many previous births, how frequent the contractions, whether there is an urge to push, and by looking. Multiparous patients deliver fast."
+        },
+        {
+          "name": "Support, control, never pull",
+          "breaks_at": "second-stage",
+          "scope": "EMR",
+          "note": "Gentle counter-pressure on the head to prevent an explosive delivery, which reduces tearing. Check for a cord around the neck and slip it over if loose. Guide the shoulders; do not traction the head or neck."
+        },
+        {
+          "name": "Dry, warm, stimulate",
+          "breaks_at": "newborn-transition",
+          "scope": "EMR",
+          "note": "The three things that resuscitate almost every newborn. Dry vigorously with a warm towel, discard the wet one, cover the head, and place skin to skin. Newborns lose heat extraordinarily fast and hypothermia impairs the transition."
+        },
+        {
+          "name": "Ventilate a newborn who won't breathe",
+          "breaks_at": "newborn-transition",
+          "scope": "EMR",
+          "note": "If not breathing after drying and stimulation, give inflation breaths. Newborn resuscitation is overwhelmingly about the airway and lungs, not the heart, because the problem is almost always failure to establish ventilation. Compressions only if the heart rate stays below 60 despite effective ventilation."
+        },
+        {
+          "name": "Massage the fundus after delivery",
+          "breaks_at": "uterine-contraction",
+          "scope": "EMR",
+          "note": "The highest-value intervention available to an EMR in obstetrics. Firm circular massage of the uterine fundus through the abdomen stimulates contraction and physically stops the bleeding. Putting the baby to the breast releases oxytocin and helps too."
+        },
+        {
+          "name": "Do not pull the cord, and bring the placenta",
+          "breaks_at": "third-stage",
+          "scope": "EMR",
+          "note": "Cord traction can invert the uterus. Let it deliver, then transport it with the patient so it can be checked for completeness, because retained fragments cause ongoing bleeding."
+        },
+        {
+          "name": "Left lateral tilt before delivery",
+          "breaks_at": "first-stage",
+          "scope": "EMR",
+          "note": "After twenty weeks, a supine patient compresses the vena cava and drops cardiac output substantially. Tilt left or manually displace the uterus."
+        }
+      ],
+      "red_flags": [
+        "Anything other than the head presenting first",
+        "Cord visible before the baby, which is a prolapse and an emergency",
+        "Heavy bleeding before delivery",
+        "The head delivers but the shoulders do not",
+        "A soft boggy uterus after delivery",
+        "Blood loss over about 500 mL, or any loss with maternal symptoms",
+        "Seizure in a pregnant patient",
+        "Gestation under about 36 weeks",
+        "Green or brown stained fluid, suggesting meconium"
+      ],
+      "differentiators": [
+        {
+          "vs": "False labour",
+          "how": "Braxton Hicks contractions are irregular, do not intensify, and settle with rest and position change. True labour contractions become regular, longer, stronger, and closer together."
+        },
+        {
+          "vs": "Placental abruption",
+          "how": "Painful bleeding with a rigid tender uterus and constant rather than intermittent pain. This is an emergency, not labour."
+        },
+        {
+          "vs": "Placenta praevia",
+          "how": "Painless bright red bleeding. Never perform a vaginal examination in third-trimester bleeding, because it can provoke catastrophic hemorrhage."
+        }
+      ]
+    },
+    {
+      "id": "obstetric-hemorrhage",
+      "name": "Obstetric hemorrhage",
+      "structures": ["uterus-placenta", "maternal-physiology"],
+      "status": "built",
+      "one_liner": "The uterus at term takes a fifth of cardiac output, so obstetric bleeding empties a patient faster than almost any other injury.",
+      "in_one_breath": "Nearly a litre a minute flows through the term uterus. When that circuit opens, blood loss is extraordinary. And because pregnancy expands blood volume by up to half, the patient compensates beautifully and then collapses without much warning.",
+      "cascade": [
+        {
+          "id": "source",
+          "label": "The bleeding source opens",
+          "sub": "Abruption, praevia, atony, or trauma",
+          "severity": "crit",
+          "structure": "uterus-placenta",
+          "detail": "Before delivery: placental abruption, where the placenta separates early and bleeds behind itself, often concealed; or placenta praevia, where it lies over the cervix and bleeds painlessly. After delivery: uterine atony, retained placenta, or genital tract trauma. Ectopic pregnancy bleeds into the abdomen in early pregnancy."
+        },
+        {
+          "id": "high-flow",
+          "label": "The circuit is enormous",
+          "sub": "700 to 900 mL per minute at term",
+          "severity": "crit",
+          "detail": "Uterine blood flow at term approaches a fifth of cardiac output. A bleeding placental bed is closer to an arterial bleed than to typical venous oozing, and the volumes lost per minute are unlike anything else in prehospital care."
+        },
+        {
+          "id": "concealed-possible",
+          "label": "Bleeding may be hidden",
+          "sub": "Abruption especially",
+          "severity": "crit",
+          "shared": "concealed-hemorrhage",
+          "detail": "In placental abruption, blood collects behind the placenta and may never appear externally. The classic presentation is a rigid, painful, tender uterus with shock and little or no visible blood. Never estimate obstetric blood loss from what you can see."
+        },
+        {
+          "id": "masked-compensation",
+          "label": "Pregnancy masks the shock",
+          "sub": "1200 to 1500 mL before signs",
+          "severity": "crit",
+          "structure": "maternal-physiology",
+          "detail": "Blood volume rises 30 to 50 percent, resting heart rate is already elevated, and blood pressure normally runs low. A pregnant patient can lose well over a litre with vital signs that look almost normal. Do not be reassured."
+        },
+        {
+          "id": "fetal-sacrifice",
+          "label": "The uterine circulation is shut down first",
+          "sub": "Fetus suffers before mother shows signs",
+          "severity": "crit",
+          "shared": "fetal-compromise",
+          "detail": "Maternal compensation preserves brain and heart by constricting other beds, and the uterine circulation is among the first sacrificed. It has no autoregulation, so fetal perfusion falls directly with it. The fetus is in trouble long before the mother's numbers move."
+        },
+        {
+          "id": "atony",
+          "label": "After delivery, the uterus fails to contract",
+          "sub": "The commonest postpartum cause",
+          "severity": "crit",
+          "detail": "The placental site is closed by muscular contraction rather than by clotting. If the uterus stays soft and boggy, those vessels stay open. Risk factors include prolonged labour, multiple pregnancy, large baby, and high parity."
+        },
+        {
+          "id": "decompensation",
+          "label": "Compensation collapses",
+          "sub": "Abruptly, and late",
+          "severity": "crit",
+          "shared": "decompensated-shock",
+          "detail": "When the expanded volume is exhausted, deterioration is fast. Coagulopathy develops readily in abruption, because placental tissue entering the circulation triggers widespread clotting that consumes the factors needed to stop the bleed."
+        }
+      ],
+      "interventions": [
+        {
+          "med": "oxygen",
+          "breaks_at": "fetal-sacrifice",
+          "scope": "EMR",
+          "note": "High concentration. Maternal oxygenation is the most direct fetal resuscitation available to you."
+        }
+      ],
+      "non_drug_interventions": [
+        {
+          "name": "Fundal massage for postpartum bleeding",
+          "breaks_at": "atony",
+          "scope": "EMR",
+          "note": "Firm circular massage of the fundus through the abdominal wall until it becomes hard. This physically compresses the bleeding vessels and it works. It is the single most effective thing an EMR can do in obstetric hemorrhage."
+        },
+        {
+          "name": "Left lateral tilt, always",
+          "breaks_at": "masked-compensation",
+          "scope": "EMR",
+          "note": "After twenty weeks, supine positioning compresses the vena cava and can reduce cardiac output by a third in a patient who cannot spare it. Tilt left or manually displace the uterus to the left."
+        },
+        {
+          "name": "Never perform a vaginal examination",
+          "breaks_at": "source",
+          "scope": "EMR",
+          "note": "In third-trimester bleeding, examination can provoke catastrophic hemorrhage if there is a placenta praevia. Look externally, count pads, and transport."
+        },
+        {
+          "name": "Assume the loss is greater than you can see",
+          "breaks_at": "concealed-possible",
+          "scope": "EMR",
+          "note": "Abruption conceals blood behind the placenta, and postpartum loss soaks into bedding and is chronically underestimated. Treat as significant hemorrhage regardless of visible volume."
+        },
+        {
+          "name": "Warm, horizontal, rapid transport, pre-alert",
+          "breaks_at": "decompensation",
+          "scope": "EMR",
+          "note": "These patients need blood, oxytocic drugs, and often surgery. A pre-alert lets the obstetric and blood bank teams be ready, and it changes outcomes."
+        },
+        {
+          "name": "Put the baby to the breast if delivered",
+          "breaks_at": "atony",
+          "scope": "EMR",
+          "note": "Suckling releases oxytocin, which stimulates uterine contraction. Free, immediate, and physiologically genuine."
+        }
+      ],
+      "red_flags": [
+        "Any third-trimester bleeding",
+        "Rigid, tender, painful uterus, suggesting abruption",
+        "Shock with little visible blood",
+        "Soft boggy uterus after delivery",
+        "Estimated loss over 500 mL, or any loss with symptoms",
+        "Abdominal pain in early pregnancy with shoulder tip pain, suggesting ruptured ectopic",
+        "Heart rate rising in a pregnant patient even with a normal blood pressure",
+        "Reduced fetal movements"
+      ],
+      "differentiators": [
+        {
+          "vs": "Placenta praevia",
+          "how": "Painless bright red bleeding with a soft uterus. Abruption is painful with a rigid tender uterus and often concealed blood."
+        },
+        {
+          "vs": "Ectopic pregnancy",
+          "how": "Early pregnancy, often before the pregnancy is known, with abdominal pain and shock. Shoulder tip pain from blood irritating the diaphragm. Consider it in every woman of childbearing age with abdominal pain and shock."
+        },
+        {
+          "vs": "Uterine rupture",
+          "how": "Rare and catastrophic, usually in a patient with a previous caesarean scar. Sudden severe pain, cessation of contractions, and rapid shock."
+        }
+      ]
+    },
+    {
+      "id": "preeclampsia-eclampsia",
+      "name": "Pre-eclampsia and eclampsia",
+      "structures": ["uterus-placenta", "cerebral-vessels"],
+      "status": "built",
+      "one_liner": "A placental problem that presents as a whole-body vascular disease, and can end in seizures and stroke.",
+      "in_one_breath": "The placenta implants badly, becomes underperfused, and releases factors that damage blood vessel linings throughout the mother's body. Hypertension, protein loss, and capillary leak follow, and if it reaches the brain the patient seizes.",
+      "cascade": [
+        {
+          "id": "placentation",
+          "label": "The placenta implants abnormally",
+          "sub": "Early in pregnancy",
+          "severity": "warn",
+          "structure": "uterus-placenta",
+          "detail": "Maternal spiral arteries fail to remodel properly, so the placenta is chronically underperfused. This happens in the first half of pregnancy, long before any symptom, which is why the disease cannot be prevented once established and why delivery is the only cure."
+        },
+        {
+          "id": "mediator-release",
+          "label": "The placenta releases damaging factors",
+          "sub": "Into the maternal circulation",
+          "severity": "crit",
+          "detail": "The stressed placenta releases anti-angiogenic factors and inflammatory mediators that damage vascular endothelium throughout the mother's body. This is the key concept: a placental problem becomes a systemic vascular disease."
+        },
+        {
+          "id": "endothelial-damage",
+          "label": "Blood vessel linings are damaged",
+          "sub": "Everywhere at once",
+          "severity": "crit",
+          "structure": "capillaries",
+          "detail": "Damaged endothelium causes vasoconstriction, capillary leak, and activation of clotting. Every organ is affected: kidneys leak protein, the liver swells and its capsule stretches causing right upper quadrant pain, platelets are consumed, and the brain becomes vulnerable."
+        },
+        {
+          "id": "hypertension",
+          "label": "Blood pressure rises",
+          "sub": "With protein in the urine",
+          "severity": "crit",
+          "detail": "The diagnostic combination after twenty weeks: hypertension with proteinuria, or hypertension with organ dysfunction. In a young pregnant patient whose baseline pressure is normally low, a pressure of 140/90 represents a substantial rise even though it would be unremarkable otherwise."
+        },
+        {
+          "id": "cerebral-involvement",
+          "label": "The brain is affected",
+          "sub": "Headache, visual changes, hyperreflexia",
+          "severity": "crit",
+          "structure": "cerebral-vessels",
+          "detail": "Cerebral vasospasm and oedema produce severe headache, visual disturbance such as flashing lights or blurring, and brisk reflexes. These are the warning signs immediately preceding a seizure and they must never be dismissed as normal pregnancy symptoms."
+        },
+        {
+          "id": "eclampsia",
+          "label": "Seizure occurs",
+          "sub": "Eclampsia, by definition",
+          "severity": "crit",
+          "shared": "neuronal-hyperexcitability",
+          "detail": "A generalised seizure in pre-eclampsia defines eclampsia. It can occur before, during, or up to several weeks after delivery, which catches people out. Any seizure in a pregnant or recently pregnant patient is eclampsia until proven otherwise."
+        },
+        {
+          "id": "hellp",
+          "label": "Liver and platelets fail",
+          "sub": "HELLP syndrome",
+          "severity": "crit",
+          "detail": "Haemolysis, elevated liver enzymes, and low platelets. Presents with right upper quadrant or epigastric pain, nausea, and malaise, and is regularly mistaken for gastritis or gallbladder disease. It can occur with only mildly raised blood pressure."
+        },
+        {
+          "id": "catastrophe",
+          "label": "Stroke, abruption, or liver rupture",
+          "sub": "The ways it kills",
+          "severity": "crit",
+          "shared": "raised-icp",
+          "detail": "Intracerebral hemorrhage is the leading cause of death, driven by severe hypertension in damaged vessels. Placental abruption, liver capsule rupture, pulmonary oedema, and renal failure also occur."
+        }
+      ],
+      "interventions": [
+        {
+          "med": "oxygen",
+          "breaks_at": "eclampsia",
+          "scope": "EMR",
+          "note": "High concentration during and after a seizure. Maternal hypoxia during a seizure directly compromises the fetus."
+        }
+      ],
+      "non_drug_interventions": [
+        {
+          "name": "Minimise stimulation",
+          "breaks_at": "cerebral-involvement",
+          "scope": "EMR",
+          "note": "Light, noise, and movement can precipitate a seizure in a patient on the edge. Dim the compartment, keep it quiet, handle gently, and drive smoothly. This is a genuine clinical intervention rather than a courtesy."
+        },
+        {
+          "name": "Left lateral position",
+          "breaks_at": "hypertension",
+          "scope": "EMR",
+          "note": "Improves venous return and uterine perfusion, and is also the safest position if she seizes."
+        },
+        {
+          "name": "Take the warning symptoms seriously",
+          "breaks_at": "cerebral-involvement",
+          "scope": "EMR",
+          "note": "Severe headache, visual disturbance, and upper abdominal pain in a pregnant patient are not minor complaints. They are the immediate warning signs of eclampsia and they change the urgency completely."
+        },
+        {
+          "name": "Manage a seizure as usual, but recognise what it is",
+          "breaks_at": "eclampsia",
+          "scope": "EMR",
+          "note": "Protect from injury, recovery position on the left afterward, suction, oxygen, and check glucose. Communicate clearly that this is a pregnant patient, because the treatment is magnesium rather than a benzodiazepine."
+        },
+        {
+          "name": "Magnesium sulphate",
+          "breaks_at": "eclampsia",
+          "scope": "ACP",
+          "note": "The specific treatment for eclamptic seizures and for preventing them, and it is superior to benzodiazepines here. Beyond EMR scope, so early recognition and pre-alert is what you contribute."
+        },
+        {
+          "name": "Remember it happens after delivery too",
+          "breaks_at": "eclampsia",
+          "scope": "EMR",
+          "note": "A substantial proportion of eclamptic seizures occur postpartum, sometimes weeks later. A recently delivered patient with a seizure or a severe headache needs this considered."
+        }
+      ],
+      "red_flags": [
+        "Severe headache in pregnancy",
+        "Visual disturbance, flashing lights, or blurring",
+        "Right upper quadrant or epigastric pain",
+        "Any seizure in pregnancy or within six weeks of delivery",
+        "Blood pressure at or above 160 systolic",
+        "Rapidly increasing swelling of face and hands",
+        "Reduced fetal movements",
+        "Breathlessness, suggesting pulmonary oedema"
+      ],
+      "differentiators": [
+        {
+          "vs": "Epilepsy",
+          "how": "A known epileptic can seize in pregnancy, but a first seizure in pregnancy is eclampsia until proven otherwise, and treating it as epilepsy delays the correct drug."
+        },
+        {
+          "vs": "Gastritis or gallbladder disease",
+          "how": "HELLP syndrome presents with upper abdominal pain and nausea and is frequently misdiagnosed. Check the blood pressure in every pregnant patient with abdominal pain."
+        },
+        {
+          "vs": "Migraine",
+          "how": "Migraine is common in pregnancy, but a new severe headache with visual changes and hypertension is pre-eclampsia until excluded."
+        },
+        {
+          "vs": "Stroke",
+          "how": "Pre-eclampsia causes stroke, so they are not mutually exclusive. Focal deficits need urgent imaging either way."
+        }
+      ]
+    },
+    {
+      "id": "paediatric-deterioration",
+      "name": "The deteriorating child",
+      "structures": ["chest-wall", "capillaries"],
+      "status": "built",
+      "one_liner": "Children compensate brilliantly and then decompensate suddenly, and they almost always get there through breathing rather than the heart.",
+      "in_one_breath": "A child holds their vital signs normal far longer than an adult, then falls off a cliff. And the route to arrest is nearly always respiratory, which is why paediatric resuscitation is airway and breathing first, and why the signs to watch are effort and behaviour rather than blood pressure.",
+      "cascade": [
+        {
+          "id": "insult",
+          "label": "Something stresses the child",
+          "sub": "Usually respiratory or fluid loss",
+          "severity": "warn",
+          "detail": "Respiratory infection, bronchiolitis, croup, asthma, foreign body, or fluid loss through vomiting and diarrhoea. Primary cardiac problems are rare in children, which is the single most important structural difference from adult emergencies."
+        },
+        {
+          "id": "anatomical-disadvantage",
+          "label": "Their anatomy works against them",
+          "sub": "Small airways, big heads, floppy chests",
+          "severity": "warn",
+          "structure": "chest-wall",
+          "detail": "Airways are proportionally much narrower, so a millimetre of swelling that an adult would not notice is catastrophic. The tongue is relatively large, the occiput is prominent so the neck flexes when supine, ribs are horizontal and cartilaginous so the chest wall contributes little, and they depend almost entirely on the diaphragm."
+        },
+        {
+          "id": "increased-effort",
+          "label": "Work of breathing rises visibly",
+          "sub": "Retractions, flaring, grunting",
+          "severity": "crit",
+          "shared": "increased-work-of-breathing",
+          "detail": "Because the chest wall is soft, effort is far more visible than in adults: intercostal, subcostal, and sternal retractions, nasal flaring, head bobbing, and grunting. Grunting is exhaling against a partly closed glottis to keep alveoli open, and it is an ominous sign of significant respiratory distress."
+        },
+        {
+          "id": "compensation",
+          "label": "They compensate hard",
+          "sub": "Tachycardia and tachypnea, pressure held",
+          "severity": "crit",
+          "shared": "sympathetic-compensation",
+          "detail": "Children raise their heart rate and respiratory rate dramatically and vasoconstrict powerfully. Blood pressure is held normal until very late, so hypotension in a child is a pre-arrest sign rather than an early one. Capillary refill and mental state are far better indicators."
+        },
+        {
+          "id": "behaviour-change",
+          "label": "Behaviour changes before numbers do",
+          "sub": "The best early warning",
+          "severity": "crit",
+          "detail": "A child who will not feed, will not play, does not respond to their parents normally, or is inconsolable is telling you something before any measurement will. Conversely a child who is interacting, playing, and interested in their surroundings is unlikely to be critically ill at that moment."
+        },
+        {
+          "id": "exhaustion",
+          "label": "They tire",
+          "sub": "The quiet phase",
+          "severity": "crit",
+          "shared": "respiratory-fatigue",
+          "detail": "Small children have limited energy reserves and a diaphragm doing all the work. When effort decreases, retractions lessen, and the child becomes quiet or drowsy, they are not improving. This apparent settling is the most dangerous moment and it is regularly misread as recovery."
+        },
+        {
+          "id": "hypoxic-bradycardia",
+          "label": "Bradycardia from hypoxia",
+          "sub": "Pre-arrest",
+          "severity": "crit",
+          "detail": "Unlike adults, children respond to profound hypoxia with bradycardia. A slow heart rate in a sick child is a terminal sign, and it is treated with oxygen and ventilation, not with cardiac drugs, because the cause is respiratory."
+        },
+        {
+          "id": "arrest",
+          "label": "Cardiac arrest",
+          "sub": "Almost always hypoxic",
+          "severity": "crit",
+          "shared": "cardiac-arrest",
+          "detail": "Paediatric arrest is usually the endpoint of respiratory failure or shock, so it is rarely shockable and outcomes are poor once reached. Everything in paediatric care is about intervening before this point, because that is where the wins are."
+        }
+      ],
+      "interventions": [
+        {
+          "med": "oxygen",
+          "breaks_at": "increased-effort",
+          "scope": "EMR",
+          "note": "Deliver in the least distressing way possible. A screaming child fighting a mask consumes more oxygen than the mask delivers. Blow-by held by a parent is often better than a perfectly fitted mask on a fighting child."
+        },
+        {
+          "med": "salbutamol",
+          "breaks_at": "increased-effort",
+          "scope": "EMR",
+          "note": "For genuine bronchospasm. Note that wheeze in an infant under one is usually bronchiolitis, where bronchodilators help little."
+        },
+        {
+          "med": "oral-glucose",
+          "breaks_at": "behaviour-change",
+          "scope": "EMR",
+          "note": "Children have small glycogen stores and become hypoglycemic quickly with illness or reduced intake. Check the glucose in every unwell child."
+        }
+      ],
+      "non_drug_interventions": [
+        {
+          "name": "Assess from the doorway first",
+          "breaks_at": "behaviour-change",
+          "scope": "EMR",
+          "note": "Appearance, work of breathing, and circulation to the skin, judged before you touch them. A child's baseline behaviour and level of engagement is the most sensitive assessment tool available, and touching them first destroys it."
+        },
+        {
+          "name": "Listen to the parents",
+          "breaks_at": "behaviour-change",
+          "scope": "EMR",
+          "note": "A parent saying this is not like any illness they have had before is a genuinely reliable predictor of serious illness. Parental concern outperforms many formal scoring systems and should never be dismissed."
+        },
+        {
+          "name": "Keep them calm and with their parent",
+          "breaks_at": "increased-effort",
+          "scope": "EMR",
+          "note": "Distress increases oxygen demand and work of breathing. Assess in the parent's arms, kneel to their level, and do the frightening things last. This is physiology, not bedside manner."
+        },
+        {
+          "name": "Position the airway correctly for age",
+          "breaks_at": "anatomical-disadvantage",
+          "scope": "EMR",
+          "note": "Infants need a neutral position, often with padding under the shoulders, because the large occiput flexes the neck and obstructs the airway when supine. Older children need progressively more extension. Over-extending an infant's neck closes the airway."
+        },
+        {
+          "name": "Never delay ventilation",
+          "breaks_at": "hypoxic-bradycardia",
+          "scope": "EMR",
+          "note": "Because paediatric arrest is respiratory, effective ventilation is the treatment for almost everything, including bradycardia. A bradycardic child needs oxygen and breaths, immediately."
+        },
+        {
+          "name": "Keep them warm",
+          "breaks_at": "compensation",
+          "scope": "EMR",
+          "note": "Children have a large surface area relative to mass and lose heat fast, particularly infants. Hypothermia worsens everything and develops quickly even indoors."
+        },
+        {
+          "name": "Use a length-based tape for weights and doses",
+          "breaks_at": "insult",
+          "scope": "EMR",
+          "note": "Estimating a child's weight by eye is unreliable and dosing errors in children are a well-documented harm. Use the tape."
+        }
+      ],
+      "red_flags": [
+        "Reduced work of breathing in a child who was working hard",
+        "Grunting",
+        "Bradycardia",
+        "Any hypotension, which is pre-arrest",
+        "Capillary refill over three seconds",
+        "Not feeding, or fewer wet nappies",
+        "Inconsolable, or abnormally quiet and unresponsive to parents",
+        "A parent who says this is different from any previous illness",
+        "Non-blanching rash",
+        "A history that does not match the injury, or a delay in seeking help"
+      ],
+      "differentiators": [
+        {
+          "vs": "Adult deterioration",
+          "how": "Adults usually arrest from cardiac causes; children almost always from respiratory ones. That single difference drives the whole approach: airway and breathing first, and blood pressure is a late and unreliable guide."
+        },
+        {
+          "vs": "Bronchiolitis versus asthma",
+          "how": "Under one year with a first episode of wheeze following a cold, it is usually bronchiolitis, and bronchodilators help little. Over two with recurrent episodes, asthma is more likely."
+        },
+        {
+          "vs": "Croup versus epiglottitis",
+          "how": "Croup has a barking cough and stridor, usually settles, and is common. Epiglottitis is rare since vaccination but presents with drooling, a muffled voice, high fever, and a toxic-looking child sitting forward. Never put anything in the mouth or lie them flat if you suspect it."
+        },
+        {
+          "vs": "Non-accidental injury",
+          "how": "Injuries inconsistent with the stated mechanism or the child's developmental stage, delayed presentation, changing history, or injuries in unusual sites. Document factually what you observed and follow safeguarding procedure. Children who are not yet mobile do not usually bruise themselves."
+        }
+      ]
+    }
+  ]
+}

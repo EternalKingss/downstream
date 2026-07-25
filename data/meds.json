@@ -1,0 +1,179 @@
+{
+  "meds": [
+    {
+      "id": "oxygen",
+      "name": "Oxygen",
+      "aka": "O2",
+      "status": "built",
+      "class": "Medical gas",
+      "scope": "EMR",
+      "scope_note": "Core EMR skill in Alberta, including pulse oximetry to guide it.",
+      "one_liner": "Raises the pressure gradient driving oxygen across the alveolar membrane. It does not fix anything upstream of that.",
+      "breaks_cascade_at": "Tissue oxygen falls",
+      "mechanism": "Room air is about 21 percent oxygen. Raising the inspired fraction raises the partial pressure of oxygen in the alveolus, which increases the gradient across the alveolar-capillary membrane. Diffusion is driven purely by that gradient, so more pressure means more oxygen crossing per second. That is the entire mechanism. There is no receptor and no metabolic action.",
+      "why_it_works_here": "It is a downstream intervention. It does not open an airway, remove fluid from an alveolus, restore surface area, or move blood. It compensates for a delivery problem by pushing harder against whatever is in the way, which buys time for the actual fix to arrive or take effect.",
+      "dosing": [
+        {
+          "route": "Nasal cannula",
+          "dose": "1 to 6 L/min",
+          "notes": "Delivers roughly 24 to 44 percent. Comfortable, allows speech and eating."
+        },
+        {
+          "route": "Simple face mask",
+          "dose": "6 to 10 L/min",
+          "notes": "Roughly 35 to 60 percent. Never run below 6 L/min or the patient rebreathes their own CO2."
+        },
+        {
+          "route": "Non-rebreather mask",
+          "dose": "10 to 15 L/min",
+          "notes": "Roughly 60 to 90 percent. Inflate the reservoir bag before applying and keep it from collapsing on inspiration."
+        },
+        {
+          "route": "Bag-valve-mask with reservoir",
+          "dose": "15 L/min",
+          "notes": "Approaching 100 percent. This is ventilation as well as oxygenation, and it is a different intervention."
+        }
+      ],
+      "targets": "Titrate to an SpO2 of 94 to 98 percent for most patients. Alberta first-response protocols use an SpO2 below 94 percent on room air as the trigger to start oxygen. For patients with COPD who retain CO2, target 88 to 92 percent instead.",
+      "onset": "Seconds to a minute, limited mainly by how long it takes to wash out the existing gas in the lungs and airways.",
+      "peak": "Within a few minutes.",
+      "duration": "Only while it is being delivered. There is no reservoir effect and no residual action.",
+      "working_looks_like": [
+        "SpO2 climbing within one to two minutes",
+        "Reduced anxiety and restlessness, often before the number moves",
+        "Improving level of consciousness",
+        "Cyanosis fading, though this lags well behind the saturation"
+      ],
+      "not_working_means": "If saturation does not improve on high-flow oxygen, the problem is not a gradient problem. Suspect a shunt where blood is bypassing ventilated lung entirely, a perfusion problem such as a pulmonary embolism, a mechanical problem such as a tension pneumothorax, or a hemoglobin problem such as carbon monoxide poisoning where the pulse oximeter is lying to you.",
+      "cautions": [
+        {
+          "what": "COPD with chronic CO2 retention",
+          "why": "A small group of long-standing COPD patients rely more on hypoxic drive and on ventilation-perfusion matching that high oxygen disrupts. Excess oxygen can worsen their CO2 retention. Target 88 to 92 percent rather than withholding oxygen. Never withhold oxygen from a hypoxic patient because they have COPD."
+        },
+        {
+          "what": "Carbon monoxide poisoning",
+          "why": "A standard pulse oximeter cannot distinguish carboxyhemoglobin from oxyhemoglobin and will read falsely high. Give high-flow oxygen regardless of what the number says."
+        },
+        {
+          "what": "Uncomplicated chest pain and stroke with normal saturation",
+          "why": "Routine oxygen in normoxic patients has not been shown to help and may cause harm. Treat the saturation, not the diagnosis."
+        }
+      ],
+      "side_effects_as_overshoot": "Oxygen has very few side effects at prehospital timescales, because the doses are short and the mechanism is passive. Problems that do occur come from the same mechanism working too well: suppressed respiratory drive in the CO2 retainer, absorption atelectasis over long exposures, and drying of mucosa when unhumidified gas runs at high flow for a long time.",
+      "used_in": [
+        "asthma",
+        "tension-pneumothorax"
+      ]
+    },
+    {
+      "id": "salbutamol",
+      "name": "Salbutamol",
+      "aka": "Albuterol, Ventolin",
+      "status": "built",
+      "class": "Short-acting beta-2 agonist (SABA)",
+      "scope": "EMR",
+      "scope_note": "Inhaled medications including salbutamol fall within Alberta EMR scope. Whether you carry it or assist the patient with their own depends on your service.",
+      "one_liner": "Relaxes bronchial smooth muscle. It reverses spasm and nothing else.",
+      "breaks_cascade_at": "Airway narrows three ways",
+      "mechanism": "Salbutamol binds beta-2 adrenergic receptors on bronchial smooth muscle. That activates adenylyl cyclase, which raises intracellular cyclic AMP, which reduces available intracellular calcium. Smooth muscle needs calcium to contract, so with less of it the muscle relaxes and the airway widens. It also has a modest mast cell stabilising effect that slows further mediator release.",
+      "why_it_works_here": "Remember that an asthmatic airway narrows three ways at once: spasm, swelling, and mucus. Salbutamol reverses exactly one of those three. This is not a limitation to memorise, it is the explanation for the most confusing thing you will see in the field. A severe asthmatic can receive a full dose and improve only slightly, because two thirds of their obstruction is untouched by the drug.",
+      "dosing": [
+        {
+          "route": "Metered dose inhaler with spacer",
+          "dose": "4 to 8 puffs of 100 mcg",
+          "notes": "Repeat every 20 minutes as needed. A spacer substantially improves delivery; without one, most of the dose lands in the mouth."
+        },
+        {
+          "route": "Nebulised, adult",
+          "dose": "2.5 to 5 mg in 3 mL saline",
+          "notes": "Driven by oxygen at 6 to 8 L/min. Repeat every 20 minutes, or continuously in severe cases under direction."
+        },
+        {
+          "route": "Nebulised, paediatric",
+          "dose": "2.5 mg under 20 kg, 5 mg over 20 kg",
+          "notes": "The dose is not strictly weight-based, because what reaches the airway depends more on tidal volume than on body mass."
+        }
+      ],
+      "targets": "Titrate to effect. Improved air entry, reduced work of breathing, longer sentences, and improving saturation.",
+      "onset": "5 to 15 minutes.",
+      "peak": "30 to 60 minutes.",
+      "duration": "3 to 6 hours.",
+      "working_looks_like": [
+        "Air entry improves and the chest sounds louder, which can mean the wheeze gets worse before it gets better as air reaches previously silent regions",
+        "Expiratory phase shortens",
+        "The patient starts speaking in longer phrases",
+        "Accessory muscle use decreases",
+        "SpO2 improves last, well behind the clinical picture"
+      ],
+      "not_working_means": "If there is no improvement after repeated doses, the obstruction is mostly swelling and mucus rather than spasm, or the diagnosis is wrong. Reconsider anaphylaxis, pulmonary edema, foreign body, and pneumothorax. A patient who is not responding is a patient who is heading toward the fatigue end of the cascade.",
+      "cautions": [
+        {
+          "what": "Existing tachydysrhythmia or significant cardiac disease",
+          "why": "Beta-2 selectivity is good but not absolute. At higher doses salbutamol spills onto beta-1 receptors in the heart and increases rate and contractility."
+        },
+        {
+          "what": "Wheeze that is not asthma",
+          "why": "Cardiac wheeze from pulmonary edema can sound identical. Salbutamol will not help and the tachycardia it causes increases myocardial oxygen demand in a patient who cannot afford it."
+        }
+      ],
+      "side_effects_as_overshoot": "Every common side effect is the same drug action happening somewhere you did not want it. Tremor is beta-2 receptors on skeletal muscle. Tachycardia and palpitations are beta-1 spillover in the heart. Anxiety and restlessness are central sympathetic effects, and are genuinely difficult to tell apart from worsening hypoxia. Hypokalemia happens because beta-2 stimulation drives potassium into cells. None of these are mysterious. They are all beta agonism, just in the wrong tissue.",
+      "used_in": [
+        "asthma",
+        "copd",
+        "anaphylaxis",
+        "paediatric-deterioration"
+      ]
+    },
+    {
+      "id": "epinephrine",
+      "name": "Epinephrine",
+      "aka": "Adrenaline",
+      "status": "built",
+      "class": "Non-selective adrenergic agonist",
+      "scope": "EMR",
+      "scope_note": "Auto-injector administration for anaphylaxis is widely within EMR scope. Drawn-up IM epinephrine and any IV use are not. Verify against your service's protocol.",
+      "one_liner": "Hits alpha and beta receptors at once, which is why it can reverse an entire anaphylactic cascade in one dose.",
+      "breaks_cascade_at": "Airway narrows three ways",
+      "mechanism": "Epinephrine is non-selective, and in anaphylaxis that is precisely the point. Alpha-1 stimulation constricts blood vessels, which raises blood pressure and reduces the mucosal swelling closing the airway. Beta-1 stimulation increases heart rate and contractility. Beta-2 stimulation relaxes bronchial smooth muscle and stabilises mast cells so they stop releasing more mediators. One drug interrupts the cascade at four separate points simultaneously.",
+      "why_it_works_here": "Compare it to salbutamol, which only touches beta-2. In anaphylaxis the patient is not just bronchospastic, they are also vasodilated, leaking fluid into tissue, and swelling shut. Salbutamol addresses one of those. Epinephrine addresses all of them, and it is the only drug that does.",
+      "dosing": [
+        {
+          "route": "IM, adult",
+          "dose": "0.3 to 0.5 mg of 1:1000",
+          "notes": "Anterolateral thigh. Repeat every 5 to 15 minutes if the response is inadequate."
+        },
+        {
+          "route": "IM, paediatric",
+          "dose": "0.01 mg/kg, maximum 0.3 mg",
+          "notes": "Auto-injectors come as 0.15 mg for roughly 10 to 25 kg and 0.3 mg above that."
+        }
+      ],
+      "targets": "Reversal of airway swelling, improving blood pressure, and resolution of bronchospasm.",
+      "onset": "3 to 5 minutes when given IM into the thigh.",
+      "peak": "Around 10 minutes.",
+      "duration": "10 to 20 minutes only. This is the number people forget.",
+      "working_looks_like": [
+        "Stridor and airway swelling settle",
+        "Blood pressure rises",
+        "Wheeze improves",
+        "Urticaria begins to fade, usually last"
+      ],
+      "not_working_means": "Repeat the dose. Under-dosing and delayed dosing cause far more harm in anaphylaxis than the drug itself does. If there is still no response, consider that the diagnosis may not be anaphylaxis.",
+      "cautions": [
+        {
+          "what": "There is no absolute contraindication in true anaphylaxis",
+          "why": "The risk of withholding it exceeds the risk of giving it, including in patients with cardiac disease. Hesitation kills more anaphylaxis patients than epinephrine ever has."
+        },
+        {
+          "what": "Known cardiac disease or severe hypertension",
+          "why": "Increased rate and contractility raise myocardial oxygen demand, and vasoconstriction raises afterload. Worth knowing, not a reason to withhold."
+        }
+      ],
+      "side_effects_as_overshoot": "Tachycardia and palpitations are beta-1 doing its job. Tremor and anxiety are beta-2 and central sympathetic effects. Pallor is alpha-1 vasoconstriction in the skin. Headache is vascular. Every one of these is the drug working correctly, and their presence is reassurance that the dose was actually delivered.",
+      "used_in": [
+        "asthma",
+        "anaphylaxis"
+      ]
+    }
+  ]
+}

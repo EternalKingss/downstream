@@ -1,0 +1,538 @@
+{
+  "conditions": [
+    {
+      "id": "hypoglycemia",
+      "name": "Hypoglycemia",
+      "structures": ["pancreas", "cerebrum"],
+      "status": "built",
+      "one_liner": "Blood glucose falls below what the brain needs, and the brain has no reserve of its own.",
+      "in_one_breath": "The brain cannot burn fat and stores almost no glycogen, so it fails within minutes of the glucose supply falling. It imitates stroke, intoxication, and psychiatric emergency perfectly, and it reverses completely in fifteen minutes. That combination is why you check a sugar on everyone.",
+      "cascade": [
+        {
+          "id": "imbalance",
+          "label": "Glucose supply falls short of demand",
+          "sub": "Too much insulin, too little food",
+          "severity": "warn",
+          "structure": "pancreas",
+          "detail": "Most often insulin or a sulfonylurea taken with a missed meal, unusual exertion, or alcohol. Alcohol matters twice over, because it suppresses the liver's ability to manufacture new glucose. Sepsis, liver failure, and adrenal insufficiency also cause it."
+        },
+        {
+          "id": "counter-regulation",
+          "label": "The body fights back",
+          "sub": "Adrenaline, glucagon, cortisol",
+          "severity": "warn",
+          "structure": "adrenal-glands",
+          "detail": "Glucagon and adrenaline are released to mobilise stored glucose. The adrenaline surge is what produces the classic early warning signs, and importantly they are a symptom of the defence rather than of the deficiency itself."
+        },
+        {
+          "id": "adrenergic-warning",
+          "label": "Sympathetic warning signs appear",
+          "sub": "Sweating, tremor, hunger, anxiety",
+          "severity": "warn",
+          "shared": "sympathetic-compensation",
+          "detail": "Sweating, tremor, palpitations, pallor, hunger, and anxiety. These are the symptoms most diabetics recognise as their cue to eat. They are absent in patients on beta blockers and in long-standing diabetics with hypoglycemia unawareness, who go straight to confusion with no warning at all."
+        },
+        {
+          "id": "neuroglycopenia",
+          "label": "The brain runs out of fuel",
+          "sub": "Confusion, slurred speech, odd behaviour",
+          "severity": "crit",
+          "shared": "neuroglycopenia",
+          "detail": "Below roughly 3 mmol/L, cortical function fails. Confusion, difficulty concentrating, slurred speech, and behaviour that is out of character. Aggression is common and is the reason these patients are so often treated as behavioural rather than medical."
+        },
+        {
+          "id": "focal-deficit",
+          "label": "Focal neurological signs can appear",
+          "sub": "A perfect stroke mimic",
+          "severity": "crit",
+          "structure": "cerebrum",
+          "detail": "Hypoglycemia can produce one-sided weakness, facial droop, and dysphasia indistinguishable from a stroke. It resolves completely with glucose. This single fact is why blood glucose is checked before any stroke pathway is activated, anywhere."
+        },
+        {
+          "id": "seizure-coma",
+          "label": "Seizure and unresponsiveness",
+          "sub": "Below about 2 mmol/L",
+          "severity": "crit",
+          "shared": "neuronal-hyperexcitability",
+          "detail": "Neurons deprived of substrate become unstable and then fail. Seizure activity itself consumes still more glucose, deepening the deficit and creating a loop."
+        },
+        {
+          "id": "airway-loss",
+          "label": "The airway is lost",
+          "sub": "Which blocks the obvious treatment",
+          "severity": "crit",
+          "shared": "airway-compromise",
+          "detail": "An unresponsive patient cannot swallow, which rules out the oral glucose that would fix everything. This is exactly the point at which the condition stops being trivially treatable at EMR level."
+        },
+        {
+          "id": "brain-injury",
+          "label": "Permanent injury develops",
+          "sub": "Prolonged severe hypoglycemia",
+          "severity": "crit",
+          "detail": "Sustained severe hypoglycemia causes permanent neuronal death. Duration matters more than depth, which is why treating quickly matters and why a patient who does not recover after correction may have been down too long."
+        }
+      ],
+      "interventions": [
+        {
+          "med": "oral-glucose",
+          "breaks_at": "neuroglycopenia",
+          "scope": "EMR",
+          "note": "15 to 25 grams of gel between cheek and gum, or swallowed. Reverses the entire cascade. Requires an intact gag reflex and safe swallow, without exception."
+        },
+        {
+          "med": "oxygen",
+          "breaks_at": "airway-loss",
+          "scope": "EMR",
+          "note": "If hypoxic or unresponsive. Does not treat the cause but supports a brain that is already substrate-starved."
+        }
+      ],
+      "non_drug_interventions": [
+        {
+          "name": "Check the glucose, always",
+          "breaks_at": "focal-deficit",
+          "scope": "EMR",
+          "note": "On every patient with altered mental status, every seizure, every stroke presentation, every collapse, every intoxicated patient, every aggressive patient. It takes seconds and it is the cheapest diagnosis in medicine."
+        },
+        {
+          "name": "Nothing by mouth if consciousness is reduced",
+          "breaks_at": "airway-loss",
+          "scope": "EMR",
+          "note": "Gel in the mouth of a patient who cannot swallow causes aspiration. If they cannot protect their airway, they need IV glucose or glucagon and you should escalate."
+        },
+        {
+          "name": "Recheck and then feed them properly",
+          "breaks_at": "imbalance",
+          "scope": "EMR",
+          "note": "Recheck at fifteen minutes. Once corrected, give complex carbohydrate and protein, because fast sugar alone wears off within an hour or two and they will fall again."
+        },
+        {
+          "name": "Decide carefully about transport",
+          "breaks_at": "imbalance",
+          "scope": "EMR",
+          "note": "A straightforward insulin episode with a clear cause and someone at home may be safe to leave. A sulfonylurea, alcohol, a first episode, no obvious cause, or a patient living alone all need hospital, because sulfonylureas and alcohol both outlast your treatment."
+        }
+      ],
+      "red_flags": [
+        "Sulfonylurea medication such as gliclazide or glyburide, which recurs for many hours",
+        "Alcohol involved",
+        "Failure to improve within fifteen minutes of correction",
+        "First episode with no explanation",
+        "Living alone with no one to observe them",
+        "Seizure or prolonged unresponsiveness",
+        "Repeated episodes on the same day"
+      ],
+      "differentiators": [
+        {
+          "vs": "Stroke",
+          "how": "Hypoglycemia can produce identical focal deficits and resolves completely with glucose. Check it before activating any stroke pathway."
+        },
+        {
+          "vs": "Intoxication",
+          "how": "Slurred speech, poor coordination, and odd behaviour look the same. Alcohol also causes hypoglycemia directly, so they frequently coexist. Check the sugar on every intoxicated patient."
+        },
+        {
+          "vs": "Behavioural emergency",
+          "how": "Aggression and agitation are classic presentations of low sugar. Restraining a hypoglycemic patient instead of treating them is a well-documented and avoidable harm."
+        },
+        {
+          "vs": "Diabetic ketoacidosis",
+          "how": "Opposite ends of the same disease. DKA develops over days with dehydration, deep sighing breathing, and a fruity smell. Hypoglycemia develops over minutes to hours with sweating and tremor."
+        }
+      ]
+    },
+    {
+      "id": "dka",
+      "name": "Diabetic ketoacidosis",
+      "structures": ["pancreas", "body-fluid"],
+      "status": "built",
+      "one_liner": "Without insulin the cells starve amid high blood sugar, so the body burns fat and acidifies itself.",
+      "in_one_breath": "Insulin does two jobs: it lets glucose into cells and it stops fat being broken down. Lose it and both fail at once. The patient is starving with a bloodstream full of sugar, burning fat for fuel, producing acid, and urinating away litres of water at the same time.",
+      "cascade": [
+        {
+          "id": "insulin-absent",
+          "label": "Insulin is absent",
+          "sub": "Missed doses, pump failure, or infection",
+          "severity": "crit",
+          "structure": "pancreas",
+          "detail": "Almost always type 1 diabetes. The trigger is a missed or reduced dose, an insulin pump failure, or an intercurrent illness such as infection that raises insulin requirement beyond what was given. DKA is sometimes the presentation of previously undiagnosed diabetes, particularly in children."
+        },
+        {
+          "id": "cells-starve",
+          "label": "Cells cannot take up glucose",
+          "sub": "Starving in a sea of sugar",
+          "severity": "crit",
+          "detail": "Glucose requires insulin to enter muscle and fat. Without it, blood glucose climbs while the cells that need it register starvation. The body responds as if it were starving, which is precisely the wrong response here: the liver manufactures still more glucose."
+        },
+        {
+          "id": "fat-breakdown",
+          "label": "The body burns fat instead",
+          "sub": "Ketones are acids",
+          "severity": "crit",
+          "shared": "ketoacidosis",
+          "detail": "Insulin normally suppresses fat breakdown. Without it, fatty acids flood the liver and are converted to ketone bodies. These are usable fuel, but they are acids, and they accumulate faster than the blood can buffer them."
+        },
+        {
+          "id": "acidosis",
+          "label": "Blood pH falls",
+          "sub": "Kussmaul breathing, fruity breath",
+          "severity": "crit",
+          "detail": "Metabolic acidosis develops. The body compensates by breathing deeply and rapidly to blow off carbon dioxide, which is Kussmaul respiration. Acetone is volatile and excreted through the lungs, producing the characteristic sweet or nail-polish smell."
+        },
+        {
+          "id": "osmotic-loss",
+          "label": "Glucose drags water out through the kidneys",
+          "sub": "Litres lost over days",
+          "severity": "crit",
+          "shared": "osmotic-diuresis",
+          "detail": "Above the renal threshold, glucose remains in the urine and holds water with it. The patient passes huge volumes and becomes profoundly thirsty. A typical adult in established DKA is five to eight litres depleted."
+        },
+        {
+          "id": "potassium-shift",
+          "label": "Potassium leaves the cells",
+          "sub": "Total body depleted, blood level misleading",
+          "severity": "crit",
+          "structure": "body-fluid",
+          "detail": "Acidosis and lack of insulin drive potassium out of cells into the blood, while the osmotic diuresis excretes it. So the measured blood potassium may be normal or high while total body stores are severely depleted. When insulin is given in hospital, potassium rushes back into cells and can fall dangerously, which is why these patients are monitored closely."
+        },
+        {
+          "id": "dehydration-shock",
+          "label": "Circulating volume collapses",
+          "sub": "Tachycardia, then hypotension",
+          "severity": "crit",
+          "shared": "hypoperfusion",
+          "detail": "The fluid deficit eventually overwhelms compensation. Tachycardia, dry mucous membranes, sunken eyes, and eventually hypotension. Reduced perfusion adds a lactic acidosis on top of the ketoacidosis."
+        },
+        {
+          "id": "coma",
+          "label": "Consciousness falls",
+          "sub": "Acidosis plus dehydration",
+          "severity": "crit",
+          "shared": "altered-loc",
+          "detail": "Drowsiness progressing to unresponsiveness, driven by acidosis, hyperosmolarity, and reduced cerebral perfusion together. Cerebral oedema is a specific and serious complication, particularly in children, and can occur during treatment."
+        }
+      ],
+      "interventions": [
+        {
+          "med": "oxygen",
+          "breaks_at": "dehydration-shock",
+          "scope": "EMR",
+          "note": "If hypoxic. These patients are usually not hypoxic and their deep breathing is compensation rather than respiratory distress, so do not treat the respiratory rate as the problem."
+        }
+      ],
+      "non_drug_interventions": [
+        {
+          "name": "Do not suppress their breathing",
+          "breaks_at": "acidosis",
+          "scope": "EMR",
+          "note": "The most important principle here. Kussmaul respiration is holding the pH survivable. If you assist ventilation, you must match their high minute volume or the pH will crash. Never sedate or slow these patients down."
+        },
+        {
+          "name": "Recognise the dehydration",
+          "breaks_at": "osmotic-loss",
+          "scope": "EMR",
+          "note": "These patients are litres down and need fluid resuscitation, which is beyond EMR scope. Communicating the severity clearly and getting them moving is the intervention."
+        },
+        {
+          "name": "Look for the trigger",
+          "breaks_at": "insulin-absent",
+          "scope": "EMR",
+          "note": "Infection is the commonest precipitant and may be the more urgent problem. Check for fever, cough, urinary symptoms, and skin infections. Also ask specifically about pump function if they wear one."
+        },
+        {
+          "name": "Nothing by mouth",
+          "breaks_at": "coma",
+          "scope": "EMR",
+          "note": "Vomiting is very common and consciousness may fall. Do not give oral fluids despite the thirst."
+        },
+        {
+          "name": "Handle children with extra care",
+          "breaks_at": "coma",
+          "scope": "EMR",
+          "note": "Cerebral oedema in paediatric DKA is uncommon but is a leading cause of death. Any headache, deterioration in consciousness, or unusual behaviour in a child with DKA needs urgent escalation."
+        }
+      ],
+      "red_flags": [
+        "Reduced level of consciousness",
+        "Hypotension",
+        "Headache or deteriorating consciousness in a child, suggesting cerebral oedema",
+        "Signs of infection as the trigger",
+        "Vomiting that prevents any oral intake",
+        "Very rapid deep breathing that is beginning to slow, suggesting exhaustion",
+        "Chest pain, since DKA can be precipitated by an infarct"
+      ],
+      "differentiators": [
+        {
+          "vs": "Hypoglycemia",
+          "how": "Opposite problem, opposite treatment, and a glucometer separates them in seconds. Never treat a diabetic emergency on clinical impression alone."
+        },
+        {
+          "vs": "Hyperosmolar hyperglycemic state",
+          "how": "Typically type 2 diabetes, older patients, developing over a week or more, with much higher glucose, far greater dehydration, and little or no acidosis or ketones because some insulin is still present."
+        },
+        {
+          "vs": "Surgical abdomen",
+          "how": "DKA causes genuine abdominal pain, vomiting, and even guarding, and is regularly mistaken for appendicitis. The reverse also happens: a surgical problem can precipitate DKA."
+        },
+        {
+          "vs": "Sepsis",
+          "how": "Both cause tachycardia, tachypnea, and altered consciousness. They also frequently coexist, since infection is the commonest precipitant of DKA."
+        }
+      ]
+    },
+    {
+      "id": "hyperosmolar-state",
+      "name": "Hyperosmolar hyperglycemic state",
+      "structures": ["pancreas", "body-fluid"],
+      "status": "built",
+      "one_liner": "Extreme blood sugar and extreme dehydration developing over a week, with little acidosis because some insulin remains.",
+      "in_one_breath": "The slow-motion version of DKA, in type 2 diabetes. Enough insulin is present to suppress fat breakdown, so there is no ketoacidosis and no warning signal. Glucose climbs for days, water pours out through the kidneys, and the patient becomes profoundly dehydrated before anyone notices.",
+      "cascade": [
+        {
+          "id": "relative-deficiency",
+          "label": "Insulin is reduced but not absent",
+          "sub": "Type 2 diabetes",
+          "severity": "warn",
+          "structure": "pancreas",
+          "detail": "There is enough insulin to suppress fat breakdown but not enough to control blood glucose. That single difference from DKA explains everything: no ketones, no acidosis, no fruity breath, no Kussmaul breathing, and therefore no early alarm."
+        },
+        {
+          "id": "slow-rise",
+          "label": "Glucose climbs over days to weeks",
+          "sub": "Often triggered by illness",
+          "severity": "crit",
+          "detail": "Infection, a stroke, an infarct, steroids, or simply reduced fluid intake in an older person. Blood glucose can reach 40 or 50 mmol/L, far higher than typical DKA, because there was no acidosis to make the patient feel unwell and seek help."
+        },
+        {
+          "id": "massive-diuresis",
+          "label": "Enormous fluid loss through the kidneys",
+          "sub": "Often 8 to 12 litres",
+          "severity": "crit",
+          "shared": "osmotic-diuresis",
+          "detail": "The osmotic diuresis runs for days rather than hours. Deficits are typically far larger than in DKA. Older patients have a blunted thirst response and may be unable to get themselves a drink, which accelerates it."
+        },
+        {
+          "id": "hyperosmolarity",
+          "label": "Blood becomes concentrated",
+          "sub": "Water pulled out of brain cells",
+          "severity": "crit",
+          "structure": "body-fluid",
+          "detail": "High glucose and rising sodium make the blood hyperosmolar. Water is drawn osmotically out of cells, including neurons, which shrink. This is what produces the neurological presentation and it is the defining feature of the condition."
+        },
+        {
+          "id": "neuro-decline",
+          "label": "Consciousness falls, sometimes with focal signs",
+          "sub": "Another stroke mimic",
+          "severity": "crit",
+          "shared": "altered-loc",
+          "detail": "Confusion, drowsiness, and unresponsiveness. Seizures and focal neurological deficits including hemiparesis occur and resolve with treatment, making this yet another condition that imitates stroke convincingly."
+        },
+        {
+          "id": "thrombosis-risk",
+          "label": "The blood becomes prone to clotting",
+          "sub": "Stroke, MI, PE",
+          "severity": "crit",
+          "structure": "blood",
+          "detail": "Severe dehydration concentrates the blood and raises viscosity, substantially increasing the risk of arterial and venous thrombosis. Many of these patients arrive with a stroke, an infarct, or a pulmonary embolism as well."
+        },
+        {
+          "id": "shock",
+          "label": "Circulation fails",
+          "sub": "Profound hypovolemia",
+          "severity": "crit",
+          "shared": "decompensated-shock",
+          "detail": "The fluid deficit eventually exceeds compensation. Mortality is considerably higher than in DKA, largely because these are older patients with a longer illness and more complications by the time they present."
+        }
+      ],
+      "interventions": [
+        {
+          "med": "oxygen",
+          "breaks_at": "shock",
+          "scope": "EMR",
+          "note": "If hypoxic. Consider that a concurrent pulmonary embolism or pneumonia may be present."
+        }
+      ],
+      "non_drug_interventions": [
+        {
+          "name": "Recognise it in a confused older diabetic",
+          "breaks_at": "neuro-decline",
+          "scope": "EMR",
+          "note": "The typical presentation is an older type 2 diabetic found confused or drowsy at home. Check the glucose on every confused older patient, because this is missed constantly and often labelled as a urinary infection or dementia."
+        },
+        {
+          "name": "Treat as profoundly dehydrated",
+          "breaks_at": "massive-diuresis",
+          "scope": "EMR",
+          "note": "Deficits are larger than almost anything else you will see. These patients need substantial IV fluid, which is outside EMR scope, so escalate and transport."
+        },
+        {
+          "name": "Look for the trigger and the complications",
+          "breaks_at": "slow-rise",
+          "scope": "EMR",
+          "note": "Infection, infarct, or stroke may be the precipitant or the consequence. Assess neurologically and check for chest pain, and do not stop looking once you have the glucose reading."
+        },
+        {
+          "name": "Handle and position carefully",
+          "breaks_at": "shock",
+          "scope": "EMR",
+          "note": "Often frail, often with pressure injuries from lying for days, and often hypotensive. Keep them horizontal and warm."
+        }
+      ],
+      "red_flags": [
+        "Glucose above about 30 mmol/L",
+        "Reduced consciousness",
+        "Focal neurological signs",
+        "Hypotension",
+        "Evidence of having been down for a long period, such as pressure sores or incontinence",
+        "Signs of concurrent stroke, infarct, or pulmonary embolism"
+      ],
+      "differentiators": [
+        {
+          "vs": "DKA",
+          "how": "DKA has ketones, acidosis, Kussmaul breathing, and a fruity smell, develops over hours to days, and typically affects younger type 1 patients. Hyperosmolar state has none of those, develops over a week or more, and has higher glucose with worse dehydration."
+        },
+        {
+          "vs": "Stroke",
+          "how": "Focal deficits occur in both. Check the glucose. Note that these patients also genuinely have strokes, so it is not always either-or."
+        },
+        {
+          "vs": "Sepsis",
+          "how": "Both give confusion, tachycardia, and dehydration in an older patient, and infection is often the trigger. Treat for both."
+        }
+      ]
+    },
+    {
+      "id": "adrenal-crisis",
+      "name": "Adrenal crisis",
+      "structures": ["adrenal-glands"],
+      "status": "built",
+      "one_liner": "Cortisol is missing, so the blood vessels stop responding to the body's own stress hormones.",
+      "in_one_breath": "Cortisol is what lets catecholamines work on blood vessels. Without it a patient becomes hypotensive and cannot be brought back by the usual compensations, because the hormone that permits those compensations is absent. It looks like refractory shock and it is fixed by a steroid.",
+      "cascade": [
+        {
+          "id": "cortisol-deficient",
+          "label": "Cortisol production fails or is suppressed",
+          "sub": "Steroid dependence is the usual cause",
+          "severity": "warn",
+          "structure": "adrenal-glands",
+          "detail": "By far the commonest cause is a patient on long-term steroids whose own adrenal function is suppressed, who then becomes ill or stops the steroid abruptly. Primary adrenal failure such as Addison's disease is much rarer, as is adrenal hemorrhage in overwhelming sepsis."
+        },
+        {
+          "id": "stress-demand",
+          "label": "A stress raises the requirement",
+          "sub": "Infection, trauma, surgery, vomiting",
+          "severity": "crit",
+          "detail": "Cortisol output normally rises several-fold under physical stress. A patient who cannot mount that rise decompensates precisely when they most need the reserve. Vomiting is doubly dangerous because they also cannot absorb their oral steroid."
+        },
+        {
+          "id": "vascular-unresponsive",
+          "label": "Vessels stop responding to catecholamines",
+          "sub": "Compensation fails",
+          "severity": "crit",
+          "structure": "arteries",
+          "detail": "Cortisol is permissive for vascular tone: without it, adrenaline and noradrenaline have far less effect on blood vessels. The patient's own sympathetic response, and any drug you give, both stop working properly. This is the mechanism behind the refractory hypotension."
+        },
+        {
+          "id": "sodium-water-loss",
+          "label": "Sodium and water are lost",
+          "sub": "Aldosterone deficiency too",
+          "severity": "crit",
+          "structure": "body-fluid",
+          "detail": "In primary adrenal failure aldosterone is also missing, so sodium and water are lost in the urine and potassium is retained. The result is hypovolemia with low sodium and high potassium, and the potassium itself can cause arrhythmias."
+        },
+        {
+          "id": "hypoglycemia",
+          "label": "Blood glucose falls",
+          "sub": "Cortisol mobilises glucose",
+          "severity": "crit",
+          "shared": "neuroglycopenia",
+          "detail": "Cortisol supports gluconeogenesis. Without it, glucose falls, adding confusion and weakness to the picture and sometimes causing seizures, especially in children."
+        },
+        {
+          "id": "refractory-shock",
+          "label": "Shock that doesn't respond",
+          "sub": "Fluid and pressors both fail",
+          "severity": "crit",
+          "shared": "decompensated-shock",
+          "detail": "Hypotension that does not improve with fluid or vasopressors is the signature. Recognising this pattern is what triggers the one treatment that works, which is steroid replacement."
+        },
+        {
+          "id": "collapse",
+          "label": "Circulatory collapse",
+          "sub": "Rapidly fatal if unrecognised",
+          "severity": "crit",
+          "shared": "cardiac-arrest",
+          "detail": "Untreated adrenal crisis is fatal, and it kills patients who would recover completely with a drug that costs almost nothing. The whole problem is that it is not thought of."
+        }
+      ],
+      "interventions": [
+        {
+          "med": "oxygen",
+          "breaks_at": "refractory-shock",
+          "scope": "EMR",
+          "note": "Supportive."
+        },
+        {
+          "med": "oral-glucose",
+          "breaks_at": "hypoglycemia",
+          "scope": "EMR",
+          "note": "If hypoglycemic and able to swallow safely."
+        }
+      ],
+      "non_drug_interventions": [
+        {
+          "name": "Ask about steroids in every unexplained shock",
+          "breaks_at": "cortisol-deficient",
+          "scope": "EMR",
+          "note": "The single intervention that matters. Long-term prednisone, hydrocortisone, or dexamethasone, or a history of Addison's disease. Many patients carry a steroid card, a medical alert bracelet, or an emergency hydrocortisone injection kit."
+        },
+        {
+          "name": "Look for the patient's own emergency injection",
+          "breaks_at": "cortisol-deficient",
+          "scope": "EMR",
+          "note": "Many known adrenal insufficiency patients carry an emergency hydrocortisone kit and have been trained to use it. Assisting a patient with their own prescribed emergency medication is often within scope, so ask, and check your service policy in advance rather than at the scene."
+        },
+        {
+          "name": "Keep them horizontal and warm",
+          "breaks_at": "refractory-shock",
+          "scope": "EMR",
+          "note": "Maximises venous return in a patient who cannot vasoconstrict effectively."
+        },
+        {
+          "name": "Hydrocortisone",
+          "breaks_at": "vascular-unresponsive",
+          "scope": "ACP",
+          "note": "The definitive treatment and it works within an hour or two. Outside EMR scope, so early recognition and a clear handover is your contribution."
+        },
+        {
+          "name": "Treat the trigger",
+          "breaks_at": "stress-demand",
+          "scope": "EMR",
+          "note": "Infection is the usual precipitant and often needs treating in its own right."
+        }
+      ],
+      "red_flags": [
+        "Hypotension that does not respond to fluid",
+        "Any history of long-term steroid use",
+        "Known Addison's disease or a steroid alert card",
+        "Vomiting in a steroid-dependent patient, since they cannot absorb their tablets",
+        "Hypoglycemia with hypotension",
+        "Abdominal pain, vomiting, and shock together",
+        "Hyperpigmented skin creases, which suggests Addison's disease"
+      ],
+      "differentiators": [
+        {
+          "vs": "Septic shock",
+          "how": "Very similar, they frequently coexist, and infection is the usual trigger. The clue is shock that is disproportionate to the apparent infection and does not respond to fluid."
+        },
+        {
+          "vs": "Hypovolemic shock",
+          "how": "Both are hypotensive with poor perfusion. Adrenal crisis does not respond to volume alone and there is usually no source of loss."
+        },
+        {
+          "vs": "Anaphylaxis",
+          "how": "Both cause distributive shock. Anaphylaxis has skin and airway signs and follows an exposure."
+        }
+      ]
+    }
+  ]
+}
